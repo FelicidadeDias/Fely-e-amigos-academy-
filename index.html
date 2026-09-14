@@ -4,71 +4,56 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Fely e Amigos Academy | Aprenda. Evolua. Conquiste.</title>
+  <title>Fely e Amigos Academy | Formação Profissional</title>
 
   <meta
     name="description"
-    content="Fely e Amigos Academy - Cursos online acessíveis, práticos e estruturados para desenvolver competências profissionais."
+    content="Fely e Amigos Academy — cursos profissionais, tecnológicos e de desenvolvimento pessoal com preços promocionais."
+  >
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@500;600;700;800&display=swap"
+    rel="stylesheet"
   >
 
   <style>
     :root {
-      --primary: #3155d9;
-      --primary-dark: #1f3ca5;
-      --secondary: #6c3df4;
-      --accent: #16c784;
-      --danger: #ef4444;
-      --warning: #f59e0b;
-
-      --dark: #101828;
-      --dark-2: #1d2939;
-      --text: #344054;
-      --muted: #667085;
-      --light: #f7f9fc;
+      --primary: #2563eb;
+      --primary-dark: #1d4ed8;
+      --secondary: #0f172a;
+      --accent: #f59e0b;
+      --success: #16a34a;
+      --danger: #dc2626;
+      --light: #f8fafc;
       --white: #ffffff;
-      --border: #e4e7ec;
-
-      --shadow: 0 15px 40px rgba(16, 24, 40, 0.08);
-      --radius: 18px;
-      --max: 1200px;
+      --text: #1e293b;
+      --muted: #64748b;
+      --border: #e2e8f0;
+      --shadow: 0 15px 45px rgba(15, 23, 42, 0.10);
+      --radius: 22px;
     }
 
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-    }
-
-    html {
       scroll-behavior: smooth;
     }
 
     body {
-      font-family:
-        Inter,
-        system-ui,
-        -apple-system,
-        BlinkMacSystemFont,
-        "Segoe UI",
-        sans-serif;
+      font-family: "Inter", sans-serif;
       color: var(--text);
-      background: var(--white);
+      background: #f8fafc;
       line-height: 1.6;
     }
 
     button,
     input,
     select {
-      font: inherit;
-    }
-
-    button {
-      cursor: pointer;
-    }
-
-    img {
-      max-width: 100%;
-      display: block;
+      font-family: inherit;
     }
 
     a {
@@ -76,651 +61,749 @@
       color: inherit;
     }
 
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
     .container {
-      width: min(92%, var(--max));
+      width: min(1180px, 92%);
       margin: auto;
     }
 
     /* =========================
        HEADER
-    ========================== */
+    ========================= */
 
     header {
-      position: sticky;
+      position: fixed;
       top: 0;
+      left: 0;
+      width: 100%;
       z-index: 1000;
-      background: rgba(255,255,255,.95);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(228,231,236,.8);
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(15px);
+      border-bottom: 1px solid rgba(226, 232, 240, 0.8);
     }
 
-    .nav {
-      min-height: 76px;
+    .navbar {
+      height: 76px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 25px;
+      gap: 30px;
     }
 
     .logo {
       display: flex;
       align-items: center;
       gap: 11px;
-      font-weight: 900;
-      color: var(--dark);
-      font-size: 1.05rem;
+      font-family: "Poppins", sans-serif;
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--secondary);
     }
 
-    .logo-mark {
-      width: 44px;
-      height: 44px;
-      border-radius: 14px;
+    .logo-icon {
+      width: 43px;
+      height: 43px;
+      border-radius: 13px;
       display: grid;
       place-items: center;
       color: white;
-      font-weight: 900;
-      background: linear-gradient(135deg, var(--primary), var(--secondary));
-      box-shadow: 0 8px 20px rgba(49,85,217,.25);
+      font-weight: 800;
+      background: linear-gradient(135deg, #2563eb, #7c3aed);
+      box-shadow: 0 8px 20px rgba(37, 99, 235, 0.25);
     }
 
     .nav-links {
       display: flex;
       align-items: center;
-      gap: 26px;
-      list-style: none;
+      gap: 28px;
     }
 
     .nav-links a {
-      font-size: .92rem;
-      font-weight: 700;
-      color: #475467;
-      transition: .2s;
+      font-size: 14px;
+      font-weight: 600;
+      color: #475569;
+      transition: 0.25s;
     }
 
     .nav-links a:hover {
       color: var(--primary);
     }
 
-    .nav-actions {
-      display: flex;
-      gap: 10px;
-    }
-
-    .btn {
-      border: none;
+    .nav-cta {
+      background: var(--primary);
+      color: white !important;
+      padding: 11px 18px;
       border-radius: 12px;
-      padding: 12px 18px;
-      font-weight: 800;
-      transition: .2s;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-    }
-
-    .btn:hover {
-      transform: translateY(-2px);
-    }
-
-    .btn-primary {
-      color: white;
-      background: linear-gradient(135deg, var(--primary), var(--secondary));
-      box-shadow: 0 10px 25px rgba(49,85,217,.2);
-    }
-
-    .btn-light {
-      background: white;
-      color: var(--dark);
-      border: 1px solid var(--border);
-    }
-
-    .btn-whatsapp {
-      background: #25D366;
-      color: white;
-    }
-
-    .btn-danger {
-      background: var(--danger);
-      color: white;
     }
 
     .menu-btn {
       display: none;
       border: none;
-      background: transparent;
-      font-size: 1.7rem;
+      background: none;
+      font-size: 28px;
+      cursor: pointer;
     }
 
     /* =========================
        HERO
-    ========================== */
+    ========================= */
 
     .hero {
+      min-height: 720px;
+      padding-top: 76px;
       position: relative;
-      overflow: hidden;
-      background:
-        radial-gradient(circle at 10% 20%, rgba(108,61,244,.25), transparent 35%),
-        radial-gradient(circle at 90% 10%, rgba(49,85,217,.28), transparent 35%),
-        linear-gradient(135deg, #0c1530, #172b66 55%, #24145a);
-      color: white;
-      padding: 95px 0 80px;
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.15fr .85fr;
-      gap: 55px;
+      display: flex;
       align-items: center;
+      overflow: hidden;
+      color: white;
+
+      background:
+        linear-gradient(
+          90deg,
+          rgba(2, 6, 23, 0.94),
+          rgba(15, 23, 42, 0.78),
+          rgba(15, 23, 42, 0.35)
+        ),
+        url("https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1800&q=85")
+        center/cover;
     }
 
-    .eyebrow {
+    .hero-content {
+      width: 700px;
+      padding: 80px 0;
+    }
+
+    .hero-badge {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      padding: 7px 12px;
-      border-radius: 100px;
-      background: rgba(255,255,255,.1);
-      border: 1px solid rgba(255,255,255,.15);
-      font-size: .82rem;
-      font-weight: 800;
-      margin-bottom: 20px;
-    }
-
-    .hero h1 {
-      font-size: clamp(2.5rem, 5vw, 4.6rem);
-      line-height: 1.04;
-      letter-spacing: -2px;
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.2);
+      backdrop-filter: blur(10px);
+      padding: 9px 15px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 700;
       margin-bottom: 22px;
     }
 
+    .hero h1 {
+      font-family: "Poppins", sans-serif;
+      font-size: clamp(40px, 6vw, 68px);
+      line-height: 1.08;
+      margin-bottom: 22px;
+      letter-spacing: -2px;
+    }
+
     .hero h1 span {
-      color: #a9b8ff;
+      color: #60a5fa;
     }
 
     .hero p {
-      max-width: 680px;
-      color: #d5dcf4;
-      font-size: 1.08rem;
-      margin-bottom: 30px;
+      font-size: 18px;
+      max-width: 650px;
+      color: #dbeafe;
+      margin-bottom: 34px;
     }
 
-    .hero-actions {
+    .hero-buttons {
       display: flex;
       flex-wrap: wrap;
-      gap: 12px;
+      gap: 14px;
     }
 
-    .hero-card {
-      background: rgba(255,255,255,.09);
-      border: 1px solid rgba(255,255,255,.15);
-      padding: 28px;
-      border-radius: 25px;
-      backdrop-filter: blur(15px);
-      box-shadow: 0 25px 70px rgba(0,0,0,.18);
-    }
-
-    .hero-card h3 {
-      font-size: 1.25rem;
-      margin-bottom: 18px;
-    }
-
-    .hero-item {
-      display: flex;
+    .btn {
+      border: none;
+      cursor: pointer;
+      padding: 14px 21px;
+      border-radius: 13px;
+      font-weight: 700;
+      transition: 0.25s;
+      display: inline-flex;
+      justify-content: center;
       align-items: center;
-      gap: 12px;
-      padding: 13px 0;
-      border-bottom: 1px solid rgba(255,255,255,.1);
+      gap: 9px;
     }
 
-    .hero-item:last-child {
-      border-bottom: none;
+    .btn-primary {
+      color: white;
+      background: var(--primary);
     }
 
-    .hero-icon {
-      width: 38px;
-      height: 38px;
-      border-radius: 11px;
-      display: grid;
-      place-items: center;
-      background: rgba(255,255,255,.1);
+    .btn-primary:hover {
+      background: var(--primary-dark);
+      transform: translateY(-2px);
     }
 
-    /* =========================
-       STATS
-    ========================== */
-
-    .stats {
-      margin-top: -35px;
-      position: relative;
-      z-index: 5;
-    }
-
-    .stats-grid {
+    .btn-light {
+      color: var(--secondary);
       background: white;
-      box-shadow: var(--shadow);
-      border-radius: 20px;
+    }
+
+    .btn-light:hover {
+      transform: translateY(-2px);
+    }
+
+    .hero-stats {
       display: grid;
-      grid-template-columns: repeat(4,1fr);
-      border: 1px solid var(--border);
-      overflow: hidden;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+      max-width: 650px;
+      margin-top: 45px;
     }
 
-    .stat {
-      text-align: center;
-      padding: 25px;
-      border-right: 1px solid var(--border);
+    .hero-stat {
+      padding: 16px;
+      border-radius: 15px;
+      background: rgba(255,255,255,0.10);
+      border: 1px solid rgba(255,255,255,0.14);
+      backdrop-filter: blur(10px);
     }
 
-    .stat:last-child {
-      border-right: none;
-    }
-
-    .stat strong {
+    .hero-stat strong {
       display: block;
-      font-size: 1.7rem;
-      color: var(--dark);
+      font-size: 24px;
     }
 
-    .stat span {
-      color: var(--muted);
-      font-size: .88rem;
+    .hero-stat span {
+      font-size: 12px;
+      color: #cbd5e1;
     }
 
     /* =========================
-       SECTIONS
-    ========================== */
+       SECTION
+    ========================= */
 
     section {
       padding: 90px 0;
     }
 
-    .section-head {
-      max-width: 750px;
-      margin-bottom: 38px;
-    }
-
-    .section-head.center {
-      margin-left: auto;
-      margin-right: auto;
+    .section-heading {
       text-align: center;
+      max-width: 720px;
+      margin: 0 auto 45px;
     }
 
-    .section-label {
+    .section-heading small {
       color: var(--primary);
-      font-size: .78rem;
-      font-weight: 900;
+      font-weight: 800;
       text-transform: uppercase;
       letter-spacing: 1.5px;
-      margin-bottom: 8px;
     }
 
-    .section-head h2 {
-      font-size: clamp(2rem,4vw,3rem);
-      color: var(--dark);
-      line-height: 1.1;
-      margin-bottom: 13px;
+    .section-heading h2 {
+      font-family: "Poppins", sans-serif;
+      font-size: 38px;
+      line-height: 1.2;
+      margin: 9px 0 15px;
+      color: var(--secondary);
     }
 
-    .section-head p {
+    .section-heading p {
       color: var(--muted);
     }
 
     /* =========================
-       COURSE SEARCH
-    ========================== */
+       BENEFITS
+    ========================= */
 
-    .course-tools {
-      display: grid;
-      grid-template-columns: 1.4fr .6fr;
-      gap: 12px;
-      margin-bottom: 28px;
-    }
-
-    .search-box,
-    .filter-box {
-      position: relative;
-    }
-
-    .search-box input,
-    .filter-box select {
-      width: 100%;
-      height: 52px;
-      border: 1px solid var(--border);
-      border-radius: 13px;
+    .benefits {
       background: white;
-      outline: none;
-      padding: 0 16px;
-      color: var(--text);
     }
 
-    .search-box input:focus,
-    .filter-box select:focus {
-      border-color: var(--primary);
-      box-shadow: 0 0 0 4px rgba(49,85,217,.08);
+    .benefit-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .benefit {
+      padding: 27px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: white;
+      box-shadow: 0 8px 25px rgba(15,23,42,0.04);
+      transition: 0.25s;
+    }
+
+    .benefit:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow);
+    }
+
+    .benefit-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 15px;
+      display: grid;
+      place-items: center;
+      background: #eff6ff;
+      font-size: 24px;
+      margin-bottom: 17px;
+    }
+
+    .benefit h3 {
+      font-size: 17px;
+      margin-bottom: 8px;
+    }
+
+    .benefit p {
+      font-size: 14px;
+      color: var(--muted);
     }
 
     /* =========================
        COURSES
-    ========================== */
+    ========================= */
 
-    .courses-grid {
-      display: grid;
-      grid-template-columns: repeat(4,1fr);
-      gap: 20px;
+    .courses-section {
+      background: #f8fafc;
     }
 
-    .course-card {
-      background: white;
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      overflow: hidden;
-      transition: .25s;
+    .catalog-top {
       display: flex;
-      flex-direction: column;
-      box-shadow: 0 5px 20px rgba(16,24,40,.035);
-    }
-
-    .course-card:hover {
-      transform: translateY(-5px);
-      box-shadow: var(--shadow);
-      border-color: #d0d5dd;
-    }
-
-    .course-cover {
-      height: 155px;
-      position: relative;
-      overflow: hidden;
-      display: grid;
-      place-items: center;
-      color: white;
-      font-size: 3rem;
-      background:
-        linear-gradient(135deg, rgba(49,85,217,.95), rgba(108,61,244,.95));
-    }
-
-    .course-cover::after {
-      content: "";
-      position: absolute;
-      width: 180px;
-      height: 180px;
-      border-radius: 50%;
-      border: 25px solid rgba(255,255,255,.08);
-      right: -70px;
-      bottom: -90px;
-    }
-
-    .course-emoji {
-      position: relative;
-      z-index: 2;
-    }
-
-    .course-badge {
-      position: absolute;
-      left: 14px;
-      top: 14px;
-      z-index: 3;
-      background: rgba(255,255,255,.94);
-      color: var(--primary);
-      padding: 5px 9px;
-      border-radius: 8px;
-      font-size: .7rem;
-      font-weight: 900;
-    }
-
-    .course-body {
-      padding: 19px;
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .course-category {
-      font-size: .72rem;
-      text-transform: uppercase;
-      color: var(--primary);
-      font-weight: 900;
-      letter-spacing: .8px;
-      margin-bottom: 6px;
-    }
-
-    .course-title {
-      color: var(--dark);
-      font-size: 1.05rem;
-      line-height: 1.25;
-      margin-bottom: 8px;
-    }
-
-    .course-description {
-      font-size: .82rem;
-      color: var(--muted);
-      margin-bottom: 14px;
-      min-height: 42px;
-    }
-
-    .course-info {
-      display: flex;
+      gap: 15px;
       justify-content: space-between;
-      gap: 10px;
-      padding: 11px 0;
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-      margin-bottom: 14px;
-      font-size: .75rem;
+      align-items: center;
+      margin-bottom: 28px;
+      flex-wrap: wrap;
     }
 
-    .course-info span {
+    .search-box {
+      flex: 1;
+      min-width: 250px;
+      position: relative;
+    }
+
+    .search-box input {
+      width: 100%;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 14px 18px 14px 45px;
+      outline: none;
+      background: white;
+    }
+
+    .search-icon {
+      position: absolute;
+      left: 16px;
+      top: 12px;
+      font-size: 18px;
+    }
+
+    .filters {
       display: flex;
-      gap: 5px;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .filter-btn {
+      border: 1px solid var(--border);
+      background: white;
+      padding: 11px 14px;
+      border-radius: 11px;
+      cursor: pointer;
+      font-size: 13px;
+      font-weight: 700;
+      color: #475569;
+    }
+
+    .filter-btn.active,
+    .filter-btn:hover {
+      color: white;
+      background: var(--primary);
+      border-color: var(--primary);
+    }
+
+    .base-notice {
+      background: linear-gradient(135deg, #eff6ff, #eef2ff);
+      border: 1px solid #dbeafe;
+      padding: 20px;
+      border-radius: 17px;
+      margin-bottom: 30px;
+      display: flex;
+      gap: 14px;
       align-items: center;
     }
 
-    .price-old {
-      text-decoration: line-through;
-      color: #98a2b3;
-      font-size: .75rem;
+    .base-notice-icon {
+      font-size: 30px;
     }
 
-    .price-new {
-      color: var(--primary);
-      font-weight: 900;
-      font-size: 1.25rem;
+    .base-notice strong {
+      display: block;
+      color: #1e3a8a;
+    }
+
+    .base-notice span {
+      font-size: 13px;
+      color: #475569;
+    }
+
+    .courses-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .course-card {
+      min-height: 430px;
+      border-radius: 22px;
+      overflow: hidden;
+      position: relative;
+      color: white;
+      display: flex;
+      align-items: flex-end;
+      box-shadow: 0 15px 35px rgba(15,23,42,0.13);
+      background-size: cover;
+      background-position: center;
+      transition: 0.3s;
+    }
+
+    .course-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(
+          180deg,
+          rgba(15,23,42,0.08) 10%,
+          rgba(15,23,42,0.38) 42%,
+          rgba(15,23,42,0.96) 100%
+        );
+    }
+
+    .course-card:hover {
+      transform: translateY(-7px);
+      box-shadow: 0 25px 50px rgba(15,23,42,0.2);
+    }
+
+    .course-content {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      padding: 25px;
+    }
+
+    .course-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 15px;
+    }
+
+    .course-category {
+      background: rgba(255,255,255,0.15);
+      backdrop-filter: blur(8px);
+      padding: 7px 11px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+    .course-level {
+      background: #dcfce7;
+      color: #166534;
+      padding: 7px 11px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 800;
+    }
+
+    .course-card h3 {
+      font-family: "Poppins", sans-serif;
+      font-size: 22px;
+      line-height: 1.2;
+      margin-bottom: 10px;
+    }
+
+    .course-description {
+      color: #e2e8f0;
+      font-size: 13px;
+      min-height: 43px;
+      margin-bottom: 15px;
+    }
+
+    .course-meta {
+      display: flex;
+      gap: 15px;
+      font-size: 12px;
+      color: #dbeafe;
+      margin-bottom: 17px;
+    }
+
+    .course-price {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+      margin-bottom: 17px;
+    }
+
+    .course-price strong {
+      font-size: 25px;
+      color: white;
+    }
+
+    .course-price small {
+      color: #cbd5e1;
     }
 
     .course-actions {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 8px;
-      margin-top: auto;
     }
 
-    .course-actions .btn {
-      padding: 10px 7px;
-      font-size: .75rem;
+    .course-actions button {
+      padding: 11px 8px;
+      border-radius: 11px;
+      border: none;
+      cursor: pointer;
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .details-btn {
+      background: white;
+      color: var(--secondary);
+    }
+
+    .whatsapp-btn {
+      background: #25d366;
+      color: white;
+    }
+
+    .whatsapp-btn:hover {
+      background: #16b957;
     }
 
     /* =========================
-       LEVEL
-    ========================== */
+       HOW IT WORKS
+    ========================= */
 
-    .base-section {
-      background: var(--light);
-    }
-
-    .base-card {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 30px;
+    .how {
       background: white;
+    }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .step {
+      position: relative;
+      padding: 30px 25px;
       border: 1px solid var(--border);
-      border-radius: 25px;
-      padding: 35px;
-      box-shadow: var(--shadow);
+      border-radius: 20px;
+      background: white;
     }
 
-    .base-card h3 {
-      color: var(--dark);
-      font-size: 1.5rem;
-      margin-bottom: 12px;
+    .step-number {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border-radius: 12px;
+      color: white;
+      background: var(--primary);
+      font-weight: 800;
+      margin-bottom: 18px;
     }
 
-    .base-list {
-      list-style: none;
+    .step h3 {
+      font-size: 17px;
+      margin-bottom: 8px;
+    }
+
+    .step p {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    /* =========================
+       ABOUT
+    ========================= */
+
+    .about {
+      background:
+        linear-gradient(
+          90deg,
+          rgba(15,23,42,0.95),
+          rgba(15,23,42,0.80)
+        ),
+        url("https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1800&q=85")
+        center/cover;
+      color: white;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .about h2 {
+      font-family: "Poppins", sans-serif;
+      font-size: 40px;
+      line-height: 1.2;
+      margin: 10px 0 20px;
+    }
+
+    .about p {
+      color: #cbd5e1;
+      margin-bottom: 18px;
+    }
+
+    .about-list {
       display: grid;
       gap: 12px;
+      margin-top: 25px;
     }
 
-    .base-list li {
+    .about-list div {
       display: flex;
-      gap: 10px;
+      gap: 12px;
       align-items: flex-start;
     }
 
     .check {
-      flex-shrink: 0;
-      width: 24px;
-      height: 24px;
+      width: 25px;
+      height: 25px;
+      min-width: 25px;
+      display: grid;
+      place-items: center;
       border-radius: 50%;
-      background: #dcfae6;
-      color: #079455;
-      display: grid;
-      place-items: center;
-      font-size: .75rem;
-      font-weight: 900;
+      background: #22c55e;
+      color: white;
+      font-size: 12px;
+      font-weight: 800;
     }
 
-    /* =========================
-       FEATURES
-    ========================== */
-
-    .features-grid {
-      display: grid;
-      grid-template-columns: repeat(3,1fr);
-      gap: 20px;
+    .about-card {
+      border-radius: 25px;
+      padding: 30px;
+      background: rgba(255,255,255,0.10);
+      border: 1px solid rgba(255,255,255,0.15);
+      backdrop-filter: blur(12px);
     }
 
-    .feature-card {
-      border: 1px solid var(--border);
-      padding: 25px;
-      border-radius: 18px;
-      background: white;
+    .about-card h3 {
+      margin-bottom: 20px;
+      font-size: 21px;
     }
 
-    .feature-icon {
-      width: 48px;
-      height: 48px;
-      border-radius: 14px;
-      display: grid;
-      place-items: center;
-      font-size: 1.3rem;
-      background: #eef2ff;
-      margin-bottom: 16px;
+    .about-card-item {
+      padding: 15px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
     }
 
-    .feature-card h3 {
-      color: var(--dark);
-      margin-bottom: 8px;
+    .about-card-item:last-child {
+      border-bottom: none;
     }
 
-    .feature-card p {
-      color: var(--muted);
-      font-size: .9rem;
+    .about-card-item strong {
+      display: block;
+      font-size: 20px;
+    }
+
+    .about-card-item span {
+      font-size: 12px;
+      color: #cbd5e1;
     }
 
     /* =========================
        PAYMENT
-    ========================== */
+    ========================= */
 
-    .payment-section {
-      background: #101828;
-      color: white;
+    .payment {
+      background: #f8fafc;
+    }
+
+    .payment-box {
+      max-width: 900px;
+      margin: auto;
+      padding: 35px;
+      background: white;
+      border-radius: 25px;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
     }
 
     .payment-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 50px;
-      align-items: center;
+      gap: 25px;
     }
 
-    .payment-section .section-label {
-      color: #9fb0ff;
+    .payment-method {
+      padding: 25px;
+      border-radius: 18px;
+      background: #f8fafc;
+      border: 1px solid var(--border);
     }
 
-    .payment-section h2 {
-      color: white;
-    }
-
-    .payment-section .section-head p {
-      color: #c5cbd7;
-    }
-
-    .payment-card {
-      background: white;
-      color: var(--text);
-      border-radius: 22px;
-      padding: 30px;
-    }
-
-    .payment-card h3 {
-      color: var(--dark);
-      margin-bottom: 18px;
+    .payment-method h3 {
+      margin-bottom: 10px;
     }
 
     .payment-number {
-      padding: 18px;
-      border-radius: 14px;
-      background: #f2f4f7;
-      text-align: center;
-      margin: 15px 0;
-    }
-
-    .payment-number small {
-      display: block;
-      color: var(--muted);
-    }
-
-    .payment-number strong {
-      display: block;
-      font-size: 1.7rem;
-      color: var(--dark);
-      margin-top: 5px;
+      font-size: 25px;
+      font-weight: 800;
+      color: var(--primary);
+      margin: 10px 0;
     }
 
     .payment-note {
-      font-size: .82rem;
       color: var(--muted);
+      font-size: 13px;
+    }
+
+    .warning {
+      margin-top: 20px;
+      padding: 16px;
+      border-radius: 13px;
+      background: #fff7ed;
+      color: #9a3412;
+      font-size: 13px;
     }
 
     /* =========================
-       ABOUT
-    ========================== */
+       CTA
+    ========================= */
 
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 50px;
-      align-items: center;
+    .cta {
+      padding: 75px 0;
+      background: linear-gradient(135deg, #1d4ed8, #4f46e5);
+      color: white;
+      text-align: center;
     }
 
-    .about-box {
-      background: linear-gradient(135deg, #eef2ff, #f6f3ff);
-      padding: 35px;
-      border-radius: 25px;
-    }
-
-    .about-box h3 {
-      color: var(--dark);
-      font-size: 1.8rem;
+    .cta h2 {
+      font-family: "Poppins", sans-serif;
+      font-size: 40px;
       margin-bottom: 12px;
+    }
+
+    .cta p {
+      color: #dbeafe;
+      max-width: 600px;
+      margin: auto auto 25px;
     }
 
     /* =========================
        FOOTER
-    ========================== */
+    ========================= */
 
     footer {
-      background: #080d1b;
-      color: #aeb7c8;
+      background: #020617;
+      color: white;
       padding: 50px 0 25px;
     }
 
@@ -731,72 +814,91 @@
       padding-bottom: 35px;
     }
 
-    footer h3 {
-      color: white;
-      margin-bottom: 12px;
+    .footer-brand p {
+      color: #94a3b8;
+      font-size: 13px;
+      max-width: 400px;
+      margin-top: 15px;
     }
 
-    footer p,
-    footer a {
-      font-size: .88rem;
+    footer h4 {
+      margin-bottom: 15px;
     }
 
-    .footer-links {
+    footer ul {
+      list-style: none;
       display: grid;
-      gap: 8px;
+      gap: 9px;
     }
 
-    .footer-bottom {
-      border-top: 1px solid rgba(255,255,255,.08);
+    footer li,
+    footer a {
+      color: #94a3b8;
+      font-size: 13px;
+    }
+
+    footer a:hover {
+      color: white;
+    }
+
+    .copyright {
+      border-top: 1px solid #1e293b;
       padding-top: 20px;
       text-align: center;
-      font-size: .78rem;
+      color: #64748b;
+      font-size: 12px;
     }
 
     /* =========================
-       WHATSAPP
-    ========================== */
+       WHATSAPP FLOATING
+    ========================= */
 
-    .whatsapp-float {
+    .whatsapp-floating {
       position: fixed;
-      right: 20px;
-      bottom: 20px;
-      z-index: 1200;
+      right: 22px;
+      bottom: 22px;
+      z-index: 1100;
       display: flex;
       align-items: center;
       gap: 9px;
-      background: #25D366;
+      background: #25d366;
       color: white;
-      padding: 13px 18px;
-      border-radius: 100px;
-      box-shadow: 0 12px 30px rgba(37,211,102,.35);
-      font-weight: 900;
-      animation: pulseWhatsapp 2.2s infinite;
+      padding: 13px 17px;
+      border-radius: 999px;
+      box-shadow: 0 10px 30px rgba(37,211,102,0.35);
+      font-weight: 800;
+      font-size: 13px;
+      animation: pulse 2.2s infinite;
     }
 
-    @keyframes pulseWhatsapp {
+    .whatsapp-floating span:first-child {
+      font-size: 21px;
+    }
+
+    @keyframes pulse {
       0%,100% {
-        box-shadow: 0 12px 30px rgba(37,211,102,.35);
+        transform: scale(1);
       }
+
       50% {
-        box-shadow: 0 12px 38px rgba(37,211,102,.6);
+        transform: scale(1.04);
       }
     }
 
     /* =========================
        MODAL
-    ========================== */
+    ========================= */
 
     .modal {
       position: fixed;
       inset: 0;
+      background: rgba(2,6,23,0.72);
+      backdrop-filter: blur(5px);
       z-index: 2000;
-      background: rgba(7,12,25,.75);
-      backdrop-filter: blur(6px);
       display: none;
       align-items: center;
       justify-content: center;
-      padding: 18px;
+      padding: 20px;
     }
 
     .modal.active {
@@ -804,373 +906,286 @@
     }
 
     .modal-box {
-      width: min(900px,100%);
-      max-height: 92vh;
+      width: min(850px, 100%);
+      max-height: 90vh;
       overflow-y: auto;
       background: white;
-      border-radius: 24px;
-      box-shadow: 0 30px 80px rgba(0,0,0,.25);
+      border-radius: 25px;
+      position: relative;
+      box-shadow: 0 30px 90px rgba(0,0,0,0.3);
     }
 
-    .modal-header {
-      position: sticky;
-      top: 0;
-      z-index: 5;
-      background: white;
-      border-bottom: 1px solid var(--border);
-      padding: 25px;
+    .modal-image {
+      height: 260px;
+      background-size: cover;
+      background-position: center;
+      position: relative;
+      color: white;
       display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-      gap: 20px;
+      align-items: flex-end;
+      padding: 30px;
     }
 
-    .modal-header h2 {
-      color: var(--dark);
-      line-height: 1.15;
-      margin-bottom: 7px;
+    .modal-image::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(transparent, rgba(2,6,23,0.85));
     }
 
-    .modal-meta {
-      color: var(--muted);
-      font-size: .85rem;
+    .modal-image-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .modal-image h2 {
+      font-family: "Poppins", sans-serif;
+      font-size: 32px;
     }
 
     .close-modal {
+      position: absolute;
+      right: 18px;
+      top: 18px;
       width: 40px;
       height: 40px;
       border: none;
-      background: #f2f4f7;
-      border-radius: 10px;
-      font-size: 1.2rem;
-      flex-shrink: 0;
+      border-radius: 50%;
+      background: rgba(0,0,0,0.45);
+      color: white;
+      cursor: pointer;
+      font-size: 21px;
+      z-index: 10;
     }
 
-    .modal-content {
-      padding: 25px;
+    .modal-body {
+      padding: 30px;
     }
 
-    .course-summary {
-      background: #f8f9fc;
-      border: 1px solid var(--border);
-      padding: 20px;
-      border-radius: 16px;
+    .modal-meta {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
       margin-bottom: 25px;
     }
 
-    .course-summary-grid {
-      display: grid;
-      grid-template-columns: repeat(3,1fr);
-      gap: 15px;
+    .modal-tag {
+      background: #eff6ff;
+      color: #1d4ed8;
+      border-radius: 999px;
+      padding: 8px 13px;
+      font-size: 12px;
+      font-weight: 800;
     }
 
-    .summary-item small {
-      display: block;
+    .modal-description {
       color: var(--muted);
-      font-size: .72rem;
+      margin-bottom: 25px;
     }
 
-    .summary-item strong {
-      color: var(--dark);
-    }
-
-    .progress-wrap {
-      margin-top: 20px;
-    }
-
-    .progress-top {
-      display: flex;
-      justify-content: space-between;
-      font-size: .8rem;
-      margin-bottom: 7px;
-    }
-
-    .progress {
-      height: 8px;
-      background: #eaecf0;
-      border-radius: 100px;
-      overflow: hidden;
-    }
-
-    .progress-bar {
-      height: 100%;
-      width: 0%;
-      background: linear-gradient(90deg,var(--primary),var(--secondary));
-      transition: .3s;
+    .modules {
+      display: grid;
+      gap: 12px;
     }
 
     .module {
       border: 1px solid var(--border);
-      border-radius: 16px;
+      border-radius: 15px;
       overflow: hidden;
-      margin-bottom: 15px;
     }
 
     .module-header {
-      padding: 17px 20px;
-      background: #f9fafb;
-      border-bottom: 1px solid var(--border);
+      padding: 17px;
+      background: #f8fafc;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      font-weight: 800;
     }
 
-    .module-header h3 {
-      color: var(--dark);
-      font-size: 1rem;
+    .module-lessons {
+      display: none;
+      padding: 0 17px 17px;
+    }
+
+    .module.open .module-lessons {
+      display: block;
     }
 
     .lesson {
-      border-bottom: 1px solid var(--border);
+      padding: 13px 0;
+      border-top: 1px solid var(--border);
+      color: #475569;
+      font-size: 14px;
     }
 
-    .lesson:last-child {
-      border-bottom: none;
+    .lesson strong {
+      display: block;
+      color: var(--secondary);
+      margin-bottom: 4px;
     }
 
-    .lesson-title {
-      width: 100%;
-      border: none;
-      background: white;
-      padding: 17px 20px;
-      text-align: left;
+    .lesson small {
+      color: var(--muted);
+    }
+
+    .modal-footer {
+      margin-top: 25px;
+      padding-top: 25px;
+      border-top: 1px solid var(--border);
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 15px;
-      font-weight: 800;
-      color: var(--dark);
+      flex-wrap: wrap;
     }
 
-    .lesson-title:hover {
-      background: #f9fafb;
-    }
-
-    .lesson-content {
-      display: none;
-      padding: 0 20px 20px;
-    }
-
-    .lesson.open .lesson-content {
+    .modal-price strong {
       display: block;
+      color: var(--primary);
+      font-size: 28px;
     }
 
-    .lesson-content p {
-      margin-bottom: 12px;
-      color: var(--text);
-      font-size: .9rem;
-    }
-
-    .content-box {
-      padding: 14px;
-      border-radius: 12px;
-      background: #f8f9fc;
-      border-left: 4px solid var(--primary);
-      margin: 10px 0;
-    }
-
-    .content-box strong {
-      color: var(--dark);
-    }
-
-    .quiz {
-      margin-top: 15px;
-      padding: 15px;
-      border-radius: 13px;
-      background: #eef2ff;
-    }
-
-    .quiz-question {
-      font-weight: 800;
-      color: var(--dark);
-      margin-bottom: 10px;
-    }
-
-    .quiz-options {
-      display: grid;
-      gap: 7px;
-    }
-
-    .quiz-option {
-      border: 1px solid #d0d5dd;
-      background: white;
-      border-radius: 9px;
-      padding: 9px 11px;
-      text-align: left;
-      font-size: .82rem;
-    }
-
-    .quiz-option.correct {
-      border-color: #12b76a;
-      background: #ecfdf3;
-      color: #027a48;
-    }
-
-    .quiz-option.wrong {
-      border-color: #f04438;
-      background: #fef3f2;
-      color: #b42318;
-    }
-
-    .modal-footer {
-      position: sticky;
-      bottom: 0;
-      background: white;
-      border-top: 1px solid var(--border);
-      padding: 18px 25px;
-      display: flex;
-      justify-content: space-between;
-      gap: 10px;
+    .modal-price small {
+      color: var(--muted);
     }
 
     /* =========================
        EMPTY
-    ========================== */
+    ========================= */
 
     .empty {
-      grid-column: 1/-1;
+      grid-column: 1 / -1;
       text-align: center;
-      padding: 50px 20px;
-      border: 1px dashed var(--border);
-      border-radius: 18px;
+      padding: 60px 20px;
       color: var(--muted);
     }
 
     /* =========================
        RESPONSIVE
-    ========================== */
+    ========================= */
 
-    @media (max-width: 1050px) {
+    @media (max-width: 1000px) {
+
       .courses-grid {
-        grid-template-columns: repeat(3,1fr);
+        grid-template-columns: repeat(2, 1fr);
       }
 
-      .hero-grid {
+      .benefit-grid,
+      .steps {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .about-grid {
         grid-template-columns: 1fr;
-      }
-
-      .hero-card {
-        max-width: 650px;
       }
     }
 
-    @media (max-width: 850px) {
-      .nav-links,
-      .nav-actions {
+    @media (max-width: 720px) {
+
+      .navbar {
+        height: 68px;
+      }
+
+      .nav-links {
+        position: absolute;
+        top: 68px;
+        left: 0;
+        right: 0;
+        background: white;
+        padding: 20px;
         display: none;
+        flex-direction: column;
+        align-items: stretch;
+        box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+      }
+
+      .nav-links.active {
+        display: flex;
       }
 
       .menu-btn {
         display: block;
       }
 
-      .nav.mobile-open {
-        position: relative;
-      }
-
-      .nav.mobile-open .nav-links {
-        display: flex;
-        position: absolute;
-        left: 0;
-        right: 0;
-        top: 76px;
-        padding: 20px;
-        background: white;
-        flex-direction: column;
-        align-items: flex-start;
-        box-shadow: var(--shadow);
-        border-top: 1px solid var(--border);
-      }
-
-      .stats-grid {
-        grid-template-columns: repeat(2,1fr);
-      }
-
-      .stat:nth-child(2) {
-        border-right: none;
-      }
-
-      .stat:nth-child(-n+2) {
-        border-bottom: 1px solid var(--border);
-      }
-
-      .courses-grid {
-        grid-template-columns: repeat(2,1fr);
-      }
-
-      .features-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-
-      .payment-grid,
-      .about-grid,
-      .base-card {
-        grid-template-columns: 1fr;
-      }
-
-      .footer-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-    }
-
-    @media (max-width: 560px) {
       .hero {
-        padding: 70px 0 65px;
+        min-height: 680px;
+      }
+
+      .hero-content {
+        padding: 55px 0;
+      }
+
+      .hero h1 {
+        font-size: 42px;
+      }
+
+      .hero p {
+        font-size: 15px;
+      }
+
+      .hero-stats {
+        grid-template-columns: 1fr;
       }
 
       section {
         padding: 65px 0;
       }
 
-      .hero h1 {
-        font-size: 2.55rem;
+      .section-heading h2 {
+        font-size: 30px;
       }
 
-      .hero-actions {
-        flex-direction: column;
-      }
-
-      .hero-actions .btn {
-        width: 100%;
-      }
-
-      .stats-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-
-      .courses-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .course-tools {
-        grid-template-columns: 1fr;
-      }
-
-      .features-grid {
-        grid-template-columns: 1fr;
-      }
-
+      .courses-grid,
+      .benefit-grid,
+      .steps,
+      .payment-grid,
       .footer-grid {
         grid-template-columns: 1fr;
       }
 
-      .course-summary-grid {
-        grid-template-columns: 1fr 1fr;
+      .course-card {
+        min-height: 450px;
       }
 
-      .modal-footer {
-        flex-direction: column;
+      .catalog-top {
+        align-items: stretch;
       }
 
-      .modal-footer .btn {
+      .filters {
         width: 100%;
       }
 
-      .whatsapp-float {
-        right: 15px;
-        bottom: 15px;
-        padding: 13px 15px;
+      .filter-btn {
+        flex: 1;
       }
 
-      .whatsapp-label {
+      .about h2,
+      .cta h2 {
+        font-size: 31px;
+      }
+
+      .payment-box {
+        padding: 22px;
+      }
+
+      .whatsapp-floating {
+        right: 15px;
+        bottom: 15px;
+        padding: 13px;
+      }
+
+      .whatsapp-floating .wa-label {
         display: none;
+      }
+
+      .modal-image {
+        height: 220px;
+      }
+
+      .modal-body {
+        padding: 22px;
       }
     }
   </style>
@@ -1183,33 +1198,24 @@
   ========================== -->
 
   <header>
-    <div class="container">
-      <nav class="nav" id="mainNav">
+    <div class="container navbar">
 
-        <a href="#inicio" class="logo">
-          <span class="logo-mark">FA</span>
-          <span>Fely e Amigos Academy</span>
-        </a>
+      <a href="#inicio" class="logo">
+        <div class="logo-icon">F</div>
+        <span>Fely e Amigos Academy</span>
+      </a>
 
-        <ul class="nav-links">
-          <li><a href="#inicio">Início</a></li>
-          <li><a href="#cursos">Cursos</a></li>
-          <li><a href="#como-funciona">Como funciona</a></li>
-          <li><a href="#pagamento">Pagamento</a></li>
-          <li><a href="#sobre">Sobre nós</a></li>
-        </ul>
+      <button class="menu-btn" onclick="toggleMenu()">☰</button>
 
-        <div class="nav-actions">
-          <a href="#cursos" class="btn btn-primary">
-            Ver cursos
-          </a>
-        </div>
-
-        <button class="menu-btn" onclick="toggleMenu()" aria-label="Abrir menu">
-          ☰
-        </button>
-
+      <nav class="nav-links" id="navLinks">
+        <a href="#inicio" onclick="closeMenu()">Início</a>
+        <a href="#cursos" onclick="closeMenu()">Cursos</a>
+        <a href="#como-funciona" onclick="closeMenu()">Como funciona</a>
+        <a href="#sobre" onclick="closeMenu()">Sobre</a>
+        <a href="#pagamento" onclick="closeMenu()">Pagamento</a>
+        <a href="#cursos" class="nav-cta" onclick="closeMenu()">Ver cursos</a>
       </nav>
+
     </div>
   </header>
 
@@ -1224,78 +1230,51 @@
 
       <div class="container">
 
-        <div class="hero-grid">
+        <div class="hero-content">
 
-          <div>
-
-            <div class="eyebrow">
-              🎓 Formação acessível em Angola
-            </div>
-
-            <h1>
-              Aprenda hoje.<br>
-              <span>Prepare o seu futuro.</span>
-            </h1>
-
-            <p>
-              Cursos online práticos, acessíveis e estruturados para quem
-              quer desenvolver novas competências profissionais sem precisar
-              começar com conteúdos complicados.
-            </p>
-
-            <div class="hero-actions">
-
-              <a href="#cursos" class="btn btn-primary">
-                📚 Explorar cursos
-              </a>
-
-              <a
-                href="https://wa.me/244948138785?text=Ol%C3%A1!%20Gostaria%20de%20saber%20mais%20sobre%20os%20cursos%20da%20Fely%20e%20Amigos%20Academy."
-                target="_blank"
-                class="btn btn-whatsapp"
-              >
-                💬 Falar no WhatsApp
-              </a>
-
-            </div>
-
+          <div class="hero-badge">
+            🎓 Formação prática para o futuro
           </div>
 
+          <h1>
+            Aprenda hoje.<br>
+            <span>Prepare o seu futuro.</span>
+          </h1>
 
-          <div class="hero-card">
+          <p>
+            Cursos profissionais, tecnológicos e de desenvolvimento pessoal
+            preparados para quem quer adquirir conhecimentos úteis,
+            práticos e aplicáveis no dia a dia.
+          </p>
 
-            <h3>Por que começar pela Fely Academy?</h3>
+          <div class="hero-buttons">
+            <a href="#cursos" class="btn btn-primary">
+              🎓 Explorar cursos
+            </a>
 
-            <div class="hero-item">
-              <span class="hero-icon">💰</span>
-              <div>
-                <strong>Preços acessíveis</strong>
-                <div>De 5.000 Kz a 10.000 Kz</div>
-              </div>
+            <button
+              class="btn btn-light"
+              onclick="openGeneralWhatsApp()"
+            >
+              💬 Falar connosco
+            </button>
+          </div>
+
+          <div class="hero-stats">
+
+            <div class="hero-stat">
+              <strong>20+</strong>
+              <span>Cursos disponíveis</span>
             </div>
 
-            <div class="hero-item">
-              <span class="hero-icon">📅</span>
-              <div>
-                <strong>2 a 4 semanas</strong>
-                <div>Formação objetiva e prática</div>
-              </div>
+            <div class="hero-stat">
+              <strong>Base</strong>
+              <span>Nível de aprendizagem</span>
             </div>
 
-            <div class="hero-item">
-              <span class="hero-icon">🌱</span>
-              <div>
-                <strong>Nível Base</strong>
-                <div>Ideal para começar do zero</div>
-              </div>
-            </div>
-
-            <div class="hero-item">
-              <span class="hero-icon">📱</span>
-              <div>
-                <strong>Aprendizagem flexível</strong>
-                <div>Estude através do telemóvel ou computador</div>
-              </div>
+            <div class="hero-stat">
+              <strong>5.000–10.000 Kz</strong>
+              <span>Preços promocionais</span>
             </div>
 
           </div>
@@ -1308,88 +1287,175 @@
 
 
     <!-- =========================
-         STATS
+         BENEFÍCIOS
     ========================== -->
 
-    <div class="stats">
+    <section class="benefits">
 
       <div class="container">
 
-        <div class="stats-grid">
+        <div class="section-heading">
+          <small>Porquê a Fely Academy?</small>
 
-          <div class="stat">
-            <strong>20</strong>
-            <span>Cursos disponíveis</span>
+          <h2>
+            Formação pensada para resultados
+          </h2>
+
+          <p>
+            Começamos pelo essencial e construímos conhecimentos de forma
+            simples, organizada e prática.
+          </p>
+        </div>
+
+        <div class="benefit-grid">
+
+          <div class="benefit">
+            <div class="benefit-icon">📚</div>
+            <h3>Conteúdo estruturado</h3>
+            <p>
+              Aulas organizadas por módulos para facilitar a aprendizagem.
+            </p>
           </div>
 
-          <div class="stat">
-            <strong>5.000–10.000</strong>
-            <span>Preços em Kz</span>
+          <div class="benefit">
+            <div class="benefit-icon">💻</div>
+            <h3>Conhecimento prático</h3>
+            <p>
+              Conceitos acompanhados por exemplos e actividades práticas.
+            </p>
           </div>
 
-          <div class="stat">
-            <strong>2–4</strong>
-            <span>Semanas de duração</span>
+          <div class="benefit">
+            <div class="benefit-icon">🎯</div>
+            <h3>Nível Base</h3>
+            <p>
+              Nesta primeira versão, todos os cursos começam pelos fundamentos.
+            </p>
           </div>
 
-          <div class="stat">
-            <strong>Base</strong>
-            <span>Nível inicial</span>
+          <div class="benefit">
+            <div class="benefit-icon">💰</div>
+            <h3>Preço acessível</h3>
+            <p>
+              Preços promocionais pensados para tornar a formação mais acessível.
+            </p>
           </div>
 
         </div>
 
       </div>
 
-    </div>
+    </section>
 
 
     <!-- =========================
-         COURSES
+         CURSOS
     ========================== -->
 
-    <section id="cursos">
+    <section class="courses-section" id="cursos">
 
       <div class="container">
 
-        <div class="section-head center">
+        <div class="section-heading">
 
-          <div class="section-label">
-            Catálogo
-          </div>
+          <small>Catálogo</small>
 
           <h2>
             Escolha o seu próximo curso
           </h2>
 
           <p>
-            Todos os cursos desta primeira versão começam pelo nível Base,
-            com conteúdos simples, práticos e progressivos.
+            Encontre uma formação, consulte o conteúdo e fale connosco
+            directamente pelo WhatsApp.
           </p>
 
         </div>
 
 
-        <div class="course-tools">
+        <div class="catalog-top">
 
           <div class="search-box">
+
+            <span class="search-icon">🔎</span>
+
             <input
-              type="search"
+              type="text"
               id="searchInput"
-              placeholder="🔎 Procurar um curso..."
+              placeholder="Pesquisar curso..."
               oninput="renderCourses()"
             >
+
           </div>
 
-          <div class="filter-box">
-            <select id="categoryFilter" onchange="renderCourses()">
-              <option value="all">Todas as categorias</option>
-              <option value="Informática">Informática</option>
-              <option value="Tecnologia">Tecnologia</option>
-              <option value="Línguas">Línguas</option>
-              <option value="Negócios">Negócios</option>
-              <option value="Profissional">Profissional</option>
-            </select>
+          <div class="filters">
+
+            <button
+              class="filter-btn active"
+              data-filter="Todos"
+              onclick="setFilter('Todos', this)"
+            >
+              Todos
+            </button>
+
+            <button
+              class="filter-btn"
+              data-filter="Informática"
+              onclick="setFilter('Informática', this)"
+            >
+              Informática
+            </button>
+
+            <button
+              class="filter-btn"
+              data-filter="Tecnologia"
+              onclick="setFilter('Tecnologia', this)"
+            >
+              Tecnologia
+            </button>
+
+            <button
+              class="filter-btn"
+              data-filter="Línguas"
+              onclick="setFilter('Línguas', this)"
+            >
+              Línguas
+            </button>
+
+            <button
+              class="filter-btn"
+              data-filter="Negócios"
+              onclick="setFilter('Negócios', this)"
+            >
+              Negócios
+            </button>
+
+            <button
+              class="filter-btn"
+              data-filter="Profissional"
+              onclick="setFilter('Profissional', this)"
+            >
+              Profissional
+            </button>
+
+          </div>
+
+        </div>
+
+
+        <div class="base-notice">
+
+          <div class="base-notice-icon">🌱</div>
+
+          <div>
+            <strong>
+              Todos os cursos estão no Nível Base
+            </strong>
+
+            <span>
+              A primeira versão da Fely Academy foi concebida para começar
+              pelos fundamentos e criar uma base sólida antes de avançar
+              para conteúdos mais especializados.
+            </span>
           </div>
 
         </div>
@@ -1403,204 +1469,73 @@
 
 
     <!-- =========================
-         BASE LEVEL
+         COMO FUNCIONA
     ========================== -->
 
-    <section class="base-section" id="como-funciona">
+    <section class="how" id="como-funciona">
 
       <div class="container">
 
-        <div class="section-head center">
+        <div class="section-heading">
 
-          <div class="section-label">
-            Primeira versão
-          </div>
+          <small>Processo simples</small>
 
           <h2>
-            Tudo começa pelo Nível Base
+            Como funciona?
           </h2>
 
           <p>
-            O nosso objetivo é que qualquer pessoa possa começar mesmo
-            sem experiência anterior.
+            O processo de inscrição foi pensado para ser simples,
+            principalmente através do WhatsApp.
           </p>
 
         </div>
 
 
-        <div class="base-card">
+        <div class="steps">
 
-          <div>
+          <div class="step">
+            <div class="step-number">1</div>
 
-            <h3>
-              O que encontrará nos cursos?
-            </h3>
+            <h3>Escolha o curso</h3>
 
             <p>
-              Cada curso foi pensado para apresentar primeiro os conceitos
-              fundamentais e depois levar o aluno para situações práticas.
+              Consulte os cursos disponíveis e veja o conteúdo de cada formação.
             </p>
-
           </div>
 
 
-          <ul class="base-list">
+          <div class="step">
+            <div class="step-number">2</div>
 
-            <li>
-              <span class="check">✓</span>
-              <span>Conceitos fundamentais explicados de forma simples.</span>
-            </li>
-
-            <li>
-              <span class="check">✓</span>
-              <span>Exemplos relacionados com situações reais.</span>
-            </li>
-
-            <li>
-              <span class="check">✓</span>
-              <span>Exercícios práticos para consolidar o conhecimento.</span>
-            </li>
-
-            <li>
-              <span class="check">✓</span>
-              <span>Mini questionários para testar a aprendizagem.</span>
-            </li>
-
-            <li>
-              <span class="check">✓</span>
-              <span>Conteúdos organizados em módulos e aulas.</span>
-            </li>
-
-          </ul>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- =========================
-         FEATURES
-    ========================== -->
-
-    <section>
-
-      <div class="container">
-
-        <div class="section-head center">
-
-          <div class="section-label">
-            Experiência de aprendizagem
-          </div>
-
-          <h2>
-            Aprender de forma prática
-          </h2>
-
-          <p>
-            A Fely Academy foi pensada para transformar conteúdos em
-            competências que possam ser aplicadas no dia a dia.
-          </p>
-
-        </div>
-
-
-        <div class="features-grid">
-
-          <div class="feature-card">
-
-            <div class="feature-icon">📖</div>
-
-            <h3>
-              Conteúdo organizado
-            </h3>
+            <h3>Fale connosco</h3>
 
             <p>
-              Cada curso é dividido em módulos e aulas para facilitar
-              o acompanhamento da aprendizagem.
+              Clique no botão WhatsApp. O nome do curso e o preço serão
+              enviados automaticamente na mensagem.
             </p>
-
           </div>
 
 
-          <div class="feature-card">
+          <div class="step">
+            <div class="step-number">3</div>
 
-            <div class="feature-icon">🧠</div>
-
-            <h3>
-              Aprendizagem progressiva
-            </h3>
+            <h3>Faça a inscrição</h3>
 
             <p>
-              Começamos pelos conceitos essenciais e avançamos para
-              exercícios e aplicações práticas.
+              Receba as orientações para pagamento e conclusão da inscrição.
             </p>
-
           </div>
 
 
-          <div class="feature-card">
+          <div class="step">
+            <div class="step-number">4</div>
 
-            <div class="feature-icon">🎯</div>
-
-            <h3>
-              Foco na prática
-            </h3>
+            <h3>Comece a aprender</h3>
 
             <p>
-              Os exemplos e exercícios procuram aproximar o conteúdo
-              das situações encontradas no trabalho e nos negócios.
+              Após a confirmação, receberá as orientações para começar a formação.
             </p>
-
-          </div>
-
-
-          <div class="feature-card">
-
-            <div class="feature-icon">📱</div>
-
-            <h3>
-              Telemóvel ou computador
-            </h3>
-
-            <p>
-              A plataforma é responsiva e pode ser utilizada em diferentes
-              dispositivos.
-            </p>
-
-          </div>
-
-
-          <div class="feature-card">
-
-            <div class="feature-icon">💬</div>
-
-            <h3>
-              Atendimento pelo WhatsApp
-            </h3>
-
-            <p>
-              O aluno pode entrar em contacto connosco diretamente pelo
-              WhatsApp para esclarecer dúvidas sobre inscrição.
-            </p>
-
-          </div>
-
-
-          <div class="feature-card">
-
-            <div class="feature-icon">💰</div>
-
-            <h3>
-              Preços acessíveis
-            </h3>
-
-            <p>
-              Nesta primeira fase, mantemos os preços baixos para facilitar
-              o acesso à formação.
-            </p>
-
           </div>
 
         </div>
@@ -1611,118 +1546,166 @@
 
 
     <!-- =========================
-         PAYMENT
+         SOBRE
     ========================== -->
 
-    <section class="payment-section" id="pagamento">
+    <section class="about" id="sobre">
+
+      <div class="container about-grid">
+
+        <div>
+
+          <small style="color:#60a5fa;font-weight:800;">
+            FELy E AMIGOS ACADEMY
+          </small>
+
+          <h2>
+            Conhecimento que pode transformar oportunidades.
+          </h2>
+
+          <p>
+            A Fely e Amigos Academy nasce com uma proposta simples:
+            tornar a aprendizagem profissional mais acessível, organizada
+            e próxima da realidade dos estudantes.
+          </p>
+
+          <p>
+            Nesta primeira versão, concentramos os cursos nos conhecimentos
+            fundamentais que podem servir como ponto de partida para novas
+            competências profissionais.
+          </p>
+
+          <div class="about-list">
+
+            <div>
+              <span class="check">✓</span>
+              <span>Conteúdos organizados por módulos.</span>
+            </div>
+
+            <div>
+              <span class="check">✓</span>
+              <span>Exemplos práticos e actividades.</span>
+            </div>
+
+            <div>
+              <span class="check">✓</span>
+              <span>Formações de 2 a 4 semanas.</span>
+            </div>
+
+            <div>
+              <span class="check">✓</span>
+              <span>Preços promocionais de 5.000 Kz a 10.000 Kz.</span>
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <div class="about-card">
+
+          <h3>
+            A nossa primeira versão
+          </h3>
+
+          <div class="about-card-item">
+            <strong>20</strong>
+            <span>Cursos disponíveis</span>
+          </div>
+
+          <div class="about-card-item">
+            <strong>Base</strong>
+            <span>Nível dos cursos</span>
+          </div>
+
+          <div class="about-card-item">
+            <strong>2–4 semanas</strong>
+            <span>Duração das formações</span>
+          </div>
+
+          <div class="about-card-item">
+            <strong>5.000–10.000 Kz</strong>
+            <span>Faixa promocional</span>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         PAGAMENTO
+    ========================== -->
+
+    <section class="payment" id="pagamento">
 
       <div class="container">
 
-        <div class="payment-grid">
+        <div class="section-heading">
 
-          <div>
+          <small>Inscrição</small>
 
-            <div class="section-head">
+          <h2>
+            Pagamento e confirmação
+          </h2>
 
-              <div class="section-label">
-                Inscrição
-              </div>
+          <p>
+            Nesta primeira versão, a confirmação do pagamento é feita
+            manualmente através do nosso contacto.
+          </p>
 
-              <h2>
-                Como fazer o pagamento?
-              </h2>
+        </div>
+
+
+        <div class="payment-box">
+
+          <div class="payment-grid">
+
+            <div class="payment-method">
+
+              <h3>💳 Pagamento</h3>
 
               <p>
-                Depois de escolher o curso, entre em contacto connosco
-                através do WhatsApp para receber as orientações de inscrição
-                e pagamento.
+                Para receber as instruções de pagamento, fale connosco
+                pelo WhatsApp.
               </p>
 
-            </div>
-
-            <a
-              href="https://wa.me/244948138785?text=Ol%C3%A1!%20Quero%20fazer%20a%20minha%20inscri%C3%A7%C3%A3o%20na%20Fely%20e%20Amigos%20Academy."
-              target="_blank"
-              class="btn btn-whatsapp"
-            >
-              💬 Contactar pelo WhatsApp
-            </a>
-
-          </div>
-
-
-          <div class="payment-card">
-
-            <h3>
-              Atlântico Express
-            </h3>
-
-            <p>
-              Para esta primeira versão, as instruções de pagamento serão
-              fornecidas diretamente pela equipa.
-            </p>
-
-            <div class="payment-number">
-
-              <small>
-                Contacto / referência
-              </small>
-
-              <strong>
+              <div class="payment-number">
                 948 138 785
-              </strong>
-
-            </div>
-
-            <p class="payment-note">
-              ⚠️ Antes de efectuar qualquer pagamento, confirme sempre
-              os dados enviados pela equipa da Fely e Amigos Academy.
-            </p>
-
-          </div>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- =========================
-         ABOUT
-    ========================== -->
-
-    <section id="sobre">
-
-      <div class="container">
-
-        <div class="about-grid">
-
-          <div>
-
-            <div class="section-head">
-
-              <div class="section-label">
-                Sobre a plataforma
               </div>
 
-              <h2>
-                Formação pensada para pessoas reais.
-              </h2>
-
-              <p>
-                A Fely e Amigos Academy nasce com uma proposta simples:
-                tornar a aprendizagem profissional mais acessível, prática
-                e compreensível.
+              <p class="payment-note">
+                Contacto WhatsApp da Fely e Amigos Academy.
               </p>
 
               <br>
 
-              <p>
-                Nesta primeira versão, começamos com cursos de nível Base.
-                A ideia é construir uma plataforma sólida e, posteriormente,
-                acrescentar níveis intermédios, avançados, novas áreas e
-                outras funcionalidades.
+              <button
+                class="btn btn-primary"
+                onclick="openGeneralWhatsApp()"
+              >
+                💬 Falar no WhatsApp
+              </button>
+
+            </div>
+
+
+            <div class="payment-method">
+
+              <h3>📋 Após o pagamento</h3>
+
+              <p class="payment-note">
+                Envie a referência ou comprovativo conforme as orientações
+                recebidas pelo WhatsApp.
+              </p>
+
+              <br>
+
+              <p class="payment-note">
+                A equipa poderá confirmar manualmente a inscrição e orientar
+                o estudante sobre os próximos passos.
               </p>
 
             </div>
@@ -1730,27 +1713,40 @@
           </div>
 
 
-          <div class="about-box">
-
-            <h3>
-              A nossa visão
-            </h3>
-
-            <p>
-              Criar uma plataforma de aprendizagem que ajude jovens,
-              profissionais, empreendedores e outras pessoas a desenvolver
-              competências úteis para a vida profissional e empresarial.
-            </p>
-
-            <br>
-
-            <strong>
-              Aprenda. Pratique. Evolua.
-            </strong>
-
+          <div class="warning">
+            <strong>Importante:</strong>
+            nesta primeira versão do website não estamos a afirmar que existe
+            uma integração automática com o banco. A confirmação do pagamento
+            é feita de forma manual até existir uma integração oficial e segura.
           </div>
 
         </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         CTA
+    ========================== -->
+
+    <section class="cta">
+
+      <div class="container">
+
+        <h2>
+          Pronto para começar?
+        </h2>
+
+        <p>
+          Escolha uma formação e fale connosco directamente pelo WhatsApp
+          para receber as orientações de inscrição.
+        </p>
+
+        <a href="#cursos" class="btn btn-light">
+          🎓 Ver todos os cursos
+        </a>
 
       </div>
 
@@ -1769,16 +1765,16 @@
 
       <div class="footer-grid">
 
-        <div>
+        <div class="footer-brand">
 
-          <div class="logo" style="color:white; margin-bottom:15px;">
-            <span class="logo-mark">FA</span>
+          <div class="logo" style="color:white;">
+            <div class="logo-icon">F</div>
             <span>Fely e Amigos Academy</span>
           </div>
 
           <p>
-            Formação acessível, prática e orientada para o desenvolvimento
-            de competências.
+            Formação profissional acessível, prática e organizada
+            para ajudar estudantes a desenvolver novas competências.
           </p>
 
         </div>
@@ -1786,57 +1782,35 @@
 
         <div>
 
-          <h3>
-            Navegação
-          </h3>
+          <h4>Navegação</h4>
 
-          <div class="footer-links">
-            <a href="#inicio">Início</a>
-            <a href="#cursos">Cursos</a>
-            <a href="#como-funciona">Como funciona</a>
-            <a href="#pagamento">Pagamento</a>
-            <a href="#sobre">Sobre nós</a>
-          </div>
+          <ul>
+            <li><a href="#inicio">Início</a></li>
+            <li><a href="#cursos">Cursos</a></li>
+            <li><a href="#como-funciona">Como funciona</a></li>
+            <li><a href="#sobre">Sobre</a></li>
+          </ul>
 
         </div>
 
 
         <div>
 
-          <h3>
-            Contacto
-          </h3>
+          <h4>Contacto</h4>
 
-          <div class="footer-links">
-
-            <a
-              href="https://wa.me/244948138785"
-              target="_blank"
-            >
-              WhatsApp: 948 138 785
-            </a>
-
-            <span>
-              Angola
-            </span>
-
-          </div>
+          <ul>
+            <li>WhatsApp</li>
+            <li>948 138 785</li>
+            <li>Angola 🇦🇴</li>
+          </ul>
 
         </div>
 
       </div>
 
 
-      <div class="footer-bottom">
-
-        © <span id="year"></span> Fely e Amigos Academy.
-        Todos os direitos reservados.
-
-        <br><br>
-
-        Estrutura pedagógica baseada em referências técnicas e educacionais
-        confiáveis, com conteúdos adaptados e redigidos para esta plataforma.
-
+      <div class="copyright">
+        © <span id="year"></span> Fely e Amigos Academy. Todos os direitos reservados.
       </div>
 
     </div>
@@ -1845,111 +1819,99 @@
 
 
   <!-- =========================
-       WHATSAPP FLOAT
+       WHATSAPP FLUTUANTE
   ========================== -->
 
   <a
-    class="whatsapp-float"
-    href="https://wa.me/244948138785?text=Ol%C3%A1!%20Gostaria%20de%20saber%20mais%20sobre%20os%20cursos%20da%20Fely%20e%20Amigos%20Academy."
-    target="_blank"
-    aria-label="Falar connosco no WhatsApp"
+    href="#"
+    class="whatsapp-floating"
+    onclick="openGeneralWhatsApp(); return false;"
   >
     <span>💬</span>
-    <span class="whatsapp-label">Fale connosco</span>
+    <span class="wa-label">Fale connosco</span>
   </a>
 
 
   <!-- =========================
-       COURSE MODAL
+       MODAL DE CURSO
   ========================== -->
 
   <div class="modal" id="courseModal">
 
     <div class="modal-box">
 
-      <div class="modal-header">
+      <button
+        class="close-modal"
+        onclick="closeModal()"
+      >
+        ×
+      </button>
 
-        <div>
-          <h2 id="modalTitle">
-            Curso
-          </h2>
+      <div
+        class="modal-image"
+        id="modalImage"
+      >
 
-          <div class="modal-meta" id="modalMeta">
-            Nível Base
-          </div>
+        <div class="modal-image-content">
+
+          <h2 id="modalTitle"></h2>
+
         </div>
-
-        <button
-          class="close-modal"
-          onclick="closeCourseModal()"
-          aria-label="Fechar"
-        >
-          ✕
-        </button>
 
       </div>
 
 
-      <div class="modal-content">
+      <div class="modal-body">
 
-        <div class="course-summary">
+        <div class="modal-meta">
 
-          <div class="course-summary-grid">
+          <span class="modal-tag" id="modalCategory"></span>
 
-            <div class="summary-item">
-              <small>Nível</small>
-              <strong id="modalLevel">Base</strong>
-            </div>
+          <span class="modal-tag">
+            🌱 Nível Base
+          </span>
 
-            <div class="summary-item">
-              <small>Duração</small>
-              <strong id="modalDuration">3 semanas</strong>
-            </div>
-
-            <div class="summary-item">
-              <small>Preço</small>
-              <strong id="modalPrice">7.000 Kz</strong>
-            </div>
-
-          </div>
-
-
-          <div class="progress-wrap">
-
-            <div class="progress-top">
-              <span>Progresso demonstrativo</span>
-              <span id="progressText">0%</span>
-            </div>
-
-            <div class="progress">
-              <div class="progress-bar" id="progressBar"></div>
-            </div>
-
-          </div>
+          <span class="modal-tag" id="modalDuration"></span>
 
         </div>
 
 
-        <div id="modalModules"></div>
+        <p
+          class="modal-description"
+          id="modalDescription"
+        ></p>
 
-      </div>
+
+        <h3 style="margin-bottom:15px;">
+          Conteúdo programático
+        </h3>
 
 
-      <div class="modal-footer">
+        <div
+          class="modules"
+          id="modalModules"
+        ></div>
 
-        <button
-          class="btn btn-light"
-          onclick="closeCourseModal()"
-        >
-          Fechar
-        </button>
 
-        <button
-          class="btn btn-whatsapp"
-          id="modalWhatsapp"
-        >
-          💬 Quero este curso no WhatsApp
-        </button>
+        <div class="modal-footer">
+
+          <div class="modal-price">
+
+            <small>Preço promocional</small>
+
+            <strong id="modalPrice"></strong>
+
+          </div>
+
+
+          <button
+            class="btn whatsapp-btn"
+            id="modalWhatsApp"
+          >
+            💬 Quero este curso
+          </button>
+
+        </div>
 
       </div>
 
@@ -1964,20 +1926,18 @@
 
   <script>
 
-    /*
-      ==========================================
-      CONFIGURAÇÃO DO WHATSAPP
-      ==========================================
-    */
+    /* =========================================
+       CONFIGURAÇÃO
+    ========================================= */
 
     const WHATSAPP_NUMBER = "244948138785";
 
+    let currentFilter = "Todos";
 
-    /*
-      ==========================================
-      CATÁLOGO DE CURSOS
-      ==========================================
-    */
+
+    /* =========================================
+       CATÁLOGO DOS CURSOS
+    ========================================= */
 
     const courses = [
 
@@ -1985,91 +1945,30 @@
         id: 1,
         title: "Informática Essencial",
         category: "Informática",
-        duration: "3 semanas",
-        price: 7000,
-        oldPrice: 12000,
-        emoji: "💻",
-        description: "Aprenda os fundamentos da informática e utilize o computador com mais segurança.",
+        price: 5000,
+        duration: "2 semanas",
+        image: "https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1000&q=85",
+        description: "Fundamentos de informática para quem deseja utilizar o computador com mais segurança e autonomia.",
         modules: [
           {
-            title: "Módulo 1 — Fundamentos da informática",
+            title: "Módulo 1 — Computador e sistema",
             lessons: [
-              {
-                title: "O computador e os seus componentes",
-                text: "Conheça os principais componentes de um computador, como processador, memória, armazenamento, monitor, teclado e rato.",
-                example: "Exemplo: o teclado é utilizado para introduzir texto e comandos, enquanto o armazenamento guarda os seus ficheiros.",
-                challenge: "Identifique no seu computador pelo menos cinco componentes e explique a função de cada um.",
-                quiz: {
-                  question: "Qual componente é utilizado principalmente para introduzir texto?",
-                  options: ["Monitor", "Teclado", "Coluna"],
-                  correct: 1
-                }
-              },
-              {
-                title: "Ficheiros e pastas",
-                text: "Aprenda a criar, organizar, renomear, copiar e eliminar ficheiros e pastas.",
-                example: "Exemplo: pode criar uma pasta chamada 'Documentos' e dentro dela organizar documentos por ano ou assunto.",
-                challenge: "Crie uma estrutura de pastas para organizar documentos pessoais.",
-                quiz: {
-                  question: "Qual é a principal função de uma pasta?",
-                  options: ["Organizar ficheiros", "Aumentar o brilho", "Ligar a Internet"],
-                  correct: 0
-                }
-              }
+              ["Conhecendo o computador", "Hardware, software, dispositivos de entrada e saída."],
+              ["Ficheiros e pastas", "Criar, organizar, copiar, mover e localizar ficheiros."]
             ]
           },
           {
-            title: "Módulo 2 — Utilização prática",
+            title: "Módulo 2 — Internet e produtividade",
             lessons: [
-              {
-                title: "Internet e pesquisa",
-                text: "Aprenda a utilizar navegadores, pesquisar informação e reconhecer resultados relevantes.",
-                example: "Utilize palavras-chave específicas em vez de escrever perguntas demasiado longas.",
-                challenge: "Faça uma pesquisa sobre uma profissão e compare duas fontes diferentes.",
-                quiz: {
-                  question: "O que ajuda a obter melhores resultados numa pesquisa?",
-                  options: ["Palavras-chave claras", "Desligar o navegador", "Apagar o teclado"],
-                  correct: 0
-                }
-              },
-              {
-                title: "Segurança digital básica",
-                text: "Conheça boas práticas para proteger contas, palavras-passe e informações pessoais.",
-                example: "Evite utilizar a mesma palavra-passe em todas as suas contas.",
-                challenge: "Faça uma lista de três práticas que pode melhorar na sua segurança digital.",
-                quiz: {
-                  question: "Qual prática é mais segura?",
-                  options: ["Partilhar a palavra-passe", "Utilizar palavras-passe fortes", "Usar '123456'"],
-                  correct: 1
-                }
-              }
+              ["Internet e pesquisa", "Navegação, pesquisa e avaliação básica de informação."],
+              ["Email e comunicação", "Criar, enviar, responder e organizar mensagens."]
             ]
           },
           {
-            title: "Módulo 3 — Produtividade",
+            title: "Módulo 3 — Office básico",
             lessons: [
-              {
-                title: "Documentos digitais",
-                text: "Aprenda os princípios básicos para criar, guardar e partilhar documentos digitais.",
-                example: "Um documento profissional deve possuir um nome claro e ser guardado numa pasta adequada.",
-                challenge: "Crie um documento chamado 'Currículo' e organize-o numa pasta.",
-                quiz: {
-                  question: "O que facilita encontrar um documento?",
-                  options: ["Nome claro", "Nome aleatório", "Apagar o ficheiro"],
-                  correct: 0
-                }
-              },
-              {
-                title: "Organização do trabalho",
-                text: "Aprenda a organizar ficheiros e tarefas digitais de forma simples.",
-                example: "Separar documentos pessoais, profissionais e escolares ajuda a reduzir a desorganização.",
-                challenge: "Organize os seus principais ficheiros em categorias.",
-                quiz: {
-                  question: "Uma boa organização ajuda a:",
-                  options: ["Perder ficheiros", "Encontrar informação rapidamente", "Eliminar documentos"],
-                  correct: 1
-                }
-              }
+              ["Word básico", "Texto, formatação, listas e documentos simples."],
+              ["Excel e PowerPoint", "Introdução a folhas de cálculo e apresentações."]
             ]
           }
         ]
@@ -2080,91 +1979,30 @@
         id: 2,
         title: "Programação Web",
         category: "Tecnologia",
-        duration: "4 semanas",
         price: 10000,
-        oldPrice: 18000,
-        emoji: "🌐",
-        description: "Comece a criar páginas web utilizando HTML, CSS e fundamentos de JavaScript.",
+        duration: "4 semanas",
+        image: "https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=1000&q=85",
+        description: "Introdução à criação de páginas web usando HTML, CSS e JavaScript.",
         modules: [
           {
             title: "Módulo 1 — HTML",
             lessons: [
-              {
-                title: "Estrutura de uma página",
-                text: "Aprenda o papel do HTML na estruturação de conteúdos para a Web.",
-                example: "Uma página pode possuir título, cabeçalho, parágrafos, imagens, links e secções.",
-                challenge: "Crie uma página com título, parágrafo e um link.",
-                quiz: {
-                  question: "Qual é a função principal do HTML?",
-                  options: ["Estruturar conteúdo", "Criar banco de dados", "Editar fotografias"],
-                  correct: 0
-                }
-              },
-              {
-                title: "Links, imagens e listas",
-                text: "Aprenda a adicionar links, imagens e listas às páginas.",
-                example: "Uma lista pode ser utilizada para apresentar serviços ou tópicos de um curso.",
-                challenge: "Crie uma lista com cinco competências que deseja aprender.",
-                quiz: {
-                  question: "Para que servem os links?",
-                  options: ["Ligar páginas ou recursos", "Aumentar memória", "Desligar o computador"],
-                  correct: 0
-                }
-              }
+              ["Estrutura de uma página", "HTML, elementos, títulos, parágrafos e organização do conteúdo."],
+              ["Links, imagens e formulários", "Criar páginas com links, imagens e campos de formulário."]
             ]
           },
           {
             title: "Módulo 2 — CSS",
             lessons: [
-              {
-                title: "Estilos e cores",
-                text: "Aprenda como CSS controla a apresentação visual de uma página.",
-                example: "Pode alterar cores, tamanhos, margens e tipos de letra.",
-                challenge: "Crie uma página e altere a cor do título e do fundo.",
-                quiz: {
-                  question: "Qual tecnologia é utilizada para estilizar páginas?",
-                  options: ["CSS", "SQL", "Excel"],
-                  correct: 0
-                }
-              },
-              {
-                title: "Layout responsivo",
-                text: "Conheça princípios básicos para criar páginas que funcionem em telemóveis e computadores.",
-                example: "Uma grelha de cartões pode passar de quatro colunas no computador para uma coluna no telemóvel.",
-                challenge: "Teste uma página em diferentes tamanhos de ecrã.",
-                quiz: {
-                  question: "Uma página responsiva adapta-se:",
-                  options: ["Ao tamanho do ecrã", "Somente à impressora", "Ao teclado"],
-                  correct: 0
-                }
-              }
+              ["Estilos e seletores", "Cores, fontes, espaçamento, classes e seletores."],
+              ["Layout responsivo", "Flexbox, organização de blocos e adaptação ao telemóvel."]
             ]
           },
           {
             title: "Módulo 3 — JavaScript",
             lessons: [
-              {
-                title: "Variáveis e condições",
-                text: "Conheça variáveis e estruturas condicionais para criar comportamentos simples.",
-                example: "Uma aplicação pode verificar se o utilizador está autenticado antes de mostrar determinada área.",
-                challenge: "Crie uma condição que verifique se uma idade é maior ou igual a 18.",
-                quiz: {
-                  question: "JavaScript pode ser utilizado para:",
-                  options: ["Criar interatividade", "Fabricar hardware", "Imprimir dinheiro"],
-                  correct: 0
-                }
-              },
-              {
-                title: "Eventos e funções",
-                text: "Aprenda os fundamentos de funções e eventos de interação.",
-                example: "Um botão pode executar uma função quando o utilizador clica nele.",
-                challenge: "Crie um botão que mostre uma mensagem.",
-                quiz: {
-                  question: "Um clique num botão pode disparar:",
-                  options: ["Um evento", "Um monitor", "Uma pasta"],
-                  correct: 0
-                }
-              }
+              ["Lógica e variáveis", "Variáveis, operadores, condições e funções."],
+              ["Interactividade", "Eventos e criação de pequenas funcionalidades para uma página."]
             ]
           }
         ]
@@ -2175,91 +2013,30 @@
         id: 3,
         title: "Inglês do Zero",
         category: "Línguas",
+        price: 7500,
         duration: "4 semanas",
-        price: 8000,
-        oldPrice: 15000,
-        emoji: "🇬🇧",
-        description: "Comece a comunicar em inglês através de vocabulário e frases do dia a dia.",
+        image: "https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1000&q=85",
+        description: "Primeiros passos em inglês para situações simples do quotidiano.",
         modules: [
           {
             title: "Módulo 1 — Primeiras palavras",
             lessons: [
-              {
-                title: "Saudações",
-                text: "Aprenda expressões básicas como Hello, Good morning, Good afternoon e Goodbye.",
-                example: "Hello! My name is Ana.",
-                challenge: "Apresente-se em inglês utilizando pelo menos três frases.",
-                quiz: {
-                  question: "Como dizemos 'Bom dia'?",
-                  options: ["Good morning", "Good night", "Goodbye"],
-                  correct: 0
-                }
-              },
-              {
-                title: "Números e informações pessoais",
-                text: "Aprenda números e frases simples para falar sobre si.",
-                example: "I am 20 years old.",
-                challenge: "Diga a sua idade e número de telefone em inglês.",
-                quiz: {
-                  question: "Como dizemos 'vinte'?",
-                  options: ["Ten", "Twenty", "Twelve"],
-                  correct: 1
-                }
-              }
+              ["Saudações", "Hello, good morning, good afternoon e expressões básicas."],
+              ["Apresentação pessoal", "Nome, idade, profissão e informações pessoais simples."]
             ]
           },
           {
-            title: "Módulo 2 — Comunicação",
+            title: "Módulo 2 — Vocabulário essencial",
             lessons: [
-              {
-                title: "Perguntas básicas",
-                text: "Aprenda perguntas simples para iniciar uma conversa.",
-                example: "Where are you from? What is your name?",
-                challenge: "Escreva cinco perguntas simples em inglês.",
-                quiz: {
-                  question: "What is your name? significa:",
-                  options: ["Onde moras?", "Qual é o teu nome?", "Quantos anos tens?"],
-                  correct: 1
-                }
-              },
-              {
-                title: "Situações do quotidiano",
-                text: "Pratique vocabulário relacionado com compras, trabalho e deslocações.",
-                example: "How much is this?",
-                challenge: "Crie um pequeno diálogo numa loja.",
-                quiz: {
-                  question: "How much is this? significa:",
-                  options: ["Quanto custa isto?", "Onde fica isto?", "Quem é isto?"],
-                  correct: 0
-                }
-              }
+              ["Números, dias e horas", "Números, datas, dias da semana e horários."],
+              ["Rotina diária", "Vocabulário para falar sobre actividades do dia a dia."]
             ]
           },
           {
-            title: "Módulo 3 — Construção de frases",
+            title: "Módulo 3 — Conversação básica",
             lessons: [
-              {
-                title: "Frases simples",
-                text: "Aprenda a formar frases simples utilizando sujeito, verbo e complemento.",
-                example: "I work in Luanda.",
-                challenge: "Crie cinco frases sobre a sua rotina.",
-                quiz: {
-                  question: "I work significa:",
-                  options: ["Eu trabalho", "Eu estudo", "Eu moro"],
-                  correct: 0
-                }
-              },
-              {
-                title: "Conversação básica",
-                text: "Combine as estruturas aprendidas para realizar pequenas conversas.",
-                example: "Hello. My name is Paulo. I am from Angola.",
-                challenge: "Faça uma apresentação de 30 segundos em inglês.",
-                quiz: {
-                  question: "Qual é uma boa forma de começar uma conversa?",
-                  options: ["Uma saudação", "Silêncio", "Sair imediatamente"],
-                  correct: 0
-                }
-              }
+              ["Perguntas simples", "What, where, who, when e how em situações básicas."],
+              ["Diálogos do quotidiano", "Prática de pequenas conversas em inglês."]
             ]
           }
         ]
@@ -2270,91 +2047,30 @@
         id: 4,
         title: "Espanhol Básico",
         category: "Línguas",
-        duration: "3 semanas",
         price: 7000,
-        oldPrice: 13000,
-        emoji: "🇪🇸",
-        description: "Aprenda vocabulário e expressões essenciais para começar a comunicar em espanhol.",
+        duration: "3 semanas",
+        image: "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?auto=format&fit=crop&w=1000&q=85",
+        description: "Aprenda as bases do espanhol e desenvolva vocabulário para situações comuns.",
         modules: [
           {
             title: "Módulo 1 — Fundamentos",
             lessons: [
-              {
-                title: "Saudações",
-                text: "Aprenda Hola, Buenos días, Buenas tardes e Adiós.",
-                example: "Hola, me llamo Carlos.",
-                challenge: "Faça uma apresentação simples em espanhol.",
-                quiz: {
-                  question: "Como dizemos 'Olá'?",
-                  options: ["Hola", "Gracias", "Adiós"],
-                  correct: 0
-                }
-              },
-              {
-                title: "Números",
-                text: "Aprenda os números básicos e pratique a pronúncia.",
-                example: "Uno, dos, tres, cuatro, cinco.",
-                challenge: "Conte de 1 a 20 em espanhol.",
-                quiz: {
-                  question: "Dos significa:",
-                  options: ["Um", "Dois", "Três"],
-                  correct: 1
-                }
-              }
+              ["Saudações", "Saludos, apresentações e expressões básicas."],
+              ["Pronúncia", "Alfabeto, sons e leitura de palavras simples."]
             ]
           },
           {
-            title: "Módulo 2 — Conversação",
+            title: "Módulo 2 — Vocabulário",
             lessons: [
-              {
-                title: "Apresentação pessoal",
-                text: "Aprenda a dizer nome, nacionalidade e profissão.",
-                example: "Soy angoleño. Soy estudiante.",
-                challenge: "Escreva uma apresentação com quatro frases.",
-                quiz: {
-                  question: "Soy estudiante significa:",
-                  options: ["Sou estudante", "Sou professor", "Sou médico"],
-                  correct: 0
-                }
-              },
-              {
-                title: "Vocabulário quotidiano",
-                text: "Conheça palavras usadas em situações comuns.",
-                example: "Casa, trabajo, comida, agua e escuela.",
-                challenge: "Crie uma lista com dez palavras em espanhol.",
-                quiz: {
-                  question: "Agua significa:",
-                  options: ["Água", "Comida", "Casa"],
-                  correct: 0
-                }
-              }
+              ["Números e tempo", "Números, dias, meses e horas."],
+              ["Verbos básicos", "Ser, estar, tener e outros verbos frequentes."]
             ]
           },
           {
-            title: "Módulo 3 — Prática",
+            title: "Módulo 3 — Comunicação",
             lessons: [
-              {
-                title: "Perguntas simples",
-                text: "Aprenda perguntas básicas para conversar.",
-                example: "¿Dónde vives? ¿Cómo te llamas?",
-                challenge: "Escreva cinco perguntas.",
-                quiz: {
-                  question: "¿Cómo te llamas? significa:",
-                  options: ["Como te chamas?", "Onde trabalhas?", "Quantos anos tens?"],
-                  correct: 0
-                }
-              },
-              {
-                title: "Diálogo básico",
-                text: "Junte as expressões aprendidas numa pequena conversa.",
-                example: "Hola. ¿Cómo te llamas? Me llamo Ana.",
-                challenge: "Crie um diálogo com duas pessoas.",
-                quiz: {
-                  question: "Hola é:",
-                  options: ["Uma saudação", "Um número", "Uma profissão"],
-                  correct: 0
-                }
-              }
+              ["Perguntas simples", "Como perguntar e responder em situações comuns."],
+              ["Diálogos", "Prática de conversas curtas."]
             ]
           }
         ]
@@ -2365,91 +2081,30 @@
         id: 5,
         title: "Empreendedorismo",
         category: "Negócios",
-        duration: "3 semanas",
         price: 8000,
-        oldPrice: 15000,
-        emoji: "🚀",
-        description: "Aprenda fundamentos para transformar uma ideia em uma pequena iniciativa de negócio.",
+        duration: "3 semanas",
+        image: "https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1000&q=85",
+        description: "Conhecimentos fundamentais para transformar uma ideia numa actividade empresarial organizada.",
         modules: [
           {
-            title: "Módulo 1 — Ideia de negócio",
+            title: "Módulo 1 — Ideia e oportunidade",
             lessons: [
-              {
-                title: "Identificar uma oportunidade",
-                text: "Aprenda a observar problemas e necessidades que podem transformar-se em oportunidades.",
-                example: "Se uma comunidade tem dificuldade em encontrar determinado serviço, essa necessidade pode representar uma oportunidade.",
-                challenge: "Liste três problemas existentes na sua comunidade que poderiam gerar oportunidades.",
-                quiz: {
-                  question: "Uma oportunidade de negócio pode nascer de:",
-                  options: ["Uma necessidade real", "Um problema ignorado", "Nenhuma observação"],
-                  correct: 0
-                }
-              },
-              {
-                title: "Cliente e problema",
-                text: "Conheça a importância de saber quem é o cliente e qual problema o negócio pretende resolver.",
-                example: "Uma lavandaria pode atender pessoas que não têm tempo para lavar e passar roupa.",
-                challenge: "Descreva o cliente e o problema da sua ideia.",
-                quiz: {
-                  question: "Antes de vender é importante conhecer:",
-                  options: ["O cliente", "Somente o logotipo", "Somente o nome"],
-                  correct: 0
-                }
-              }
+              ["Identificar necessidades", "Problemas, clientes e oportunidades de negócio."],
+              ["Proposta de valor", "Como explicar o benefício que o negócio oferece."]
             ]
           },
           {
-            title: "Módulo 2 — Planeamento",
+            title: "Módulo 2 — Custos e preços",
             lessons: [
-              {
-                title: "Custos básicos",
-                text: "Aprenda a diferenciar custos necessários para iniciar e operar uma actividade.",
-                example: "Material, transporte, renda e comunicação podem representar custos.",
-                challenge: "Faça uma lista dos custos iniciais da sua ideia.",
-                quiz: {
-                  question: "Custos representam:",
-                  options: ["Recursos necessários para operar", "Somente lucros", "Clientes"],
-                  correct: 0
-                }
-              },
-              {
-                title: "Preço e venda",
-                text: "Conheça a importância de considerar custos, mercado e valor oferecido ao definir preços.",
-                example: "Um preço sustentável deve permitir cobrir custos e contribuir para o resultado do negócio.",
-                challenge: "Escolha um produto e faça uma estimativa simples do seu preço.",
-                quiz: {
-                  question: "O preço deve considerar:",
-                  options: ["Custos e mercado", "Somente o nome", "A cor do produto"],
-                  correct: 0
-                }
-              }
+              ["Custos do negócio", "Custos fixos, variáveis e controlo básico."],
+              ["Formação de preços", "Relação entre custos, preço e margem."]
             ]
           },
           {
             title: "Módulo 3 — Organização",
             lessons: [
-              {
-                title: "Registo das operações",
-                text: "Aprenda por que é importante registar vendas, despesas e outras operações.",
-                example: "Um pequeno caderno ou uma folha de cálculo pode ajudar a acompanhar as operações.",
-                challenge: "Crie uma tabela simples para registar vendas.",
-                quiz: {
-                  question: "Registar vendas ajuda a:",
-                  options: ["Acompanhar o negócio", "Esconder informações", "Eliminar clientes"],
-                  correct: 0
-                }
-              },
-              {
-                title: "Melhoria do negócio",
-                text: "Aprenda a analisar resultados e procurar formas de melhorar produtos, atendimento e organização.",
-                example: "Perguntar aos clientes o que pode ser melhorado ajuda a recolher informação.",
-                challenge: "Defina três melhorias para a sua ideia.",
-                quiz: {
-                  question: "O feedback dos clientes pode ajudar a:",
-                  options: ["Melhorar o negócio", "Eliminar produtos automaticamente", "Parar de trabalhar"],
-                  correct: 0
-                }
-              }
+              ["Registos financeiros", "Registar vendas, despesas e movimentos de caixa."],
+              ["Plano simples", "Construir um pequeno plano de negócio."]
             ]
           }
         ]
@@ -2460,91 +2115,30 @@
         id: 6,
         title: "Marketing Digital",
         category: "Negócios",
-        duration: "4 semanas",
         price: 10000,
-        oldPrice: 18000,
-        emoji: "📱",
-        description: "Conheça os fundamentos do marketing digital e aprenda a promover uma marca online.",
+        duration: "4 semanas",
+        image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1000&q=85",
+        description: "Fundamentos do marketing digital, presença online, conteúdo e análise básica.",
         modules: [
           {
-            title: "Módulo 1 — Fundamentos",
+            title: "Módulo 1 — Estratégia",
             lessons: [
-              {
-                title: "O que é marketing digital?",
-                text: "Entenda como empresas e profissionais utilizam canais digitais para comunicar valor, alcançar pessoas e promover produtos ou serviços.",
-                example: "Uma pequena loja pode utilizar redes sociais para apresentar produtos e receber contactos.",
-                challenge: "Escolha um negócio e identifique três canais digitais que poderia utilizar.",
-                quiz: {
-                  question: "Marketing digital envolve:",
-                  options: ["Canais digitais", "Somente cartazes físicos", "Somente telefonemas"],
-                  correct: 0
-                }
-              },
-              {
-                title: "Público-alvo",
-                text: "Aprenda a identificar as pessoas que têm maior probabilidade de se interessar por uma oferta.",
-                example: "Uma formação para estudantes pode ter como público principal jovens em idade escolar ou universitária.",
-                challenge: "Descreva o público-alvo de um produto.",
-                quiz: {
-                  question: "Público-alvo significa:",
-                  options: ["Grupo de pessoas que queremos alcançar", "Qualquer pessoa sem distinção", "Somente funcionários"],
-                  correct: 0
-                }
-              }
+              ["Público-alvo", "Identificar quem são os potenciais clientes."],
+              ["Proposta de valor", "Definir a mensagem principal de uma marca."]
             ]
           },
           {
             title: "Módulo 2 — Conteúdo",
             lessons: [
-              {
-                title: "Criar conteúdo útil",
-                text: "Aprenda a produzir conteúdos que informem, orientem ou apresentem uma solução.",
-                example: "Uma loja pode publicar dicas de utilização dos produtos que vende.",
-                challenge: "Crie cinco ideias de publicações para um negócio.",
-                quiz: {
-                  question: "Um bom conteúdo deve:",
-                  options: ["Ter utilidade para o público", "Ser sempre confuso", "Não ter objetivo"],
-                  correct: 0
-                }
-              },
-              {
-                title: "Redes sociais",
-                text: "Conheça princípios básicos para organizar uma presença profissional nas redes sociais.",
-                example: "Uma página empresarial deve apresentar claramente o que oferece e como entrar em contacto.",
-                challenge: "Crie uma descrição curta para uma página empresarial.",
-                quiz: {
-                  question: "Uma página profissional deve facilitar:",
-                  options: ["O contacto", "A confusão", "A ocultação da informação"],
-                  correct: 0
-                }
-              }
+              ["Conteúdo digital", "Tipos de conteúdo e objectivos."],
+              ["Redes sociais", "Organização de presença e comunicação."]
             ]
           },
           {
-            title: "Módulo 3 — Análise",
+            title: "Módulo 3 — Resultados",
             lessons: [
-              {
-                title: "Resultados",
-                text: "Aprenda a observar indicadores simples como alcance, interações e contactos.",
-                example: "Uma publicação pode ter muitas visualizações mas poucos contactos, indicando que é necessário analisar o conteúdo.",
-                challenge: "Escolha três indicadores que gostaria de acompanhar.",
-                quiz: {
-                  question: "Indicadores ajudam a:",
-                  options: ["Avaliar resultados", "Apagar a Internet", "Criar computadores"],
-                  correct: 0
-                }
-              },
-              {
-                title: "Melhoria das campanhas",
-                text: "Aprenda a comparar resultados e melhorar gradualmente as estratégias.",
-                example: "Pode comparar dois tipos de publicações para descobrir qual gera mais contactos.",
-                challenge: "Imagine duas publicações e defina qual indicador usaria para compará-las.",
-                quiz: {
-                  question: "Analisar resultados ajuda a:",
-                  options: ["Tomar decisões melhores", "Eliminar clientes", "Desligar anúncios"],
-                  correct: 0
-                }
-              }
+              ["Métricas básicas", "Alcance, interacção, cliques e conversões."],
+              ["Plano de campanha", "Estruturar uma campanha digital simples."]
             ]
           }
         ]
@@ -2555,91 +2149,30 @@
         id: 7,
         title: "Desenvolvimento Pessoal",
         category: "Profissional",
-        duration: "2 semanas",
         price: 5000,
-        oldPrice: 9000,
-        emoji: "🌱",
-        description: "Desenvolva organização pessoal, comunicação, disciplina e definição de objetivos.",
+        duration: "2 semanas",
+        image: "https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&w=1000&q=85",
+        description: "Ferramentas práticas para organização pessoal, comunicação, objectivos e produtividade.",
         modules: [
           {
             title: "Módulo 1 — Autoconhecimento",
             lessons: [
-              {
-                title: "Conhecer os próprios pontos fortes",
-                text: "Aprenda a identificar competências, interesses e áreas que deseja melhorar.",
-                example: "Uma pessoa pode descobrir que possui facilidade para comunicar, mas precisa melhorar a organização.",
-                challenge: "Liste cinco pontos fortes e três áreas de melhoria.",
-                quiz: {
-                  question: "Autoconhecimento ajuda a:",
-                  options: ["Identificar forças e melhorias", "Evitar aprendizagem", "Ignorar objetivos"],
-                  correct: 0
-                }
-              },
-              {
-                title: "Objetivos",
-                text: "Aprenda a transformar desejos gerais em objetivos mais claros.",
-                example: "Em vez de 'quero estudar', defina 'vou estudar uma hora por dia durante cinco dias'.",
-                challenge: "Defina três objetivos para os próximos 30 dias.",
-                quiz: {
-                  question: "Um bom objetivo deve ser:",
-                  options: ["Claro", "Sempre impossível", "Sem prazo"],
-                  correct: 0
-                }
-              }
+              ["Objectivos pessoais", "Definir metas claras e realistas."],
+              ["Pontos fortes", "Identificar competências e áreas de melhoria."]
             ]
           },
           {
-            title: "Módulo 2 — Organização",
+            title: "Módulo 2 — Produtividade",
             lessons: [
-              {
-                title: "Gestão do tempo",
-                text: "Aprenda a organizar tarefas de acordo com prioridades.",
-                example: "Uma tarefa urgente e importante deve receber atenção antes de uma tarefa secundária.",
-                challenge: "Faça uma lista das suas tarefas da semana.",
-                quiz: {
-                  question: "Priorizar significa:",
-                  options: ["Definir o que merece atenção primeiro", "Eliminar todas as tarefas", "Trabalhar sem plano"],
-                  correct: 0
-                }
-              },
-              {
-                title: "Disciplina",
-                text: "Compreenda como hábitos consistentes podem ajudar no desenvolvimento pessoal.",
-                example: "Reservar um horário fixo para estudar pode facilitar a criação de uma rotina.",
-                challenge: "Escolha um hábito positivo para praticar durante 14 dias.",
-                quiz: {
-                  question: "Disciplina está relacionada com:",
-                  options: ["Consistência", "Desorganização", "Ausência de objetivos"],
-                  correct: 0
-                }
-              }
+              ["Gestão do tempo", "Prioridades, tarefas e planeamento."],
+              ["Hábitos", "Criar rotinas que apoiem os objectivos."]
             ]
           },
           {
             title: "Módulo 3 — Comunicação",
             lessons: [
-              {
-                title: "Comunicação clara",
-                text: "Aprenda a organizar ideias e transmitir mensagens de forma compreensível.",
-                example: "Uma mensagem profissional deve indicar claramente o assunto e a ação esperada.",
-                challenge: "Escreva uma mensagem profissional curta.",
-                quiz: {
-                  question: "Uma boa comunicação deve ser:",
-                  options: ["Clara", "Confusa", "Incompleta"],
-                  correct: 0
-                }
-              },
-              {
-                title: "Escuta ativa",
-                text: "Aprenda a ouvir, compreender e responder adequadamente.",
-                example: "Antes de responder, confirme se compreendeu o que a outra pessoa quis dizer.",
-                challenge: "Pratique fazer perguntas de esclarecimento numa conversa.",
-                quiz: {
-                  question: "Escuta ativa envolve:",
-                  options: ["Prestar atenção", "Interromper sempre", "Ignorar"],
-                  correct: 0
-                }
-              }
+              ["Comunicação eficaz", "Escuta, clareza e respeito."],
+              ["Plano pessoal", "Construir um plano de desenvolvimento."]
             ]
           }
         ]
@@ -2650,91 +2183,30 @@
         id: 8,
         title: "Excel Profissional",
         category: "Informática",
-        duration: "4 semanas",
-        price: 10000,
-        oldPrice: 18000,
-        emoji: "📊",
-        description: "Aprenda Excel desde os fundamentos até organização, fórmulas, filtros e gráficos básicos.",
+        price: 8000,
+        duration: "3 semanas",
+        image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1000&q=85",
+        description: "Aprenda a organizar dados, utilizar fórmulas, tabelas, filtros e gráficos no Excel.",
         modules: [
           {
             title: "Módulo 1 — Fundamentos",
             lessons: [
-              {
-                title: "Células, linhas e colunas",
-                text: "Conheça a estrutura básica de uma folha de cálculo.",
-                example: "A célula B3 está na coluna B e na linha 3.",
-                challenge: "Crie uma tabela com nome, idade e profissão.",
-                quiz: {
-                  question: "Uma célula é formada pelo encontro de:",
-                  options: ["Linha e coluna", "Duas páginas", "Dois ficheiros"],
-                  correct: 0
-                }
-              },
-              {
-                title: "Introdução de dados",
-                text: "Aprenda a introduzir texto, números e datas numa folha de cálculo.",
-                example: "Uma tabela de vendas pode possuir data, produto, quantidade e valor.",
-                challenge: "Crie cinco registos de vendas.",
-                quiz: {
-                  question: "Excel pode trabalhar com:",
-                  options: ["Números e texto", "Somente imagens", "Somente áudio"],
-                  correct: 0
-                }
-              }
+              ["Células e folhas", "Linhas, colunas, células, folhas e livros."],
+              ["Fórmulas básicas", "Operações, SUM, AVERAGE, MIN e MAX."]
             ]
           },
           {
-            title: "Módulo 2 — Fórmulas",
+            title: "Módulo 2 — Organização",
             lessons: [
-              {
-                title: "Fórmulas básicas",
-                text: "Aprenda a utilizar operações simples como soma, subtração, multiplicação e divisão.",
-                example: "=A1+B1 pode somar os valores de duas células.",
-                challenge: "Crie uma tabela e calcule o total de cinco produtos.",
-                quiz: {
-                  question: "As fórmulas do Excel normalmente começam com:",
-                  options: ["=", "#", "@"],
-                  correct: 0
-                }
-              },
-              {
-                title: "Função SOMA",
-                text: "Aprenda a utilizar a função SOMA para totalizar valores.",
-                example: "=SOMA(B2:B6)",
-                challenge: "Some os valores de uma lista de despesas.",
-                quiz: {
-                  question: "SOMA serve para:",
-                  options: ["Adicionar valores", "Apagar dados", "Mudar o idioma"],
-                  correct: 0
-                }
-              }
+              ["Ordenar e filtrar", "Organizar e encontrar informações."],
+              ["Tabelas", "Criar tabelas para organizar conjuntos de dados."]
             ]
           },
           {
-            title: "Módulo 3 — Organização e gráficos",
+            title: "Módulo 3 — Visualização",
             lessons: [
-              {
-                title: "Ordenação e filtros",
-                text: "Aprenda a organizar dados e encontrar informações específicas.",
-                example: "Pode filtrar uma tabela para mostrar apenas vendas de determinado produto.",
-                challenge: "Crie uma tabela e experimente ordenar os valores.",
-                quiz: {
-                  question: "Um filtro ajuda a:",
-                  options: ["Mostrar dados específicos", "Apagar o Excel", "Criar um teclado"],
-                  correct: 0
-                }
-              },
-              {
-                title: "Gráficos básicos",
-                text: "Aprenda a transformar dados em representações visuais simples.",
-                example: "Um gráfico de colunas pode comparar vendas de vários produtos.",
-                challenge: "Crie um gráfico simples com cinco valores.",
-                quiz: {
-                  question: "Um gráfico ajuda a:",
-                  options: ["Visualizar dados", "Eliminar dados", "Desligar a folha"],
-                  correct: 0
-                }
-              }
+              ["Gráficos", "Transformar dados em gráficos simples."],
+              ["Mini projecto", "Criar uma pequena folha de controlo."]
             ]
           }
         ]
@@ -2745,91 +2217,30 @@
         id: 9,
         title: "Programação Prática",
         category: "Tecnologia",
-        duration: "4 semanas",
         price: 10000,
-        oldPrice: 18000,
-        emoji: "👨‍💻",
-        description: "Desenvolva pequenos projetos utilizando lógica de programação e tecnologias web.",
+        duration: "4 semanas",
+        image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1000&q=85",
+        description: "Fundamentos de lógica de programação para quem quer começar a pensar como programador.",
         modules: [
           {
             title: "Módulo 1 — Lógica",
             lessons: [
-              {
-                title: "Algoritmos",
-                text: "Aprenda a descrever uma sequência de passos para resolver um problema.",
-                example: "Preparar chá pode ser descrito como uma sequência ordenada de ações.",
-                challenge: "Escreva um algoritmo para fazer uma inscrição online.",
-                quiz: {
-                  question: "Um algoritmo é:",
-                  options: ["Uma sequência de passos", "Uma fotografia", "Uma música"],
-                  correct: 0
-                }
-              },
-              {
-                title: "Variáveis",
-                text: "Compreenda como programas guardam informações temporariamente.",
-                example: "Uma variável nome pode guardar o nome de uma pessoa.",
-                challenge: "Identifique cinco informações que poderiam ser guardadas em variáveis.",
-                quiz: {
-                  question: "Uma variável pode guardar:",
-                  options: ["Informação", "Somente imagens físicas", "Energia elétrica"],
-                  correct: 0
-                }
-              }
+              ["Algoritmos", "Sequências, problemas e passos para resolver tarefas."],
+              ["Variáveis", "Guardar e trabalhar com dados."]
             ]
           },
           {
-            title: "Módulo 2 — JavaScript",
+            title: "Módulo 2 — Estruturas",
             lessons: [
-              {
-                title: "Condições",
-                text: "Aprenda a fazer um programa tomar decisões.",
-                example: "Se a idade for maior ou igual a 18, o programa pode indicar que a pessoa é adulta.",
-                challenge: "Crie uma condição simples.",
-                quiz: {
-                  question: "Uma condição permite:",
-                  options: ["Tomar decisões", "Criar eletricidade", "Formatar papel"],
-                  correct: 0
-                }
-              },
-              {
-                title: "Funções",
-                text: "Aprenda a organizar código em blocos reutilizáveis.",
-                example: "Uma função pode calcular o total de uma compra.",
-                challenge: "Defina uma função que receba dois números.",
-                quiz: {
-                  question: "Uma função ajuda a:",
-                  options: ["Reutilizar lógica", "Apagar o computador", "Substituir a Internet"],
-                  correct: 0
-                }
-              }
+              ["Condições", "Tomada de decisões através de if/else."],
+              ["Repetições e funções", "Loops e organização do código."]
             ]
           },
           {
-            title: "Módulo 3 — Pequeno projeto",
+            title: "Módulo 3 — Projecto",
             lessons: [
-              {
-                title: "Interação com o utilizador",
-                text: "Aprenda a responder a ações do utilizador numa página.",
-                example: "Um botão pode abrir uma mensagem ou alterar uma parte da página.",
-                challenge: "Crie uma página com um botão interativo.",
-                quiz: {
-                  question: "Um botão pode:",
-                  options: ["Disparar uma ação", "Aumentar RAM", "Trocar o teclado"],
-                  correct: 0
-                }
-              },
-              {
-                title: "Projeto final",
-                text: "Combine HTML, CSS e JavaScript para criar uma pequena página interativa.",
-                example: "Uma página de apresentação pessoal pode ter informações, estilos e um botão de interação.",
-                challenge: "Crie a sua primeira mini aplicação web.",
-                quiz: {
-                  question: "Um projeto web pode combinar:",
-                  options: ["HTML, CSS e JavaScript", "Somente Excel", "Somente Word"],
-                  correct: 0
-                }
-              }
+              ["Construir uma solução", "Aplicar os conceitos num pequeno projecto."],
+              ["Git e GitHub", "Introdução ao controlo de versões e repositórios."]
             ]
           }
         ]
@@ -2840,91 +2251,30 @@
         id: 10,
         title: "Operador de Caixa",
         category: "Profissional",
+        price: 7000,
         duration: "3 semanas",
-        price: 8000,
-        oldPrice: 14000,
-        emoji: "🧾",
-        description: "Aprenda os fundamentos do trabalho de operador de caixa, atendimento, pagamentos e fecho.",
+        image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=1000&q=85",
+        description: "Fundamentos para trabalhar com atendimento, caixa, pagamentos e controlo de operações.",
         modules: [
           {
             title: "Módulo 1 — Função do operador",
             lessons: [
-              {
-                title: "Responsabilidades",
-                text: "Conheça as principais responsabilidades de um operador de caixa e a importância da precisão no trabalho.",
-                example: "O operador deve conferir valores, registar operações e prestar atendimento adequado.",
-                challenge: "Liste cinco responsabilidades de um operador de caixa.",
-                quiz: {
-                  question: "Uma responsabilidade importante é:",
-                  options: ["Conferir valores", "Ignorar pagamentos", "Evitar clientes"],
-                  correct: 0
-                }
-              },
-              {
-                title: "Organização do posto",
-                text: "Aprenda a organizar o posto de trabalho antes de iniciar o atendimento.",
-                example: "Materiais, equipamentos e fundo de caixa devem estar organizados.",
-                challenge: "Crie uma lista de verificação para abertura do caixa.",
-                quiz: {
-                  question: "Antes de iniciar o trabalho é importante:",
-                  options: ["Organizar o posto", "Deixar tudo desorganizado", "Ignorar o caixa"],
-                  correct: 0
-                }
-              }
+              ["Responsabilidades", "Atendimento, organização e responsabilidade sobre o caixa."],
+              ["Abertura do caixa", "Conferência e preparação para iniciar operações."]
             ]
           },
           {
-            title: "Módulo 2 — Atendimento e pagamentos",
+            title: "Módulo 2 — Operações",
             lessons: [
-              {
-                title: "Atendimento ao cliente",
-                text: "Aprenda princípios de cortesia, comunicação e atenção durante o atendimento.",
-                example: "Cumprimentar o cliente e confirmar a compra contribuem para um atendimento profissional.",
-                challenge: "Simule um atendimento completo.",
-                quiz: {
-                  question: "Um bom atendimento deve ser:",
-                  options: ["Respeitoso", "Agressivo", "Desatento"],
-                  correct: 0
-                }
-              },
-              {
-                title: "Troco e conferência",
-                text: "Aprenda a conferir o valor recebido e calcular o troco corretamente.",
-                example: "Se uma compra custa 7.500 Kz e o cliente entrega 10.000 Kz, o troco é 2.500 Kz.",
-                challenge: "Faça cinco exercícios de cálculo de troco.",
-                quiz: {
-                  question: "Compra de 4.000 Kz e pagamento de 5.000 Kz. Troco?",
-                  options: ["500 Kz", "1.000 Kz", "2.000 Kz"],
-                  correct: 1
-                }
-              }
+              ["Recebimentos", "Dinheiro, cartões e outros meios de pagamento."],
+              ["Registos", "Emissão e organização dos registos das operações."]
             ]
           },
           {
-            title: "Módulo 3 — Fecho do caixa",
+            title: "Módulo 3 — Fecho",
             lessons: [
-              {
-                title: "Conferência",
-                text: "Aprenda a comparar os valores registados com os valores disponíveis.",
-                example: "A conferência ajuda a identificar diferenças antes de encerrar o turno.",
-                challenge: "Crie um modelo simples de conferência.",
-                quiz: {
-                  question: "A conferência serve para:",
-                  options: ["Identificar diferenças", "Esconder erros", "Eliminar vendas"],
-                  correct: 0
-                }
-              },
-              {
-                title: "Fecho",
-                text: "Conheça os princípios básicos de encerramento do caixa e registo de ocorrências.",
-                example: "Uma diferença encontrada deve ser comunicada de acordo com os procedimentos da empresa.",
-                challenge: "Crie uma checklist de fecho.",
-                quiz: {
-                  question: "Uma diferença deve ser:",
-                  options: ["Registada/comunicada", "Escondida", "Ignorada"],
-                  correct: 0
-                }
-              }
+              ["Fecho do caixa", "Conferência de valores e identificação de diferenças."],
+              ["Prevenção de erros", "Boas práticas para reduzir falhas e perdas."]
             ]
           }
         ]
@@ -2935,91 +2285,30 @@
         id: 11,
         title: "Atendimento ao Cliente",
         category: "Profissional",
+        price: 6000,
         duration: "2 semanas",
-        price: 5000,
-        oldPrice: 9000,
-        emoji: "🤝",
-        description: "Desenvolva técnicas básicas para prestar um atendimento profissional e resolver situações.",
+        image: "https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=1000&q=85",
+        description: "Desenvolva competências para atender clientes com profissionalismo e resolver situações difíceis.",
         modules: [
           {
             title: "Módulo 1 — Fundamentos",
             lessons: [
-              {
-                title: "O cliente",
-                text: "Entenda a importância do cliente para uma organização.",
-                example: "Compreender a necessidade do cliente ajuda a oferecer uma solução mais adequada.",
-                challenge: "Liste cinco necessidades comuns dos clientes.",
-                quiz: {
-                  question: "O atendimento deve procurar:",
-                  options: ["Compreender a necessidade", "Ignorar o cliente", "Criar problemas"],
-                  correct: 0
-                }
-              },
-              {
-                title: "Primeira impressão",
-                text: "Aprenda como postura, linguagem e apresentação influenciam o atendimento.",
-                example: "Uma saudação cordial pode criar um início positivo.",
-                challenge: "Simule uma primeira abordagem profissional.",
-                quiz: {
-                  question: "Uma primeira impressão positiva pode ser criada por:",
-                  options: ["Cortesia", "Desrespeito", "Silêncio absoluto"],
-                  correct: 0
-                }
-              }
+              ["Conhecer o cliente", "Necessidades, expectativas e experiência."],
+              ["Primeiro contacto", "Saudação, apresentação e disponibilidade."]
             ]
           },
           {
             title: "Módulo 2 — Comunicação",
             lessons: [
-              {
-                title: "Escutar o cliente",
-                text: "Aprenda a ouvir antes de apresentar uma solução.",
-                example: "Faça perguntas para compreender exatamente o problema.",
-                challenge: "Pratique três perguntas de esclarecimento.",
-                quiz: {
-                  question: "Antes de responder devemos:",
-                  options: ["Ouvir", "Interromper", "Ignorar"],
-                  correct: 0
-                }
-              },
-              {
-                title: "Comunicação profissional",
-                text: "Aprenda a utilizar linguagem clara, respeitosa e objetiva.",
-                example: "Evite expressões agressivas mesmo quando o cliente está insatisfeito.",
-                challenge: "Transforme uma resposta agressiva numa resposta profissional.",
-                quiz: {
-                  question: "A linguagem profissional deve ser:",
-                  options: ["Clara e respeitosa", "Agressiva", "Confusa"],
-                  correct: 0
-                }
-              }
+              ["Escuta activa", "Ouvir e compreender antes de responder."],
+              ["Comunicação profissional", "Clareza, respeito e linguagem adequada."]
             ]
           },
           {
             title: "Módulo 3 — Reclamações",
             lessons: [
-              {
-                title: "Lidar com reclamações",
-                text: "Conheça uma abordagem básica para ouvir, compreender e encaminhar reclamações.",
-                example: "Ouvir sem interromper e confirmar o problema são bons primeiros passos.",
-                challenge: "Simule uma reclamação e escreva uma resposta profissional.",
-                quiz: {
-                  question: "Uma reclamação deve ser:",
-                  options: ["Ouvida e tratada", "Ignorada", "Ridicularizada"],
-                  correct: 0
-                }
-              },
-              {
-                title: "Fidelização",
-                text: "Aprenda como um bom atendimento pode contribuir para relações duradouras.",
-                example: "Cumprir promessas e tratar clientes com respeito ajuda a construir confiança.",
-                challenge: "Liste cinco atitudes que podem aumentar a confiança.",
-                quiz: {
-                  question: "Confiança é construída através de:",
-                  options: ["Consistência e respeito", "Promessas falsas", "Desrespeito"],
-                  correct: 0
-                }
-              }
+              ["Lidar com reclamações", "Manter a calma e procurar soluções."],
+              ["Qualidade no serviço", "Criar padrões básicos de atendimento."]
             ]
           }
         ]
@@ -3030,91 +2319,30 @@
         id: 12,
         title: "Técnicas de Vendas",
         category: "Negócios",
-        duration: "3 semanas",
         price: 7000,
-        oldPrice: 12000,
-        emoji: "💼",
-        description: "Aprenda fundamentos de vendas, abordagem, necessidades do cliente e acompanhamento.",
+        duration: "3 semanas",
+        image: "https://images.unsplash.com/photo-1556761175-4b46a572b786?auto=format&fit=crop&w=1000&q=85",
+        description: "Aprenda fundamentos de prospecção, apresentação, negociação e acompanhamento de clientes.",
         modules: [
           {
-            title: "Módulo 1 — Fundamentos",
+            title: "Módulo 1 — Cliente",
             lessons: [
-              {
-                title: "O processo de venda",
-                text: "Conheça etapas básicas desde a identificação do cliente até ao acompanhamento.",
-                example: "Uma venda pode começar com abordagem, identificação da necessidade, apresentação e acompanhamento.",
-                challenge: "Liste as etapas que utilizaria para vender um produto.",
-                quiz: {
-                  question: "Uma venda deve começar por:",
-                  options: ["Compreender o cliente", "Pressionar imediatamente", "Ignorar necessidades"],
-                  correct: 0
-                }
-              },
-              {
-                title: "Conhecer o produto",
-                text: "Aprenda por que o vendedor deve conhecer características, benefícios e limitações do produto.",
-                example: "Conhecer o produto permite responder perguntas com mais segurança.",
-                challenge: "Escolha um produto e escreva cinco características.",
-                quiz: {
-                  question: "Conhecer o produto ajuda a:",
-                  options: ["Responder melhor", "Confundir clientes", "Evitar perguntas"],
-                  correct: 0
-                }
-              }
+              ["Prospecção", "Identificar potenciais clientes."],
+              ["Necessidades", "Perguntas e descoberta das necessidades."]
             ]
           },
           {
-            title: "Módulo 2 — Abordagem",
+            title: "Módulo 2 — Apresentação",
             lessons: [
-              {
-                title: "Perguntas ao cliente",
-                text: "Aprenda a fazer perguntas para compreender necessidades.",
-                example: "O que procura? Qual é a principal necessidade? Qual orçamento possui?",
-                challenge: "Crie cinco perguntas de vendas.",
-                quiz: {
-                  question: "Perguntas ajudam a:",
-                  options: ["Compreender necessidades", "Encerrar sempre a conversa", "Evitar diálogo"],
-                  correct: 0
-                }
-              },
-              {
-                title: "Apresentação de benefícios",
-                text: "Aprenda a explicar como uma solução pode ajudar o cliente.",
-                example: "Em vez de apenas descrever uma característica, explique o benefício que ela oferece.",
-                challenge: "Apresente três benefícios de um produto.",
-                quiz: {
-                  question: "Benefício descreve:",
-                  options: ["Valor para o cliente", "Somente a embalagem", "O nome do vendedor"],
-                  correct: 0
-                }
-              }
+              ["Apresentar soluções", "Benefícios, características e valor."],
+              ["Objeções", "Responder a dúvidas e preocupações."]
             ]
           },
           {
-            title: "Módulo 3 — Fecho e acompanhamento",
+            title: "Módulo 3 — Fecho",
             lessons: [
-              {
-                title: "Fecho da venda",
-                text: "Conheça sinais de compra e formas simples de encaminhar a decisão.",
-                example: "Perguntar se o cliente deseja avançar pode ser mais adequado do que pressioná-lo.",
-                challenge: "Escreva três frases de fecho profissional.",
-                quiz: {
-                  question: "Um bom fecho deve ser:",
-                  options: ["Claro e respeitoso", "Agressivo", "Confuso"],
-                  correct: 0
-                }
-              },
-              {
-                title: "Pós-venda",
-                text: "Aprenda a importância de acompanhar o cliente depois da compra.",
-                example: "Uma mensagem de acompanhamento pode verificar se o cliente está satisfeito.",
-                challenge: "Crie uma mensagem de pós-venda.",
-                quiz: {
-                  question: "Pós-venda pode ajudar a:",
-                  options: ["Manter relacionamento", "Eliminar clientes", "Evitar feedback"],
-                  correct: 0
-                }
-              }
+              ["Fechar uma venda", "Reconhecer sinais e encaminhar a decisão."],
+              ["Pós-venda", "Acompanhamento e relacionamento."]
             ]
           }
         ]
@@ -3125,91 +2353,30 @@
         id: 13,
         title: "Secretariado Executivo",
         category: "Profissional",
-        duration: "4 semanas",
-        price: 10000,
-        oldPrice: 18000,
-        emoji: "📁",
-        description: "Desenvolva fundamentos de organização, atendimento, documentos e rotina administrativa.",
+        price: 8000,
+        duration: "3 semanas",
+        image: "https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=1000&q=85",
+        description: "Organização administrativa, documentos, agenda, comunicação e rotina de escritório.",
         modules: [
           {
             title: "Módulo 1 — Organização",
             lessons: [
-              {
-                title: "Rotina administrativa",
-                text: "Conheça tarefas comuns de apoio administrativo e secretariado.",
-                example: "Organização de documentos, agenda, contactos e comunicação.",
-                challenge: "Crie uma lista de tarefas para uma manhã de trabalho.",
-                quiz: {
-                  question: "Uma tarefa administrativa pode ser:",
-                  options: ["Organizar documentos", "Ignorar mensagens", "Perder ficheiros"],
-                  correct: 0
-                }
-              },
-              {
-                title: "Gestão de documentos",
-                text: "Aprenda princípios de classificação, organização e recuperação de documentos.",
-                example: "Separar documentos por assunto facilita a localização.",
-                challenge: "Crie um sistema de pastas para uma pequena empresa.",
-                quiz: {
-                  question: "Organizar documentos facilita:",
-                  options: ["Encontrá-los", "Perdê-los", "Eliminá-los"],
-                  correct: 0
-                }
-              }
+              ["Função do secretariado", "Responsabilidades e organização do trabalho."],
+              ["Documentos", "Organização e preparação de documentos."]
             ]
           },
           {
             title: "Módulo 2 — Comunicação",
             lessons: [
-              {
-                title: "Atendimento telefónico",
-                text: "Aprenda princípios básicos de atendimento profissional ao telefone.",
-                example: "Identifique a empresa, cumprimente e pergunte como pode ajudar.",
-                challenge: "Escreva um pequeno roteiro de atendimento.",
-                quiz: {
-                  question: "Ao atender uma chamada é importante:",
-                  options: ["Ser cordial", "Desligar imediatamente", "Ignorar o interlocutor"],
-                  correct: 0
-                }
-              },
-              {
-                title: "E-mails profissionais",
-                text: "Aprenda a estruturar mensagens profissionais claras.",
-                example: "Um e-mail deve possuir assunto, saudação, mensagem e encerramento.",
-                challenge: "Escreva um e-mail profissional curto.",
-                quiz: {
-                  question: "Um e-mail profissional deve possuir:",
-                  options: ["Assunto claro", "Somente emojis", "Nenhuma informação"],
-                  correct: 0
-                }
-              }
+              ["Agenda e reuniões", "Marcação, preparação e acompanhamento."],
+              ["Telefone e email", "Comunicação profissional."]
             ]
           },
           {
-            title: "Módulo 3 — Agenda e produtividade",
+            title: "Módulo 3 — Rotina",
             lessons: [
-              {
-                title: "Gestão de agenda",
-                text: "Aprenda a organizar compromissos e evitar conflitos de horários.",
-                example: "Registe reunião, data, hora, local e participantes.",
-                challenge: "Monte uma agenda semanal simples.",
-                quiz: {
-                  question: "Uma agenda ajuda a:",
-                  options: ["Organizar compromissos", "Criar conflitos", "Apagar reuniões"],
-                  correct: 0
-                }
-              },
-              {
-                title: "Prioridades",
-                text: "Aprenda a organizar tarefas de acordo com importância e prazo.",
-                example: "Uma reunião marcada para hoje pode ter prioridade sobre uma tarefa sem prazo.",
-                challenge: "Ordene cinco tarefas por prioridade.",
-                quiz: {
-                  question: "Priorizar ajuda a:",
-                  options: ["Gerir melhor o tempo", "Aumentar confusão", "Esquecer prazos"],
-                  correct: 0
-                }
-              }
+              ["Arquivo", "Organização e localização de documentos."],
+              ["Confidencialidade", "Protecção de informação e postura profissional."]
             ]
           }
         ]
@@ -3220,91 +2387,30 @@
         id: 14,
         title: "Contabilidade Básica",
         category: "Negócios",
+        price: 9000,
         duration: "4 semanas",
-        price: 10000,
-        oldPrice: 18000,
-        emoji: "🧮",
-        description: "Conheça conceitos fundamentais de receitas, despesas, registos e controlo financeiro.",
+        image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=1000&q=85",
+        description: "Introdução aos conceitos contabilísticos e registo básico das operações de uma organização.",
         modules: [
           {
-            title: "Módulo 1 — Fundamentos",
+            title: "Módulo 1 — Conceitos",
             lessons: [
-              {
-                title: "Receitas e despesas",
-                text: "Aprenda a diferenciar entradas e saídas de recursos.",
-                example: "Uma venda representa uma entrada, enquanto o pagamento de renda representa uma saída.",
-                challenge: "Classifique dez operações como receita ou despesa.",
-                quiz: {
-                  question: "Uma venda normalmente representa:",
-                  options: ["Receita", "Despesa", "Empréstimo automático"],
-                  correct: 0
-                }
-              },
-              {
-                title: "Património",
-                text: "Conheça de forma introdutória os elementos que uma organização possui e as suas obrigações.",
-                example: "Dinheiro, equipamentos e mercadorias são exemplos de recursos.",
-                challenge: "Liste cinco recursos de uma pequena empresa.",
-                quiz: {
-                  question: "Um computador utilizado pela empresa pode ser considerado:",
-                  options: ["Um recurso", "Uma receita", "Uma venda"],
-                  correct: 0
-                }
-              }
+              ["Património", "Activo, passivo e capital próprio."],
+              ["Documentos", "Facturas, recibos e documentos de suporte."]
             ]
           },
           {
             title: "Módulo 2 — Registos",
             lessons: [
-              {
-                title: "Registar operações",
-                text: "Aprenda por que o registo das operações é essencial para acompanhar a actividade.",
-                example: "Registar uma venda permite saber quanto foi vendido e quando.",
-                challenge: "Crie uma tabela de registo de operações.",
-                quiz: {
-                  question: "Registar operações ajuda a:",
-                  options: ["Controlar a actividade", "Esconder informação", "Eliminar receitas"],
-                  correct: 0
-                }
-              },
-              {
-                title: "Documentos",
-                text: "Conheça a importância de documentos que comprovam operações.",
-                example: "Faturas, recibos e comprovativos podem apoiar o controlo financeiro.",
-                challenge: "Liste documentos que uma pequena empresa pode utilizar.",
-                quiz: {
-                  question: "Um documento pode servir para:",
-                  options: ["Comprovar uma operação", "Eliminar uma venda", "Apagar um cliente"],
-                  correct: 0
-                }
-              }
+              ["Débito e crédito", "Introdução à lógica dos lançamentos."],
+              ["Operações", "Registo de transacções simples."]
             ]
           },
           {
             title: "Módulo 3 — Controlo",
             lessons: [
-              {
-                title: "Resultado simples",
-                text: "Aprenda a compreender de forma introdutória a relação entre receitas e despesas.",
-                example: "Se as receitas forem superiores às despesas num determinado período, existe um resultado positivo antes de outros factores.",
-                challenge: "Faça um cálculo simples com receitas e despesas.",
-                quiz: {
-                  question: "Receitas maiores que despesas indicam:",
-                  options: ["Resultado positivo", "Necessariamente prejuízo", "Ausência de actividade"],
-                  correct: 0
-                }
-              },
-              {
-                title: "Organização financeira",
-                text: "Aprenda práticas básicas para manter informações financeiras organizadas.",
-                example: "Separar documentos por mês facilita consultas futuras.",
-                challenge: "Crie uma estrutura de pastas financeiras.",
-                quiz: {
-                  question: "Organização financeira facilita:",
-                  options: ["Controlo", "Confusão", "Perda de documentos"],
-                  correct: 0
-                }
-              }
+              ["Caixa e banco", "Registo e controlo dos movimentos."],
+              ["Resultado simples", "Compreender receitas, custos e resultado."]
             ]
           }
         ]
@@ -3315,91 +2421,30 @@
         id: 15,
         title: "Gestão de Recursos Humanos",
         category: "Profissional",
+        price: 9000,
         duration: "4 semanas",
-        price: 10000,
-        oldPrice: 18000,
-        emoji: "👥",
-        description: "Conheça fundamentos de recrutamento, integração, organização e gestão de pessoas.",
+        image: "https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=1000&q=85",
+        description: "Fundamentos da gestão de pessoas, recrutamento, integração e acompanhamento.",
         modules: [
           {
-            title: "Módulo 1 — Pessoas e organização",
+            title: "Módulo 1 — Recursos Humanos",
             lessons: [
-              {
-                title: "Papel dos recursos humanos",
-                text: "Compreenda de forma introdutória como a gestão de pessoas apoia as organizações.",
-                example: "RH pode apoiar processos de recrutamento, integração e desenvolvimento.",
-                challenge: "Liste cinco actividades relacionadas com RH.",
-                quiz: {
-                  question: "RH está relacionado com:",
-                  options: ["Gestão de pessoas", "Somente máquinas", "Somente vendas"],
-                  correct: 0
-                }
-              },
-              {
-                title: "Perfil profissional",
-                text: "Aprenda a relacionar funções com competências e responsabilidades.",
-                example: "Uma vaga de operador pode exigir atenção, organização e capacidade de atendimento.",
-                challenge: "Crie o perfil básico de uma vaga.",
-                quiz: {
-                  question: "Um perfil profissional deve indicar:",
-                  options: ["Competências e responsabilidades", "Somente salário", "Somente endereço"],
-                  correct: 0
-                }
-              }
+              ["Função dos RH", "Papel dos recursos humanos numa organização."],
+              ["Perfis profissionais", "Competências, funções e requisitos."]
             ]
           },
           {
             title: "Módulo 2 — Recrutamento",
             lessons: [
-              {
-                title: "Descrição da vaga",
-                text: "Aprenda a estruturar informações essenciais de uma oportunidade de trabalho.",
-                example: "Título, responsabilidades, requisitos e forma de candidatura.",
-                challenge: "Escreva uma vaga simples.",
-                quiz: {
-                  question: "Uma vaga deve explicar:",
-                  options: ["Responsabilidades", "Somente o nome", "Nada sobre o trabalho"],
-                  correct: 0
-                }
-              },
-              {
-                title: "Entrevista",
-                text: "Conheça princípios básicos para estruturar uma entrevista profissional.",
-                example: "Perguntas devem estar relacionadas com a função e ser feitas de forma respeitosa.",
-                challenge: "Crie cinco perguntas para uma entrevista.",
-                quiz: {
-                  question: "Uma entrevista deve ser:",
-                  options: ["Estruturada e profissional", "Agressiva", "Sem objetivo"],
-                  correct: 0
-                }
-              }
+              ["Recrutamento", "Identificação e atracção de candidatos."],
+              ["Selecção", "Critérios e etapas básicas de selecção."]
             ]
           },
           {
-            title: "Módulo 3 — Integração",
+            title: "Módulo 3 — Pessoas",
             lessons: [
-              {
-                title: "Integração do trabalhador",
-                text: "Aprenda a importância de apresentar regras, equipa, função e processos ao novo trabalhador.",
-                example: "Um novo funcionário deve saber a quem responde e quais são as suas responsabilidades.",
-                challenge: "Crie uma checklist de integração.",
-                quiz: {
-                  question: "A integração ajuda o novo trabalhador a:",
-                  options: ["Conhecer a organização", "Evitar aprender", "Ignorar regras"],
-                  correct: 0
-                }
-              },
-              {
-                title: "Desenvolvimento",
-                text: "Conheça a importância da aprendizagem contínua para trabalhadores e organizações.",
-                example: "Formações podem ajudar a desenvolver competências necessárias para uma função.",
-                challenge: "Identifique três competências que uma equipa poderia desenvolver.",
-                quiz: {
-                  question: "Formação pode ajudar a:",
-                  options: ["Desenvolver competências", "Eliminar aprendizagem", "Parar processos"],
-                  correct: 0
-                }
-              }
+              ["Integração", "Acolhimento e adaptação de novos colaboradores."],
+              ["Desempenho", "Acompanhamento e comunicação profissional."]
             ]
           }
         ]
@@ -3410,91 +2455,30 @@
         id: 16,
         title: "Gestão de Stocks e Armazém",
         category: "Profissional",
-        duration: "3 semanas",
         price: 8000,
-        oldPrice: 14000,
-        emoji: "📦",
-        description: "Aprenda fundamentos de controlo de mercadorias, entradas, saídas e organização de stock.",
+        duration: "3 semanas",
+        image: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1000&q=85",
+        description: "Organização de armazém, entradas, saídas, inventário e controlo de stocks.",
         modules: [
           {
-            title: "Módulo 1 — Fundamentos",
+            title: "Módulo 1 — Stocks",
             lessons: [
-              {
-                title: "O que é stock?",
-                text: "Compreenda o conceito de stock e a sua importância para uma organização.",
-                example: "Uma loja precisa controlar quantas unidades de cada produto possui.",
-                challenge: "Liste dez produtos que poderiam estar num armazém.",
-                quiz: {
-                  question: "Stock representa:",
-                  options: ["Produtos ou materiais disponíveis", "Somente clientes", "Somente dinheiro"],
-                  correct: 0
-                }
-              },
-              {
-                title: "Organização do armazém",
-                text: "Aprenda princípios básicos de organização para facilitar localização e controlo.",
-                example: "Produtos podem ser separados por categoria, código ou tipo.",
-                challenge: "Crie um sistema simples de organização.",
-                quiz: {
-                  question: "Organização ajuda a:",
-                  options: ["Localizar produtos", "Esconder produtos", "Perder mercadorias"],
-                  correct: 0
-                }
-              }
+              ["Conceitos de stock", "Tipos de stock e importância do controlo."],
+              ["Organização", "Localização e identificação de produtos."]
             ]
           },
           {
-            title: "Módulo 2 — Entradas e saídas",
+            title: "Módulo 2 — Movimentos",
             lessons: [
-              {
-                title: "Entrada de mercadoria",
-                text: "Aprenda os cuidados básicos ao receber produtos.",
-                example: "Verifique quantidade, estado e documentação.",
-                challenge: "Crie uma checklist de recepção.",
-                quiz: {
-                  question: "Ao receber mercadoria devemos:",
-                  options: ["Conferir", "Ignorar", "Misturar tudo"],
-                  correct: 0
-                }
-              },
-              {
-                title: "Saída de mercadoria",
-                text: "Aprenda a registar a retirada de produtos.",
-                example: "Cada saída deve reduzir o stock registado.",
-                challenge: "Crie cinco registos de saída.",
-                quiz: {
-                  question: "Uma saída deve ser:",
-                  options: ["Registada", "Ignorada", "Escondida"],
-                  correct: 0
-                }
-              }
+              ["Recepção", "Conferência de mercadorias recebidas."],
+              ["Saída de produtos", "Registo e controlo das saídas."]
             ]
           },
           {
             title: "Módulo 3 — Inventário",
             lessons: [
-              {
-                title: "Contagem",
-                text: "Aprenda a comparar o stock físico com os registos.",
-                example: "A contagem física permite verificar se o número real corresponde ao registado.",
-                challenge: "Faça uma contagem simulada de dez produtos.",
-                quiz: {
-                  question: "Inventário envolve:",
-                  options: ["Contagem e conferência", "Somente vendas", "Somente publicidade"],
-                  correct: 0
-                }
-              },
-              {
-                title: "Diferenças de stock",
-                text: "Conheça causas possíveis de diferenças e a importância de investigar.",
-                example: "Erros de registo ou perdas podem provocar diferenças.",
-                challenge: "Liste três causas possíveis.",
-                quiz: {
-                  question: "Uma diferença deve ser:",
-                  options: ["Investigada", "Ignorada", "Escondida"],
-                  correct: 0
-                }
-              }
+              ["Contagem", "Inventário físico e conferência."],
+              ["Reposição", "Noções de níveis e reposição de stock."]
             ]
           }
         ]
@@ -3505,91 +2489,30 @@
         id: 17,
         title: "Recepcionista Profissional",
         category: "Profissional",
-        duration: "3 semanas",
         price: 7000,
-        oldPrice: 13000,
-        emoji: "🏨",
-        description: "Aprenda fundamentos de recepção, atendimento, comunicação e organização.",
+        duration: "3 semanas",
+        image: "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1000&q=85",
+        description: "Preparação para funções de recepção, atendimento, chamadas e organização.",
         modules: [
           {
             title: "Módulo 1 — Recepção",
             lessons: [
-              {
-                title: "Função da recepção",
-                text: "Conheça o papel da recepção como primeiro ponto de contacto.",
-                example: "Uma recepcionista pode receber visitantes, encaminhar chamadas e prestar informações.",
-                challenge: "Liste cinco responsabilidades.",
-                quiz: {
-                  question: "A recepção é muitas vezes:",
-                  options: ["Primeiro ponto de contacto", "Área sem contacto", "Armazém"],
-                  correct: 0
-                }
-              },
-              {
-                title: "Apresentação profissional",
-                text: "Aprenda a importância da postura, comunicação e apresentação.",
-                example: "Uma postura cordial transmite profissionalismo.",
-                challenge: "Descreva cinco comportamentos profissionais.",
-                quiz: {
-                  question: "Postura profissional envolve:",
-                  options: ["Cordialidade", "Agressividade", "Desatenção"],
-                  correct: 0
-                }
-              }
+              ["Papel do recepcionista", "Responsabilidades e postura profissional."],
+              ["Receber visitantes", "Saudação, identificação e encaminhamento."]
             ]
           },
           {
-            title: "Módulo 2 — Atendimento",
+            title: "Módulo 2 — Comunicação",
             lessons: [
-              {
-                title: "Receber visitantes",
-                text: "Aprenda uma sequência simples para receber e encaminhar visitantes.",
-                example: "Cumprimentar, perguntar como ajudar e confirmar com quem a pessoa deseja falar.",
-                challenge: "Simule uma recepção.",
-                quiz: {
-                  question: "Primeiro passo:",
-                  options: ["Cumprimentar", "Ignorar", "Sair"],
-                  correct: 0
-                }
-              },
-              {
-                title: "Telefone",
-                text: "Conheça princípios de atendimento telefónico profissional.",
-                example: "Identifique a empresa e ofereça ajuda.",
-                challenge: "Crie um roteiro telefónico.",
-                quiz: {
-                  question: "Ao telefone devemos:",
-                  options: ["Ser claros e cordiais", "Gritar", "Desligar"],
-                  correct: 0
-                }
-              }
+              ["Atendimento telefónico", "Atender, transferir e registar chamadas."],
+              ["Mensagens", "Receber e transmitir informações correctamente."]
             ]
           },
           {
             title: "Módulo 3 — Organização",
             lessons: [
-              {
-                title: "Registos",
-                text: "Aprenda a manter informações importantes organizadas.",
-                example: "Registe mensagens e pedidos importantes.",
-                challenge: "Crie uma tabela de mensagens recebidas.",
-                quiz: {
-                  question: "Registos ajudam a:",
-                  options: ["Não esquecer informações", "Perder mensagens", "Eliminar pedidos"],
-                  correct: 0
-                }
-              },
-              {
-                title: "Encaminhamento",
-                text: "Aprenda a encaminhar correctamente visitantes e chamadas.",
-                example: "Confirme o destinatário antes de encaminhar.",
-                challenge: "Simule três situações de encaminhamento.",
-                quiz: {
-                  question: "Antes de encaminhar devemos:",
-                  options: ["Confirmar o destinatário", "Desligar", "Ignorar"],
-                  correct: 0
-                }
-              }
+              ["Agenda", "Marcação e organização de compromissos."],
+              ["Confidencialidade", "Protecção de informações e documentos."]
             ]
           }
         ]
@@ -3600,91 +2523,30 @@
         id: 18,
         title: "Segurança, Higiene e Saúde no Trabalho",
         category: "Profissional",
+        price: 7500,
         duration: "3 semanas",
-        price: 8000,
-        oldPrice: 14000,
-        emoji: "🦺",
-        description: "Conheça princípios básicos de prevenção de riscos e promoção de ambientes de trabalho seguros.",
+        image: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1000&q=85",
+        description: "Fundamentos de prevenção de riscos e promoção de ambientes de trabalho seguros.",
         modules: [
           {
-            title: "Módulo 1 — Segurança",
+            title: "Módulo 1 — Riscos",
             lessons: [
-              {
-                title: "Perigos e riscos",
-                text: "Aprenda a diferença entre perigo e risco e como observar situações que podem causar danos.",
-                example: "Um piso molhado representa um perigo que pode aumentar o risco de queda.",
-                challenge: "Identifique cinco perigos num ambiente de trabalho.",
-                quiz: {
-                  question: "Um perigo pode:",
-                  options: ["Causar dano", "Garantir segurança", "Eliminar riscos"],
-                  correct: 0
-                }
-              },
-              {
-                title: "Prevenção",
-                text: "Conheça a importância de prevenir acidentes antes que aconteçam.",
-                example: "Sinalização, organização e procedimentos seguros ajudam na prevenção.",
-                challenge: "Liste cinco medidas preventivas.",
-                quiz: {
-                  question: "Prevenção procura:",
-                  options: ["Reduzir riscos", "Aumentar perigos", "Ignorar acidentes"],
-                  correct: 0
-                }
-              }
+              ["Perigo e risco", "Diferença entre perigo, risco e prevenção."],
+              ["Identificação", "Reconhecer riscos comuns no ambiente de trabalho."]
             ]
           },
           {
-            title: "Módulo 2 — Ambiente de trabalho",
+            title: "Módulo 2 — Prevenção",
             lessons: [
-              {
-                title: "Organização e higiene",
-                text: "Aprenda como limpeza, organização e condições adequadas contribuem para um ambiente mais seguro.",
-                example: "Corredores desimpedidos reduzem obstáculos.",
-                challenge: "Faça uma inspeção simples do seu ambiente.",
-                quiz: {
-                  question: "Um ambiente organizado pode:",
-                  options: ["Reduzir determinados riscos", "Criar sempre acidentes", "Eliminar trabalhadores"],
-                  correct: 0
-                }
-              },
-              {
-                title: "Equipamentos de proteção",
-                text: "Conheça de forma introdutória o papel dos equipamentos de proteção quando indicados para determinadas actividades.",
-                example: "Capacete, luvas ou calçado de segurança podem ser utilizados conforme os riscos da actividade.",
-                challenge: "Identifique os equipamentos adequados para três actividades.",
-                quiz: {
-                  question: "Equipamentos de proteção devem ser:",
-                  options: ["Adequados ao risco", "Escolhidos aleatoriamente", "Ignorados"],
-                  correct: 0
-                }
-              }
+              ["Equipamentos de protecção", "Importância e utilização adequada de EPI."],
+              ["Ergonomia", "Postura, organização e condições de trabalho."]
             ]
           },
           {
             title: "Módulo 3 — Emergências",
             lessons: [
-              {
-                title: "Resposta a emergências",
-                text: "Aprenda princípios básicos de preparação e resposta a situações de emergência.",
-                example: "Conhecer rotas de saída e procedimentos internos pode ajudar numa emergência.",
-                challenge: "Identifique a rota de saída do seu local.",
-                quiz: {
-                  question: "Num local de trabalho é importante conhecer:",
-                  options: ["Saídas e procedimentos", "Somente a decoração", "Somente os móveis"],
-                  correct: 0
-                }
-              },
-              {
-                title: "Cultura de segurança",
-                text: "Compreenda que segurança depende de comportamentos consistentes de todos.",
-                example: "Comunicar um perigo encontrado pode ajudar a prevenir um acidente.",
-                challenge: "Crie cinco regras de segurança para um ambiente de trabalho.",
-                quiz: {
-                  question: "Segurança é responsabilidade:",
-                  options: ["De todos", "Somente dos visitantes", "De ninguém"],
-                  correct: 0
-                }
-              }
+              ["Resposta a emergências", "Procedimentos básicos e comunicação."],
+              ["Prevenção", "Cultura de segurança e reporte de incidentes."]
             ]
           }
         ]
@@ -3695,91 +2557,30 @@
         id: 19,
         title: "PowerPoint Profissional",
         category: "Informática",
+        price: 6000,
         duration: "2 semanas",
-        price: 5000,
-        oldPrice: 9000,
-        emoji: "📽️",
-        description: "Aprenda a criar apresentações organizadas, claras e visualmente profissionais.",
+        image: "https://images.unsplash.com/photo-1551818255-e6e10975bc17?auto=format&fit=crop&w=1000&q=85",
+        description: "Crie apresentações organizadas, profissionais e visualmente claras.",
         modules: [
           {
             title: "Módulo 1 — Fundamentos",
             lessons: [
-              {
-                title: "Criar uma apresentação",
-                text: "Conheça os elementos básicos de uma apresentação.",
-                example: "Uma apresentação pode possuir capa, introdução, conteúdo e conclusão.",
-                challenge: "Crie uma apresentação com cinco diapositivos.",
-                quiz: {
-                  question: "PowerPoint é utilizado principalmente para:",
-                  options: ["Apresentações", "Contabilidade automática", "Navegação"],
-                  correct: 0
-                }
-              },
-              {
-                title: "Estrutura",
-                text: "Aprenda a organizar uma apresentação com começo, desenvolvimento e conclusão.",
-                example: "Cada diapositivo deve ter uma ideia principal.",
-                challenge: "Organize cinco ideias numa sequência lógica.",
-                quiz: {
-                  question: "Uma apresentação deve ter:",
-                  options: ["Estrutura", "Confusão", "Texto aleatório"],
-                  correct: 0
-                }
-              }
+              ["Slides e layouts", "Criar apresentações e escolher estruturas adequadas."],
+              ["Texto", "Hierarquia, tamanho e organização da informação."]
             ]
           },
           {
-            title: "Módulo 2 — Design",
+            title: "Módulo 2 — Elementos visuais",
             lessons: [
-              {
-                title: "Texto e imagens",
-                text: "Aprenda a utilizar texto e imagens de forma equilibrada.",
-                example: "Utilizar pouco texto e imagens relevantes pode facilitar a compreensão.",
-                challenge: "Reduza um texto longo para três pontos principais.",
-                quiz: {
-                  question: "Uma apresentação deve evitar:",
-                  options: ["Excesso de texto", "Clareza", "Organização"],
-                  correct: 0
-                }
-              },
-              {
-                title: "Cores e consistência",
-                text: "Conheça princípios básicos de consistência visual.",
-                example: "Manter estilos semelhantes em todos os diapositivos cria unidade.",
-                challenge: "Escolha uma combinação simples de cores.",
-                quiz: {
-                  question: "Consistência visual significa:",
-                  options: ["Manter padrão", "Mudar tudo em cada slide", "Eliminar imagens"],
-                  correct: 0
-                }
-              }
+              ["Imagens e formas", "Utilização de elementos gráficos."],
+              ["Gráficos", "Apresentar dados visualmente."]
             ]
           },
           {
             title: "Módulo 3 — Apresentação",
             lessons: [
-              {
-                title: "Apresentar",
-                text: "Aprenda princípios básicos para falar utilizando uma apresentação como apoio.",
-                example: "O apresentador deve explicar as ideias em vez de simplesmente ler os diapositivos.",
-                challenge: "Apresente durante dois minutos.",
-                quiz: {
-                  question: "Os diapositivos devem:",
-                  options: ["Apoiar a apresentação", "Substituir totalmente o apresentador", "Ser ilegíveis"],
-                  correct: 0
-                }
-              },
-              {
-                title: "Projeto final",
-                text: "Crie uma apresentação completa sobre um tema profissional.",
-                example: "Pode criar uma apresentação sobre a sua profissão ou negócio.",
-                challenge: "Crie uma apresentação de pelo menos oito diapositivos.",
-                quiz: {
-                  question: "Um bom projeto deve possuir:",
-                  options: ["Estrutura e clareza", "Texto aleatório", "Nenhuma organização"],
-                  correct: 0
-                }
-              }
+              ["Animações", "Utilização moderada de transições e animações."],
+              ["Projecto final", "Criar uma apresentação completa."]
             ]
           }
         ]
@@ -3790,91 +2591,30 @@
         id: 20,
         title: "Gestão e Administração de Empresas",
         category: "Negócios",
-        duration: "4 semanas",
         price: 10000,
-        oldPrice: 18000,
-        emoji: "🏢",
-        description: "Conheça fundamentos de organização, planeamento, pessoas, operações e controlo empresarial.",
+        duration: "4 semanas",
+        image: "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1000&q=85",
+        description: "Fundamentos de gestão, planeamento, organização e acompanhamento de actividades.",
         modules: [
           {
-            title: "Módulo 1 — Organização",
+            title: "Módulo 1 — Gestão",
             lessons: [
-              {
-                title: "O que é uma organização?",
-                text: "Compreenda como pessoas, recursos e processos são organizados para atingir objetivos.",
-                example: "Uma empresa precisa coordenar pessoas, dinheiro, materiais e informação.",
-                challenge: "Descreva como funcionaria uma pequena empresa.",
-                quiz: {
-                  question: "Uma empresa utiliza:",
-                  options: ["Pessoas e recursos", "Somente dinheiro", "Somente computadores"],
-                  correct: 0
-                }
-              },
-              {
-                title: "Funções administrativas",
-                text: "Conheça de forma introdutória actividades de planeamento, organização, execução e acompanhamento.",
-                example: "Antes de realizar uma actividade é importante definir o que precisa ser feito.",
-                challenge: "Organize uma actividade simples em etapas.",
-                quiz: {
-                  question: "Planeamento ajuda a:",
-                  options: ["Definir acções", "Criar confusão", "Eliminar objetivos"],
-                  correct: 0
-                }
-              }
+              ["Conceitos de gestão", "Objectivos, recursos e tomada de decisão."],
+              ["Planeamento", "Definir prioridades, metas e actividades."]
             ]
           },
           {
-            title: "Módulo 2 — Gestão",
+            title: "Módulo 2 — Organização",
             lessons: [
-              {
-                title: "Gestão de pessoas",
-                text: "Conheça princípios básicos para trabalhar com equipas.",
-                example: "Definir responsabilidades ajuda cada pessoa a compreender o seu papel.",
-                challenge: "Crie funções para uma equipa de três pessoas.",
-                quiz: {
-                  question: "Definir responsabilidades ajuda a:",
-                  options: ["Organizar o trabalho", "Criar confusão", "Eliminar tarefas"],
-                  correct: 0
-                }
-              },
-              {
-                title: "Gestão financeira básica",
-                text: "Aprenda a observar receitas, despesas e resultados de forma introdutória.",
-                example: "Uma empresa deve acompanhar quanto recebe e quanto gasta.",
-                challenge: "Faça uma tabela simples de receitas e despesas.",
-                quiz: {
-                  question: "A empresa deve acompanhar:",
-                  options: ["Receitas e despesas", "Somente clientes", "Somente publicidade"],
-                  correct: 0
-                }
-              }
+              ["Estrutura organizacional", "Funções, responsabilidades e coordenação."],
+              ["Operações", "Organização das actividades do negócio."]
             ]
           },
           {
-            title: "Módulo 3 — Operações e melhoria",
+            title: "Módulo 3 — Controlo",
             lessons: [
-              {
-                title: "Processos",
-                text: "Aprenda a observar as etapas necessárias para realizar uma actividade.",
-                example: "Um processo de venda pode incluir pedido, preparação, pagamento e entrega.",
-                challenge: "Desenhe as etapas de um processo.",
-                quiz: {
-                  question: "Processo é:",
-                  options: ["Uma sequência de actividades", "Somente um documento", "Somente uma pessoa"],
-                  correct: 0
-                }
-              },
-              {
-                title: "Avaliação e melhoria",
-                text: "Aprenda a observar resultados e identificar oportunidades de melhoria.",
-                example: "Se um processo demora demasiado, pode ser analisado para encontrar a causa.",
-                challenge: "Identifique três coisas que poderiam ser melhoradas numa empresa.",
-                quiz: {
-                  question: "Melhoria contínua procura:",
-                  options: ["Resultados melhores", "Mais problemas", "Menos organização"],
-                  correct: 0
-                }
-              }
+              ["Indicadores", "Acompanhar resultados através de indicadores simples."],
+              ["Plano de acção", "Transformar objectivos em actividades concretas."]
             ]
           }
         ]
@@ -3883,489 +2623,406 @@
     ];
 
 
-    /*
-      ==========================================
-      RENDERIZAÇÃO DOS CURSOS
-      ==========================================
-    */
+    /* =========================================
+       FORMATAÇÃO DO PREÇO
+    ========================================= */
 
-    function formatKz(value) {
-      return new Intl.NumberFormat("pt-AO").format(value) + " Kz";
-    }
+    function formatPrice(price) {
 
-
-    function renderCourses() {
-
-      const grid = document.getElementById("coursesGrid");
-
-      const search =
-        document.getElementById("searchInput")
-          .value
-          .toLowerCase()
-          .trim();
-
-      const category =
-        document.getElementById("categoryFilter").value;
-
-
-      const filtered = courses.filter(course => {
-
-        const matchesSearch =
-          course.title.toLowerCase().includes(search) ||
-          course.category.toLowerCase().includes(search) ||
-          course.description.toLowerCase().includes(search);
-
-        const matchesCategory =
-          category === "all" ||
-          course.category === category;
-
-        return matchesSearch && matchesCategory;
-
-      });
-
-
-      if (!filtered.length) {
-
-        grid.innerHTML = `
-          <div class="empty">
-            <h3>Nenhum curso encontrado.</h3>
-            <p>Tente outra palavra ou categoria.</p>
-          </div>
-        `;
-
-        return;
-      }
-
-
-      grid.innerHTML = filtered.map(course => `
-
-        <article class="course-card">
-
-          <div class="course-cover">
-
-            <span class="course-badge">
-              NÍVEL BASE
-            </span>
-
-            <span class="course-emoji">
-              ${course.emoji}
-            </span>
-
-          </div>
-
-
-          <div class="course-body">
-
-            <div class="course-category">
-              ${course.category}
-            </div>
-
-            <h3 class="course-title">
-              ${course.title}
-            </h3>
-
-            <p class="course-description">
-              ${course.description}
-            </p>
-
-
-            <div class="course-info">
-
-              <span>
-                📅 ${course.duration}
-              </span>
-
-              <span>
-                🎓 Base
-              </span>
-
-            </div>
-
-
-            <div style="margin-bottom:15px;">
-
-              <div class="price-old">
-                ${formatKz(course.oldPrice)}
-              </div>
-
-              <div class="price-new">
-                ${formatKz(course.price)}
-              </div>
-
-            </div>
-
-
-            <div class="course-actions">
-
-              <button
-                class="btn btn-light"
-                onclick="openCourseModal(${course.id})"
-              >
-                📖 Ver curso
-              </button>
-
-              <button
-                class="btn btn-whatsapp"
-                onclick="sendCourseWhatsApp(${course.id})"
-              >
-                💬 WhatsApp
-              </button>
-
-            </div>
-
-          </div>
-
-        </article>
-
-      `).join("");
+      return new Intl.NumberFormat("pt-AO").format(price) + " Kz";
 
     }
 
 
-    /*
-      ==========================================
-      WHATSAPP DINÂMICO
-      ==========================================
-    */
+    /* =========================================
+       WHATSAPP
+    ========================================= */
 
-    function sendCourseWhatsApp(courseId) {
+    function openWhatsApp(courseTitle, price) {
 
-      const course =
-        courses.find(c => c.id === courseId);
-
-      if (!course) return;
-
+      const formattedPrice = formatPrice(price);
 
       const message =
-        `Olá! Tenho interesse no curso "${course.title}" da Fely e Amigos Academy. ` +
-        `O preço promocional é ${formatKz(course.price)}. ` +
-        `A duração é de ${course.duration}. ` +
+        `Olá! Tenho interesse no curso "${courseTitle}" da Fely e Amigos Academy. ` +
+        `O preço promocional é ${formattedPrice}. ` +
         `Gostaria de saber como fazer a inscrição.`;
-
 
       const url =
         `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
-
 
       window.open(url, "_blank");
 
     }
 
 
-    /*
-      ==========================================
-      MODAL DO CURSO
-      ==========================================
-    */
+    function openGeneralWhatsApp() {
 
-    let currentCourse = null;
+      const message =
+        "Olá! Gostaria de obter informações sobre os cursos da Fely e Amigos Academy.";
+
+      const url =
+        `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+
+      window.open(url, "_blank");
+
+    }
 
 
-    function openCourseModal(courseId) {
+    /* =========================================
+       RENDERIZAR CURSOS
+    ========================================= */
+
+    function renderCourses() {
+
+      const grid = document.getElementById("coursesGrid");
+
+      const search =
+        document
+          .getElementById("searchInput")
+          .value
+          .toLowerCase()
+          .trim();
+
+      const filtered = courses.filter(course => {
+
+        const matchesFilter =
+          currentFilter === "Todos" ||
+          course.category === currentFilter;
+
+        const matchesSearch =
+          course.title.toLowerCase().includes(search) ||
+          course.category.toLowerCase().includes(search) ||
+          course.description.toLowerCase().includes(search);
+
+        return matchesFilter && matchesSearch;
+
+      });
+
+
+      if (filtered.length === 0) {
+
+        grid.innerHTML = `
+          <div class="empty">
+            <div style="font-size:40px;margin-bottom:10px;">🔎</div>
+            <h3>Nenhum curso encontrado</h3>
+            <p>Tente pesquisar por outro nome ou categoria.</p>
+          </div>
+        `;
+
+        return;
+
+      }
+
+
+      grid.innerHTML = filtered.map(course => {
+
+        return `
+
+          <article
+            class="course-card"
+            style="background-image:url('${course.image}')"
+          >
+
+            <div class="course-content">
+
+              <div class="course-top">
+
+                <span class="course-category">
+                  ${course.category}
+                </span>
+
+                <span class="course-level">
+                  Base
+                </span>
+
+              </div>
+
+
+              <h3>
+                ${course.title}
+              </h3>
+
+
+              <p class="course-description">
+                ${course.description}
+              </p>
+
+
+              <div class="course-meta">
+
+                <span>⏱ ${course.duration}</span>
+
+                <span>📚 3 módulos</span>
+
+              </div>
+
+
+              <div class="course-price">
+
+                <strong>
+                  ${formatPrice(course.price)}
+                </strong>
+
+                <small>
+                  preço promocional
+                </small>
+
+              </div>
+
+
+              <div class="course-actions">
+
+                <button
+                  class="details-btn"
+                  onclick="openCourse(${course.id})"
+                >
+                  Ver conteúdo
+                </button>
+
+                <button
+                  class="whatsapp-btn"
+                  onclick="openWhatsApp('${escapeForJs(course.title)}', ${course.price})"
+                >
+                  💬 WhatsApp
+                </button>
+
+              </div>
+
+            </div>
+
+          </article>
+
+        `;
+
+      }).join("");
+
+    }
+
+
+    /* =========================================
+       ESCAPAR TEXTO PARA JAVASCRIPT
+    ========================================= */
+
+    function escapeForJs(text) {
+
+      return text
+        .replace(/\\/g, "\\\\")
+        .replace(/'/g, "\\'");
+
+    }
+
+
+    /* =========================================
+       FILTRO
+    ========================================= */
+
+    function setFilter(filter, button) {
+
+      currentFilter = filter;
+
+      document
+        .querySelectorAll(".filter-btn")
+        .forEach(btn => btn.classList.remove("active"));
+
+      button.classList.add("active");
+
+      renderCourses();
+
+    }
+
+
+    /* =========================================
+       ABRIR CURSO
+    ========================================= */
+
+    function openCourse(id) {
 
       const course =
-        courses.find(c => c.id === courseId);
+        courses.find(item => item.id === id);
 
       if (!course) return;
-
-
-      currentCourse = course;
 
 
       document.getElementById("modalTitle").textContent =
         course.title;
 
-      document.getElementById("modalMeta").textContent =
-        `${course.category} • Nível Base`;
-
-      document.getElementById("modalLevel").textContent =
-        "Base";
+      document.getElementById("modalCategory").textContent =
+        course.category;
 
       document.getElementById("modalDuration").textContent =
-        course.duration;
+        "⏱ " + course.duration;
+
+      document.getElementById("modalDescription").textContent =
+        course.description;
 
       document.getElementById("modalPrice").textContent =
-        formatKz(course.price);
+        formatPrice(course.price);
 
-
-      document.getElementById("progressBar").style.width = "0%";
-      document.getElementById("progressText").textContent = "0%";
+      document.getElementById("modalImage").style.backgroundImage =
+        `url("${course.image}")`;
 
 
       const modulesContainer =
         document.getElementById("modalModules");
 
 
-      let lessonIndex = 0;
-
-
       modulesContainer.innerHTML =
-        course.modules.map((module, moduleIndex) => `
+        course.modules.map((module, index) => {
 
-          <div class="module">
+          return `
 
-            <div class="module-header">
-              <h3>${module.title}</h3>
+            <div class="module ${index === 0 ? "open" : ""}">
+
+              <div
+                class="module-header"
+                onclick="toggleModule(this)"
+              >
+
+                <span>
+                  ${module.title}
+                </span>
+
+                <span>
+                  ${index === 0 ? "−" : "+"}
+                </span>
+
+              </div>
+
+
+              <div class="module-lessons">
+
+                ${module.lessons.map((lesson, lessonIndex) => {
+
+                  return `
+
+                    <div class="lesson">
+
+                      <strong>
+                        Aula ${lessonIndex + 1} — ${lesson[0]}
+                      </strong>
+
+                      <small>
+                        ${lesson[1]}
+                      </small>
+
+                    </div>
+
+                  `;
+
+                }).join("")}
+
+              </div>
+
             </div>
 
-            ${module.lessons.map((lesson) => {
+          `;
 
-              const currentIndex = lessonIndex++;
-
-              return `
-
-                <div
-                  class="lesson"
-                  data-lesson-index="${currentIndex}"
-                >
-
-                  <button
-                    class="lesson-title"
-                    onclick="toggleLesson(this)"
-                  >
-
-                    <span>
-                      📘 ${lesson.title}
-                    </span>
-
-                    <span>
-                      ＋
-                    </span>
-
-                  </button>
+        }).join("");
 
 
-                  <div class="lesson-content">
-
-                    <p>
-                      ${lesson.text}
-                    </p>
+      document.getElementById("modalWhatsApp").onclick =
+        () => openWhatsApp(course.title, course.price);
 
 
-                    <div class="content-box">
-
-                      <strong>💡 Exemplo prático</strong>
-
-                      <p>
-                        ${lesson.example}
-                      </p>
-
-                    </div>
-
-
-                    <div class="content-box">
-
-                      <strong>🎯 Desafio</strong>
-
-                      <p>
-                        ${lesson.challenge}
-                      </p>
-
-                    </div>
-
-
-                    <div class="quiz">
-
-                      <div class="quiz-question">
-                        🧠 ${lesson.quiz.question}
-                      </div>
-
-                      <div class="quiz-options">
-
-                        ${lesson.quiz.options.map((option, optionIndex) => `
-
-                          <button
-                            class="quiz-option"
-                            onclick="
-                              answerQuiz(
-                                this,
-                                ${optionIndex === lesson.quiz.correct}
-                              )
-                            "
-                          >
-                            ${option}
-                          </button>
-
-                        `).join("")}
-
-                      </div>
-
-                    </div>
-
-                  </div>
-
-                </div>
-
-              `;
-
-            }).join("")}
-
-          </div>
-
-        `).join("");
-
-
-      document.getElementById("modalWhatsapp").onclick =
-        () => sendCourseWhatsApp(course.id);
-
-
-      document.getElementById("courseModal")
+      document
+        .getElementById("courseModal")
         .classList.add("active");
-
 
       document.body.style.overflow = "hidden";
 
     }
 
 
-    function closeCourseModal() {
+    /* =========================================
+       MÓDULOS
+    ========================================= */
 
-      document.getElementById("courseModal")
+    function toggleModule(header) {
+
+      const module =
+        header.parentElement;
+
+      module.classList.toggle("open");
+
+      const icon =
+        header.querySelector("span:last-child");
+
+      icon.textContent =
+        module.classList.contains("open")
+          ? "−"
+          : "+";
+
+    }
+
+
+    /* =========================================
+       FECHAR MODAL
+    ========================================= */
+
+    function closeModal() {
+
+      document
+        .getElementById("courseModal")
         .classList.remove("active");
 
       document.body.style.overflow = "";
 
-      currentCourse = null;
-
     }
 
 
-    function toggleLesson(button) {
-
-      const lesson =
-        button.closest(".lesson");
-
-      lesson.classList.toggle("open");
-
-
-      const icon =
-        button.querySelector("span:last-child");
-
-      icon.textContent =
-        lesson.classList.contains("open")
-          ? "−"
-          : "+";
-
-
-      updateProgress();
-
-    }
-
-
-    function updateProgress() {
-
-      const lessons =
-        document.querySelectorAll(".lesson");
-
-      const opened =
-        document.querySelectorAll(".lesson.open").length;
-
-
-      if (!lessons.length) return;
-
-
-      const percentage =
-        Math.round((opened / lessons.length) * 100);
-
-
-      document.getElementById("progressBar")
-        .style.width = percentage + "%";
-
-
-      document.getElementById("progressText")
-        .textContent = percentage + "%";
-
-    }
-
-
-    /*
-      ==========================================
-      QUIZ
-      ==========================================
-    */
-
-    function answerQuiz(button, isCorrect) {
-
-      const parent =
-        button.parentElement;
-
-      const options =
-        parent.querySelectorAll(".quiz-option");
-
-
-      options.forEach(option => {
-
-        option.disabled = true;
-
-      });
-
-
-      if (isCorrect) {
-
-        button.classList.add("correct");
-
-      } else {
-
-        button.classList.add("wrong");
-
-      }
-
-    }
-
-
-    /*
-      ==========================================
-      MENU MOBILE
-      ==========================================
-    */
-
-    function toggleMenu() {
-
-      document
-        .getElementById("mainNav")
-        .classList.toggle("mobile-open");
-
-    }
-
-
-    /*
-      Fechar modal clicando fora
-    */
-
-    document.getElementById("courseModal")
+    document
+      .getElementById("courseModal")
       .addEventListener("click", function(event) {
 
         if (event.target === this) {
-          closeCourseModal();
+          closeModal();
         }
 
       });
 
 
-    /*
-      Fechar modal com ESC
-    */
-
     document.addEventListener("keydown", function(event) {
 
       if (event.key === "Escape") {
-        closeCourseModal();
+        closeModal();
       }
 
     });
 
 
-    /*
-      Ano automático
-    */
+    /* =========================================
+       MENU MOBILE
+    ========================================= */
+
+    function toggleMenu() {
+
+      document
+        .getElementById("navLinks")
+        .classList.toggle("active");
+
+    }
+
+
+    function closeMenu() {
+
+      document
+        .getElementById("navLinks")
+        .classList.remove("active");
+
+    }
+
+
+    /* =========================================
+       ANO
+    ========================================= */
 
     document.getElementById("year").textContent =
       new Date().getFullYear();
 
 
-    /*
-      Inicializar catálogo
-    */
+    /* =========================================
+       INICIALIZAR
+    ========================================= */
 
     renderCourses();
 
