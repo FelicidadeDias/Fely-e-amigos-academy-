@@ -10,119 +10,1402 @@
 
   <meta
     name="description"
-    content="Fely Academy — plataforma de aprendizagem online. Aprenda tecnologia, línguas, negócios, informática e desenvolvimento pessoal."
+    content="Fely e Amigos Academy — Aprenda, desenvolva competências e transforme o seu futuro."
   >
 
   <meta
     name="theme-color"
-    content="#0b1020"
+    content="#0f172a"
   >
 
-  <title>Fely Academy | Aprenda. Evolua. Conquiste.</title>
+  <title>Fely e Amigos Academy</title>
 
-  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <style>
+    :root {
+      --primary: #2563eb;
+      --primary-dark: #1d4ed8;
+      --secondary: #7c3aed;
+      --success: #16a34a;
+      --warning: #f59e0b;
+      --danger: #dc2626;
 
-  <link rel="stylesheet" href="styles.css">
+      --dark: #0f172a;
+      --dark-2: #1e293b;
+
+      --text: #172033;
+      --muted: #64748b;
+
+      --background: #f8fafc;
+      --white: #ffffff;
+
+      --border: #e2e8f0;
+
+      --shadow:
+        0 15px 40px rgba(15, 23, 42, 0.10);
+
+      --radius: 18px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family:
+        Inter,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+
+      background: var(--background);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    button,
+    input,
+    select {
+      font: inherit;
+    }
+
+    button {
+      cursor: pointer;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    /* =========================
+       HEADER
+    ========================== */
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+
+      background:
+        rgba(255, 255, 255, 0.94);
+
+      backdrop-filter: blur(14px);
+
+      border-bottom:
+        1px solid var(--border);
+    }
+
+    .navbar {
+      width: min(1200px, 92%);
+      margin: auto;
+
+      min-height: 76px;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      gap: 20px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+
+      font-weight: 900;
+      font-size: 20px;
+      color: var(--dark);
+    }
+
+    .logo-icon {
+      width: 44px;
+      height: 44px;
+
+      border-radius: 14px;
+
+      display: grid;
+      place-items: center;
+
+      color: white;
+      font-size: 22px;
+      font-weight: 900;
+
+      background:
+        linear-gradient(
+          135deg,
+          var(--primary),
+          var(--secondary)
+        );
+
+      box-shadow:
+        0 10px 25px rgba(37, 99, 235, 0.25);
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 26px;
+    }
+
+    nav a {
+      color: #475569;
+      font-weight: 600;
+      font-size: 15px;
+      transition: 0.2s;
+    }
+
+    nav a:hover {
+      color: var(--primary);
+    }
+
+    .nav-buttons {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .btn {
+      border: 0;
+      border-radius: 12px;
+
+      padding: 12px 18px;
+
+      font-weight: 700;
+
+      transition:
+        transform 0.2s,
+        box-shadow 0.2s,
+        background 0.2s;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: white;
+
+      box-shadow:
+        0 10px 20px rgba(37, 99, 235, 0.18);
+    }
+
+    .btn-primary:hover {
+      background: var(--primary-dark);
+    }
+
+    .btn-outline {
+      background: white;
+      color: var(--primary);
+
+      border: 1px solid #bfdbfe;
+    }
+
+    .btn-dark {
+      background: var(--dark);
+      color: white;
+    }
+
+    .btn-success {
+      background: var(--success);
+      color: white;
+    }
+
+    /* =========================
+       HERO
+    ========================== */
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+
+      background:
+        linear-gradient(
+          135deg,
+          #0f172a 0%,
+          #172554 45%,
+          #312e81 100%
+        );
+
+      color: white;
+    }
+
+    .hero::before {
+      content: "";
+
+      position: absolute;
+
+      width: 450px;
+      height: 450px;
+
+      border-radius: 50%;
+
+      background:
+        rgba(59, 130, 246, 0.18);
+
+      filter: blur(30px);
+
+      top: -180px;
+      right: -100px;
+    }
+
+    .hero::after {
+      content: "";
+
+      position: absolute;
+
+      width: 350px;
+      height: 350px;
+
+      border-radius: 50%;
+
+      background:
+        rgba(124, 58, 237, 0.18);
+
+      filter: blur(35px);
+
+      bottom: -180px;
+      left: -100px;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+
+      width: min(1200px, 92%);
+      margin: auto;
+
+      min-height: 620px;
+
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+
+      align-items: center;
+
+      gap: 50px;
+
+      padding: 70px 0;
+    }
+
+    .hero-text h1 {
+      font-size:
+        clamp(40px, 5vw, 68px);
+
+      line-height: 1.05;
+
+      margin-bottom: 22px;
+
+      letter-spacing: -2px;
+    }
+
+    .hero-text h1 span {
+      color: #93c5fd;
+    }
+
+    .hero-text p {
+      color: #cbd5e1;
+
+      font-size: 18px;
+
+      max-width: 620px;
+
+      margin-bottom: 30px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .hero-buttons .btn {
+      padding: 14px 22px;
+    }
+
+    .hero-image {
+      position: relative;
+    }
+
+    .hero-card {
+      overflow: hidden;
+
+      border-radius: 28px;
+
+      background:
+        rgba(255, 255, 255, 0.10);
+
+      border:
+        1px solid rgba(255, 255, 255, 0.18);
+
+      box-shadow:
+        0 30px 80px rgba(0, 0, 0, 0.25);
+
+      backdrop-filter: blur(15px);
+    }
+
+    .hero-card img {
+      width: 100%;
+      height: 390px;
+
+      object-fit: cover;
+    }
+
+    .hero-card-info {
+      padding: 20px;
+    }
+
+    .hero-card-info strong {
+      font-size: 19px;
+    }
+
+    .hero-card-info p {
+      color: #cbd5e1;
+      margin-top: 5px;
+    }
+
+    /* =========================
+       STATS
+    ========================== */
+
+    .stats {
+      width: min(1100px, 92%);
+      margin: -45px auto 0;
+
+      position: relative;
+      z-index: 10;
+
+      background: white;
+
+      border-radius: 20px;
+
+      box-shadow: var(--shadow);
+
+      display: grid;
+      grid-template-columns:
+        repeat(4, 1fr);
+
+      overflow: hidden;
+    }
+
+    .stat {
+      padding: 25px;
+      text-align: center;
+
+      border-right:
+        1px solid var(--border);
+    }
+
+    .stat:last-child {
+      border-right: 0;
+    }
+
+    .stat strong {
+      display: block;
+
+      font-size: 28px;
+
+      color: var(--primary);
+    }
+
+    .stat span {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    /* =========================
+       SECTIONS
+    ========================== */
+
+    section {
+      padding: 85px 0;
+    }
+
+    .container {
+      width: min(1200px, 92%);
+      margin: auto;
+    }
+
+    .section-heading {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 45px;
+    }
+
+    .section-heading span {
+      display: inline-block;
+
+      color: var(--primary);
+
+      font-weight: 800;
+
+      font-size: 14px;
+
+      text-transform: uppercase;
+
+      letter-spacing: 1.5px;
+
+      margin-bottom: 8px;
+    }
+
+    .section-heading h2 {
+      font-size:
+        clamp(30px, 4vw, 44px);
+
+      line-height: 1.15;
+
+      margin-bottom: 14px;
+    }
+
+    .section-heading p {
+      color: var(--muted);
+    }
+
+    /* =========================
+       COURSE FILTER
+    ========================== */
+
+    .course-tools {
+      display: flex;
+
+      justify-content: space-between;
+
+      align-items: center;
+
+      gap: 15px;
+
+      margin-bottom: 30px;
+
+      flex-wrap: wrap;
+    }
+
+    .search-box {
+      flex: 1;
+
+      min-width: 250px;
+
+      position: relative;
+    }
+
+    .search-box input {
+      width: 100%;
+
+      border:
+        1px solid var(--border);
+
+      border-radius: 14px;
+
+      padding: 14px 18px;
+
+      outline: none;
+
+      background: white;
+
+      transition: 0.2s;
+    }
+
+    .search-box input:focus {
+      border-color: var(--primary);
+
+      box-shadow:
+        0 0 0 4px rgba(37, 99, 235, 0.08);
+    }
+
+    .filters {
+      display: flex;
+
+      gap: 10px;
+
+      flex-wrap: wrap;
+    }
+
+    .filter-btn {
+      border: 1px solid var(--border);
+
+      background: white;
+
+      padding: 10px 15px;
+
+      border-radius: 10px;
+
+      color: #475569;
+
+      font-weight: 600;
+    }
+
+    .filter-btn.active,
+    .filter-btn:hover {
+      background: var(--primary);
+      color: white;
+
+      border-color: var(--primary);
+    }
+
+    /* =========================
+       COURSE CARDS
+    ========================== */
+
+    .courses-grid {
+      display: grid;
+
+      grid-template-columns:
+        repeat(3, 1fr);
+
+      gap: 25px;
+    }
+
+    .course-card {
+      background: white;
+
+      border:
+        1px solid var(--border);
+
+      border-radius: var(--radius);
+
+      overflow: hidden;
+
+      box-shadow:
+        0 8px 25px rgba(15, 23, 42, 0.05);
+
+      transition:
+        transform 0.25s,
+        box-shadow 0.25s;
+    }
+
+    .course-card:hover {
+      transform: translateY(-7px);
+
+      box-shadow:
+        0 20px 45px rgba(15, 23, 42, 0.12);
+    }
+
+    .course-image {
+      position: relative;
+      height: 210px;
+      overflow: hidden;
+    }
+
+    .course-image img {
+      width: 100%;
+      height: 100%;
+
+      object-fit: cover;
+
+      transition:
+        transform 0.5s;
+    }
+
+    .course-card:hover .course-image img {
+      transform: scale(1.06);
+    }
+
+    .course-level {
+      position: absolute;
+
+      top: 14px;
+      left: 14px;
+
+      padding: 6px 10px;
+
+      border-radius: 8px;
+
+      background:
+        rgba(15, 23, 42, 0.78);
+
+      color: white;
+
+      font-size: 12px;
+
+      font-weight: 800;
+    }
+
+    .course-body {
+      padding: 22px;
+    }
+
+    .course-category {
+      color: var(--primary);
+
+      font-size: 13px;
+
+      font-weight: 800;
+
+      margin-bottom: 7px;
+    }
+
+    .course-body h3 {
+      font-size: 21px;
+
+      margin-bottom: 8px;
+    }
+
+    .course-body p {
+      color: var(--muted);
+
+      font-size: 14px;
+
+      min-height: 66px;
+    }
+
+    .course-bottom {
+      display: flex;
+
+      align-items: center;
+
+      justify-content: space-between;
+
+      gap: 10px;
+
+      margin-top: 20px;
+
+      padding-top: 17px;
+
+      border-top:
+        1px solid var(--border);
+    }
+
+    .price {
+      font-weight: 900;
+      font-size: 19px;
+      color: var(--dark);
+    }
+
+    .course-btn {
+      padding: 10px 13px;
+
+      border-radius: 10px;
+
+      border: 0;
+
+      background: var(--primary);
+
+      color: white;
+
+      font-weight: 700;
+    }
+
+    /* =========================
+       FEATURES
+    ========================== */
+
+    .features {
+      background: white;
+    }
+
+    .features-grid {
+      display: grid;
+
+      grid-template-columns:
+        repeat(3, 1fr);
+
+      gap: 22px;
+    }
+
+    .feature {
+      padding: 30px;
+
+      border:
+        1px solid var(--border);
+
+      border-radius: var(--radius);
+
+      background: white;
+
+      transition: 0.25s;
+    }
+
+    .feature:hover {
+      transform: translateY(-5px);
+
+      box-shadow: var(--shadow);
+    }
+
+    .feature-icon {
+      width: 55px;
+      height: 55px;
+
+      border-radius: 15px;
+
+      display: grid;
+      place-items: center;
+
+      background:
+        #eff6ff;
+
+      color: var(--primary);
+
+      font-size: 25px;
+
+      margin-bottom: 18px;
+    }
+
+    .feature h3 {
+      margin-bottom: 8px;
+    }
+
+    .feature p {
+      color: var(--muted);
+    }
+
+    /* =========================
+       LEVELS
+    ========================== */
+
+    .levels-grid {
+      display: grid;
+
+      grid-template-columns:
+        repeat(3, 1fr);
+
+      gap: 25px;
+    }
+
+    .level {
+      position: relative;
+
+      overflow: hidden;
+
+      border-radius: 20px;
+
+      padding: 35px;
+
+      color: white;
+
+      min-height: 260px;
+
+      display: flex;
+
+      flex-direction: column;
+
+      justify-content: flex-end;
+    }
+
+    .level::before {
+      content: "";
+
+      position: absolute;
+
+      inset: 0;
+
+      background:
+        linear-gradient(
+          to top,
+          rgba(15, 23, 42, 0.88),
+          rgba(15, 23, 42, 0.1)
+        );
+    }
+
+    .level > * {
+      position: relative;
+      z-index: 2;
+    }
+
+    .level.beginner {
+      background:
+        url("https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1200&q=80")
+        center / cover;
+    }
+
+    .level.intermediate {
+      background:
+        url("https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1200&q=80")
+        center / cover;
+    }
+
+    .level.advanced {
+      background:
+        url("https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1200&q=80")
+        center / cover;
+    }
+
+    .level h3 {
+      font-size: 27px;
+    }
+
+    .level p {
+      color: #e2e8f0;
+      margin-top: 5px;
+    }
+
+    /* =========================
+       PAYMENT
+    ========================== */
+
+    .payment {
+      background:
+        linear-gradient(
+          135deg,
+          #eff6ff,
+          #f5f3ff
+        );
+    }
+
+    .payment-box {
+      display: grid;
+
+      grid-template-columns:
+        1fr 1fr;
+
+      gap: 35px;
+
+      align-items: center;
+    }
+
+    .payment-image {
+      border-radius: 25px;
+
+      overflow: hidden;
+
+      box-shadow: var(--shadow);
+    }
+
+    .payment-image img {
+      width: 100%;
+      height: 420px;
+
+      object-fit: cover;
+    }
+
+    .payment-content h2 {
+      font-size: 40px;
+
+      line-height: 1.1;
+
+      margin-bottom: 15px;
+    }
+
+    .payment-content > p {
+      color: var(--muted);
+
+      margin-bottom: 25px;
+    }
+
+    .payment-method {
+      background: white;
+
+      border:
+        1px solid var(--border);
+
+      border-radius: 18px;
+
+      padding: 25px;
+
+      margin-bottom: 15px;
+    }
+
+    .payment-method strong {
+      display: block;
+
+      font-size: 23px;
+
+      margin-bottom: 4px;
+    }
+
+    .payment-number {
+      font-size: 28px;
+
+      font-weight: 900;
+
+      color: var(--primary);
+
+      letter-spacing: 1px;
+    }
+
+    .payment-note {
+      color: var(--muted);
+
+      font-size: 13px;
+
+      margin-top: 8px;
+    }
+
+    /* =========================
+       ABOUT
+    ========================== */
+
+    .about-grid {
+      display: grid;
+
+      grid-template-columns:
+        1fr 1fr;
+
+      gap: 50px;
+
+      align-items: center;
+    }
+
+    .about-image {
+      border-radius: 25px;
+
+      overflow: hidden;
+
+      box-shadow: var(--shadow);
+    }
+
+    .about-image img {
+      width: 100%;
+      height: 430px;
+
+      object-fit: cover;
+    }
+
+    .about-content h2 {
+      font-size: 42px;
+
+      line-height: 1.1;
+
+      margin-bottom: 18px;
+    }
+
+    .about-content p {
+      color: var(--muted);
+
+      margin-bottom: 15px;
+    }
+
+    .check-list {
+      list-style: none;
+
+      margin: 20px 0 25px;
+    }
+
+    .check-list li {
+      margin-bottom: 10px;
+
+      font-weight: 600;
+    }
+
+    .check-list li::before {
+      content: "✓";
+
+      display: inline-grid;
+
+      place-items: center;
+
+      width: 24px;
+      height: 24px;
+
+      border-radius: 50%;
+
+      margin-right: 9px;
+
+      background: #dcfce7;
+
+      color: var(--success);
+
+      font-weight: 900;
+    }
+
+    /* =========================
+       MODAL
+    ========================== */
+
+    .modal {
+      position: fixed;
+
+      inset: 0;
+
+      z-index: 2000;
+
+      display: none;
+
+      align-items: center;
+      justify-content: center;
+
+      padding: 20px;
+
+      background:
+        rgba(15, 23, 42, 0.72);
+
+      backdrop-filter: blur(8px);
+    }
+
+    .modal.active {
+      display: flex;
+    }
+
+    .modal-content {
+      width: min(500px, 100%);
+
+      max-height: 90vh;
+
+      overflow-y: auto;
+
+      background: white;
+
+      border-radius: 22px;
+
+      padding: 30px;
+
+      position: relative;
+
+      box-shadow:
+        0 30px 90px rgba(0, 0, 0, 0.25);
+    }
+
+    .modal-close {
+      position: absolute;
+
+      top: 14px;
+      right: 17px;
+
+      width: 36px;
+      height: 36px;
+
+      border: 0;
+
+      border-radius: 50%;
+
+      background: #f1f5f9;
+
+      font-size: 20px;
+    }
+
+    .modal-content h2 {
+      margin-bottom: 8px;
+    }
+
+    .modal-content > p {
+      color: var(--muted);
+
+      margin-bottom: 22px;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    .form-group label {
+      display: block;
+
+      font-weight: 700;
+
+      margin-bottom: 6px;
+
+      font-size: 14px;
+    }
+
+    .form-group input,
+    .form-group select {
+      width: 100%;
+
+      padding: 13px 14px;
+
+      border:
+        1px solid var(--border);
+
+      border-radius: 11px;
+
+      outline: none;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus {
+      border-color: var(--primary);
+
+      box-shadow:
+        0 0 0 4px rgba(37, 99, 235, 0.08);
+    }
+
+    .form-message {
+      padding: 12px;
+
+      border-radius: 10px;
+
+      margin-bottom: 15px;
+
+      display: none;
+
+      font-size: 14px;
+    }
+
+    .form-message.show {
+      display: block;
+    }
+
+    .form-message.info {
+      background: #eff6ff;
+      color: #1d4ed8;
+    }
+
+    /* =========================
+       FOOTER
+    ========================== */
+
+    footer {
+      background: var(--dark);
+
+      color: white;
+
+      padding: 55px 0 25px;
+    }
+
+    .footer-grid {
+      display: grid;
+
+      grid-template-columns:
+        1.5fr 1fr 1fr;
+
+      gap: 40px;
+
+      margin-bottom: 40px;
+    }
+
+    .footer-brand p {
+      color: #94a3b8;
+
+      margin-top: 12px;
+
+      max-width: 420px;
+    }
+
+    footer h3 {
+      margin-bottom: 15px;
+    }
+
+    footer ul {
+      list-style: none;
+    }
+
+    footer li {
+      margin-bottom: 9px;
+    }
+
+    footer li a {
+      color: #94a3b8;
+    }
+
+    footer li a:hover {
+      color: white;
+    }
+
+    .footer-bottom {
+      border-top:
+        1px solid #334155;
+
+      padding-top: 20px;
+
+      color: #94a3b8;
+
+      text-align: center;
+
+      font-size: 14px;
+    }
+
+    /* =========================
+       MOBILE
+    ========================== */
+
+    .mobile-menu {
+      display: none;
+
+      border: 0;
+
+      background: transparent;
+
+      font-size: 27px;
+    }
+
+    @media (max-width: 950px) {
+
+      nav {
+        display: none;
+      }
+
+      .mobile-menu {
+        display: block;
+      }
+
+      .hero-content {
+        grid-template-columns: 1fr;
+
+        padding-top: 55px;
+      }
+
+      .hero-image {
+        max-width: 650px;
+
+        margin: auto;
+      }
+
+      .courses-grid,
+      .features-grid {
+        grid-template-columns:
+          repeat(2, 1fr);
+      }
+
+      .levels-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .payment-box,
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 650px) {
+
+      .navbar {
+        min-height: 68px;
+      }
+
+      .logo {
+        font-size: 16px;
+      }
+
+      .logo-icon {
+        width: 38px;
+        height: 38px;
+      }
+
+      .nav-buttons .btn-outline {
+        display: none;
+      }
+
+      .hero-content {
+        min-height: auto;
+
+        padding: 60px 0;
+      }
+
+      .hero-text h1 {
+        letter-spacing: -1px;
+      }
+
+      .hero-card img {
+        height: 260px;
+      }
+
+      .stats {
+        grid-template-columns:
+          repeat(2, 1fr);
+
+        margin-top: -25px;
+      }
+
+      .stat {
+        border-bottom:
+          1px solid var(--border);
+      }
+
+      section {
+        padding: 60px 0;
+      }
+
+      .courses-grid,
+      .features-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .course-tools {
+        align-items: stretch;
+      }
+
+      .filters {
+        width: 100%;
+      }
+
+      .filter-btn {
+        flex: 1;
+      }
+
+      .payment-content h2,
+      .about-content h2 {
+        font-size: 32px;
+      }
+
+      .payment-image img,
+      .about-image img {
+        height: 300px;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-  <!-- =========================================================
-       FUNDO DECORATIVO
-  ========================================================== -->
-
-  <div class="background-effects" aria-hidden="true">
-    <div class="glow glow-one"></div>
-    <div class="glow glow-two"></div>
-    <div class="grid-background"></div>
-  </div>
-
-
-  <!-- =========================================================
+  <!-- =========================
        HEADER
-  ========================================================== -->
+  ========================== -->
 
-  <header class="site-header" id="siteHeader">
+  <header>
 
-    <div class="container nav-container">
+    <div class="navbar">
 
-      <a
-        href="#inicio"
-        class="brand"
-        aria-label="Fely Academy - Início"
-      >
-        <span class="brand-icon">F</span>
+      <a href="#inicio" class="logo">
 
-        <span class="brand-text">
-          <strong>Fely</strong>
-          <span>Academy</span>
+        <div class="logo-icon">
+          F
+        </div>
+
+        <span>
+          Fely e Amigos Academy
         </span>
+
       </a>
 
+      <nav>
 
-      <nav
-        class="main-nav"
-        id="mainNav"
-        aria-label="Navegação principal"
-      >
-
-        <a href="#inicio" class="nav-link active">
+        <a href="#inicio">
           Início
         </a>
 
-        <a href="#cursos" class="nav-link">
+        <a href="#cursos">
           Cursos
         </a>
 
-        <a href="#como-funciona" class="nav-link">
-          Como funciona
+        <a href="#niveis">
+          Níveis
         </a>
 
-        <a href="#sobre" class="nav-link">
-          Sobre
+        <a href="#sobre">
+          Sobre nós
         </a>
 
-        <a href="#contacto" class="nav-link">
-          Contacto
+        <a href="#pagamento">
+          Pagamento
         </a>
 
       </nav>
 
-
-      <div class="nav-actions">
-
-        <button
-          class="theme-button"
-          id="themeButton"
-          type="button"
-          aria-label="Alterar tema"
-          title="Alterar tema"
-        >
-          ☾
-        </button>
+      <div class="nav-buttons">
 
         <button
           class="btn btn-outline"
-          type="button"
-          onclick="openAuth('login')"
+          onclick="openModal('loginModal')"
         >
           Entrar
         </button>
 
         <button
           class="btn btn-primary"
-          type="button"
-          onclick="openAuth('register')"
+          onclick="openModal('signupModal')"
         >
           Criar conta
         </button>
 
         <button
-          class="mobile-menu-button"
-          id="mobileMenuButton"
-          type="button"
+          class="mobile-menu"
+          onclick="toggleMobileMenu()"
           aria-label="Abrir menu"
-          aria-expanded="false"
         >
           ☰
         </button>
@@ -134,178 +1417,77 @@
   </header>
 
 
-  <!-- =========================================================
-       MAIN
-  ========================================================== -->
+  <!-- =========================
+       HERO
+  ========================== -->
 
   <main>
 
-
-    <!-- =======================================================
-         HERO
-    ======================================================== -->
-
     <section
-      class="hero-section"
+      class="hero"
       id="inicio"
     >
 
-      <div class="container hero-grid">
+      <div class="hero-content">
 
-        <div class="hero-content">
-
-          <div class="eyebrow">
-            <span class="eyebrow-dot"></span>
-            Educação que transforma
-          </div>
+        <div class="hero-text">
 
           <h1>
             Aprenda hoje.
-            <span>Construa o seu amanhã.</span>
+            <span>
+              Transforme o seu futuro.
+            </span>
           </h1>
 
-          <p class="hero-description">
-            Desenvolva competências práticas para estudar,
-            trabalhar, empreender e crescer com confiança.
-            Na Fely Academy, o conhecimento está ao seu alcance.
+          <p>
+            Bem-vindo à Fely e Amigos Academy,
+            uma plataforma de aprendizagem criada
+            para ajudar estudantes e profissionais
+            a desenvolver novas competências.
           </p>
 
           <div class="hero-buttons">
 
             <a
               href="#cursos"
-              class="btn btn-primary btn-large"
+              class="btn btn-primary"
             >
               Explorar cursos
-              <span>→</span>
             </a>
 
             <button
-              class="btn btn-glass btn-large"
-              type="button"
-              onclick="openAuth('register')"
+              class="btn btn-outline"
+              onclick="openModal('signupModal')"
             >
               Começar agora
             </button>
 
           </div>
 
-
-          <div class="hero-trust">
-
-            <div class="avatar-stack">
-              <span>F</span>
-              <span>A</span>
-              <span>M</span>
-              <span>+</span>
-            </div>
-
-            <div>
-              <strong>Aprendizagem para todos</strong>
-              <small>
-                Estude no seu ritmo, onde estiver.
-              </small>
-            </div>
-
-          </div>
-
         </div>
 
 
-        <!-- HERO VISUAL -->
+        <div class="hero-image">
 
-        <div class="hero-visual">
+          <div class="hero-card">
 
-          <div class="hero-orbit orbit-one"></div>
-          <div class="hero-orbit orbit-two"></div>
+            <img
+              src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1200&q=85"
+              alt="Estudantes a aprender"
+            >
 
-          <div class="hero-card-main">
+            <div class="hero-card-info">
 
-            <div class="hero-card-top">
+              <strong>
+                Conhecimento que abre portas
+              </strong>
 
-              <div>
-                <span class="mini-label">
-                  FELY ACADEMY
-                </span>
+              <p>
+                Cursos organizados por níveis,
+                conteúdos práticos e aprendizagem
+                orientada para resultados.
+              </p>
 
-                <h3>
-                  O seu próximo nível começa aqui.
-                </h3>
-              </div>
-
-              <div class="hero-card-icon">
-                🎓
-              </div>
-
-            </div>
-
-
-            <div class="learning-screen">
-
-              <div class="screen-header">
-                <span></span>
-                <span></span>
-                <span></span>
-              </div>
-
-              <div class="screen-content">
-
-                <div class="screen-video">
-                  <div class="play-button">
-                    ▶
-                  </div>
-                </div>
-
-                <div class="screen-lines">
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                </div>
-
-              </div>
-
-            </div>
-
-
-            <div class="progress-info">
-
-              <div>
-                <span>Progresso do aluno</span>
-                <strong>72%</strong>
-              </div>
-
-              <div class="progress-bar">
-                <span style="width:72%"></span>
-              </div>
-
-            </div>
-
-          </div>
-
-
-          <div class="floating-card floating-card-one">
-
-            <span class="floating-icon green">
-              ✓
-            </span>
-
-            <div>
-              <strong>Curso concluído</strong>
-              <small>Parabéns! 🎉</small>
-            </div>
-
-          </div>
-
-
-          <div class="floating-card floating-card-two">
-
-            <span class="floating-icon purple">
-              ★
-            </span>
-
-            <div>
-              <strong>+1 competência</strong>
-              <small>Continue assim!</small>
             </div>
 
           </div>
@@ -317,184 +1499,114 @@
     </section>
 
 
-    <!-- =======================================================
+    <!-- =========================
          STATS
-    ======================================================== -->
+    ========================== -->
 
-    <section class="stats-section">
+    <div class="stats">
 
-      <div class="container stats-grid">
-
-        <div class="stat-item">
-          <strong>9+</strong>
-          <span>Cursos disponíveis</span>
-        </div>
-
-        <div class="stat-item">
-          <strong>40+</strong>
-          <span>Módulos de aprendizagem</span>
-        </div>
-
-        <div class="stat-item">
-          <strong>100%</strong>
-          <span>Aprendizagem online</span>
-        </div>
-
-        <div class="stat-item">
-          <strong>24/7</strong>
-          <span>Acesso aos estudos</span>
-        </div>
-
+      <div class="stat">
+        <strong>9+</strong>
+        <span>Cursos disponíveis</span>
       </div>
 
-    </section>
+      <div class="stat">
+        <strong>3</strong>
+        <span>Níveis de aprendizagem</span>
+      </div>
+
+      <div class="stat">
+        <strong>100%</strong>
+        <span>Online</span>
+      </div>
+
+      <div class="stat">
+        <strong>24/7</strong>
+        <span>Acesso à plataforma</span>
+      </div>
+
+    </div>
 
 
-    <!-- =======================================================
-         CATEGORIAS
-    ======================================================== -->
+    <!-- =========================
+         CURSOS
+    ========================== -->
 
-    <section class="section" id="cursos">
+    <section id="cursos">
 
       <div class="container">
 
         <div class="section-heading">
 
-          <div>
-            <span class="section-kicker">
-              APRENDA ALGO NOVO
-            </span>
+          <span>
+            Formação
+          </span>
 
-            <h2>
-              Cursos para o seu próximo nível
-            </h2>
-          </div>
+          <h2>
+            Escolha o curso ideal para si
+          </h2>
 
           <p>
-            Escolha uma área, comece pelo seu nível
-            e desenvolva competências que pode aplicar
-            na vida real.
+            Encontre cursos de tecnologia,
+            negócios, línguas e desenvolvimento
+            pessoal.
           </p>
 
         </div>
 
 
-        <div class="category-grid">
+        <div class="course-tools">
 
-          <button
-            class="category-card"
-            onclick="filterCourses('Tecnologia')"
-          >
-            <span class="category-icon blue">
-              💻
-            </span>
+          <div class="search-box">
 
-            <strong>Tecnologia</strong>
+            <input
+              type="search"
+              id="courseSearch"
+              placeholder="Pesquisar curso..."
+              oninput="filterCourses()"
+            >
 
-            <small>
-              Programação e ferramentas digitais
-            </small>
-          </button>
-
-
-          <button
-            class="category-card"
-            onclick="filterCourses('Informática')"
-          >
-            <span class="category-icon cyan">
-              🖥️
-            </span>
-
-            <strong>Informática</strong>
-
-            <small>
-              Computadores, Office e produtividade
-            </small>
-          </button>
-
-
-          <button
-            class="category-card"
-            onclick="filterCourses('Línguas')"
-          >
-            <span class="category-icon orange">
-              🌍
-            </span>
-
-            <strong>Línguas</strong>
-
-            <small>
-              Inglês, espanhol e comunicação
-            </small>
-          </button>
-
-
-          <button
-            class="category-card"
-            onclick="filterCourses('Negócios')"
-          >
-            <span class="category-icon green">
-              📈
-            </span>
-
-            <strong>Negócios</strong>
-
-            <small>
-              Empreendedorismo e marketing
-            </small>
-          </button>
-
-
-          <button
-            class="category-card"
-            onclick="filterCourses('Desenvolvimento Pessoal')"
-          >
-            <span class="category-icon pink">
-              🚀
-            </span>
-
-            <strong>Desenvolvimento</strong>
-
-            <small>
-              Crescimento pessoal e profissional
-            </small>
-          </button>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- =======================================================
-         CURSOS
-    ======================================================== -->
-
-    <section class="section courses-section">
-
-      <div class="container">
-
-        <div class="section-heading courses-heading">
-
-          <div>
-            <span class="section-kicker">
-              CURSOS EM DESTAQUE
-            </span>
-
-            <h2>
-              Comece a aprender
-            </h2>
           </div>
 
-          <button
-            class="btn btn-outline"
-            type="button"
-            onclick="showAllCourses()"
-          >
-            Ver todos
-            <span>→</span>
-          </button>
+
+          <div class="filters">
+
+            <button
+              class="filter-btn active"
+              onclick="setCategory('Todos', this)"
+            >
+              Todos
+            </button>
+
+            <button
+              class="filter-btn"
+              onclick="setCategory('Informática', this)"
+            >
+              Informática
+            </button>
+
+            <button
+              class="filter-btn"
+              onclick="setCategory('Tecnologia', this)"
+            >
+              Tecnologia
+            </button>
+
+            <button
+              class="filter-btn"
+              onclick="setCategory('Línguas', this)"
+            >
+              Línguas
+            </button>
+
+            <button
+              class="filter-btn"
+              onclick="setCategory('Negócios', this)"
+            >
+              Negócios
+            </button>
+
+          </div>
 
         </div>
 
@@ -502,94 +1614,676 @@
         <div
           class="courses-grid"
           id="coursesGrid"
-        ></div>
+        >
+
+          <!-- CURSO 1 -->
+
+          <article
+            class="course-card"
+            data-category="Informática"
+            data-title="Informática Essencial"
+          >
+
+            <div class="course-image">
+
+              <img
+                src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=900&q=80"
+                alt="Informática"
+                loading="lazy"
+              >
+
+              <span class="course-level">
+                Iniciante
+              </span>
+
+            </div>
+
+            <div class="course-body">
+
+              <div class="course-category">
+                INFORMÁTICA
+              </div>
+
+              <h3>
+                Informática Essencial
+              </h3>
+
+              <p>
+                Aprenda os fundamentos do computador,
+                internet, documentos, ficheiros e
+                ferramentas digitais.
+              </p>
+
+              <div class="course-bottom">
+
+                <span class="price">
+                  15.000 Kz
+                </span>
+
+                <button
+                  class="course-btn"
+                  onclick="selectCourse('Informática Essencial', '15.000 Kz')"
+                >
+                  Ver curso
+                </button>
+
+              </div>
+
+            </div>
+
+          </article>
+
+
+          <!-- CURSO 2 -->
+
+          <article
+            class="course-card"
+            data-category="Tecnologia"
+            data-title="Programação Web"
+          >
+
+            <div class="course-image">
+
+              <img
+                src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=900&q=80"
+                alt="Programação Web"
+                loading="lazy"
+              >
+
+              <span class="course-level">
+                Iniciante
+              </span>
+
+            </div>
+
+            <div class="course-body">
+
+              <div class="course-category">
+                TECNOLOGIA
+              </div>
+
+              <h3>
+                Programação Web
+              </h3>
+
+              <p>
+                Aprenda HTML, CSS e JavaScript
+                e construa os seus primeiros
+                websites.
+              </p>
+
+              <div class="course-bottom">
+
+                <span class="price">
+                  25.000 Kz
+                </span>
+
+                <button
+                  class="course-btn"
+                  onclick="selectCourse('Programação Web', '25.000 Kz')"
+                >
+                  Ver curso
+                </button>
+
+              </div>
+
+            </div>
+
+          </article>
+
+
+          <!-- CURSO 3 -->
+
+          <article
+            class="course-card"
+            data-category="Línguas"
+            data-title="Inglês do Zero"
+          >
+
+            <div class="course-image">
+
+              <img
+                src="https://images.unsplash.com/photo-1457369804613-52c61a468e7d?auto=format&fit=crop&w=900&q=80"
+                alt="Aprendizagem de inglês"
+                loading="lazy"
+              >
+
+              <span class="course-level">
+                Iniciante
+              </span>
+
+            </div>
+
+            <div class="course-body">
+
+              <div class="course-category">
+                LÍNGUAS
+              </div>
+
+              <h3>
+                Inglês do Zero
+              </h3>
+
+              <p>
+                Desenvolva vocabulário,
+                compreensão e comunicação em
+                inglês desde o nível inicial.
+              </p>
+
+              <div class="course-bottom">
+
+                <span class="price">
+                  20.000 Kz
+                </span>
+
+                <button
+                  class="course-btn"
+                  onclick="selectCourse('Inglês do Zero', '20.000 Kz')"
+                >
+                  Ver curso
+                </button>
+
+              </div>
+
+            </div>
+
+          </article>
+
+
+          <!-- CURSO 4 -->
+
+          <article
+            class="course-card"
+            data-category="Línguas"
+            data-title="Espanhol Básico"
+          >
+
+            <div class="course-image">
+
+              <img
+                src="https://images.unsplash.com/photo-1546410531-bb4caa6b424d?auto=format&fit=crop&w=900&q=80"
+                alt="Aprender idiomas"
+                loading="lazy"
+              >
+
+              <span class="course-level">
+                Iniciante
+              </span>
+
+            </div>
+
+            <div class="course-body">
+
+              <div class="course-category">
+                LÍNGUAS
+              </div>
+
+              <h3>
+                Espanhol Básico
+              </h3>
+
+              <p>
+                Aprenda frases, vocabulário e
+                estruturas fundamentais da língua
+                espanhola.
+              </p>
+
+              <div class="course-bottom">
+
+                <span class="price">
+                  18.000 Kz
+                </span>
+
+                <button
+                  class="course-btn"
+                  onclick="selectCourse('Espanhol Básico', '18.000 Kz')"
+                >
+                  Ver curso
+                </button>
+
+              </div>
+
+            </div>
+
+          </article>
+
+
+          <!-- CURSO 5 -->
+
+          <article
+            class="course-card"
+            data-category="Negócios"
+            data-title="Empreendedorismo"
+          >
+
+            <div class="course-image">
+
+              <img
+                src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=900&q=80"
+                alt="Empreendedorismo"
+                loading="lazy"
+              >
+
+              <span class="course-level">
+                Intermédio
+              </span>
+
+            </div>
+
+            <div class="course-body">
+
+              <div class="course-category">
+                NEGÓCIOS
+              </div>
+
+              <h3>
+                Empreendedorismo
+              </h3>
+
+              <p>
+                Transforme ideias em oportunidades
+                e aprenda fundamentos para criar
+                um negócio.
+              </p>
+
+              <div class="course-bottom">
+
+                <span class="price">
+                  30.000 Kz
+                </span>
+
+                <button
+                  class="course-btn"
+                  onclick="selectCourse('Empreendedorismo', '30.000 Kz')"
+                >
+                  Ver curso
+                </button>
+
+              </div>
+
+            </div>
+
+          </article>
+
+
+          <!-- CURSO 6 -->
+
+          <article
+            class="course-card"
+            data-category="Negócios"
+            data-title="Marketing Digital"
+          >
+
+            <div class="course-image">
+
+              <img
+                src="https://images.unsplash.com/photo-1557838923-2985c318be48?auto=format&fit=crop&w=900&q=80"
+                alt="Marketing Digital"
+                loading="lazy"
+              >
+
+              <span class="course-level">
+                Intermédio
+              </span>
+
+            </div>
+
+            <div class="course-body">
+
+              <div class="course-category">
+                NEGÓCIOS
+              </div>
+
+              <h3>
+                Marketing Digital
+              </h3>
+
+              <p>
+                Aprenda estratégias digitais,
+                redes sociais, conteúdo e
+                posicionamento online.
+              </p>
+
+              <div class="course-bottom">
+
+                <span class="price">
+                  28.000 Kz
+                </span>
+
+                <button
+                  class="course-btn"
+                  onclick="selectCourse('Marketing Digital', '28.000 Kz')"
+                >
+                  Ver curso
+                </button>
+
+              </div>
+
+            </div>
+
+          </article>
+
+
+          <!-- CURSO 7 -->
+
+          <article
+            class="course-card"
+            data-category="Desenvolvimento Pessoal"
+            data-title="Desenvolvimento Pessoal"
+          >
+
+            <div class="course-image">
+
+              <img
+                src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&w=900&q=80"
+                alt="Desenvolvimento pessoal"
+                loading="lazy"
+              >
+
+              <span class="course-level">
+                Iniciante
+              </span>
+
+            </div>
+
+            <div class="course-body">
+
+              <div class="course-category">
+                DESENVOLVIMENTO PESSOAL
+              </div>
+
+              <h3>
+                Desenvolvimento Pessoal
+              </h3>
+
+              <p>
+                Desenvolva disciplina, organização,
+                comunicação e hábitos para melhorar
+                os seus resultados.
+              </p>
+
+              <div class="course-bottom">
+
+                <span class="price">
+                  15.000 Kz
+                </span>
+
+                <button
+                  class="course-btn"
+                  onclick="selectCourse('Desenvolvimento Pessoal', '15.000 Kz')"
+                >
+                  Ver curso
+                </button>
+
+              </div>
+
+            </div>
+
+          </article>
+
+
+          <!-- CURSO 8 -->
+
+          <article
+            class="course-card"
+            data-category="Informática"
+            data-title="Excel Profissional"
+          >
+
+            <div class="course-image">
+
+              <img
+                src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=900&q=80"
+                alt="Excel"
+                loading="lazy"
+              >
+
+              <span class="course-level">
+                Intermédio
+              </span>
+
+            </div>
+
+            <div class="course-body">
+
+              <div class="course-category">
+                INFORMÁTICA
+              </div>
+
+              <h3>
+                Excel Profissional
+              </h3>
+
+              <p>
+                Aprenda fórmulas, tabelas,
+                organização de dados e ferramentas
+                profissionais.
+              </p>
+
+              <div class="course-bottom">
+
+                <span class="price">
+                  25.000 Kz
+                </span>
+
+                <button
+                  class="course-btn"
+                  onclick="selectCourse('Excel Profissional', '25.000 Kz')"
+                >
+                  Ver curso
+                </button>
+
+              </div>
+
+            </div>
+
+          </article>
+
+
+          <!-- CURSO 9 -->
+
+          <article
+            class="course-card"
+            data-category="Tecnologia"
+            data-title="Programação Avançada"
+          >
+
+            <div class="course-image">
+
+              <img
+                src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=900&q=80"
+                alt="Programação avançada"
+                loading="lazy"
+              >
+
+              <span class="course-level">
+                Avançado
+              </span>
+
+            </div>
+
+            <div class="course-body">
+
+              <div class="course-category">
+                TECNOLOGIA
+              </div>
+
+              <h3>
+                Programação Avançada
+              </h3>
+
+              <p>
+                Evolua os seus conhecimentos de
+                programação e desenvolva projetos
+                mais complexos.
+              </p>
+
+              <div class="course-bottom">
+
+                <span class="price">
+                  45.000 Kz
+                </span>
+
+                <button
+                  class="course-btn"
+                  onclick="selectCourse('Programação Avançada', '45.000 Kz')"
+                >
+                  Ver curso
+                </button>
+
+              </div>
+
+            </div>
+
+          </article>
+
+        </div>
 
       </div>
 
     </section>
 
 
-    <!-- =======================================================
-         BENEFÍCIOS
-    ======================================================== -->
+    <!-- =========================
+         NÍVEIS
+    ========================== -->
 
-    <section class="section benefits-section">
+    <section id="niveis">
 
       <div class="container">
 
-        <div class="section-heading centered">
+        <div class="section-heading">
 
-          <span class="section-kicker">
-            PORQUÊ A FELY ACADEMY?
+          <span>
+            Aprendizagem
           </span>
 
           <h2>
-            Mais do que cursos.
-            Uma experiência de aprendizagem.
+            Aprenda no seu nível
           </h2>
 
           <p>
-            Criámos a plataforma para tornar o processo
-            de aprendizagem simples, moderno e motivador.
+            Os conteúdos serão organizados
+            progressivamente para facilitar
+            a evolução do estudante.
           </p>
 
         </div>
 
 
-        <div class="benefits-grid">
+        <div class="levels-grid">
 
-          <article class="benefit-card">
-
-            <div class="benefit-number">
-              01
-            </div>
-
-            <div class="benefit-icon">
-              🎯
-            </div>
+          <div class="level beginner">
 
             <h3>
-              Aprendizagem prática
+              Iniciante
             </h3>
 
             <p>
-              Conteúdos organizados para que possa
-              transformar conhecimento em competências.
+              Para quem está a começar
+              e quer construir uma base sólida.
             </p>
 
-          </article>
+          </div>
 
 
-          <article class="benefit-card featured-benefit">
-
-            <div class="benefit-number">
-              02
-            </div>
-
-            <div class="benefit-icon">
-              ⚡
-            </div>
+          <div class="level intermediate">
 
             <h3>
-              Aprenda no seu ritmo
+              Intermédio
             </h3>
 
             <p>
-              Estude através do telemóvel, computador
-              ou tablet e acompanhe o seu progresso.
+              Para quem já possui conhecimentos
+              e quer desenvolver novas competências.
             </p>
 
-          </article>
+          </div>
 
 
-          <article class="benefit-card">
+          <div class="level advanced">
 
-            <div class="benefit-number">
-              03
+            <h3>
+              Avançado
+            </h3>
+
+            <p>
+              Para estudantes preparados para
+              desafios e projetos mais complexos.
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         RECURSOS
+    ========================== -->
+
+    <section class="features">
+
+      <div class="container">
+
+        <div class="section-heading">
+
+          <span>
+            Porquê a Fely Academy?
+          </span>
+
+          <h2>
+            Uma plataforma criada para aprender
+          </h2>
+
+        </div>
+
+
+        <div class="features-grid">
+
+          <div class="feature">
+
+            <div class="feature-icon">
+              🎓
             </div>
 
-            <div class="benefit-icon">
-              🏆
+            <h3>
+              Cursos organizados
+            </h3>
+
+            <p>
+              Conteúdos divididos por cursos,
+              módulos, níveis e aulas.
+            </p>
+
+          </div>
+
+
+          <div class="feature">
+
+            <div class="feature-icon">
+              📱
+            </div>
+
+            <h3>
+              Aprenda pelo telemóvel
+            </h3>
+
+            <p>
+              Plataforma preparada para funcionar
+              em telemóveis, tablets e computadores.
+            </p>
+
+          </div>
+
+
+          <div class="feature">
+
+            <div class="feature-icon">
+              🚀
             </div>
 
             <h3>
@@ -597,133 +2291,63 @@
             </h3>
 
             <p>
-              Complete módulos, acompanhe o progresso
-              e prepare-se para novos desafios.
-            </p>
-
-          </article>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- =======================================================
-         COMO FUNCIONA
-    ======================================================== -->
-
-    <section
-      class="section how-section"
-      id="como-funciona"
-    >
-
-      <div class="container">
-
-        <div class="section-heading centered">
-
-          <span class="section-kicker">
-            SIMPLES E DIRETO
-          </span>
-
-          <h2>
-            Como funciona?
-          </h2>
-
-        </div>
-
-
-        <div class="steps-grid">
-
-          <div class="step-card">
-
-            <span class="step-number">
-              01
-            </span>
-
-            <div class="step-icon">
-              👤
-            </div>
-
-            <h3>
-              Crie a sua conta
-            </h3>
-
-            <p>
-              Registe-se gratuitamente na Fely Academy.
+              Acompanhe o seu progresso e avance
+              para conteúdos mais avançados.
             </p>
 
           </div>
 
 
-          <div class="step-line"></div>
+          <div class="feature">
 
-
-          <div class="step-card">
-
-            <span class="step-number">
-              02
-            </span>
-
-            <div class="step-icon">
-              📚
+            <div class="feature-icon">
+              🔐
             </div>
 
             <h3>
-              Escolha o curso
+              Área do estudante
             </h3>
 
             <p>
-              Encontre o curso que combina com os seus objetivos.
+              A sua conta permitirá aceder aos
+              cursos adquiridos e ao seu progresso.
             </p>
 
           </div>
 
 
-          <div class="step-line"></div>
+          <div class="feature">
 
-
-          <div class="step-card">
-
-            <span class="step-number">
-              03
-            </span>
-
-            <div class="step-icon">
+            <div class="feature-icon">
               💳
             </div>
 
             <h3>
-              Faça a inscrição
+              Pagamento em Kz
             </h3>
 
             <p>
-              Receba a referência e siga as instruções de pagamento.
+              Processo preparado para pagamento
+              através do Atlântico Express.
             </p>
 
           </div>
 
 
-          <div class="step-line"></div>
+          <div class="feature">
 
-
-          <div class="step-card">
-
-            <span class="step-number">
-              04
-            </span>
-
-            <div class="step-icon">
-              🎓
+            <div class="feature-icon">
+              👨‍🏫
             </div>
 
             <h3>
-              Comece a estudar
+              Gestão administrativa
             </h3>
 
             <p>
-              Após aprovação, o seu curso fica disponível.
+              Futuramente, os administradores
+              poderão gerir estudantes, pagamentos
+              e cursos.
             </p>
 
           </div>
@@ -735,149 +2359,72 @@
     </section>
 
 
-    <!-- =======================================================
-         SOBRE
-    ======================================================== -->
+    <!-- =========================
+         PAGAMENTO
+    ========================== -->
 
     <section
-      class="section about-section"
-      id="sobre"
+      class="payment"
+      id="pagamento"
     >
-
-      <div class="container about-grid">
-
-        <div class="about-visual">
-
-          <div class="about-main-card">
-
-            <div class="about-logo">
-              F
-            </div>
-
-            <span>
-              FELY ACADEMY
-            </span>
-
-            <strong>
-              Conhecimento abre portas.
-            </strong>
-
-            <div class="about-decoration">
-              <span></span>
-              <span></span>
-              <span></span>
-            </div>
-
-          </div>
-
-          <div class="about-floating">
-            <strong>Aprender</strong>
-            <span>é investir em si.</span>
-          </div>
-
-        </div>
-
-
-        <div class="about-content">
-
-          <span class="section-kicker">
-            SOBRE A FELY ACADEMY
-          </span>
-
-          <h2>
-            Educação moderna para pessoas
-            que querem avançar.
-          </h2>
-
-          <p>
-            A Fely Academy nasce com uma missão simples:
-            tornar a aprendizagem acessível, organizada
-            e orientada para resultados.
-          </p>
-
-          <p>
-            A plataforma reúne cursos de tecnologia,
-            informática, línguas, negócios e desenvolvimento
-            pessoal num único espaço.
-          </p>
-
-
-          <div class="about-checks">
-
-            <div>
-              <span>✓</span>
-              Conteúdos organizados por níveis
-            </div>
-
-            <div>
-              <span>✓</span>
-              Acesso através do telemóvel
-            </div>
-
-            <div>
-              <span>✓</span>
-              Acompanhamento do progresso
-            </div>
-
-            <div>
-              <span>✓</span>
-              Plataforma preparada para crescer
-            </div>
-
-          </div>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- =======================================================
-         CTA
-    ======================================================== -->
-
-    <section class="cta-section">
 
       <div class="container">
 
-        <div class="cta-card">
+        <div class="payment-box">
 
-          <div class="cta-glow"></div>
+          <div class="payment-image">
 
-          <div class="cta-content">
+            <img
+              src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=1200&q=85"
+              alt="Pagamento online"
+              loading="lazy"
+            >
 
-            <span class="section-kicker">
-              O SEU FUTURO COMEÇA AGORA
-            </span>
+          </div>
+
+
+          <div class="payment-content">
 
             <h2>
-              Está pronto para aprender
-              algo novo?
+              Pagamento simples em Kz
             </h2>
 
             <p>
-              Crie a sua conta gratuitamente e descubra
-              os cursos disponíveis na Fely Academy.
+              Nesta primeira versão, o pagamento
+              será feito através do Atlântico Express.
+              Na próxima fase vamos ligar este
+              processo ao sistema de contas e
+              aprovação.
             </p>
 
+
+            <div class="payment-method">
+
+              <strong>
+                Atlântico Express
+              </strong>
+
+              <div class="payment-number">
+                948 138 785
+              </div>
+
+              <div class="payment-note">
+                Número indicado para pagamentos
+                da Fely e Amigos Academy.
+              </div>
+
+            </div>
+
+
             <button
-              class="btn btn-light btn-large"
-              type="button"
-              onclick="openAuth('register')"
+              class="btn btn-primary"
+              onclick="openModal('signupModal')"
             >
-              Criar minha conta
-              <span>→</span>
+              Criar conta e começar
             </button>
 
           </div>
 
-          <div class="cta-visual">
-            <div class="cta-circle">
-              🎓
-            </div>
-          </div>
-
         </div>
 
       </div>
@@ -885,106 +2432,82 @@
     </section>
 
 
-    <!-- =======================================================
-         CONTACTO
-    ======================================================== -->
+    <!-- =========================
+         SOBRE
+    ========================== -->
 
-    <section
-      class="section contact-section"
-      id="contacto"
-    >
+    <section id="sobre">
 
-      <div class="container contact-grid">
+      <div class="container">
 
-        <div>
+        <div class="about-grid">
 
-          <span class="section-kicker">
-            CONTACTO
-          </span>
+          <div class="about-image">
 
-          <h2>
-            Fale connosco.
-          </h2>
+            <img
+              src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&w=1200&q=85"
+              alt="Formação e aprendizagem"
+              loading="lazy"
+            >
 
-          <p>
-            Tem alguma dúvida sobre os cursos,
-            inscrições ou plataforma?
-            Envie-nos uma mensagem.
-          </p>
+          </div>
 
-          <div class="contact-info">
 
-            <div>
-              <span>✉</span>
-              <div>
-                <strong>Email</strong>
-                <small>contacto@felyacademy.com</small>
-              </div>
-            </div>
+          <div class="about-content">
 
-            <div>
-              <span>📱</span>
-              <div>
-                <strong>Atendimento</strong>
-                <small>Segunda a sexta-feira</small>
-              </div>
-            </div>
+            <h2>
+              Conhecimento para construir novas oportunidades
+            </h2>
+
+            <p>
+              A Fely e Amigos Academy nasce com o
+              objetivo de facilitar o acesso à formação
+              e ao desenvolvimento de competências.
+            </p>
+
+            <p>
+              A plataforma será construída de forma
+              progressiva, começando pelos cursos e
+              evoluindo para uma experiência completa
+              de aprendizagem online.
+            </p>
+
+
+            <ul class="check-list">
+
+              <li>
+                Cursos por níveis
+              </li>
+
+              <li>
+                Conteúdos organizados
+              </li>
+
+              <li>
+                Área pessoal do estudante
+              </li>
+
+              <li>
+                Sistema de pagamento
+              </li>
+
+              <li>
+                Acompanhamento do progresso
+              </li>
+
+            </ul>
+
+
+            <button
+              class="btn btn-dark"
+              onclick="openModal('signupModal')"
+            >
+              Criar a minha conta
+            </button>
 
           </div>
 
         </div>
-
-
-        <form
-          class="contact-form"
-          id="contactForm"
-        >
-
-          <div class="form-row">
-
-            <label>
-              Nome
-              <input
-                type="text"
-                id="contactName"
-                placeholder="O seu nome"
-                required
-              >
-            </label>
-
-            <label>
-              Email
-              <input
-                type="email"
-                id="contactEmail"
-                placeholder="seu@email.com"
-                required
-              >
-            </label>
-
-          </div>
-
-          <label>
-            Mensagem
-
-            <textarea
-              id="contactMessage"
-              rows="6"
-              placeholder="Como podemos ajudar?"
-              required
-            ></textarea>
-
-          </label>
-
-          <button
-            type="submit"
-            class="btn btn-primary btn-large"
-          >
-            Enviar mensagem
-            <span>→</span>
-          </button>
-
-        </form>
 
       </div>
 
@@ -993,384 +2516,146 @@
   </main>
 
 
-  <!-- =========================================================
+  <!-- =========================
        FOOTER
-  ========================================================== -->
+  ========================== -->
 
-  <footer class="site-footer">
+  <footer>
 
-    <div class="container footer-grid">
+    <div class="container">
 
-      <div class="footer-brand">
+      <div class="footer-grid">
 
-        <a href="#inicio" class="brand">
+        <div class="footer-brand">
 
-          <span class="brand-icon">
-            F
-          </span>
+          <div class="logo">
 
-          <span class="brand-text">
-            <strong>Fely</strong>
-            <span>Academy</span>
-          </span>
+            <div class="logo-icon">
+              F
+            </div>
 
-        </a>
+            <span style="color:white;">
+              Fely e Amigos Academy
+            </span>
 
-        <p>
-          Aprenda. Evolua. Conquiste.
-        </p>
+          </div>
 
-      </div>
+          <p>
+            Plataforma de aprendizagem online
+            para desenvolver competências,
+            conhecimento e novas oportunidades.
+          </p>
 
-
-      <div class="footer-column">
-
-        <h4>
-          Plataforma
-        </h4>
-
-        <a href="#cursos">
-          Cursos
-        </a>
-
-        <a href="#como-funciona">
-          Como funciona
-        </a>
-
-        <a href="#sobre">
-          Sobre nós
-        </a>
-
-      </div>
+        </div>
 
 
-      <div class="footer-column">
+        <div>
 
-        <h4>
-          Suporte
-        </h4>
+          <h3>
+            Plataforma
+          </h3>
 
-        <a href="#contacto">
-          Contacto
-        </a>
+          <ul>
 
-        <a href="#contacto">
-          Ajuda
-        </a>
+            <li>
+              <a href="#cursos">
+                Cursos
+              </a>
+            </li>
 
-        <a href="#">
-          Termos
-        </a>
+            <li>
+              <a href="#niveis">
+                Níveis
+              </a>
+            </li>
 
-      </div>
+            <li>
+              <a href="#sobre">
+                Sobre nós
+              </a>
+            </li>
+
+            <li>
+              <a href="#pagamento">
+                Pagamento
+              </a>
+            </li>
+
+          </ul>
+
+        </div>
 
 
-      <div class="footer-column">
+        <div>
 
-        <h4>
-          Siga-nos
-        </h4>
+          <h3>
+            Conta
+          </h3>
 
-        <div class="social-links">
+          <ul>
 
-          <a href="#" aria-label="Facebook">
-            f
-          </a>
+            <li>
+              <a
+                href="#"
+                onclick="openModal('loginModal'); return false;"
+              >
+                Entrar
+              </a>
+            </li>
 
-          <a href="#" aria-label="Instagram">
-            ◎
-          </a>
+            <li>
+              <a
+                href="#"
+                onclick="openModal('signupModal'); return false;"
+              >
+                Criar conta
+              </a>
+            </li>
 
-          <a href="#" aria-label="YouTube">
-            ▶
-          </a>
+          </ul>
 
         </div>
 
       </div>
 
-    </div>
 
+      <div class="footer-bottom">
 
-    <div class="container footer-bottom">
+        ©
+        <span id="year"></span>
+        Fely e Amigos Academy.
+        Todos os direitos reservados.
 
-      <span>
-        © <span id="currentYear"></span>
-        Fely Academy. Todos os direitos reservados.
-      </span>
-
-      <span>
-        Feito para aprender e crescer.
-      </span>
+      </div>
 
     </div>
 
   </footer>
 
 
-  <!-- =========================================================
-       AUTH MODAL
-  ========================================================== -->
+  <!-- =========================
+       MODAL LOGIN
+  ========================== -->
 
   <div
     class="modal"
-    id="authModal"
-    aria-hidden="true"
+    id="loginModal"
+    onclick="closeModalOutside(event, 'loginModal')"
   >
 
-    <div class="modal-overlay" onclick="closeAuth()"></div>
-
-    <div class="auth-modal">
+    <div class="modal-content">
 
       <button
         class="modal-close"
-        type="button"
-        onclick="closeAuth()"
-        aria-label="Fechar"
+        onclick="closeModal('loginModal')"
       >
         ×
       </button>
 
-
-      <div class="auth-visual">
-
-        <div class="auth-visual-logo">
-          F
-        </div>
-
-        <h2>
-          Aprender muda tudo.
-        </h2>
-
-        <p>
-          Entre na Fely Academy e continue
-          a construir o seu futuro.
-        </p>
-
-        <div class="auth-decoration">
-          ✦
-          ✧
-          ✦
-        </div>
-
-      </div>
-
-
-      <div class="auth-content">
-
-        <div class="auth-tabs">
-
-          <button
-            id="loginTab"
-            class="active"
-            onclick="switchAuth('login')"
-          >
-            Entrar
-          </button>
-
-          <button
-            id="registerTab"
-            onclick="switchAuth('register')"
-          >
-            Criar conta
-          </button>
-
-        </div>
-
-
-        <!-- LOGIN -->
-
-        <form
-          id="loginForm"
-          class="auth-form"
-        >
-
-          <h3>
-            Bem-vindo de volta 👋
-          </h3>
-
-          <p>
-            Entre na sua conta.
-          </p>
-
-          <label>
-            Email
-
-            <input
-              type="email"
-              id="loginEmail"
-              placeholder="seu@email.com"
-              required
-            >
-
-          </label>
-
-
-          <label>
-            Palavra-passe
-
-            <input
-              type="password"
-              id="loginPassword"
-              placeholder="••••••••"
-              required
-            >
-
-          </label>
-
-
-          <button
-            class="btn btn-primary btn-large"
-            type="submit"
-          >
-            Entrar
-          </button>
-
-          <small class="auth-message" id="loginMessage"></small>
-
-        </form>
-
-
-        <!-- REGISTO -->
-
-        <form
-          id="registerForm"
-          class="auth-form hidden"
-        >
-
-          <h3>
-            Criar a sua conta 🚀
-          </h3>
-
-          <p>
-            Comece gratuitamente.
-          </p>
-
-
-          <label>
-            Nome completo
-
-            <input
-              type="text"
-              id="registerName"
-              placeholder="O seu nome"
-              required
-            >
-
-          </label>
-
-
-          <label>
-            Email
-
-            <input
-              type="email"
-              id="registerEmail"
-              placeholder="seu@email.com"
-              required
-            >
-
-          </label>
-
-
-          <label>
-            Palavra-passe
-
-            <input
-              type="password"
-              id="registerPassword"
-              placeholder="Mínimo 6 caracteres"
-              minlength="6"
-              required
-            >
-
-          </label>
-
-
-          <button
-            class="btn btn-primary btn-large"
-            type="submit"
-          >
-            Criar conta
-          </button>
-
-          <small
-            class="auth-message"
-            id="registerMessage"
-          ></small>
-
-        </form>
-
-      </div>
-
-    </div>
-
-  </div>
-
-
-  <!-- =========================================================
-       COURSE MODAL
-  ========================================================== -->
-
-  <div
-    class="modal"
-    id="courseModal"
-    aria-hidden="true"
-  >
-
-    <div
-      class="modal-overlay"
-      onclick="closeCourse()"
-    ></div>
-
-    <div class="course-modal">
-
-      <button
-        class="modal-close"
-        type="button"
-        onclick="closeCourse()"
-      >
-        ×
-      </button>
-
-      <div
-        class="course-modal-header"
-        id="courseModalHeader"
-      >
-      </div>
-
-      <div
-        class="course-modal-body"
-        id="courseModalBody"
-      >
-      </div>
-
-    </div>
-
-  </div>
-
-
-  <!-- =========================================================
-       TOAST
-  ========================================================== -->
-
-  <div
-    class="toast"
-    id="toast"
-    role="status"
-  >
-    <span id="toastIcon">✓</span>
-    <span id="toastMessage">
-      Operação concluída.
-    </span>
-  </div>
-
-
-  <!-- =========================================================
-       JAVASCRIPT
-  ========================================================== -->
-
-  <script src="app.js"></script>
-
-</body>
-</html>
+      <h2>
+        Entrar na plataforma
+      </h2>
+
+      <p>
+        A área de login será ligada ao sistema
+       
