@@ -1,3163 +1,1376 @@
 <!DOCTYPE html>
 <html lang="pt">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<meta name="theme-color" content="#2563eb">
-<meta name="description" content="Fely Academy — Aprenda competências para transformar o seu futuro.">
-<title>Fely Academy | Aprenda. Evolua. Conquiste.</title>
+  <meta charset="UTF-8">
 
-<style>
-:root{
---primary:#2563eb;
---primary2:#1d4ed8;
---secondary:#7c3aed;
---success:#16a34a;
---warning:#f59e0b;
---danger:#dc2626;
---dark:#0f172a;
---dark2:#1e293b;
---text:#334155;
---muted:#64748b;
---bg:#f8fafc;
---card:#fff;
---border:#e2e8f0;
---soft:#eff6ff;
---shadow:0 10px 35px rgba(15,23,42,.08);
---shadow2:0 20px 60px rgba(15,23,42,.15);
---radius:18px;
---max:1200px;
-}
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
 
-*{box-sizing:border-box;margin:0;padding:0}
+  <meta
+    name="description"
+    content="Fely Academy — plataforma de aprendizagem online. Aprenda tecnologia, línguas, negócios, informática e desenvolvimento pessoal."
+  >
 
-html{scroll-behavior:smooth}
+  <meta
+    name="theme-color"
+    content="#0b1020"
+  >
 
-body{
-font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
-background:var(--bg);
-color:var(--text);
-line-height:1.6;
-overflow-x:hidden;
-}
+  <title>Fely Academy | Aprenda. Evolua. Conquiste.</title>
 
-body.dark{
---bg:#0b1120;
---card:#111827;
---dark:#f8fafc;
---dark2:#e2e8f0;
---text:#cbd5e1;
---muted:#94a3b8;
---border:#334155;
---soft:#172554;
-}
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 
-a{text-decoration:none;color:inherit}
-button,input,textarea,select{font:inherit}
-button{cursor:pointer}
-img{max-width:100%}
-.container{width:min(var(--max),calc(100% - 30px));margin:auto}
-
-.hidden{display:none!important}
-
-/* HEADER */
-header{
-position:sticky;
-top:0;
-z-index:1000;
-background:rgba(255,255,255,.94);
-backdrop-filter:blur(18px);
-border-bottom:1px solid var(--border);
-}
-
-.dark header{background:rgba(11,17,32,.94)}
-
-.nav{
-height:76px;
-display:flex;
-align-items:center;
-justify-content:space-between;
-gap:20px;
-}
-
-.logo{
-display:flex;
-align-items:center;
-gap:10px;
-font-weight:900;
-font-size:1.2rem;
-color:var(--dark);
-white-space:nowrap;
-}
-
-.logo-icon{
-width:43px;
-height:43px;
-display:grid;
-place-items:center;
-border-radius:13px;
-background:linear-gradient(135deg,var(--primary),var(--secondary));
-color:white;
-box-shadow:0 8px 20px rgba(37,99,235,.25);
-}
-
-.navlinks{
-display:flex;
-align-items:center;
-gap:4px;
-}
-
-.navlinks a{
-padding:9px 12px;
-border-radius:10px;
-font-weight:700;
-color:var(--muted);
-}
-
-.navlinks a:hover,
-.navlinks a.active{
-background:var(--soft);
-color:var(--primary);
-}
-
-.actions{
-display:flex;
-align-items:center;
-gap:8px;
-}
-
-.btn{
-border:0;
-border-radius:11px;
-padding:11px 17px;
-font-weight:800;
-transition:.2s;
-}
-
-.btn:hover{transform:translateY(-2px)}
-
-.primary{
-background:var(--primary);
-color:#fff;
-box-shadow:0 7px 18px rgba(37,99,235,.22);
-}
-
-.primary:hover{background:var(--primary2)}
-
-.secondary{
-background:var(--soft);
-color:var(--primary);
-}
-
-.outline{
-background:transparent;
-border:1px solid var(--border);
-color:var(--text);
-}
-
-.success{background:var(--success);color:white}
-
-.danger{background:var(--danger);color:white}
-
-.menu{
-display:none;
-width:43px;
-height:43px;
-border:1px solid var(--border);
-background:var(--card);
-border-radius:11px;
-font-size:21px;
-}
-
-.icon-btn{
-width:42px;
-height:42px;
-border:1px solid var(--border);
-background:var(--card);
-color:var(--text);
-border-radius:11px;
-}
-
-/* PAGES */
-.page{display:none;min-height:calc(100vh - 76px)}
-.page.active{display:block}
-
-/* HERO */
-.hero{
-padding:85px 0 70px;
-background:
-radial-gradient(circle at 10% 10%,rgba(37,99,235,.15),transparent 28%),
-radial-gradient(circle at 90% 20%,rgba(124,58,237,.13),transparent 30%);
-}
-
-.hero-grid{
-display:grid;
-grid-template-columns:1.05fr .95fr;
-align-items:center;
-gap:55px;
-}
-
-.badge{
-display:inline-flex;
-padding:7px 12px;
-border-radius:999px;
-background:var(--soft);
-color:var(--primary);
-font-weight:850;
-font-size:.82rem;
-margin-bottom:18px;
-}
-
-.hero h1{
-font-size:clamp(2.5rem,6vw,5rem);
-line-height:1.02;
-letter-spacing:-2px;
-color:var(--dark);
-margin-bottom:22px;
-}
-
-.gradient{
-background:linear-gradient(90deg,var(--primary),var(--secondary));
--webkit-background-clip:text;
-background-clip:text;
-color:transparent;
-}
-
-.hero p{
-font-size:1.08rem;
-color:var(--muted);
-max-width:650px;
-margin-bottom:27px;
-}
-
-.hero-buttons{display:flex;flex-wrap:wrap;gap:12px}
-
-.hero-visual{
-min-height:460px;
-border-radius:32px;
-background:linear-gradient(145deg,#172554,#4c1d95);
-padding:27px;
-color:#fff;
-box-shadow:var(--shadow2);
-position:relative;
-overflow:hidden;
-}
-
-.hero-visual:before,
-.hero-visual:after{
-content:"";
-position:absolute;
-border-radius:50%;
-background:rgba(255,255,255,.07);
-}
-
-.hero-visual:before{width:300px;height:300px;right:-120px;top:-100px}
-.hero-visual:after{width:220px;height:220px;left:-100px;bottom:-100px}
-
-.visual-content{
-position:relative;
-z-index:2;
-height:100%;
-display:flex;
-flex-direction:column;
-justify-content:space-between;
-}
-
-.visual-head{
-display:flex;
-justify-content:space-between;
-font-weight:850;
-}
-
-.visual-center{
-min-height:245px;
-display:grid;
-place-items:center;
-font-size:110px;
-filter:drop-shadow(0 20px 20px rgba(0,0,0,.2));
-}
-
-.visual-box{
-padding:18px;
-border-radius:17px;
-background:rgba(255,255,255,.1);
-}
-
-.progress{
-height:8px;
-background:#dbeafe;
-border-radius:99px;
-overflow:hidden;
-}
-
-.progress span{
-display:block;
-height:100%;
-background:var(--primary);
-border-radius:99px;
-}
-
-/* STATS */
-.stats{padding:0 0 70px}
-
-.stats-grid{
-display:grid;
-grid-template-columns:repeat(4,1fr);
-gap:15px;
-}
-
-.stat{
-padding:23px;
-border:1px solid var(--border);
-border-radius:var(--radius);
-background:var(--card);
-box-shadow:var(--shadow);
-}
-
-.stat-icon{font-size:26px}
-.stat strong{display:block;font-size:1.8rem;color:var(--dark)}
-.stat span{color:var(--muted);font-size:.9rem}
-
-/* SECTION */
-.section{padding:80px 0}
-
-.section-title{
-text-align:center;
-max-width:720px;
-margin:0 auto 40px;
-}
-
-.section-title h2{
-font-size:clamp(2rem,4vw,3rem);
-color:var(--dark);
-line-height:1.1;
-margin-bottom:12px;
-}
-
-.section-title p{color:var(--muted)}
-
-.features{
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:20px;
-}
-
-.feature{
-padding:28px;
-background:var(--card);
-border:1px solid var(--border);
-border-radius:var(--radius);
-transition:.25s;
-}
-
-.feature:hover{
-transform:translateY(-5px);
-box-shadow:var(--shadow);
-}
-
-.feature-icon{
-width:55px;
-height:55px;
-display:grid;
-place-items:center;
-border-radius:15px;
-background:var(--soft);
-font-size:26px;
-margin-bottom:17px;
-}
-
-.feature h3{color:var(--dark);margin-bottom:7px}
-.feature p{color:var(--muted)}
-
-/* COURSE */
-.course-grid{
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:20px;
-}
-
-.course{
-background:var(--card);
-border:1px solid var(--border);
-border-radius:var(--radius);
-overflow:hidden;
-box-shadow:0 3px 12px rgba(15,23,42,.04);
-transition:.25s;
-}
-
-.course:hover{
-transform:translateY(-6px);
-box-shadow:var(--shadow);
-}
-
-.course-cover{
-height:175px;
-display:grid;
-place-items:center;
-font-size:65px;
-background:linear-gradient(135deg,#dbeafe,#ede9fe);
-}
-
-.course-body{padding:21px}
-
-.tag{
-display:inline-block;
-padding:5px 9px;
-border-radius:999px;
-background:var(--soft);
-color:var(--primary);
-font-size:.72rem;
-font-weight:850;
-margin-bottom:9px;
-}
-
-.level{
-display:inline-block;
-margin-left:5px;
-padding:5px 9px;
-border-radius:999px;
-background:#fef3c7;
-color:#92400e;
-font-size:.72rem;
-font-weight:850;
-}
-
-.course h3{
-color:var(--dark);
-font-size:1.15rem;
-margin-bottom:7px;
-}
-
-.course p{
-color:var(--muted);
-font-size:.9rem;
-min-height:72px;
-}
-
-.course-meta{
-display:flex;
-justify-content:space-between;
-padding-top:14px;
-margin-top:14px;
-border-top:1px solid var(--border);
-font-size:.82rem;
-color:var(--muted);
-}
-
-.course-price{
-font-size:1.15rem;
-font-weight:900;
-color:var(--dark);
-margin-top:14px;
-}
-
-/* PAGE TITLE */
-.page-title{
-padding:65px 0 45px;
-background:radial-gradient(circle at 85% 10%,rgba(124,58,237,.12),transparent 30%);
-}
-
-.page-title h1{
-font-size:clamp(2.2rem,5vw,3.7rem);
-color:var(--dark);
-line-height:1.05;
-margin-bottom:10px;
-}
-
-.page-title p{color:var(--muted);max-width:720px}
-
-/* FILTERS */
-.filters{
-display:flex;
-gap:10px;
-flex-wrap:wrap;
-margin-bottom:28px;
-}
-
-.search{
-flex:1;
-min-width:240px;
-padding:13px 15px;
-border:1px solid var(--border);
-background:var(--card);
-color:var(--text);
-border-radius:11px;
-outline:none;
-}
-
-.select{
-padding:13px;
-border:1px solid var(--border);
-background:var(--card);
-color:var(--text);
-border-radius:11px;
-}
-
-/* ABOUT */
-.about-grid{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:50px;
-align-items:center;
-}
-
-.about-image{
-min-height:400px;
-border-radius:30px;
-display:grid;
-place-items:center;
-font-size:120px;
-background:linear-gradient(135deg,#dbeafe,#ede9fe);
-}
-
-.about h2{
-font-size:2.5rem;
-color:var(--dark);
-line-height:1.1;
-margin-bottom:18px;
-}
-
-.about p{color:var(--muted);margin-bottom:14px}
-
-.checks{
-list-style:none;
-display:grid;
-gap:10px;
-margin-top:20px;
-}
-
-.checks li{display:flex;gap:9px}
-.checks b{color:var(--success)}
-
-/* AUTH */
-.auth{
-min-height:calc(100vh - 76px);
-display:grid;
-place-items:center;
-padding:60px 15px;
-}
-
-.auth-card{
-width:min(480px,100%);
-background:var(--card);
-border:1px solid var(--border);
-border-radius:25px;
-padding:34px;
-box-shadow:var(--shadow);
-}
-
-.auth-logo{text-align:center;margin-bottom:25px}
-.auth-logo .logo-icon{margin:auto auto 12px}
-.auth-card h1{text-align:center;color:var(--dark);margin-bottom:7px}
-.auth-card>p{text-align:center;color:var(--muted);margin-bottom:24px}
-
-.form-group{margin-bottom:16px}
-label{display:block;font-weight:750;color:var(--dark);margin-bottom:6px}
-
-.input,.textarea{
-width:100%;
-padding:13px 14px;
-border:1px solid var(--border);
-border-radius:11px;
-background:var(--card);
-color:var(--text);
-outline:none;
-}
-
-.input:focus,.textarea:focus{
-border-color:var(--primary);
-box-shadow:0 0 0 4px rgba(37,99,235,.1);
-}
-
-.textarea{min-height:140px;resize:vertical}
-
-.full{width:100%}
-
-.auth-foot{
-text-align:center;
-color:var(--muted);
-font-size:.9rem;
-margin-top:18px;
-}
-
-.link{
-border:0;
-background:none;
-color:var(--primary);
-font-weight:850;
-}
-
-/* DASHBOARD */
-.dashboard{padding:55px 0 80px}
-
-.welcome{
-display:flex;
-justify-content:space-between;
-align-items:center;
-gap:20px;
-margin-bottom:30px;
-}
-
-.welcome h1{color:var(--dark)}
-.welcome p{color:var(--muted)}
-
-.dashboard-stats{
-display:grid;
-grid-template-columns:repeat(4,1fr);
-gap:16px;
-margin-bottom:25px;
-}
-
-.dashboard-card{
-background:var(--card);
-border:1px solid var(--border);
-border-radius:var(--radius);
-padding:23px;
-box-shadow:var(--shadow);
-}
-
-.dashboard-card h3{color:var(--dark)}
-.big{
-font-size:2.2rem;
-font-weight:950;
-color:var(--primary);
-}
-
-.my-course{
-display:grid;
-grid-template-columns:90px 1fr auto;
-align-items:center;
-gap:17px;
-padding:16px;
-border:1px solid var(--border);
-border-radius:14px;
-margin-top:12px;
-}
-
-.my-icon{
-width:90px;
-height:70px;
-display:grid;
-place-items:center;
-background:var(--soft);
-border-radius:12px;
-font-size:30px;
-}
-
-.my-course h4{color:var(--dark)}
-
-.small{font-size:.83rem;color:var(--muted)}
-
-/* CHECKOUT */
-.checkout{
-display:grid;
-grid-template-columns:1fr .8fr;
-gap:25px;
-}
-
-.panel{
-background:var(--card);
-border:1px solid var(--border);
-border-radius:var(--radius);
-padding:27px;
-box-shadow:var(--shadow);
-}
-
-.panel h2,.panel h3{color:var(--dark);margin-bottom:12px}
-
-.payment-method{
-border:2px solid var(--primary);
-border-radius:15px;
-padding:20px;
-background:var(--soft);
-margin:15px 0;
-}
-
-.express-number{
-font-size:1.7rem;
-font-weight:950;
-color:var(--primary);
-letter-spacing:1px;
-margin:8px 0;
-}
-
-.reference{
-padding:14px;
-background:#f1f5f9;
-border-radius:11px;
-font-family:monospace;
-font-weight:850;
-word-break:break-all;
-color:#0f172a;
-}
-
-.dark .reference{background:#1e293b;color:#f8fafc}
-
-/* MODAL */
-.modal{
-position:fixed;
-inset:0;
-z-index:2000;
-display:none;
-place-items:center;
-padding:15px;
-background:rgba(15,23,42,.72);
-backdrop-filter:blur(8px);
-}
-
-.modal.open{display:grid}
-
-.modal-box{
-width:min(850px,100%);
-max-height:92vh;
-overflow:auto;
-background:var(--card);
-border-radius:25px;
-box-shadow:var(--shadow2);
-}
-
-.modal-head{
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:22px 25px;
-border-bottom:1px solid var(--border);
-}
-
-.modal-head h2{color:var(--dark)}
-
-.close{
-width:40px;
-height:40px;
-border:0;
-border-radius:10px;
-background:var(--bg);
-color:var(--text);
-font-size:22px;
-}
-
-.modal-body{padding:25px}
-
-.course-detail-top{
-display:grid;
-grid-template-columns:150px 1fr;
-gap:22px;
-align-items:center;
-margin-bottom:25px;
-}
-
-.detail-icon{
-height:140px;
-display:grid;
-place-items:center;
-border-radius:20px;
-background:var(--soft);
-font-size:70px;
-}
-
-.module{
-border:1px solid var(--border);
-border-radius:14px;
-margin-top:12px;
-overflow:hidden;
-}
-
-.module-head{
-padding:15px;
-background:var(--bg);
-display:flex;
-justify-content:space-between;
-align-items:center;
-}
-
-.module-head strong{color:var(--dark)}
-
-.lesson{
-padding:14px 16px;
-border-top:1px solid var(--border);
-display:flex;
-gap:12px;
-align-items:center;
-}
-
-.lesson-num{
-width:30px;
-height:30px;
-display:grid;
-place-items:center;
-border-radius:50%;
-background:var(--soft);
-color:var(--primary);
-font-weight:850;
-}
-
-/* CONTACT */
-.contact-grid{
-display:grid;
-grid-template-columns:.8fr 1.2fr;
-gap:25px;
-}
-
-.contact-card{
-background:var(--card);
-border:1px solid var(--border);
-border-radius:var(--radius);
-padding:28px;
-box-shadow:var(--shadow);
-}
-
-.contact-item{
-display:flex;
-gap:13px;
-padding:16px 0;
-border-bottom:1px solid var(--border);
-}
-
-.contact-item:last-child{border:0}
-.contact-item strong{display:block;color:var(--dark)}
-.contact-item span{color:var(--muted);font-size:.9rem}
-
-/* FAQ */
-.faq{
-max-width:800px;
-margin:auto;
-}
-
-.faq-item{
-background:var(--card);
-border:1px solid var(--border);
-border-radius:14px;
-margin-bottom:10px;
-overflow:hidden;
-}
-
-.faq-question{
-width:100%;
-border:0;
-background:transparent;
-color:var(--dark);
-font-weight:800;
-padding:18px;
-display:flex;
-justify-content:space-between;
-text-align:left;
-}
-
-.faq-answer{
-display:none;
-padding:0 18px 18px;
-color:var(--muted);
-}
-
-.faq-item.open .faq-answer{display:block}
-
-/* TOAST */
-.toast{
-position:fixed;
-right:20px;
-bottom:20px;
-z-index:5000;
-max-width:370px;
-padding:15px 18px;
-border-radius:13px;
-background:#0f172a;
-color:white;
-box-shadow:var(--shadow2);
-transform:translateY(120px);
-opacity:0;
-transition:.3s;
-}
-
-.toast.show{
-transform:translateY(0);
-opacity:1;
-}
-
-/* FOOTER */
-footer{
-background:#0f172a;
-color:#94a3b8;
-padding:55px 0 25px;
-}
-
-.footer-grid{
-display:grid;
-grid-template-columns:1.3fr repeat(3,1fr);
-gap:35px;
-padding-bottom:35px;
-}
-
-footer .logo{color:#fff;margin-bottom:13px}
-footer h3{color:#fff;margin-bottom:13px;font-size:1rem}
-.footer-links{list-style:none;display:grid;gap:8px}
-.footer-links a:hover{color:#fff}
-
-.footer-bottom{
-border-top:1px solid #263244;
-padding-top:20px;
-display:flex;
-justify-content:space-between;
-gap:15px;
-font-size:.84rem;
-}
-
-/* RESPONSIVE */
-@media(max-width:1000px){
-.hero-grid,.about-grid,.checkout{grid-template-columns:1fr}
-.course-grid{grid-template-columns:repeat(2,1fr)}
-.features{grid-template-columns:repeat(2,1fr)}
-.dashboard-stats{grid-template-columns:repeat(2,1fr)}
-.contact-grid{grid-template-columns:1fr}
-.footer-grid{grid-template-columns:repeat(2,1fr)}
-}
-
-@media(max-width:800px){
-.navlinks{
-position:absolute;
-left:15px;
-right:15px;
-top:70px;
-display:none;
-flex-direction:column;
-align-items:stretch;
-background:var(--card);
-border:1px solid var(--border);
-border-radius:14px;
-padding:10px;
-box-shadow:var(--shadow);
-}
-
-.navlinks.open{display:flex}
-.navlinks a{width:100%}
-.menu{display:grid;place-items:center}
-.actions>.btn{display:none}
-
-.stats-grid{grid-template-columns:repeat(2,1fr)}
-}
-
-@media(max-width:600px){
-.hero{padding:55px 0}
-.hero h1{letter-spacing:-1px}
-.hero-visual{min-height:390px}
-.stats-grid,.course-grid,.features,.dashboard-stats{grid-template-columns:1fr}
-.section{padding:60px 0}
-.footer-grid{grid-template-columns:1fr}
-.footer-bottom{flex-direction:column}
-.my-course{grid-template-columns:65px 1fr}
-.my-icon{width:65px}
-.my-course .btn{grid-column:1/-1;width:100%}
-.course-detail-top{grid-template-columns:1fr}
-}
-</style>
+  <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
 
-<header>
-<div class="container nav">
+  <!-- =========================================================
+       FUNDO DECORATIVO
+  ========================================================== -->
+
+  <div class="background-effects" aria-hidden="true">
+    <div class="glow glow-one"></div>
+    <div class="glow glow-two"></div>
+    <div class="grid-background"></div>
+  </div>
+
+
+  <!-- =========================================================
+       HEADER
+  ========================================================== -->
 
-<a href="#inicio" class="logo" data-page="inicio">
-<span class="logo-icon">🎓</span>
-<span>Fely Academy</span>
-</a>
+  <header class="site-header" id="siteHeader">
 
-<nav class="navlinks" id="navLinks">
-<a href="#inicio" data-page="inicio">Início</a>
-<a href="#cursos" data-page="cursos">Cursos</a>
-<a href="#sobre" data-page="sobre">Sobre</a>
-<a href="#faq" data-page="faq">FAQ</a>
-<a href="#contacto" data-page="contacto">Contacto</a>
-</nav>
+    <div class="container nav-container">
 
-<div class="actions">
+      <a
+        href="#inicio"
+        class="brand"
+        aria-label="Fely Academy - Início"
+      >
+        <span class="brand-icon">F</span>
 
-<button class="icon-btn" id="themeBtn" type="button">🌙</button>
+        <span class="brand-text">
+          <strong>Fely</strong>
+          <span>Academy</span>
+        </span>
+      </a>
 
-<button class="btn secondary" data-page="login" type="button">
-Entrar
-</button>
 
-<button class="btn primary" data-page="registo" type="button">
-Criar conta
-</button>
+      <nav
+        class="main-nav"
+        id="mainNav"
+        aria-label="Navegação principal"
+      >
 
-<button class="menu" id="menuBtn" type="button">
-☰
-</button>
+        <a href="#inicio" class="nav-link active">
+          Início
+        </a>
+
+        <a href="#cursos" class="nav-link">
+          Cursos
+        </a>
 
-</div>
-</div>
-</header>
+        <a href="#como-funciona" class="nav-link">
+          Como funciona
+        </a>
+
+        <a href="#sobre" class="nav-link">
+          Sobre
+        </a>
+
+        <a href="#contacto" class="nav-link">
+          Contacto
+        </a>
+
+      </nav>
+
+
+      <div class="nav-actions">
+
+        <button
+          class="theme-button"
+          id="themeButton"
+          type="button"
+          aria-label="Alterar tema"
+          title="Alterar tema"
+        >
+          ☾
+        </button>
+
+        <button
+          class="btn btn-outline"
+          type="button"
+          onclick="openAuth('login')"
+        >
+          Entrar
+        </button>
+
+        <button
+          class="btn btn-primary"
+          type="button"
+          onclick="openAuth('register')"
+        >
+          Criar conta
+        </button>
 
+        <button
+          class="mobile-menu-button"
+          id="mobileMenuButton"
+          type="button"
+          aria-label="Abrir menu"
+          aria-expanded="false"
+        >
+          ☰
+        </button>
 
-<main>
+      </div>
 
-<!-- INÍCIO -->
-<section class="page active" id="inicio">
+    </div>
 
-<section class="hero">
-<div class="container hero-grid">
+  </header>
 
-<div>
 
-<span class="badge">🚀 Aprende competências para o futuro</span>
+  <!-- =========================================================
+       MAIN
+  ========================================================== -->
 
-<h1>
-Transforma o teu
-<span class="gradient">conhecimento</span>
-em oportunidades.
-</h1>
+  <main>
 
-<p>
-Bem-vindo à Fely Academy, uma plataforma de aprendizagem criada para
-ajudar estudantes, profissionais e empreendedores a adquirir competências
-práticas em tecnologia, línguas, negócios, informática e desenvolvimento
-pessoal.
-</p>
 
-<div class="hero-buttons">
+    <!-- =======================================================
+         HERO
+    ======================================================== -->
 
-<button class="btn primary" data-page="cursos">
-Explorar cursos →
-</button>
+    <section
+      class="hero-section"
+      id="inicio"
+    >
 
-<button class="btn outline" data-page="registo">
-Começar gratuitamente
-</button>
+      <div class="container hero-grid">
 
-</div>
-</div>
+        <div class="hero-content">
 
-<div class="hero-visual">
+          <div class="eyebrow">
+            <span class="eyebrow-dot"></span>
+            Educação que transforma
+          </div>
 
-<div class="visual-content">
+          <h1>
+            Aprenda hoje.
+            <span>Construa o seu amanhã.</span>
+          </h1>
 
-<div class="visual-head">
-<span>🎓 Fely Academy</span>
-<span>● Online</span>
-</div>
+          <p class="hero-description">
+            Desenvolva competências práticas para estudar,
+            trabalhar, empreender e crescer com confiança.
+            Na Fely Academy, o conhecimento está ao seu alcance.
+          </p>
 
-<div class="visual-center">📚</div>
+          <div class="hero-buttons">
 
-<div class="visual-box">
+            <a
+              href="#cursos"
+              class="btn btn-primary btn-large"
+            >
+              Explorar cursos
+              <span>→</span>
+            </a>
 
-<div style="display:flex;justify-content:space-between;margin-bottom:8px">
-<span>Progresso do aluno</span>
-<strong>78%</strong>
-</div>
+            <button
+              class="btn btn-glass btn-large"
+              type="button"
+              onclick="openAuth('register')"
+            >
+              Começar agora
+            </button>
 
-<div class="progress">
-<span style="width:78%;background:white"></span>
-</div>
+          </div>
 
-</div>
 
-</div>
-</div>
-
-</div>
-</section>
-
-
-<section class="stats">
-<div class="container stats-grid">
+          <div class="hero-trust">
 
-<div class="stat">
-<div class="stat-icon">📚</div>
-<strong>9+</strong>
-<span>Cursos disponíveis</span>
-</div>
-
-<div class="stat">
-<div class="stat-icon">🎯</div>
-<strong>3</strong>
-<span>Níveis de aprendizagem</span>
-</div>
-
-<div class="stat">
-<div class="stat-icon">🌍</div>
-<strong>5+</strong>
-<span>Áreas de conhecimento</span>
-</div>
-
-<div class="stat">
-<div class="stat-icon">🏆</div>
-<strong>100%</strong>
-<span>Foco no aluno</span>
-</div>
-
-</div>
-</section>
-
-
-<section class="section">
-<div class="container">
-
-<div class="section-title">
-<h2>Porquê aprender na Fely Academy?</h2>
-<p>
-Uma experiência construída para tornar o estudo mais simples,
-organizado e prático.
-</p>
-</div>
-
-<div class="features">
-
-<div class="feature">
-<div class="feature-icon">📖</div>
-<h3>Conteúdo estruturado</h3>
-<p>Aulas organizadas em módulos e níveis para facilitar a aprendizagem.</p>
-</div>
-
-<div class="feature">
-<div class="feature-icon">🎯</div>
-<h3>Aprendizagem prática</h3>
-<p>Conhecimentos orientados para aplicação em estudos, trabalho e negócios.</p>
-</div>
-
-<div class="feature">
-<div class="feature-icon">📊</div>
-<h3>Acompanha o progresso</h3>
-<p>Consulta os cursos, progresso e conteúdos concluídos.</p>
-</div>
-
-<div class="feature">
-<div class="feature-icon">📱</div>
-<h3>Responsivo</h3>
-<p>Estuda através do telemóvel, tablet ou computador.</p>
-</div>
-
-<div class="feature">
-<div class="feature-icon">🏆</div>
-<h3>Certificados</h3>
-<p>Estrutura preparada para certificados de conclusão.</p>
-</div>
-
-<div class="feature">
-<div class="feature-icon">🌍</div>
-<h3>Conhecimento global</h3>
-<p>Tecnologia, línguas, negócios, informática e desenvolvimento pessoal.</p>
-</div>
-
-</div>
-</div>
-</section>
-
-
-<section class="section" style="background:var(--card)">
-<div class="container">
-
-<div class="section-title">
-<h2>Cursos em destaque</h2>
-<p>Começa pelo conhecimento que mais precisas neste momento.</p>
-</div>
-
-<div class="course-grid" id="featuredCourses"></div>
-
-</div>
-</section>
-
-
-<section class="section">
-<div class="container">
-
-<div style="
-background:linear-gradient(135deg,#1d4ed8,#6d28d9);
-color:white;
-border-radius:30px;
-padding:55px 25px;
-text-align:center;
-box-shadow:var(--shadow2);
-">
-
-<h2 style="font-size:clamp(2rem,4vw,3rem);margin-bottom:10px">
-O teu futuro começa com uma decisão.
-</h2>
-
-<p style="max-width:650px;margin:0 auto 25px;opacity:.9">
-Escolhe um curso, começa a aprender e desenvolve competências
-que podem abrir novas oportunidades.
-</p>
-
-<button class="btn" style="background:white;color:#1d4ed8" data-page="cursos">
-Ver todos os cursos
-</button>
-
-</div>
-</div>
-</section>
-
-</section>
-
-
-<!-- CURSOS -->
-<section class="page" id="cursos">
-
-<div class="page-title">
-<div class="container">
-<span class="badge">📚 Catálogo Fely Academy</span>
-<h1>Todos os cursos</h1>
-<p>Escolhe o curso e o nível que corresponde aos teus objetivos.</p>
-</div>
-</div>
+            <div class="avatar-stack">
+              <span>F</span>
+              <span>A</span>
+              <span>M</span>
+              <span>+</span>
+            </div>
 
-<section class="section">
-<div class="container">
+            <div>
+              <strong>Aprendizagem para todos</strong>
+              <small>
+                Estude no seu ritmo, onde estiver.
+              </small>
+            </div>
 
-<div class="filters">
+          </div>
 
-<input
-id="searchCourse"
-class="search"
-placeholder="🔎 Pesquisar curso..."
->
-
-<select id="filterCategory" class="select">
-<option value="all">Todas as áreas</option>
-<option value="Tecnologia">Tecnologia</option>
-<option value="Informática">Informática</option>
-<option value="Línguas">Línguas</option>
-<option value="Negócios">Negócios</option>
-<option value="Desenvolvimento Pessoal">Desenvolvimento Pessoal</option>
-</select>
+        </div>
 
-<select id="filterLevel" class="select">
-<option value="all">Todos os níveis</option>
-<option value="Iniciante">Iniciante</option>
-<option value="Intermédio">Intermédio</option>
-<option value="Avançado">Avançado</option>
-</select>
 
-</div>
+        <!-- HERO VISUAL -->
 
-<div class="course-grid" id="allCourses"></div>
+        <div class="hero-visual">
 
-</div>
-</section>
-</section>
+          <div class="hero-orbit orbit-one"></div>
+          <div class="hero-orbit orbit-two"></div>
 
+          <div class="hero-card-main">
 
-<!-- SOBRE -->
-<section class="page" id="sobre">
+            <div class="hero-card-top">
 
-<div class="page-title">
-<div class="container">
-<span class="badge">💡 Sobre a Fely Academy</span>
-<h1>Conhecimento para criar oportunidades.</h1>
-<p>
-A nossa missão é facilitar o acesso a competências úteis para a vida,
-estudos, carreira e empreendedorismo.
-</p>
-</div>
-</div>
+              <div>
+                <span class="mini-label">
+                  FELY ACADEMY
+                </span>
 
-<section class="section">
-<div class="container about-grid">
+                <h3>
+                  O seu próximo nível começa aqui.
+                </h3>
+              </div>
 
-<div class="about-image">🎓</div>
+              <div class="hero-card-icon">
+                🎓
+              </div>
 
-<div class="about">
+            </div>
 
-<h2>Aprende hoje. Cresce amanhã.</h2>
 
-<p>
-A Fely Academy foi concebida como uma plataforma de educação digital
-orientada para pessoas que desejam aprender de forma simples e organizada.
-</p>
+            <div class="learning-screen">
 
-<p>
-Os cursos são divididos em níveis para que o aluno possa começar pelos
-fundamentos e avançar gradualmente.
-</p>
+              <div class="screen-header">
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
 
-<ul class="checks">
-<li><b>✓</b> Cursos por níveis</li>
-<li><b>✓</b> Conteúdo organizado</li>
-<li><b>✓</b> Aprendizagem prática</li>
-<li><b>✓</b> Área pessoal do aluno</li>
-<li><b>✓</b> Sistema de progresso</li>
-<li><b>✓</b> Estrutura para certificados</li>
-</ul>
+              <div class="screen-content">
 
-</div>
+                <div class="screen-video">
+                  <div class="play-button">
+                    ▶
+                  </div>
+                </div>
 
-</div>
-</section>
-</section>
+                <div class="screen-lines">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </div>
 
+              </div>
 
-<!-- LOGIN -->
-<section class="page" id="login">
+            </div>
 
-<div class="auth">
 
-<div class="auth-card">
+            <div class="progress-info">
 
-<div class="auth-logo">
-<div class="logo-icon">🎓</div>
-<h1>Bem-vindo de volta</h1>
-</div>
+              <div>
+                <span>Progresso do aluno</span>
+                <strong>72%</strong>
+              </div>
 
-<p>Entra na tua conta para continuar.</p>
+              <div class="progress-bar">
+                <span style="width:72%"></span>
+              </div>
 
-<form id="loginForm">
+            </div>
 
-<div class="form-group">
-<label>Email</label>
-<input id="loginEmail" class="input" type="email" required placeholder="teu@email.com">
-</div>
+          </div>
 
-<div class="form-group">
-<label>Palavra-passe</label>
-<input id="loginPassword" class="input" type="password" required placeholder="A tua palavra-passe">
-</div>
 
-<button class="btn primary full" type="submit">
-Entrar
-</button>
+          <div class="floating-card floating-card-one">
 
-</form>
+            <span class="floating-icon green">
+              ✓
+            </span>
 
-<div class="auth-foot">
-Ainda não tens conta?
-<button class="link" data-page="registo">Criar conta</button>
-</div>
+            <div>
+              <strong>Curso concluído</strong>
+              <small>Parabéns! 🎉</small>
+            </div>
 
-</div>
-</div>
-</section>
+          </div>
 
 
-<!-- REGISTO -->
-<section class="page" id="registo">
+          <div class="floating-card floating-card-two">
 
-<div class="auth">
+            <span class="floating-icon purple">
+              ★
+            </span>
 
-<div class="auth-card">
+            <div>
+              <strong>+1 competência</strong>
+              <small>Continue assim!</small>
+            </div>
 
-<div class="auth-logo">
-<div class="logo-icon">🎓</div>
-<h1>Criar conta</h1>
-</div>
+          </div>
 
-<p>Começa gratuitamente a tua jornada.</p>
+        </div>
 
-<form id="registerForm">
+      </div>
 
-<div class="form-group">
-<label>Nome completo</label>
-<input id="regName" class="input" required placeholder="Nome completo">
-</div>
+    </section>
 
-<div class="form-group">
-<label>Email</label>
-<input id="regEmail" class="input" type="email" required placeholder="teu@email.com">
-</div>
 
-<div class="form-group">
-<label>Palavra-passe</label>
-<input id="regPassword" class="input" type="password" minlength="6" required placeholder="Mínimo 6 caracteres">
-</div>
+    <!-- =======================================================
+         STATS
+    ======================================================== -->
 
-<button class="btn primary full" type="submit">
-Criar conta
-</button>
+    <section class="stats-section">
 
-</form>
+      <div class="container stats-grid">
 
-<div class="auth-foot">
-Já tens conta?
-<button class="link" data-page="login">Entrar</button>
-</div>
+        <div class="stat-item">
+          <strong>9+</strong>
+          <span>Cursos disponíveis</span>
+        </div>
 
-</div>
-</div>
-</section>
+        <div class="stat-item">
+          <strong>40+</strong>
+          <span>Módulos de aprendizagem</span>
+        </div>
 
+        <div class="stat-item">
+          <strong>100%</strong>
+          <span>Aprendizagem online</span>
+        </div>
 
-<!-- DASHBOARD -->
-<section class="page" id="dashboard">
+        <div class="stat-item">
+          <strong>24/7</strong>
+          <span>Acesso aos estudos</span>
+        </div>
 
-<div class="dashboard">
-<div class="container">
+      </div>
 
-<div class="welcome">
+    </section>
 
-<div>
-<h1 id="welcomeName">Olá! 👋</h1>
-<p>Bem-vindo à tua área de aprendizagem.</p>
-</div>
 
-<button class="btn outline" id="logout">
-Sair
-</button>
+    <!-- =======================================================
+         CATEGORIAS
+    ======================================================== -->
 
-</div>
+    <section class="section" id="cursos">
 
+      <div class="container">
 
-<div class="dashboard-stats">
+        <div class="section-heading">
 
-<div class="dashboard-card">
-<h3>Cursos</h3>
-<div class="big">3</div>
-<span class="small">Cursos inscritos</span>
-</div>
+          <div>
+            <span class="section-kicker">
+              APRENDA ALGO NOVO
+            </span>
 
-<div class="dashboard-card">
-<h3>Progresso</h3>
-<div class="big">42%</div>
-<span class="small">Média de conclusão</span>
-</div>
+            <h2>
+              Cursos para o seu próximo nível
+            </h2>
+          </div>
 
-<div class="dashboard-card">
-<h3>Aulas</h3>
-<div class="big">14</div>
-<span class="small">Aulas concluídas</span>
-</div>
+          <p>
+            Escolha uma área, comece pelo seu nível
+            e desenvolva competências que pode aplicar
+            na vida real.
+          </p>
 
-<div class="dashboard-card">
-<h3>Certificados</h3>
-<div class="big">0</div>
-<span class="small">Certificados obtidos</span>
-</div>
+        </div>
 
-</div>
 
+        <div class="category-grid">
 
-<div class="dashboard-card">
+          <button
+            class="category-card"
+            onclick="filterCourses('Tecnologia')"
+          >
+            <span class="category-icon blue">
+              💻
+            </span>
 
-<h2 style="color:var(--dark);margin-bottom:12px">
-Os meus cursos
-</h2>
+            <strong>Tecnologia</strong>
 
-<div id="myCourses"></div>
+            <small>
+              Programação e ferramentas digitais
+            </small>
+          </button>
 
-</div>
 
-</div>
-</div>
-</section>
+          <button
+            class="category-card"
+            onclick="filterCourses('Informática')"
+          >
+            <span class="category-icon cyan">
+              🖥️
+            </span>
 
+            <strong>Informática</strong>
 
-<!-- CHECKOUT -->
-<section class="page" id="checkout">
+            <small>
+              Computadores, Office e produtividade
+            </small>
+          </button>
 
-<div class="page-title">
-<div class="container">
-<span class="badge">💳 Inscrição</span>
-<h1>Finalizar inscrição</h1>
-<p>Revê o curso e escolhe o método de pagamento.</p>
-</div>
-</div>
 
-<section class="section">
-<div class="container checkout">
+          <button
+            class="category-card"
+            onclick="filterCourses('Línguas')"
+          >
+            <span class="category-icon orange">
+              🌍
+            </span>
 
-<div class="panel">
+            <strong>Línguas</strong>
 
-<h2 id="checkoutCourse">Curso</h2>
+            <small>
+              Inglês, espanhol e comunicação
+            </small>
+          </button>
 
-<p id="checkoutDescription" style="color:var(--muted)"></p>
 
-<hr style="border:0;border-top:1px solid var(--border);margin:20px 0">
+          <button
+            class="category-card"
+            onclick="filterCourses('Negócios')"
+          >
+            <span class="category-icon green">
+              📈
+            </span>
 
-<div style="display:flex;justify-content:space-between">
-<span>Preço</span>
-<strong id="checkoutPrice">0 Kz</strong>
-</div>
+            <strong>Negócios</strong>
 
-</div>
+            <small>
+              Empreendedorismo e marketing
+            </small>
+          </button>
 
 
-<div class="panel">
+          <button
+            class="category-card"
+            onclick="filterCourses('Desenvolvimento Pessoal')"
+          >
+            <span class="category-icon pink">
+              🚀
+            </span>
 
-<h2>Pagamento</h2>
+            <strong>Desenvolvimento</strong>
 
-<p style="color:var(--muted)">
-Após efetuar o pagamento, envie o comprovativo para que a inscrição
-possa ser confirmada.
-</p>
+            <small>
+              Crescimento pessoal e profissional
+            </small>
+          </button>
 
-<div class="payment-method">
+        </div>
 
-<strong>Pagamento por Express</strong>
+      </div>
 
-<div style="margin-top:8px">
-Número para pagamento:
-</div>
+    </section>
 
-<div class="express-number">
-948 138 785
-</div>
 
-<div style="font-size:.85rem;color:var(--muted)">
-Banco: Atlântico<br>
-Método: Express
-</div>
+    <!-- =======================================================
+         CURSOS
+    ======================================================== -->
 
-</div>
+    <section class="section courses-section">
 
+      <div class="container">
 
-<label>Referência da inscrição</label>
+        <div class="section-heading courses-heading">
 
-<div class="reference" id="paymentReference">
-FELY-XXXXXX
-</div>
+          <div>
+            <span class="section-kicker">
+              CURSOS EM DESTAQUE
+            </span>
 
-<button class="btn secondary full" id="copyReference" style="margin-top:10px">
-Copiar referência
-</button>
+            <h2>
+              Comece a aprender
+            </h2>
+          </div>
 
+          <button
+            class="btn btn-outline"
+            type="button"
+            onclick="showAllCourses()"
+          >
+            Ver todos
+            <span>→</span>
+          </button>
 
-<div class="form-group" style="margin-top:18px">
+        </div>
 
-<label>Nome do pagador</label>
 
-<input id="payerName" class="input" placeholder="Nome utilizado no pagamento">
+        <div
+          class="courses-grid"
+          id="coursesGrid"
+        ></div>
 
-</div>
+      </div>
 
+    </section>
 
-<div class="form-group">
 
-<label>Número utilizado no pagamento</label>
+    <!-- =======================================================
+         BENEFÍCIOS
+    ======================================================== -->
 
-<input id="payerNumber" class="input" placeholder="Ex.: 948123456">
+    <section class="section benefits-section">
 
-</div>
+      <div class="container">
 
+        <div class="section-heading centered">
 
-<div class="form-group">
+          <span class="section-kicker">
+            PORQUÊ A FELY ACADEMY?
+          </span>
 
-<label>Observação / comprovativo</label>
+          <h2>
+            Mais do que cursos.
+            Uma experiência de aprendizagem.
+          </h2>
 
-<textarea
-id="paymentNote"
-class="textarea"
-placeholder="Cole aqui a referência, descrição ou informação do comprovativo."
-></textarea>
+          <p>
+            Criámos a plataforma para tornar o processo
+            de aprendizagem simples, moderno e motivador.
+          </p>
 
-</div>
+        </div>
 
 
-<button class="btn primary full" id="submitPayment">
-Enviar pedido de confirmação
-</button>
+        <div class="benefits-grid">
 
-<p style="
-font-size:.78rem;
-color:var(--muted);
-margin-top:12px;
-">
-O envio deste formulário não confirma automaticamente o pagamento.
-A confirmação deve ser feita pelo administrador após verificar o pagamento.
-</p>
+          <article class="benefit-card">
 
-</div>
-</div>
-</section>
-</section>
+            <div class="benefit-number">
+              01
+            </div>
 
+            <div class="benefit-icon">
+              🎯
+            </div>
 
-<!-- CONTACTO -->
-<section class="page" id="contacto">
+            <h3>
+              Aprendizagem prática
+            </h3>
 
-<div class="page-title">
-<div class="container">
-<span class="badge">📩 Contacto</span>
-<h1>Fala connosco</h1>
-<p>Envia uma mensagem para a equipa da Fely Academy.</p>
-</div>
-</div>
+            <p>
+              Conteúdos organizados para que possa
+              transformar conhecimento em competências.
+            </p>
 
-<section class="section">
-<div class="container contact-grid">
+          </article>
 
-<div class="contact-card">
 
-<h2 style="color:var(--dark);margin-bottom:12px">
-Contactos
-</h2>
+          <article class="benefit-card featured-benefit">
 
-<div class="contact-item">
-<div style="font-size:25px">📧</div>
-<div>
-<strong>Email</strong>
-<span>contacto@felyacademy.com</span>
-</div>
-</div>
+            <div class="benefit-number">
+              02
+            </div>
 
-<div class="contact-item">
-<div style="font-size:25px">🌍</div>
-<div>
-<strong>Localização</strong>
-<span>Angola</span>
-</div>
-</div>
+            <div class="benefit-icon">
+              ⚡
+            </div>
 
-<div class="contact-item">
-<div style="font-size:25px">💳</div>
-<div>
-<strong>Pagamentos</strong>
-<span>Express: 948 138 785</span>
-</div>
-</div>
+            <h3>
+              Aprenda no seu ritmo
+            </h3>
 
-</div>
+            <p>
+              Estude através do telemóvel, computador
+              ou tablet e acompanhe o seu progresso.
+            </p>
 
+          </article>
 
-<div class="contact-card">
 
-<h2>Enviar mensagem</h2>
+          <article class="benefit-card">
 
-<form id="contactForm">
+            <div class="benefit-number">
+              03
+            </div>
 
-<div class="form-group">
-<label>Nome</label>
-<input class="input" required placeholder="O teu nome">
-</div>
+            <div class="benefit-icon">
+              🏆
+            </div>
 
-<div class="form-group">
-<label>Email</label>
-<input class="input" type="email" required placeholder="teu@email.com">
-</div>
+            <h3>
+              Evolução contínua
+            </h3>
 
-<div class="form-group">
-<label>Mensagem</label>
-<textarea class="textarea" required placeholder="Escreve a tua mensagem"></textarea>
-</div>
+            <p>
+              Complete módulos, acompanhe o progresso
+              e prepare-se para novos desafios.
+            </p>
 
-<button class="btn primary full">
-Enviar mensagem
-</button>
+          </article>
 
-</form>
+        </div>
 
-</div>
+      </div>
 
-</div>
-</section>
-</section>
+    </section>
 
 
-<!-- FAQ -->
-<section class="page" id="faq">
+    <!-- =======================================================
+         COMO FUNCIONA
+    ======================================================== -->
 
-<div class="page-title">
-<div class="container">
-<span class="badge">❓ Perguntas frequentes</span>
-<h1>Perguntas frequentes</h1>
-<p>Encontra respostas para as dúvidas mais comuns.</p>
-</div>
-</div>
+    <section
+      class="section how-section"
+      id="como-funciona"
+    >
 
-<section class="section">
-<div class="container">
+      <div class="container">
 
-<div class="faq">
+        <div class="section-heading centered">
 
-<div class="faq-item">
-<button class="faq-question">
-Como faço para criar uma conta?
-<span>+</span>
-</button>
-<div class="faq-answer">
-Clica em “Criar conta”, preenche os teus dados e entra na tua área de aluno.
-</div>
-</div>
+          <span class="section-kicker">
+            SIMPLES E DIRETO
+          </span>
 
-<div class="faq-item">
-<button class="faq-question">
-Como faço para comprar um curso?
-<span>+</span>
-</button>
-<div class="faq-answer">
-Escolhe o curso, consulta o preço e inicia o processo de inscrição.
-Depois segue as instruções de pagamento apresentadas.
-</div>
-</div>
+          <h2>
+            Como funciona?
+          </h2>
 
-<div class="faq-item">
-<button class="faq-question">
-Como pago por Express?
-<span>+</span>
-</button>
-<div class="faq-answer">
-O número de pagamento apresentado atualmente é 948 138 785.
-Depois de realizar o pagamento, envia os dados solicitados no formulário
-de confirmação.
-</div>
-</div>
+        </div>
 
-<div class="faq-item">
-<button class="faq-question">
-Quando tenho acesso ao curso?
-<span>+</span>
-</button>
-<div class="faq-answer">
-Nesta versão, o acesso é liberado após confirmação do pagamento pelo
-administrador.
-</div>
-</div>
 
-<div class="faq-item">
-<button class="faq-question">
-Posso estudar pelo telemóvel?
-<span>+</span>
-</button>
-<div class="faq-answer">
-Sim. A interface foi criada para funcionar em telemóveis, tablets e
-computadores.
-</div>
-</div>
+        <div class="steps-grid">
 
-<div class="faq-item">
-<button class="faq-question">
-Existem diferentes níveis?
-<span>+</span>
-</button>
-<div class="faq-answer">
-Sim. Os cursos estão organizados em Iniciante, Intermédio e Avançado,
-quando aplicável.
-</div>
-</div>
+          <div class="step-card">
 
-</div>
-</div>
-</section>
-</section>
+            <span class="step-number">
+              01
+            </span>
 
-</main>
+            <div class="step-icon">
+              👤
+            </div>
 
+            <h3>
+              Crie a sua conta
+            </h3>
 
-<!-- MODAL CURSO -->
-<div class="modal" id="courseModal">
+            <p>
+              Registe-se gratuitamente na Fely Academy.
+            </p>
 
-<div class="modal-box">
+          </div>
 
-<div class="modal-head">
 
-<h2 id="modalTitle">Curso</h2>
+          <div class="step-line"></div>
 
-<button class="close" id="closeModal">×</button>
 
-</div>
+          <div class="step-card">
 
-<div class="modal-body">
+            <span class="step-number">
+              02
+            </span>
 
-<div class="course-detail-top">
+            <div class="step-icon">
+              📚
+            </div>
 
-<div class="detail-icon" id="modalIcon">📚</div>
+            <h3>
+              Escolha o curso
+            </h3>
 
-<div>
+            <p>
+              Encontre o curso que combina com os seus objetivos.
+            </p>
 
-<div id="modalTags"></div>
+          </div>
 
-<h2 id="modalHeading" style="color:var(--dark);margin:7px 0"></h2>
 
-<p id="modalDescription" style="color:var(--muted)"></p>
+          <div class="step-line"></div>
 
-</div>
 
-</div>
+          <div class="step-card">
 
-<h3 style="color:var(--dark);margin-bottom:10px">
-Conteúdo do curso
-</h3>
+            <span class="step-number">
+              03
+            </span>
 
-<div id="courseModules"></div>
+            <div class="step-icon">
+              💳
+            </div>
 
-<div style="
-margin-top:25px;
-padding:18px;
-background:var(--soft);
-border-radius:14px;
-">
+            <h3>
+              Faça a inscrição
+            </h3>
 
-<strong style="color:var(--dark)">
-💡 Estrutura de aprendizagem
-</strong>
+            <p>
+              Receba a referência e siga as instruções de pagamento.
+            </p>
 
-<p style="color:var(--muted);font-size:.9rem;margin-top:5px">
-Começa pelos fundamentos, pratica os conceitos e avança progressivamente
-para conteúdos mais complexos.
-</p>
+          </div>
 
-</div>
 
-<button
-class="btn primary full"
-id="enrollCourse"
-style="margin-top:20px"
->
-Inscrever-me neste curso
-</button>
+          <div class="step-line"></div>
 
-</div>
-</div>
-</div>
 
+          <div class="step-card">
 
-<div class="toast" id="toast"></div>
+            <span class="step-number">
+              04
+            </span>
 
+            <div class="step-icon">
+              🎓
+            </div>
 
-<footer>
+            <h3>
+              Comece a estudar
+            </h3>
 
-<div class="container">
+            <p>
+              Após aprovação, o seu curso fica disponível.
+            </p>
 
-<div class="footer-grid">
+          </div>
 
-<div>
+        </div>
 
-<a href="#inicio" class="logo" data-page="inicio">
-<span class="logo-icon">🎓</span>
-<span>Fely Academy</span>
-</a>
+      </div>
 
-<p>
-Aprende. Evolui. Conquista.
-</p>
+    </section>
 
-<p style="margin-top:9px;font-size:.87rem">
-Educação digital para desenvolver competências para o futuro.
-</p>
 
-</div>
+    <!-- =======================================================
+         SOBRE
+    ======================================================== -->
 
-<div>
+    <section
+      class="section about-section"
+      id="sobre"
+    >
 
-<h3>Plataforma</h3>
+      <div class="container about-grid">
 
-<ul class="footer-links">
-<li><a href="#cursos" data-page="cursos">Cursos</a></li>
-<li><a href="#registo" data-page="registo">Criar conta</a></li>
-<li><a href="#login" data-page="login">Entrar</a></li>
-<li><a href="#dashboard" data-page="dashboard">Área do aluno</a></li>
-</ul>
+        <div class="about-visual">
 
-</div>
+          <div class="about-main-card">
 
-<div>
+            <div class="about-logo">
+              F
+            </div>
 
-<h3>Informação</h3>
+            <span>
+              FELY ACADEMY
+            </span>
 
-<ul class="footer-links">
-<li><a href="#sobre" data-page="sobre">Sobre nós</a></li>
-<li><a href="#faq" data-page="faq">FAQ</a></li>
-<li><a href="#contacto" data-page="contacto">Contacto</a></li>
-</ul>
+            <strong>
+              Conhecimento abre portas.
+            </strong>
 
-</div>
+            <div class="about-decoration">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
 
-<div>
+          </div>
 
-<h3>Áreas</h3>
+          <div class="about-floating">
+            <strong>Aprender</strong>
+            <span>é investir em si.</span>
+          </div>
 
-<ul class="footer-links">
-<li>Tecnologia</li>
-<li>Informática</li>
-<li>Línguas</li>
-<li>Negócios</li>
-<li>Desenvolvimento pessoal</li>
-</ul>
+        </div>
 
-</div>
 
-</div>
+        <div class="about-content">
 
-<div class="footer-bottom">
+          <span class="section-kicker">
+            SOBRE A FELY ACADEMY
+          </span>
 
-<span>
-© <span id="year"></span> Fely Academy.
-Todos os direitos reservados.
-</span>
+          <h2>
+            Educação moderna para pessoas
+            que querem avançar.
+          </h2>
 
-<span>
-Angola 🇦🇴
-</span>
+          <p>
+            A Fely Academy nasce com uma missão simples:
+            tornar a aprendizagem acessível, organizada
+            e orientada para resultados.
+          </p>
 
-</div>
+          <p>
+            A plataforma reúne cursos de tecnologia,
+            informática, línguas, negócios e desenvolvimento
+            pessoal num único espaço.
+          </p>
 
-</div>
-</footer>
 
+          <div class="about-checks">
 
-<script>
-"use strict";
+            <div>
+              <span>✓</span>
+              Conteúdos organizados por níveis
+            </div>
 
-/* ==========================================================
-   BASE DE DADOS DOS CURSOS
-========================================================== */
+            <div>
+              <span>✓</span>
+              Acesso através do telemóvel
+            </div>
 
-const COURSES = [
+            <div>
+              <span>✓</span>
+              Acompanhamento do progresso
+            </div>
 
-{
-id:1,
-title:"Informática Essencial",
-category:"Informática",
-level:"Iniciante",
-icon:"💻",
-duration:"4 semanas",
-price:15000,
-description:"Aprende informática desde os fundamentos até à utilização segura do computador e da internet.",
-modules:[
-{
-title:"Nível 1 — Fundamentos",
-lessons:[
-"Conhecendo o computador",
-"Hardware e software",
-"Teclado e rato",
-"Área de trabalho",
-"Ficheiros e pastas"
-]
-},
-{
-title:"Nível 2 — Ferramentas",
-lessons:[
-"Processadores de texto",
-"Documentos profissionais",
-"Internet e pesquisa",
-"Email",
-"Armazenamento na nuvem"
-]
-},
-{
-title:"Nível 3 — Segurança",
-lessons:[
-"Palavras-passe seguras",
-"Phishing",
-"Privacidade",
-"Antivírus",
-"Segurança digital"
-]
-}
-]
-},
-
-{
-id:2,
-title:"Programação Web",
-category:"Tecnologia",
-level:"Iniciante",
-icon:"👨‍💻",
-duration:"8 semanas",
-price:25000,
-description:"Aprende a criar websites utilizando HTML, CSS e JavaScript.",
-modules:[
-{
-title:"Nível 1 — HTML",
-lessons:[
-"Introdução à Web",
-"Estrutura HTML",
-"Textos e títulos",
-"Links e imagens",
-"Formulários"
-]
-},
-{
-title:"Nível 2 — CSS",
-lessons:[
-"Cores e tipografia",
-"Box model",
-"Flexbox",
-"Grid",
-"Design responsivo"
-]
-},
-{
-title:"Nível 3 — JavaScript",
-lessons:[
-"Variáveis",
-"Funções",
-"Eventos",
-"DOM",
-"Projetos práticos"
-]
-},
-{
-title:"Nível 4 — Projeto",
-lessons:[
-"Planeamento",
-"Criação da interface",
-"Interatividade",
-"Testes",
-"Publicação no GitHub Pages"
-]
-}
-]
-},
-
-{
-id:3,
-title:"Inglês do Zero",
-category:"Línguas",
-level:"Iniciante",
-icon:"🇬🇧",
-duration:"10 semanas",
-price:20000,
-description:"Aprende inglês começando pelo vocabulário essencial e comunicação básica.",
-modules:[
-{
-title:"Nível 1 — Primeiros passos",
-lessons:[
-"Alphabet",
-"Greetings",
-"Introductions",
-"Numbers",
-"Days and months"
-]
-},
-{
-title:"Nível 2 — Conversação",
-lessons:[
-"Family",
-"Food",
-"Home",
-"Work",
-"Daily routines"
-]
-},
-{
-title:"Nível 3 — Gramática",
-lessons:[
-"Verb to be",
-"Present simple",
-"Questions",
-"Pronouns",
-"Basic adjectives"
-]
-},
-{
-title:"Nível 4 — Comunicação",
-lessons:[
-"At the airport",
-"Shopping",
-"At the restaurant",
-"Directions",
-"Everyday conversations"
-]
-}
-]
-},
-
-{
-id:4,
-title:"Espanhol Básico",
-category:"Línguas",
-level:"Iniciante",
-icon:"🇪🇸",
-duration:"8 semanas",
-price:18000,
-description:"Aprende espanhol através de vocabulário, frases e situações práticas.",
-modules:[
-{
-title:"Nível 1 — Fundamentos",
-lessons:[
-"Alfabeto",
-"Saudações",
-"Apresentação",
-"Números",
-"Cores"
-]
-},
-{
-title:"Nível 2 — Vocabulário",
-lessons:[
-"Família",
-"Casa",
-"Comida",
-"Trabalho",
-"Viagens"
-]
-},
-{
-title:"Nível 3 — Comunicação",
-lessons:[
-"Perguntas",
-"Respostas",
-"Conversas simples",
-"Compras",
-"Direções"
-]
-}
-]
-},
-
-{
-id:5,
-title:"Empreendedorismo",
-category:"Negócios",
-level:"Intermédio",
-icon:"💼",
-duration:"6 semanas",
-price:30000,
-description:"Aprende a transformar ideias em oportunidades de negócio.",
-modules:[
-{
-title:"Nível 1 — Mentalidade",
-lessons:[
-"O que é empreendedorismo",
-"Perfil empreendedor",
-"Objetivos",
-"Disciplina",
-"Planeamento"
-]
-},
-{
-title:"Nível 2 — Ideia",
-lessons:[
-"Encontrar problemas",
-"Validar ideias",
-"Cliente ideal",
-"Proposta de valor",
-"Concorrência"
-]
-},
-{
-title:"Nível 3 — Negócio",
-lessons:[
-"Modelo de negócio",
-"Custos",
-"Preço",
-"Marketing",
-"Vendas"
-]
-},
-{
-title:"Nível 4 — Crescimento",
-lessons:[
-"Marca",
-"Redes sociais",
-"Fidelização",
-"Escala",
-"Plano de crescimento"
-]
-}
-]
-},
-
-{
-id:6,
-title:"Marketing Digital",
-category:"Negócios",
-level:"Intermédio",
-icon:"📱",
-duration:"7 semanas",
-price:28000,
-description:"Aprende os fundamentos do marketing digital e como construir presença online.",
-modules:[
-{
-title:"Nível 1 — Fundamentos",
-lessons:[
-"O que é marketing digital",
-"Público-alvo",
-"Persona",
-"Funil",
-"Objetivos"
-]
-},
-{
-title:"Nível 2 — Conteúdo",
-lessons:[
-"Criação de conteúdo",
-"Copywriting",
-"Vídeo",
-"Imagem",
-"Calendário editorial"
-]
-},
-{
-title:"Nível 3 — Redes sociais",
-lessons:[
-"Facebook",
-"Instagram",
-"TikTok",
-"LinkedIn",
-"Comunidade"
-]
-}
-]
-},
-
-{
-id:7,
-title:"Desenvolvimento Pessoal",
-category:"Desenvolvimento Pessoal",
-level:"Iniciante",
-icon:"🧠",
-duration:"5 semanas",
-price:15000,
-description:"Desenvolve hábitos, organização, comunicação e inteligência emocional.",
-modules:[
-{
-title:"Nível 1 — Autoconhecimento",
-lessons:[
-"Conhecer-se",
-"Valores",
-"Pontos fortes",
-"Pontos fracos",
-"Objetivos"
-]
-},
-{
-title:"Nível 2 — Produtividade",
-lessons:[
-"Gestão do tempo",
-"Prioridades",
-"Planeamento",
-"Hábitos",
-"Foco"
-]
-},
-{
-title:"Nível 3 — Comunicação",
-lessons:[
-"Comunicação verbal",
-"Escuta",
-"Comunicação profissional",
-"Conflitos",
-"Relacionamentos"
-]
-}
-]
-},
-
-{
-id:8,
-title:"Excel Profissional",
-category:"Informática",
-level:"Intermédio",
-icon:"📊",
-duration:"7 semanas",
-price:25000,
-description:"Aprende Excel para organização, análise de dados e trabalho profissional.",
-modules:[
-{
-title:"Nível 1 — Fundamentos",
-lessons:[
-"Interface",
-"Células",
-"Formatação",
-"Tabelas",
-"Fórmulas básicas"
-]
-},
-{
-title:"Nível 2 — Funções",
-lessons:[
-"SUM",
-"AVERAGE",
-"IF",
-"COUNTIF",
-"VLOOKUP"
-]
-},
-{
-title:"Nível 3 — Análise",
-lessons:[
-"Filtros",
-"Ordenação",
-"Gráficos",
-"Tabelas dinâmicas",
-"Dashboards"
-]
-}
-]
-},
-
-{
-id:9,
-title:"Programação Avançada",
-category:"Tecnologia",
-level:"Avançado",
-icon:"🚀",
-duration:"12 semanas",
-price:45000,
-description:"Aprofunda JavaScript, arquitetura de aplicações e desenvolvimento de projetos.",
-modules:[
-{
-title:"Nível 1 — JavaScript avançado",
-lessons:[
-"ES6+",
-"Arrays",
-"Objects",
-"Async/Await",
-"Promises"
-]
-},
-{
-title:"Nível 2 — Aplicações",
-lessons:[
-"Arquitetura",
-"Componentes",
-"Estado",
-"APIs",
-"Persistência"
-]
-},
-{
-title:"Nível 3 — Projeto final",
-lessons:[
-"Planeamento",
-"Desenvolvimento",
-"Testes",
-"Performance",
-"Publicação"
-]
-}
-]
-}
-
-];
-
-
-/* ==========================================================
-   ESTADO
-========================================================== */
-
-let selectedCourse=null;
-let paymentReference=null;
-
-const $=id=>document.getElementById(id);
-
-
-/* ==========================================================
-   UTILIZADORES
-========================================================== */
-
-function users(){
-try{
-return JSON.parse(localStorage.getItem("fely_users")||"[]");
-}catch{
-return[];
-}
-}
-
-function currentUser(){
-try{
-return JSON.parse(localStorage.getItem("fely_current")||"null");
-}catch{
-return null;
-}
-}
-
-function saveUsers(data){
-localStorage.setItem("fely_users",JSON.stringify(data));
-}
-
-
-/* ==========================================================
-   TOAST
-========================================================== */
-
-let toastTimer;
-
-function toast(message){
-
-clearTimeout(toastTimer);
-
-$("toast").textContent=message;
-$("toast").classList.add("show");
-
-toastTimer=setTimeout(()=>{
-$("toast").classList.remove("show");
-},3500);
-
-}
-
-
-/* ==========================================================
-   NAVEGAÇÃO
-========================================================== */
-
-function showPage(id){
-
-const page=$(id);
-
-if(!page)return;
-
-document.querySelectorAll(".page").forEach(p=>{
-p.classList.toggle("active",p===page);
-});
-
-document.querySelectorAll("[data-page]").forEach(item=>{
-if(item.tagName==="A"){
-item.classList.toggle("active",item.dataset.page===id);
-}
-});
-
-$("navLinks").classList.remove("open");
-
-window.scrollTo({top:0,behavior:"smooth"});
-
-history.replaceState(null,"","#"+id);
-
-if(id==="dashboard"){
-updateDashboard();
-}
-
-}
-
-
-/* ==========================================================
-   EVENTOS DE NAVEGAÇÃO
-========================================================== */
-
-document.querySelectorAll("[data-page]").forEach(item=>{
-
-item.addEventListener("click",event=>{
-
-event.preventDefault();
-
-showPage(item.dataset.page);
-
-});
-
-});
-
-
-$("menuBtn").addEventListener("click",()=>{
-
-$("navLinks").classList.toggle("open");
-
-});
-
-
-/* ==========================================================
-   TEMA
-========================================================== */
-
-$("themeBtn").addEventListener("click",()=>{
-
-document.body.classList.toggle("dark");
-
-const dark=document.body.classList.contains("dark");
-
-localStorage.setItem("fely_dark",dark?"1":"0");
-
-$("themeBtn").textContent=dark?"☀️":"🌙";
-
-});
-
-if(localStorage.getItem("fely_dark")==="1"){
-
-document.body.classList.add("dark");
-$("themeBtn").textContent="☀️";
-
-}
-
-
-/* ==========================================================
-   FORMATAR PREÇO
-========================================================== */
-
-function money(value){
-
-return new Intl.NumberFormat("pt-AO",{
-style:"currency",
-currency:"AOA",
-maximumFractionDigits:0
-}).format(value);
-
-}
-
-
-/* ==========================================================
-   CARD DE CURSO
-========================================================== */
-
-function courseHTML(course){
-
-return `
-<article class="course">
-
-<div class="course-cover">
-${course.icon}
-</div>
-
-<div class="course-body">
-
-<span class="tag">
-${course.category}
-</span>
-
-<span class="level">
-${course.level}
-</span>
-
-<h3>${course.title}</h3>
-
-<p>${course.description}</p>
-
-<div class="course-meta">
-<span>📚 ${course.modules.length} módulos</span>
-<span>⏱ ${course.duration}</span>
-</div>
-
-<div class="course-price">
-${money(course.price)}
-</div>
-
-<button
-class="btn primary full"
-style="margin-top:13px"
-data-open-course="${course.id}"
->
-Ver conteúdo
-</button>
-
-</div>
-</article>
-`;
-
-}
-
-
-/* ==========================================================
-   RENDER CURSOS
-========================================================== */
-
-function renderCourses(){
-
-const search=$("searchCourse").value.toLowerCase().trim();
-
-const category=$("filterCategory").value;
-
-const level=$("filterLevel").value;
-
-const result=COURSES.filter(course=>{
-
-const text=(
-course.title+
-" "+
-course.description+
-" "+
-course.category
-).toLowerCase();
-
-return(
-(!search||text.includes(search))&&
-(category==="all"||course.category===category)&&
-(level==="all"||course.level===level)
-);
-
-});
-
-$("allCourses").innerHTML=result.length
-?result.map(courseHTML).join("")
-:`<div style="grid-column:1/-1;text-align:center;padding:60px;color:var(--muted)">
-<div style="font-size:50px">🔎</div>
-<h3 style="color:var(--dark)">Nenhum curso encontrado</h3>
-<p>Tenta outra pesquisa ou categoria.</p>
-</div>`;
-
-bindCourseButtons();
-
-}
-
-
-/* ==========================================================
-   CURSOS DESTAQUE
-========================================================== */
-
-function renderFeatured(){
-
-$("featuredCourses").innerHTML=
-COURSES.slice(0,6).map(courseHTML).join("");
-
-bindCourseButtons();
-
-}
-
-
-/* ==========================================================
-   BOTÕES DOS CURSOS
-========================================================== */
-
-function bindCourseButtons(){
-
-document.querySelectorAll("[data-open-course]").forEach(btn=>{
-
-btn.addEventListener("click",()=>{
-
-openCourse(
-Number(btn.dataset.openCourse)
-);
-
-});
-
-});
-
-}
-
-
-/* ==========================================================
-   ABRIR CURSO
-========================================================== */
-
-function openCourse(id){
-
-selectedCourse=COURSES.find(c=>c.id===id);
-
-if(!selectedCourse)return;
-
-$("modalTitle").textContent=selectedCourse.title;
-$("modalHeading").textContent=selectedCourse.title;
-$("modalIcon").textContent=selectedCourse.icon;
-
-$("modalTags").innerHTML=`
-<span class="tag">${selectedCourse.category}</span>
-<span class="level">${selectedCourse.level}</span>
-`;
-
-$("modalDescription").textContent=
-selectedCourse.description;
-
-$("courseModules").innerHTML=
-selectedCourse.modules.map((module,index)=>`
-
-<div class="module">
-
-<div class="module-head">
-
-<strong>${module.title}</strong>
-
-<span class="small">
-${module.lessons.length} aulas
-</span>
-
-</div>
-
-${module.lessons.map((lesson,i)=>`
-
-<div class="lesson">
-
-<div class="lesson-num">
-${i+1}
-</div>
-
-<div>
-<strong style="color:var(--dark)">
-${lesson}
-</strong>
-
-<div class="small">
-Aula de aprendizagem
-</div>
-
-</div>
-
-</div>
-
-`).join("")}
-
-</div>
-
-`).join("");
-
-$("courseModal").classList.add("open");
-
-}
-
-
-/* ==========================================================
-   FECHAR MODAL
-========================================================== */
-
-$("closeModal").addEventListener("click",()=>{
-$("courseModal").classList.remove("open");
-});
-
-$("courseModal").addEventListener("click",event=>{
-
-if(event.target===$("courseModal")){
-$("courseModal").classList.remove("open");
-}
-
-});
-
-document.addEventListener("keydown",event=>{
-
-if(event.key==="Escape"){
-$("courseModal").classList.remove("open");
-}
-
-});
-
-
-/* ==========================================================
-   INSCRIÇÃO
-========================================================== */
-
-$("enrollCourse").addEventListener("click",()=>{
-
-if(!currentUser()){
-
-$("courseModal").classList.remove("open");
-
-toast("Cria uma conta ou entra antes de comprar o curso.");
-
-setTimeout(()=>{
-showPage("registo");
-},500);
-
-return;
-
-}
-
-$("courseModal").classList.remove("open");
-
-openCheckout(selectedCourse);
-
-});
-
-
-/* ==========================================================
-   CHECKOUT
-========================================================== */
-
-function generateReference(){
-
-const random=
-Math.random()
-.toString(36)
-.substring(2,8)
-.toUpperCase();
-
-return "FELY-"+new Date().getFullYear()+"-"+random;
-
-}
-
-function openCheckout(course){
-
-selectedCourse=course;
-
-paymentReference=generateReference();
-
-$("checkoutCourse").textContent=course.title;
-
-$("checkoutDescription").textContent=
-course.description;
-
-$("checkoutPrice").textContent=
-money(course.price);
-
-$("paymentReference").textContent=
-paymentReference;
-
-$("payerName").value=
-currentUser()?.name||"";
-
-showPage("checkout");
-
-}
-
-
-/* ==========================================================
-   COPIAR REFERÊNCIA
-========================================================== */
-
-$("copyReference").addEventListener("click",async()=>{
-
-try{
-
-await navigator.clipboard.writeText(
-$("paymentReference").textContent
-);
-
-toast("Referência copiada.");
-
-}catch{
-
-toast("Copia a referência manualmente.");
-
-}
-
-});
-
-
-/* ==========================================================
-   PEDIDO DE PAGAMENTO
-========================================================== */
-
-$("submitPayment").addEventListener("click",()=>{
-
-const name=$("payerName").value.trim();
-
-const number=$("payerNumber").value.trim();
-
-const note=$("paymentNote").value.trim();
-
-if(!name||!number){
-
-toast("Preenche o nome e o número utilizado no pagamento.");
-
-return;
-
-}
-
-const request={
-id:Date.now(),
-reference:paymentReference,
-course:selectedCourse.title,
-courseId:selectedCourse.id,
-price:selectedCourse.price,
-payer:name,
-number:number,
-note:note,
-status:"Aguardando confirmação",
-date:new Date().toISOString()
-};
+            <div>
+              <span>✓</span>
+              Plataforma preparada para crescer
+            </div>
 
-const requests=
-JSON.parse(
-localStorage.getItem("fely_payment_requests")||"[]"
-);
+          </div>
 
-requests.push(request);
+        </div>
 
-localStorage.setItem(
-"fely_payment_requests",
-JSON.stringify(requests)
-);
+      </div>
 
-toast(
-"Pedido enviado. Aguarda a confirmação do pagamento."
-);
+    </section>
 
-$("paymentNote").value="";
 
-setTimeout(()=>{
-showPage("dashboard");
-},1200);
+    <!-- =======================================================
+         CTA
+    ======================================================== -->
 
-});
+    <section class="cta-section">
 
+      <div class="container">
 
-/* ==========================================================
-   REGISTO
-========================================================== */
+        <div class="cta-card">
 
-$("registerForm").addEventListener("submit",event=>{
+          <div class="cta-glow"></div>
 
-event.preventDefault();
+          <div class="cta-content">
 
-const name=$("regName").value.trim();
-const email=$("regEmail").value.trim().toLowerCase();
-const password=$("regPassword").value;
+            <span class="section-kicker">
+              O SEU FUTURO COMEÇA AGORA
+            </span>
 
-const list=users();
+            <h2>
+              Está pronto para aprender
+              algo novo?
+            </h2>
 
-if(list.some(u=>u.email===email)){
+            <p>
+              Crie a sua conta gratuitamente e descubra
+              os cursos disponíveis na Fely Academy.
+            </p>
 
-toast("Este email já está registado.");
+            <button
+              class="btn btn-light btn-large"
+              type="button"
+              onclick="openAuth('register')"
+            >
+              Criar minha conta
+              <span>→</span>
+            </button>
 
-return;
+          </div>
 
-}
+          <div class="cta-visual">
+            <div class="cta-circle">
+              🎓
+            </div>
+          </div>
 
-const user={
-id:Date.now(),
-name,
-email,
-password,
-courses:[],
-created:new Date().toISOString()
-};
+        </div>
 
-list.push(user);
+      </div>
 
-saveUsers(list);
+    </section>
 
-localStorage.setItem(
-"fely_current",
-JSON.stringify({
-id:user.id,
-name:user.name,
-email:user.email
-})
-);
 
-event.target.reset();
+    <!-- =======================================================
+         CONTACTO
+    ======================================================== -->
 
-toast("Conta criada com sucesso! 🎉");
+    <section
+      class="section contact-section"
+      id="contacto"
+    >
 
-setTimeout(()=>{
-showPage("dashboard");
-},700);
+      <div class="container contact-grid">
 
-});
+        <div>
 
+          <span class="section-kicker">
+            CONTACTO
+          </span>
 
-/* ==========================================================
-   LOGIN
-========================================================== */
+          <h2>
+            Fale connosco.
+          </h2>
 
-$("loginForm").addEventListener("submit",event=>{
+          <p>
+            Tem alguma dúvida sobre os cursos,
+            inscrições ou plataforma?
+            Envie-nos uma mensagem.
+          </p>
 
-event.preventDefault();
+          <div class="contact-info">
 
-const email=$("loginEmail").value.trim().toLowerCase();
+            <div>
+              <span>✉</span>
+              <div>
+                <strong>Email</strong>
+                <small>contacto@felyacademy.com</small>
+              </div>
+            </div>
 
-const password=$("loginPassword").value;
+            <div>
+              <span>📱</span>
+              <div>
+                <strong>Atendimento</strong>
+                <small>Segunda a sexta-feira</small>
+              </div>
+            </div>
 
-const user=users().find(
-u=>u.email===email&&u.password===password
-);
+          </div>
 
-if(!user){
+        </div>
 
-toast("Email ou palavra-passe incorretos.");
 
-return;
+        <form
+          class="contact-form"
+          id="contactForm"
+        >
 
-}
+          <div class="form-row">
 
-localStorage.setItem(
-"fely_current",
-JSON.stringify({
-id:user.id,
-name:user.name,
-email:user.email
-})
-);
+            <label>
+              Nome
+              <input
+                type="text"
+                id="contactName"
+                placeholder="O seu nome"
+                required
+              >
+            </label>
 
-event.target.reset();
+            <label>
+              Email
+              <input
+                type="email"
+                id="contactEmail"
+                placeholder="seu@email.com"
+                required
+              >
+            </label>
 
-toast("Login efetuado com sucesso! 👋");
+          </div>
 
-setTimeout(()=>{
-showPage("dashboard");
-},700);
+          <label>
+            Mensagem
 
-});
+            <textarea
+              id="contactMessage"
+              rows="6"
+              placeholder="Como podemos ajudar?"
+              required
+            ></textarea>
 
+          </label>
 
-/* ==========================================================
-   DASHBOARD
-========================================================== */
+          <button
+            type="submit"
+            class="btn btn-primary btn-large"
+          >
+            Enviar mensagem
+            <span>→</span>
+          </button>
 
-function updateDashboard(){
+        </form>
 
-const user=currentUser();
+      </div>
 
-if(!user){
+    </section>
 
-showPage("login");
+  </main>
 
-return;
 
-}
+  <!-- =========================================================
+       FOOTER
+  ========================================================== -->
 
-$("welcomeName").textContent=
-"Olá, "+user.name+"! 👋";
+  <footer class="site-footer">
 
-const requests=
-JSON.parse(
-localStorage.getItem("fely_payment_requests")||"[]"
-);
+    <div class="container footer-grid">
 
-const mine=requests.filter(
-r=>r.payer===user.name
-);
+      <div class="footer-brand">
 
-const myCourses=
-mine.length
-?mine
-:[
-{
-course:"Ainda não tens inscrições",
-status:"Escolhe um curso para começar.",
-courseId:null
-}
-];
+        <a href="#inicio" class="brand">
 
-$("myCourses").innerHTML=
-myCourses.map(item=>{
+          <span class="brand-icon">
+            F
+          </span>
 
-if(!item.courseId){
+          <span class="brand-text">
+            <strong>Fely</strong>
+            <span>Academy</span>
+          </span>
 
-return `
-<div style="padding:20px;text-align:center;color:var(--muted)">
-📚<br>
-${item.course}<br>
-<button class="btn primary" style="margin-top:12px" data-page="cursos">
-Explorar cursos
-</button>
-</div>
-`;
+        </a>
 
-}
+        <p>
+          Aprenda. Evolua. Conquiste.
+        </p>
 
-const course=
-COURSES.find(c=>c.id===item.courseId);
+      </div>
 
-return `
-<div class="my-course">
 
-<div class="my-icon">
-${course?.icon||"📚"}
-</div>
+      <div class="footer-column">
 
-<div>
+        <h4>
+          Plataforma
+        </h4>
 
-<h4>
-${course?.title||item.course}
-</h4>
+        <a href="#cursos">
+          Cursos
+        </a>
 
-<div class="small">
-Estado: ${item.status}
-</div>
+        <a href="#como-funciona">
+          Como funciona
+        </a>
 
-<div class="progress" style="margin-top:8px">
-<span style="width:0%"></span>
-</div>
+        <a href="#sobre">
+          Sobre nós
+        </a>
 
-<div class="small">
-Progresso: 0%
-</div>
+      </div>
 
-</div>
 
-<button
-class="btn secondary"
-data-open-course="${item.courseId}"
->
-Ver curso
-</button>
+      <div class="footer-column">
 
-</div>
-`;
+        <h4>
+          Suporte
+        </h4>
 
-}).join("");
+        <a href="#contacto">
+          Contacto
+        </a>
 
-bindCourseButtons();
+        <a href="#contacto">
+          Ajuda
+        </a>
 
-}
+        <a href="#">
+          Termos
+        </a>
 
+      </div>
 
-/* ==========================================================
-   LOGOUT
-========================================================== */
 
-$("logout").addEventListener("click",()=>{
+      <div class="footer-column">
 
-localStorage.removeItem("fely_current");
+        <h4>
+          Siga-nos
+        </h4>
 
-toast("Sessão terminada.");
+        <div class="social-links">
 
-setTimeout(()=>{
-showPage("inicio");
-},500);
+          <a href="#" aria-label="Facebook">
+            f
+          </a>
 
-});
+          <a href="#" aria-label="Instagram">
+            ◎
+          </a>
 
+          <a href="#" aria-label="YouTube">
+            ▶
+          </a>
 
-/* ==========================================================
-   PESQUISA
-========================================================== */
+        </div>
 
-$("searchCourse").addEventListener(
-"input",
-renderCourses
-);
+      </div>
 
-$("filterCategory").addEventListener(
-"change",
-renderCourses
-);
+    </div>
 
-$("filterLevel").addEventListener(
-"change",
-renderCourses
-);
 
+    <div class="container footer-bottom">
 
-/* ==========================================================
-   FAQ
-========================================================== */
+      <span>
+        © <span id="currentYear"></span>
+        Fely Academy. Todos os direitos reservados.
+      </span>
 
-document.querySelectorAll(".faq-question").forEach(button=>{
+      <span>
+        Feito para aprender e crescer.
+      </span>
 
-button.addEventListener("click",()=>{
+    </div>
 
-const item=button.parentElement;
+  </footer>
 
-item.classList.toggle("open");
 
-const sign=button.querySelector("span");
+  <!-- =========================================================
+       AUTH MODAL
+  ========================================================== -->
 
-sign.textContent=
-item.classList.contains("open")?"−":"+";
+  <div
+    class="modal"
+    id="authModal"
+    aria-hidden="true"
+  >
 
-});
+    <div class="modal-overlay" onclick="closeAuth()"></div>
 
-});
+    <div class="auth-modal">
 
+      <button
+        class="modal-close"
+        type="button"
+        onclick="closeAuth()"
+        aria-label="Fechar"
+      >
+        ×
+      </button>
 
-/* ==========================================================
-   CONTACTO
-========================================================== */
 
-$("contactForm").addEventListener("submit",event=>{
+      <div class="auth-visual">
 
-event.preventDefault();
+        <div class="auth-visual-logo">
+          F
+        </div>
 
-event.target.reset();
+        <h2>
+          Aprender muda tudo.
+        </h2>
 
-toast(
-"Mensagem preparada com sucesso. Obrigado pelo contacto!"
-);
+        <p>
+          Entre na Fely Academy e continue
+          a construir o seu futuro.
+        </p>
 
-});
+        <div class="auth-decoration">
+          ✦
+          ✧
+          ✦
+        </div>
 
+      </div>
 
-/* ==========================================================
-   HASH
-========================================================== */
 
-function loadHash(){
+      <div class="auth-content">
 
-const id=
-location.hash.replace("#","");
+        <div class="auth-tabs">
 
-if(id&&$(id)){
-showPage(id);
-}else{
-showPage("inicio");
-}
+          <button
+            id="loginTab"
+            class="active"
+            onclick="switchAuth('login')"
+          >
+            Entrar
+          </button>
 
-}
+          <button
+            id="registerTab"
+            onclick="switchAuth('register')"
+          >
+            Criar conta
+          </button>
 
+        </div>
 
-/* ==========================================================
-   ANO
-========================================================== */
 
-$("year").textContent=
-new Date().getFullYear();
+        <!-- LOGIN -->
 
+        <form
+          id="loginForm"
+          class="auth-form"
+        >
 
-/* ==========================================================
-   INICIALIZAÇÃO
-========================================================== */
+          <h3>
+            Bem-vindo de volta 👋
+          </h3>
 
-renderFeatured();
+          <p>
+            Entre na sua conta.
+          </p>
 
-renderCourses();
+          <label>
+            Email
 
-loadHash();
+            <input
+              type="email"
+              id="loginEmail"
+              placeholder="seu@email.com"
+              required
+            >
 
-window.addEventListener(
-"hashchange",
-loadHash
-);
+          </label>
 
-console.log(
-"🎓 Fely Academy carregada."
-);
 
-</script>
+          <label>
+            Palavra-passe
+
+            <input
+              type="password"
+              id="loginPassword"
+              placeholder="••••••••"
+              required
+            >
+
+          </label>
+
+
+          <button
+            class="btn btn-primary btn-large"
+            type="submit"
+          >
+            Entrar
+          </button>
+
+          <small class="auth-message" id="loginMessage"></small>
+
+        </form>
+
+
+        <!-- REGISTO -->
+
+        <form
+          id="registerForm"
+          class="auth-form hidden"
+        >
+
+          <h3>
+            Criar a sua conta 🚀
+          </h3>
+
+          <p>
+            Comece gratuitamente.
+          </p>
+
+
+          <label>
+            Nome completo
+
+            <input
+              type="text"
+              id="registerName"
+              placeholder="O seu nome"
+              required
+            >
+
+          </label>
+
+
+          <label>
+            Email
+
+            <input
+              type="email"
+              id="registerEmail"
+              placeholder="seu@email.com"
+              required
+            >
+
+          </label>
+
+
+          <label>
+            Palavra-passe
+
+            <input
+              type="password"
+              id="registerPassword"
+              placeholder="Mínimo 6 caracteres"
+              minlength="6"
+              required
+            >
+
+          </label>
+
+
+          <button
+            class="btn btn-primary btn-large"
+            type="submit"
+          >
+            Criar conta
+          </button>
+
+          <small
+            class="auth-message"
+            id="registerMessage"
+          ></small>
+
+        </form>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- =========================================================
+       COURSE MODAL
+  ========================================================== -->
+
+  <div
+    class="modal"
+    id="courseModal"
+    aria-hidden="true"
+  >
+
+    <div
+      class="modal-overlay"
+      onclick="closeCourse()"
+    ></div>
+
+    <div class="course-modal">
+
+      <button
+        class="modal-close"
+        type="button"
+        onclick="closeCourse()"
+      >
+        ×
+      </button>
+
+      <div
+        class="course-modal-header"
+        id="courseModalHeader"
+      >
+      </div>
+
+      <div
+        class="course-modal-body"
+        id="courseModalBody"
+      >
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- =========================================================
+       TOAST
+  ========================================================== -->
+
+  <div
+    class="toast"
+    id="toast"
+    role="status"
+  >
+    <span id="toastIcon">✓</span>
+    <span id="toastMessage">
+      Operação concluída.
+    </span>
+  </div>
+
+
+  <!-- =========================================================
+       JAVASCRIPT
+  ========================================================== -->
+
+  <script src="app.js"></script>
 
 </body>
 </html>
