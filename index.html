@@ -3219,45 +3219,61 @@
    * antes de carregarmos o perfil.
    */
 
-  db.auth.onAuthStateChange(
-    (event, session) => {
+db.auth.onAuthStateChange(
+  (event, session) => {
 
-      if (
-        event === "SIGNED_IN" ||
-        event === "INITIAL_SESSION"
-      ) {
+    console.log(
+      "Evento de autenticação:",
+      event
+    );
 
-        currentUser =
-          session?.user || null;
+    if (event === "SIGNED_IN") {
+
+      currentUser =
+        session?.user || null;
+
+      setTimeout(async () => {
+
+        await refreshUser();
+
+        /*
+         * Depois de o Supabase processar o link
+         * de confirmação, removemos o token
+         * da barra de endereço.
+         */
+        if (
+          window.location.hash.includes(
+            "access_token"
+          )
+        ) {
+
+          window.history.replaceState(
+            {},
+            document.title,
+            window.location.pathname +
+            window.location.search
+          );
+
+        }
+
+      }, 500);
+    }
 
 
-        setTimeout(() => {
+    if (event === "SIGNED_OUT") {
 
-          refreshUser();
+      currentUser = null;
 
-        }, 0);
+      currentProfile = null;
 
-      }
+      hideDashboards();
 
-
-      if (event === "SIGNED_OUT") {
-
-        currentUser = null;
-        currentProfile = null;
-
-        hideDashboards();
-        updateNavigation();
-
-      }
+      updateNavigation();
 
     }
-  );
 
-
-  document.addEventListener(
-    "DOMContentLoaded",
-    init
-  );
+  }
+);
 
 
   /* =========================================================
