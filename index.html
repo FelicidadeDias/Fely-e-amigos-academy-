@@ -4,46 +4,117 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Fely e Amigos Academy</title>
+  <title>Fely e Amigos Academy | Aprenda. Evolua. Conquiste.</title>
+
   <meta
     name="description"
-    content="Fely e Amigos Academy - Cursos online práticos, acessíveis e preparados para o mercado de trabalho."
+    content="Fely e Amigos Academy — cursos online práticos, acessíveis e preparados para o mercado de trabalho."
   >
+
+  <meta name="theme-color" content="#087f73">
 
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
   <style>
+
+    /* =========================================================
+       FELY E AMIGOS ACADEMY
+       DESIGN SYSTEM
+       ========================================================= */
+
+    :root {
+
+      --primary: #087f73;
+      --primary-dark: #05665d;
+      --primary-deep: #034e48;
+      --primary-light: #dff8f3;
+
+      --accent: #f59e0b;
+      --accent-light: #fff4d6;
+
+      --blue: #2563eb;
+      --purple: #7c3aed;
+
+      --dark: #10201f;
+      --dark-2: #183330;
+
+      --text: #334b48;
+      --muted: #718482;
+
+      --light: #f5faf9;
+      --white: #ffffff;
+
+      --border: #dcebe8;
+      --border-light: #eaf3f1;
+
+      --success: #15803d;
+      --success-light: #dcfce7;
+
+      --danger: #dc2626;
+      --danger-light: #fee2e2;
+
+      --warning: #d97706;
+      --warning-light: #fef3c7;
+
+      --shadow-sm:
+        0 4px 14px rgba(7, 72, 66, .06);
+
+      --shadow:
+        0 16px 45px rgba(7, 72, 66, .10);
+
+      --shadow-lg:
+        0 30px 80px rgba(7, 72, 66, .16);
+
+      --radius-sm: 12px;
+      --radius: 20px;
+      --radius-lg: 28px;
+
+      --max-width: 1200px;
+
+    }
+
+
+    /* =========================================================
+       RESET
+       ========================================================= */
+
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
     }
 
-    :root {
-      --primary: #0f766e;
-      --primary-dark: #115e59;
-      --secondary: #f59e0b;
-      --dark: #172033;
-      --text: #334155;
-      --muted: #64748b;
-      --light: #f8fafc;
-      --white: #ffffff;
-      --border: #e2e8f0;
-      --success: #15803d;
-      --danger: #dc2626;
-      --shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
-      --radius: 16px;
-    }
-
     html {
       scroll-behavior: smooth;
+      scroll-padding-top: 90px;
     }
 
     body {
-      font-family: Arial, Helvetica, sans-serif;
-      background: var(--light);
+
+      font-family:
+        Inter,
+        ui-sans-serif,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+
+      background:
+        linear-gradient(
+          180deg,
+          #f8fcfb 0%,
+          #f4faf9 100%
+        );
+
       color: var(--text);
-      line-height: 1.6;
+      line-height: 1.65;
+      min-height: 100vh;
+
+    }
+
+    body.modal-open {
+      overflow: hidden;
     }
 
     button,
@@ -57,1035 +128,4521 @@
       cursor: pointer;
     }
 
+    button:disabled {
+      cursor: not-allowed;
+      opacity: .65;
+      transform: none !important;
+    }
+
     a {
       color: inherit;
       text-decoration: none;
     }
 
+    img {
+      max-width: 100%;
+    }
+
+
+    /* =========================================================
+       CONTAINER
+       ========================================================= */
+
     .container {
-      width: min(1180px, 92%);
-      margin: auto;
+      width: min(var(--max-width), calc(100% - 40px));
+      margin: 0 auto;
     }
 
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      background: rgba(255, 255, 255, 0.96);
-      border-bottom: 1px solid var(--border);
-      backdrop-filter: blur(10px);
+
+    /* =========================================================
+       TOP BAR
+       ========================================================= */
+
+    .topbar {
+
+      background:
+        linear-gradient(
+          90deg,
+          var(--primary-deep),
+          var(--primary)
+        );
+
+      color: white;
+      font-size: 13px;
+
     }
 
-    .nav {
-      min-height: 72px;
+    .topbar-inner {
+
+      min-height: 36px;
+
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 20px;
+
+      gap: 15px;
+
     }
 
-    .logo {
+    .topbar-message {
+      opacity: .92;
+    }
+
+    .topbar-contact {
       display: flex;
       align-items: center;
-      gap: 10px;
-      font-size: 20px;
-      font-weight: 800;
-      color: var(--primary);
+      gap: 8px;
+      font-weight: 700;
+    }
+
+
+    /* =========================================================
+       HEADER
+       ========================================================= */
+
+    header {
+
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+
+      background:
+        rgba(255,255,255,.92);
+
+      border-bottom:
+        1px solid rgba(220,235,232,.85);
+
+      backdrop-filter:
+        blur(18px);
+
+      -webkit-backdrop-filter:
+        blur(18px);
+
+    }
+
+    .nav {
+
+      min-height: 76px;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      gap: 24px;
+
+    }
+
+
+    /* =========================================================
+       LOGO
+       ========================================================= */
+
+    .logo {
+
+      display: inline-flex;
+      align-items: center;
+      gap: 11px;
+
+      font-size: 18px;
+      font-weight: 900;
+
+      color: var(--dark);
+
+      white-space: nowrap;
+
     }
 
     .logo-icon {
-      width: 42px;
-      height: 42px;
-      border-radius: 12px;
+
+      width: 45px;
+      height: 45px;
+
+      border-radius: 15px;
+
       display: grid;
       place-items: center;
-      background: var(--primary);
+
       color: white;
-      font-weight: 900;
+
+      font-size: 21px;
+      font-weight: 950;
+
+      background:
+        linear-gradient(
+          135deg,
+          var(--primary),
+          #12a594
+        );
+
+      box-shadow:
+        0 9px 22px rgba(8,127,115,.24);
+
+      position: relative;
+      overflow: hidden;
+
     }
 
+    .logo-icon::after {
+
+      content: "";
+
+      position: absolute;
+
+      width: 22px;
+      height: 22px;
+
+      border-radius: 50%;
+
+      background:
+        rgba(255,255,255,.16);
+
+      top: -5px;
+      right: -5px;
+
+    }
+
+    .logo-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.05;
+    }
+
+    .logo-main {
+      font-weight: 950;
+      letter-spacing: -.4px;
+    }
+
+    .logo-sub {
+      font-size: 10px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--primary);
+      margin-top: 4px;
+    }
+
+
+    /* =========================================================
+       NAVIGATION
+       ========================================================= */
+
     .nav-links {
+
       display: flex;
       align-items: center;
-      gap: 20px;
+      gap: 6px;
+
     }
 
     .nav-links a {
-      color: var(--text);
-      font-weight: 600;
+
+      position: relative;
+
+      padding: 10px 13px;
+
+      color: #46615e;
+
+      font-size: 14px;
+      font-weight: 750;
+
+      border-radius: 10px;
+
+      transition:
+        color .2s ease,
+        background .2s ease;
+
     }
 
     .nav-links a:hover {
+
       color: var(--primary);
+
+      background:
+        var(--primary-light);
+
     }
 
     .nav-actions {
+
       display: flex;
+      align-items: center;
       gap: 8px;
+
     }
 
+    .mobile-menu-btn {
+
+      display: none;
+
+      width: 44px;
+      height: 44px;
+
+      border: 1px solid var(--border);
+
+      background: white;
+
+      border-radius: 13px;
+
+      color: var(--dark);
+
+      font-size: 21px;
+
+    }
+
+    .mobile-menu {
+
+      display: none;
+
+      padding:
+        0 20px 20px;
+
+    }
+
+    .mobile-menu.open {
+      display: block;
+    }
+
+    .mobile-menu a {
+
+      display: block;
+
+      padding: 13px 14px;
+
+      border-radius: 12px;
+
+      color: var(--dark);
+      font-weight: 750;
+
+    }
+
+    .mobile-menu a:hover {
+      background: var(--primary-light);
+      color: var(--primary);
+    }
+
+
+    /* =========================================================
+       BUTTONS
+       ========================================================= */
+
     .btn {
-      border: none;
-      border-radius: 10px;
-      padding: 11px 17px;
-      font-weight: 700;
-      transition: 0.2s;
+
+      border: 0;
+      border-radius: 12px;
+
+      min-height: 44px;
+
+      padding:
+        11px 17px;
+
+      font-weight: 800;
+      font-size: 14px;
+
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 7px;
+
+      gap: 8px;
+
+      transition:
+        transform .2s ease,
+        box-shadow .2s ease,
+        background .2s ease,
+        border-color .2s ease;
+
     }
 
     .btn:hover {
-      transform: translateY(-1px);
+
+      transform:
+        translateY(-2px);
+
     }
 
     .btn-primary {
-      background: var(--primary);
+
+      background:
+        linear-gradient(
+          135deg,
+          var(--primary),
+          #09998b
+        );
+
       color: white;
+
+      box-shadow:
+        0 9px 22px rgba(8,127,115,.20);
+
     }
 
     .btn-primary:hover {
-      background: var(--primary-dark);
+
+      background:
+        linear-gradient(
+          135deg,
+          var(--primary-dark),
+          var(--primary)
+        );
+
+      box-shadow:
+        0 13px 30px rgba(8,127,115,.27);
+
     }
 
     .btn-secondary {
-      background: var(--secondary);
-      color: #111827;
+
+      background:
+        linear-gradient(
+          135deg,
+          #fbbf24,
+          var(--accent)
+        );
+
+      color: #392700;
+
+      box-shadow:
+        0 8px 20px rgba(245,158,11,.18);
+
     }
 
     .btn-outline {
+
       background: white;
+
       color: var(--primary);
-      border: 1px solid var(--primary);
+
+      border:
+        1px solid #9dd7cf;
+
+    }
+
+    .btn-outline:hover {
+
+      background:
+        var(--primary-light);
+
+      border-color:
+        var(--primary);
+
     }
 
     .btn-danger {
-      background: var(--danger);
+
+      background:
+        linear-gradient(
+          135deg,
+          #ef4444,
+          var(--danger)
+        );
+
       color: white;
+
     }
 
     .btn-success {
-      background: var(--success);
+
+      background:
+        linear-gradient(
+          135deg,
+          #22a34a,
+          var(--success)
+        );
+
       color: white;
+
     }
 
     .btn-muted {
-      background: #e2e8f0;
-      color: #334155;
+
+      background:
+        #e7efed;
+
+      color:
+        #49615e;
+
     }
 
     .btn-full {
       width: 100%;
     }
 
+
+    /* =========================================================
+       HERO
+       ========================================================= */
+
     .hero {
-      padding: 80px 0;
+
+      position: relative;
+      overflow: hidden;
+
+      padding:
+        92px 0 80px;
+
       background:
+
+        radial-gradient(
+          circle at 8% 10%,
+          rgba(20,184,166,.17),
+          transparent 32%
+        ),
+
+        radial-gradient(
+          circle at 90% 20%,
+          rgba(245,158,11,.15),
+          transparent 30%
+        ),
+
         linear-gradient(
           135deg,
-          #ecfdf5 0%,
-          #f8fafc 50%,
-          #fff7ed 100%
+          #edfcf8 0%,
+          #f8fcfb 48%,
+          #fff9ed 100%
         );
+
+    }
+
+    .hero::before {
+
+      content: "";
+
+      position: absolute;
+
+      width: 420px;
+      height: 420px;
+
+      border-radius: 50%;
+
+      border:
+        1px solid rgba(8,127,115,.08);
+
+      right: -180px;
+      bottom: -190px;
+
+    }
+
+    .hero::after {
+
+      content: "";
+
+      position: absolute;
+
+      width: 230px;
+      height: 230px;
+
+      border-radius: 50%;
+
+      background:
+        rgba(8,127,115,.05);
+
+      left: -110px;
+      top: 130px;
+
     }
 
     .hero-grid {
+
+      position: relative;
+      z-index: 1;
+
       display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
+
+      grid-template-columns:
+        minmax(0, 1.15fr)
+        minmax(360px, .85fr);
+
       align-items: center;
-      gap: 50px;
+
+      gap: 65px;
+
+    }
+
+    .hero-badge {
+
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+
+      padding:
+        8px 13px;
+
+      border:
+        1px solid #b8e7df;
+
+      border-radius: 999px;
+
+      background:
+        rgba(255,255,255,.76);
+
+      color: var(--primary);
+
+      font-size: 12px;
+      font-weight: 900;
+
+      margin-bottom: 20px;
+
+      box-shadow:
+        var(--shadow-sm);
+
+    }
+
+    .hero-badge-dot {
+
+      width: 8px;
+      height: 8px;
+
+      border-radius: 50%;
+
+      background:
+        #17a67a;
+
+      box-shadow:
+        0 0 0 5px rgba(23,166,122,.10);
+
     }
 
     .hero h1 {
-      font-size: clamp(38px, 5vw, 64px);
-      line-height: 1.05;
+
+      font-size:
+        clamp(43px, 6vw, 72px);
+
+      line-height: .98;
+
+      letter-spacing:
+        -2.8px;
+
       color: var(--dark);
-      margin-bottom: 20px;
+
+      margin-bottom: 24px;
+
+      max-width: 760px;
+
     }
 
     .hero h1 span {
+
+      display: block;
+
       color: var(--primary);
+
+      margin-top: 7px;
+
     }
 
-    .hero p {
-      font-size: 19px;
+    .hero-description {
+
+      font-size: 18px;
+
       color: var(--muted);
-      max-width: 650px;
-      margin-bottom: 28px;
+
+      max-width: 670px;
+
+      margin-bottom: 30px;
+
     }
 
     .hero-actions {
+
       display: flex;
-      gap: 12px;
+      gap: 11px;
       flex-wrap: wrap;
+
+      margin-bottom: 30px;
+
     }
 
+    .hero-trust {
+
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+
+    }
+
+    .trust-item {
+
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+
+      background:
+        rgba(255,255,255,.72);
+
+      border:
+        1px solid rgba(189,218,213,.8);
+
+      border-radius: 10px;
+
+      padding:
+        8px 11px;
+
+      font-size: 12px;
+      font-weight: 750;
+
+      color: #526965;
+
+    }
+
+    .trust-icon {
+      color: var(--primary);
+      font-weight: 950;
+    }
+
+
+    /* =========================================================
+       HERO CARD
+       ========================================================= */
+
     .hero-card {
-      background: white;
-      border-radius: 24px;
-      padding: 35px;
-      box-shadow: var(--shadow);
-      border: 1px solid var(--border);
+
+      position: relative;
+
+      background:
+        rgba(255,255,255,.86);
+
+      border:
+        1px solid rgba(255,255,255,.95);
+
+      border-radius:
+        28px;
+
+      padding:
+        30px;
+
+      box-shadow:
+        var(--shadow-lg);
+
+      backdrop-filter:
+        blur(16px);
+
+      -webkit-backdrop-filter:
+        blur(16px);
+
+    }
+
+    .hero-card::before {
+
+      content: "";
+
+      position: absolute;
+
+      left: 0;
+      top: 0;
+
+      width: 100%;
+      height: 5px;
+
+      border-radius:
+        28px 28px 0 0;
+
+      background:
+        linear-gradient(
+          90deg,
+          var(--primary),
+          #14b8a6,
+          var(--accent)
+        );
+
+    }
+
+    .hero-card-heading {
+
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      gap: 15px;
+
+      margin-bottom: 20px;
+
     }
 
     .hero-card h3 {
+
       color: var(--dark);
-      margin-bottom: 18px;
-      font-size: 24px;
+
+      font-size: 22px;
+
+      line-height: 1.2;
+
+    }
+
+    .hero-card-badge {
+
+      padding:
+        6px 9px;
+
+      border-radius:
+        999px;
+
+      background:
+        var(--accent-light);
+
+      color:
+        #9a5d00;
+
+      font-size: 10px;
+      font-weight: 900;
+
+      text-transform: uppercase;
+
     }
 
     .hero-feature {
+
       display: flex;
-      gap: 12px;
-      margin: 15px 0;
-      align-items: flex-start;
+
+      gap: 13px;
+
+      padding:
+        14px 0;
+
+      border-bottom:
+        1px solid var(--border-light);
+
+    }
+
+    .hero-feature:last-child {
+      border-bottom: 0;
     }
 
     .hero-feature-icon {
-      width: 35px;
-      height: 35px;
-      border-radius: 9px;
-      background: #ccfbf1;
-      color: var(--primary);
+
+      width: 39px;
+      height: 39px;
+
+      flex-shrink: 0;
+
+      border-radius: 12px;
+
       display: grid;
       place-items: center;
-      flex-shrink: 0;
+
+      background:
+        linear-gradient(
+          135deg,
+          var(--primary-light),
+          #c9f3ec
+        );
+
+      color:
+        var(--primary);
+
+      font-weight: 950;
+
     }
 
+    .hero-feature strong {
+
+      display: block;
+
+      color:
+        var(--dark);
+
+      font-size: 14px;
+
+      margin-bottom: 2px;
+
+    }
+
+    .hero-feature p {
+
+      color:
+        var(--muted);
+
+      font-size: 12px;
+
+      line-height: 1.45;
+
+    }
+
+
+    /* =========================================================
+       STATS
+       ========================================================= */
+
+    .hero-stats {
+
+      margin-top: 50px;
+
+      display: grid;
+
+      grid-template-columns:
+        repeat(4, 1fr);
+
+      gap: 12px;
+
+    }
+
+    .hero-stat {
+
+      background:
+        rgba(255,255,255,.68);
+
+      border:
+        1px solid rgba(214,233,229,.8);
+
+      border-radius:
+        16px;
+
+      padding:
+        17px;
+
+      text-align: center;
+
+    }
+
+    .hero-stat strong {
+
+      display: block;
+
+      font-size: 22px;
+
+      color:
+        var(--primary);
+
+      font-weight: 950;
+
+    }
+
+    .hero-stat span {
+
+      color:
+        var(--muted);
+
+      font-size: 11px;
+
+      font-weight: 700;
+
+    }
+
+
+    /* =========================================================
+       SECTION
+       ========================================================= */
+
     section {
-      padding: 70px 0;
+      padding:
+        86px 0;
+    }
+
+    .section-alt {
+      background:
+        #eef8f6;
     }
 
     .section-header {
+
+      max-width: 720px;
+
+      margin:
+        0 auto 38px;
+
       text-align: center;
-      margin-bottom: 35px;
+
+    }
+
+    .section-kicker {
+
+      display: inline-block;
+
+      color:
+        var(--primary);
+
+      font-size: 11px;
+
+      font-weight: 950;
+
+      text-transform: uppercase;
+
+      letter-spacing:
+        1.7px;
+
+      margin-bottom: 8px;
+
     }
 
     .section-header h2 {
-      font-size: 34px;
-      color: var(--dark);
-      margin-bottom: 8px;
+
+      font-size:
+        clamp(29px, 4vw, 42px);
+
+      line-height: 1.1;
+
+      letter-spacing:
+        -1px;
+
+      color:
+        var(--dark);
+
+      margin-bottom: 11px;
+
     }
 
     .section-header p {
-      color: var(--muted);
+
+      color:
+        var(--muted);
+
+      font-size: 15px;
+
     }
 
+
+    /* =========================================================
+       COURSE FILTER
+       ========================================================= */
+
     .filters {
+
       display: flex;
+
+      align-items: center;
+
       gap: 12px;
+
       flex-wrap: wrap;
-      margin-bottom: 28px;
+
+      padding:
+        13px;
+
+      background:
+        white;
+
+      border:
+        1px solid var(--border);
+
+      border-radius:
+        17px;
+
+      box-shadow:
+        var(--shadow-sm);
+
+      margin-bottom:
+        28px;
+
     }
 
     .search-box {
-      flex: 1;
-      min-width: 230px;
+
+      flex:
+        1 1 300px;
+
+      position: relative;
+
     }
+
+    .search-box::before {
+
+      content:
+        "⌕";
+
+      position: absolute;
+
+      left: 15px;
+      top: 50%;
+
+      transform:
+        translateY(-50%);
+
+      color:
+        var(--muted);
+
+      font-size: 20px;
+
+      z-index: 1;
+
+    }
+
+    .search-box .input {
+
+      padding-left:
+        43px;
+
+    }
+
+    .filter-select {
+
+      width:
+        235px;
+
+      flex-shrink: 0;
+
+    }
+
+
+    /* =========================================================
+       INPUTS
+       ========================================================= */
 
     .input,
     textarea,
     select {
+
       width: 100%;
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 12px 14px;
-      background: white;
-      outline: none;
+
+      border:
+        1px solid var(--border);
+
+      border-radius:
+        12px;
+
+      padding:
+        12px 14px;
+
+      background:
+        #fbfefd;
+
+      color:
+        var(--dark);
+
+      outline:
+        none;
+
+      transition:
+        border .2s ease,
+        box-shadow .2s ease,
+        background .2s ease;
+
+    }
+
+    .input::placeholder,
+    textarea::placeholder {
+      color: #9aadaa;
     }
 
     .input:focus,
     textarea:focus,
     select:focus {
-      border-color: var(--primary);
+
+      border-color:
+        var(--primary);
+
+      background:
+        white;
+
+      box-shadow:
+        0 0 0 4px rgba(8,127,115,.09);
+
     }
 
+
+    /* =========================================================
+       COURSE GRID
+       ========================================================= */
+
     .courses-grid {
+
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 22px;
+
+      grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+      gap:
+        22px;
+
     }
 
     .course-card {
-      background: white;
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      overflow: hidden;
-      box-shadow: 0 5px 20px rgba(15, 23, 42, 0.05);
-      transition: 0.2s;
-      display: flex;
-      flex-direction: column;
+
+      position: relative;
+
+      background:
+        white;
+
+      border:
+        1px solid var(--border);
+
+      border-radius:
+        22px;
+
+      overflow:
+        hidden;
+
+      box-shadow:
+        var(--shadow-sm);
+
+      transition:
+        transform .25s ease,
+        box-shadow .25s ease,
+        border-color .25s ease;
+
+      display:
+        flex;
+
+      flex-direction:
+        column;
+
     }
 
     .course-card:hover {
-      transform: translateY(-4px);
-      box-shadow: var(--shadow);
+
+      transform:
+        translateY(-7px);
+
+      box-shadow:
+        var(--shadow-lg);
+
+      border-color:
+        #b8ddd7;
+
     }
 
     .course-image {
-      height: 150px;
+
+      min-height:
+        174px;
+
+      padding:
+        22px;
+
+      color:
+        white;
+
+      display:
+        flex;
+
+      flex-direction:
+        column;
+
+      justify-content:
+        space-between;
+
+      position:
+        relative;
+
+      overflow:
+        hidden;
+
       background:
-        linear-gradient(135deg, var(--primary), #14b8a6);
-      color: white;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 20px;
-      text-align: center;
-      font-size: 26px;
-      font-weight: 800;
+        linear-gradient(
+          135deg,
+          var(--primary-deep),
+          var(--primary),
+          #16a394
+        );
+
+    }
+
+    .course-image::before {
+
+      content:
+        "";
+
+      position:
+        absolute;
+
+      width:
+        170px;
+
+      height:
+        170px;
+
+      border-radius:
+        50%;
+
+      background:
+        rgba(255,255,255,.08);
+
+      right:
+        -55px;
+
+      top:
+        -70px;
+
+    }
+
+    .course-image::after {
+
+      content:
+        "";
+
+      position:
+        absolute;
+
+      width:
+        90px;
+
+      height:
+        90px;
+
+      border-radius:
+        22px;
+
+      border:
+        1px solid rgba(255,255,255,.15);
+
+      right:
+        30px;
+
+      bottom:
+        -35px;
+
+      transform:
+        rotate(25deg);
+
+    }
+
+    .course-topline {
+
+      position:
+        relative;
+
+      z-index:
+        1;
+
+      display:
+        flex;
+
+      justify-content:
+        space-between;
+
+      align-items:
+        center;
+
+      gap:
+        10px;
+
+    }
+
+    .course-category-badge {
+
+      display:
+        inline-flex;
+
+      padding:
+        6px 9px;
+
+      border-radius:
+        999px;
+
+      background:
+        rgba(255,255,255,.16);
+
+      border:
+        1px solid rgba(255,255,255,.22);
+
+      font-size:
+        10px;
+
+      font-weight:
+        900;
+
+      text-transform:
+        uppercase;
+
+      letter-spacing:
+        .6px;
+
+      backdrop-filter:
+        blur(8px);
+
+    }
+
+    .course-symbol {
+
+      width:
+        36px;
+
+      height:
+        36px;
+
+      display:
+        grid;
+
+      place-items:
+        center;
+
+      border-radius:
+        11px;
+
+      background:
+        rgba(255,255,255,.15);
+
+      font-size:
+        17px;
+
+    }
+
+    .course-image-title {
+
+      position:
+        relative;
+
+      z-index:
+        1;
+
+      font-size:
+        21px;
+
+      line-height:
+        1.15;
+
+      font-weight:
+        900;
+
+      max-width:
+        90%;
+
     }
 
     .course-body {
-      padding: 20px;
-      display: flex;
-      flex-direction: column;
-      flex: 1;
+
+      padding:
+        20px;
+
+      display:
+        flex;
+
+      flex-direction:
+        column;
+
+      flex:
+        1;
+
     }
 
     .course-category {
-      font-size: 12px;
-      color: var(--primary);
-      font-weight: 800;
-      text-transform: uppercase;
-      margin-bottom: 6px;
+
+      color:
+        var(--primary);
+
+      font-size:
+        10px;
+
+      font-weight:
+        950;
+
+      text-transform:
+        uppercase;
+
+      letter-spacing:
+        1px;
+
+      margin-bottom:
+        6px;
+
     }
 
     .course-title {
-      font-size: 21px;
-      color: var(--dark);
-      margin-bottom: 8px;
+
+      font-size:
+        19px;
+
+      line-height:
+        1.25;
+
+      color:
+        var(--dark);
+
+      margin-bottom:
+        8px;
+
     }
 
     .course-description {
-      color: var(--muted);
-      font-size: 14px;
-      margin-bottom: 16px;
-      flex: 1;
+
+      color:
+        var(--muted);
+
+      font-size:
+        13px;
+
+      line-height:
+        1.6;
+
+      margin-bottom:
+        17px;
+
+      flex:
+        1;
+
     }
 
     .course-meta {
-      display: flex;
-      justify-content: space-between;
-      gap: 10px;
-      margin-bottom: 16px;
-      font-size: 13px;
-      color: var(--muted);
+
+      display:
+        flex;
+
+      justify-content:
+        space-between;
+
+      gap:
+        10px;
+
+      margin-bottom:
+        16px;
+
+      color:
+        #68807c;
+
+      font-size:
+        11px;
+
+      font-weight:
+        700;
+
+    }
+
+    .course-meta span {
+
+      background:
+        #f2f8f7;
+
+      padding:
+        7px 8px;
+
+      border-radius:
+        8px;
+
+    }
+
+    .price-row {
+
+      display:
+        flex;
+
+      align-items:
+        flex-end;
+
+      justify-content:
+        space-between;
+
+      gap:
+        10px;
+
+      margin-bottom:
+        15px;
+
+    }
+
+    .price-label {
+
+      display:
+        block;
+
+      color:
+        #91a39f;
+
+      font-size:
+        10px;
+
+      text-transform:
+        uppercase;
+
+      font-weight:
+        850;
+
     }
 
     .price {
-      font-size: 22px;
-      color: var(--primary);
-      font-weight: 900;
-      margin-bottom: 15px;
+
+      color:
+        var(--primary);
+
+      font-size:
+        22px;
+
+      line-height:
+        1.1;
+
+      font-weight:
+        950;
+
     }
 
     .course-buttons {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 8px;
+
+      display:
+        grid;
+
+      grid-template-columns:
+        1fr 1fr;
+
+      gap:
+        8px;
+
     }
 
+    .course-buttons .btn {
+      min-height:
+        42px;
+      padding:
+        9px 10px;
+      font-size:
+        12px;
+    }
+
+
+    /* =========================================================
+       ABOUT
+       ========================================================= */
+
     .about-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 22px;
+
+      display:
+        grid;
+
+      grid-template-columns:
+        repeat(3, 1fr);
+
+      gap:
+        20px;
+
     }
 
     .about-card {
-      background: white;
-      padding: 28px;
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
+
+      position:
+        relative;
+
+      overflow:
+        hidden;
+
+      background:
+        white;
+
+      padding:
+        28px;
+
+      border:
+        1px solid var(--border);
+
+      border-radius:
+        21px;
+
+      box-shadow:
+        var(--shadow-sm);
+
+      transition:
+        transform .25s ease,
+        box-shadow .25s ease;
+
+    }
+
+    .about-card:hover {
+
+      transform:
+        translateY(-5px);
+
+      box-shadow:
+        var(--shadow);
+
+    }
+
+    .about-icon {
+
+      width:
+        49px;
+
+      height:
+        49px;
+
+      display:
+        grid;
+
+      place-items:
+        center;
+
+      border-radius:
+        14px;
+
+      background:
+        var(--primary-light);
+
+      color:
+        var(--primary);
+
+      font-size:
+        22px;
+
+      margin-bottom:
+        17px;
+
     }
 
     .about-card h3 {
-      color: var(--dark);
-      margin-bottom: 8px;
+
+      color:
+        var(--dark);
+
+      font-size:
+        18px;
+
+      margin-bottom:
+        8px;
+
     }
 
     .about-card p {
-      color: var(--muted);
+
+      color:
+        var(--muted);
+
+      font-size:
+        13px;
+
     }
 
+
+    /* =========================================================
+       DASHBOARDS
+       ========================================================= */
+
     .dashboard {
-      display: none;
-      background: #f1f5f9;
+
+      display:
+        none;
+
+      background:
+        linear-gradient(
+          180deg,
+          #eaf6f3,
+          #f5faf9
+        );
+
+      border-top:
+        1px solid var(--border);
+
     }
 
     .dashboard.visible {
-      display: block;
+      display:
+        block;
     }
 
     .dashboard-top {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 20px;
-      margin-bottom: 25px;
-      flex-wrap: wrap;
+
+      display:
+        flex;
+
+      justify-content:
+        space-between;
+
+      align-items:
+        center;
+
+      gap:
+        20px;
+
+      margin-bottom:
+        25px;
+
+      flex-wrap:
+        wrap;
+
+    }
+
+    .dashboard-kicker {
+
+      display:
+        block;
+
+      color:
+        var(--primary);
+
+      text-transform:
+        uppercase;
+
+      letter-spacing:
+        1.5px;
+
+      font-size:
+        10px;
+
+      font-weight:
+        950;
+
+      margin-bottom:
+        5px;
+
     }
 
     .dashboard-top h2 {
-      color: var(--dark);
+
+      color:
+        var(--dark);
+
+      font-size:
+        30px;
+
+      line-height:
+        1.15;
+
+    }
+
+    .dashboard-top p {
+
+      color:
+        var(--muted);
+
+      font-size:
+        13px;
+
+      margin-top:
+        4px;
+
+    }
+
+    .dashboard-actions {
+
+      display:
+        flex;
+
+      gap:
+        8px;
+
+      flex-wrap:
+        wrap;
+
+    }
+
+    .dashboard-stats {
+
+      display:
+        grid;
+
+      grid-template-columns:
+        repeat(3, 1fr);
+
+      gap:
+        14px;
+
+      margin-bottom:
+        20px;
+
+    }
+
+    .dashboard-stat {
+
+      background:
+        white;
+
+      border:
+        1px solid var(--border);
+
+      border-radius:
+        17px;
+
+      padding:
+        18px;
+
+      box-shadow:
+        var(--shadow-sm);
+
+    }
+
+    .dashboard-stat-label {
+
+      color:
+        var(--muted);
+
+      font-size:
+        11px;
+
+      font-weight:
+        800;
+
+      text-transform:
+        uppercase;
+
+      letter-spacing:
+        .6px;
+
+    }
+
+    .dashboard-stat-value {
+
+      color:
+        var(--dark);
+
+      font-size:
+        28px;
+
+      font-weight:
+        950;
+
+      margin-top:
+        4px;
+
     }
 
     .dashboard-card {
-      background: white;
-      padding: 22px;
-      border-radius: var(--radius);
-      border: 1px solid var(--border);
-      margin-bottom: 20px;
+
+      background:
+        white;
+
+      padding:
+        24px;
+
+      border:
+        1px solid var(--border);
+
+      border-radius:
+        21px;
+
+      margin-bottom:
+        20px;
+
+      box-shadow:
+        var(--shadow-sm);
+
+    }
+
+    .dashboard-card-header {
+
+      display:
+        flex;
+
+      justify-content:
+        space-between;
+
+      align-items:
+        center;
+
+      gap:
+        15px;
+
+      margin-bottom:
+        18px;
+
     }
 
     .dashboard-card h3 {
-      color: var(--dark);
-      margin-bottom: 15px;
+
+      color:
+        var(--dark);
+
+      font-size:
+        18px;
+
+    }
+
+    .dashboard-card-subtitle {
+
+      color:
+        var(--muted);
+
+      font-size:
+        12px;
+
     }
 
     .enrollment-row,
     .payment-row {
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 15px;
-      margin-bottom: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 15px;
-      flex-wrap: wrap;
+
+      border:
+        1px solid var(--border);
+
+      border-radius:
+        15px;
+
+      padding:
+        17px;
+
+      margin-bottom:
+        11px;
+
+      display:
+        flex;
+
+      align-items:
+        center;
+
+      justify-content:
+        space-between;
+
+      gap:
+        15px;
+
+      flex-wrap:
+        wrap;
+
+      transition:
+        border .2s ease,
+        background .2s ease;
+
     }
 
+    .enrollment-row:hover,
+    .payment-row:hover {
+
+      background:
+        #fbfefd;
+
+      border-color:
+        #bcded8;
+
+    }
+
+    .row-main strong {
+
+      display:
+        inline-block;
+
+      color:
+        var(--dark);
+
+      font-size:
+        14px;
+
+      margin-bottom:
+        3px;
+
+    }
+
+    .row-main small {
+
+      color:
+        var(--muted);
+
+      font-size:
+        11px;
+
+    }
+
+
+    /* =========================================================
+       STATUS
+       ========================================================= */
+
     .status {
-      display: inline-block;
-      padding: 5px 9px;
-      border-radius: 999px;
-      font-size: 12px;
-      font-weight: 800;
+
+      display:
+        inline-flex;
+
+      align-items:
+        center;
+
+      gap:
+        5px;
+
+      padding:
+        5px 9px;
+
+      border-radius:
+        999px;
+
+      font-size:
+        10px;
+
+      font-weight:
+        900;
+
+      margin-top:
+        7px;
+
+    }
+
+    .status::before {
+
+      content:
+        "";
+
+      width:
+        6px;
+
+      height:
+        6px;
+
+      border-radius:
+        50%;
+
+      background:
+        currentColor;
+
     }
 
     .status-pending {
-      background: #fef3c7;
-      color: #92400e;
+
+      background:
+        var(--warning-light);
+
+      color:
+        #92400e;
+
     }
 
     .status-approved {
-      background: #dcfce7;
-      color: #166534;
+
+      background:
+        var(--success-light);
+
+      color:
+        #166534;
+
     }
 
     .status-rejected {
-      background: #fee2e2;
-      color: #991b1b;
+
+      background:
+        var(--danger-light);
+
+      color:
+        #991b1b;
+
+    }
+
+
+    /* =========================================================
+       COURSE AREA / LESSONS
+       ========================================================= */
+
+    #courseArea {
+
+      background:
+        linear-gradient(
+          180deg,
+          #f1f9f7,
+          #f8fbfa
+        );
+
+      border-top:
+        1px solid var(--border);
+
     }
 
     .lesson-layout {
-      display: grid;
-      grid-template-columns: 280px 1fr;
-      gap: 20px;
+
+      display:
+        grid;
+
+      grid-template-columns:
+        285px minmax(0,1fr);
+
+      gap:
+        20px;
+
+      align-items:
+        start;
+
     }
 
     .modules {
-      background: white;
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 15px;
-      height: fit-content;
+
+      background:
+        white;
+
+      border:
+        1px solid var(--border);
+
+      border-radius:
+        20px;
+
+      padding:
+        12px;
+
+      box-shadow:
+        var(--shadow-sm);
+
+      max-height:
+        650px;
+
+      overflow-y:
+        auto;
+
+      position:
+        sticky;
+
+      top:
+        100px;
+
+    }
+
+    .modules-title {
+
+      padding:
+        12px;
+
+      color:
+        var(--dark);
+
+      font-size:
+        13px;
+
+      font-weight:
+        900;
+
+      border-bottom:
+        1px solid var(--border-light);
+
+      margin-bottom:
+        5px;
+
     }
 
     .module-item {
-      padding: 12px;
-      border-bottom: 1px solid var(--border);
+
+      padding:
+        10px;
+
+      border-bottom:
+        1px solid var(--border-light);
+
     }
 
     .module-item:last-child {
-      border-bottom: none;
+      border-bottom:
+        none;
     }
 
     .module-title {
-      font-weight: 800;
-      color: var(--dark);
-      margin-bottom: 8px;
+
+      font-weight:
+        850;
+
+      color:
+        var(--dark);
+
+      font-size:
+        13px;
+
+      margin-bottom:
+        7px;
+
     }
 
     .lesson-link {
-      display: block;
-      padding: 8px;
-      border-radius: 8px;
-      color: var(--muted);
-      cursor: pointer;
-      font-size: 14px;
+
+      display:
+        block;
+
+      padding:
+        9px;
+
+      border-radius:
+        9px;
+
+      color:
+        var(--muted);
+
+      cursor:
+        pointer;
+
+      font-size:
+        12px;
+
+      transition:
+        background .2s ease,
+        color .2s ease;
+
     }
 
     .lesson-link:hover,
     .lesson-link.active {
-      background: #ccfbf1;
-      color: var(--primary);
+
+      background:
+        var(--primary-light);
+
+      color:
+        var(--primary);
+
     }
 
     .lesson-content {
-      background: white;
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 30px;
-      min-height: 400px;
+
+      background:
+        white;
+
+      border:
+        1px solid var(--border);
+
+      border-radius:
+        22px;
+
+      padding:
+        34px;
+
+      min-height:
+        470px;
+
+      box-shadow:
+        var(--shadow-sm);
+
+    }
+
+    .lesson-label {
+
+      color:
+        var(--primary);
+
+      font-size:
+        10px;
+
+      text-transform:
+        uppercase;
+
+      letter-spacing:
+        1.5px;
+
+      font-weight:
+        950;
+
+      margin-bottom:
+        8px;
+
     }
 
     .lesson-content h2 {
-      color: var(--dark);
-      margin-bottom: 15px;
+
+      color:
+        var(--dark);
+
+      font-size:
+        27px;
+
+      line-height:
+        1.2;
+
+      margin-bottom:
+        18px;
+
     }
 
     .lesson-body {
-      white-space: pre-line;
-      color: var(--text);
-      margin-bottom: 25px;
+
+      white-space:
+        pre-line;
+
+      color:
+        #536965;
+
+      font-size:
+        15px;
+
+      line-height:
+        1.85;
+
+      margin-bottom:
+        28px;
+
     }
 
+    .lesson-progress-note {
+
+      display:
+        inline-flex;
+
+      padding:
+        8px 11px;
+
+      border-radius:
+        9px;
+
+      background:
+        #f0f8f6;
+
+      color:
+        var(--primary);
+
+      font-size:
+        11px;
+
+      font-weight:
+        800;
+
+      margin-bottom:
+        20px;
+
+    }
+
+
+    /* =========================================================
+       MODALS
+       ========================================================= */
+
     .modal {
-      position: fixed;
-      inset: 0;
-      background: rgba(15, 23, 42, 0.7);
-      z-index: 3000;
-      display: none;
-      align-items: center;
-      justify-content: center;
-      padding: 20px;
+
+      position:
+        fixed;
+
+      inset:
+        0;
+
+      background:
+        rgba(7, 35, 32, .72);
+
+      backdrop-filter:
+        blur(7px);
+
+      -webkit-backdrop-filter:
+        blur(7px);
+
+      z-index:
+        3000;
+
+      display:
+        none;
+
+      align-items:
+        center;
+
+      justify-content:
+        center;
+
+      padding:
+        18px;
+
     }
 
     .modal.show {
-      display: flex;
+      display:
+        flex;
     }
 
     .modal-box {
-      background: white;
-      width: min(520px, 100%);
-      max-height: 90vh;
-      overflow-y: auto;
-      border-radius: 20px;
-      padding: 28px;
-      position: relative;
+
+      background:
+        white;
+
+      width:
+        min(540px, 100%);
+
+      max-height:
+        92vh;
+
+      overflow-y:
+        auto;
+
+      border-radius:
+        25px;
+
+      padding:
+        31px;
+
+      position:
+        relative;
+
+      box-shadow:
+        0 35px 100px rgba(0,0,0,.25);
+
+      animation:
+        modalIn .22s ease;
+
+    }
+
+    @keyframes modalIn {
+
+      from {
+        opacity: 0;
+        transform:
+          translateY(12px) scale(.98);
+      }
+
+      to {
+        opacity: 1;
+        transform:
+          translateY(0) scale(1);
+      }
+
+    }
+
+    .modal-box::before {
+
+      content:
+        "";
+
+      position:
+        absolute;
+
+      left:
+        0;
+
+      top:
+        0;
+
+      width:
+        100%;
+
+      height:
+        5px;
+
+      border-radius:
+        25px 25px 0 0;
+
+      background:
+        linear-gradient(
+          90deg,
+          var(--primary),
+          #13a795,
+          var(--accent)
+        );
+
     }
 
     .modal-close {
-      position: absolute;
-      top: 15px;
-      right: 15px;
-      width: 35px;
-      height: 35px;
-      border: none;
-      border-radius: 50%;
-      background: #f1f5f9;
-      font-size: 20px;
+
+      position:
+        absolute;
+
+      top:
+        15px;
+
+      right:
+        15px;
+
+      width:
+        37px;
+
+      height:
+        37px;
+
+      border:
+        1px solid var(--border);
+
+      border-radius:
+        50%;
+
+      background:
+        #f4f8f7;
+
+      color:
+        var(--muted);
+
+      font-size:
+        21px;
+
+      transition:
+        .2s;
+
+    }
+
+    .modal-close:hover {
+
+      background:
+        var(--danger-light);
+
+      color:
+        var(--danger);
+
+      transform:
+        rotate(5deg);
+
     }
 
     .modal-box h2 {
-      color: var(--dark);
-      margin-bottom: 20px;
+
+      color:
+        var(--dark);
+
+      font-size:
+        25px;
+
+      line-height:
+        1.2;
+
+      margin:
+        5px 45px 23px 0;
+
+    }
+
+    .modal-intro {
+
+      color:
+        var(--muted);
+
+      font-size:
+        13px;
+
+      margin:
+        -12px 0 20px;
+
     }
 
     .form-group {
-      margin-bottom: 15px;
+      margin-bottom:
+        16px;
     }
 
     .form-group label {
-      display: block;
-      font-weight: 700;
-      margin-bottom: 6px;
-      color: var(--dark);
+
+      display:
+        block;
+
+      font-weight:
+        800;
+
+      font-size:
+        12px;
+
+      margin-bottom:
+        7px;
+
+      color:
+        var(--dark);
+
     }
 
     .form-note {
-      font-size: 13px;
-      color: var(--muted);
-      margin-top: 8px;
+
+      font-size:
+        12px;
+
+      color:
+        var(--muted);
+
+      margin-top:
+        11px;
+
+      text-align:
+        center;
+
     }
 
+    .payment-course-card {
+
+      background:
+        linear-gradient(
+          135deg,
+          #eefaf7,
+          #fff9ed
+        );
+
+      border:
+        1px solid var(--border);
+
+      padding:
+        17px;
+
+      border-radius:
+        15px;
+
+      margin-bottom:
+        20px;
+
+    }
+
+    .payment-course-title {
+
+      display:
+        block;
+
+      color:
+        var(--dark);
+
+      font-size:
+        16px;
+
+      font-weight:
+        900;
+
+      margin-bottom:
+        3px;
+
+    }
+
+    .payment-course-price {
+
+      color:
+        var(--primary);
+
+      font-size:
+        19px;
+
+      font-weight:
+        950;
+
+    }
+
+
+    /* =========================================================
+       TOAST
+       ========================================================= */
+
     #toast {
-      position: fixed;
-      right: 20px;
-      bottom: 90px;
-      z-index: 5000;
-      display: none;
-      max-width: 350px;
-      background: #172033;
-      color: white;
-      padding: 14px 18px;
-      border-radius: 12px;
-      box-shadow: var(--shadow);
+
+      position:
+        fixed;
+
+      right:
+        20px;
+
+      bottom:
+        85px;
+
+      z-index:
+        5000;
+
+      max-width:
+        390px;
+
+      min-width:
+        250px;
+
+      background:
+        #122522;
+
+      color:
+        white;
+
+      padding:
+        14px 17px;
+
+      border-radius:
+        14px;
+
+      box-shadow:
+        0 18px 45px rgba(0,0,0,.20);
+
+      display:
+        flex;
+
+      align-items:
+        center;
+
+      gap:
+        10px;
+
+      opacity:
+        0;
+
+      visibility:
+        hidden;
+
+      transform:
+        translateY(12px);
+
+      transition:
+        .25s ease;
+
+      font-size:
+        13px;
+
+      font-weight:
+        700;
+
     }
 
     #toast.show {
-      display: block;
+
+      opacity:
+        1;
+
+      visibility:
+        visible;
+
+      transform:
+        translateY(0);
+
     }
+
+
+    /* =========================================================
+       WHATSAPP
+       ========================================================= */
 
     .whatsapp {
-      position: fixed;
-      right: 18px;
-      bottom: 18px;
-      z-index: 2000;
-      background: #25d366;
-      color: white;
-      border-radius: 999px;
-      padding: 13px 18px;
-      font-weight: 800;
-      box-shadow: 0 8px 25px rgba(37, 211, 102, 0.3);
+
+      position:
+        fixed;
+
+      right:
+        18px;
+
+      bottom:
+        18px;
+
+      z-index:
+        2000;
+
+      display:
+        inline-flex;
+
+      align-items:
+        center;
+
+      gap:
+        8px;
+
+      background:
+        linear-gradient(
+          135deg,
+          #22c55e,
+          #16a34a
+        );
+
+      color:
+        white;
+
+      border-radius:
+        999px;
+
+      padding:
+        13px 18px;
+
+      font-size:
+        13px;
+
+      font-weight:
+        900;
+
+      box-shadow:
+        0 12px 30px rgba(22,163,74,.28);
+
+      transition:
+        transform .2s ease,
+        box-shadow .2s ease;
+
     }
 
+    .whatsapp:hover {
+
+      transform:
+        translateY(-3px);
+
+      box-shadow:
+        0 17px 35px rgba(22,163,74,.34);
+
+    }
+
+
+    /* =========================================================
+       LOADING / EMPTY
+       ========================================================= */
+
     .loading {
-      text-align: center;
-      padding: 40px;
-      color: var(--muted);
+
+      grid-column:
+        1 / -1;
+
+      text-align:
+        center;
+
+      padding:
+        45px 20px;
+
+      color:
+        var(--muted);
+
+      font-size:
+        13px;
+
+    }
+
+    .loading::before {
+
+      content:
+        "";
+
+      display:
+        block;
+
+      width:
+        32px;
+
+      height:
+        32px;
+
+      margin:
+        0 auto 12px;
+
+      border:
+        3px solid #d6ebe7;
+
+      border-top-color:
+        var(--primary);
+
+      border-radius:
+        50%;
+
+      animation:
+        spin .75s linear infinite;
+
+    }
+
+    @keyframes spin {
+
+      to {
+        transform:
+          rotate(360deg);
+      }
+
     }
 
     .empty {
-      text-align: center;
-      padding: 35px;
-      color: var(--muted);
+
+      text-align:
+        center;
+
+      padding:
+        38px 20px;
+
+      color:
+        var(--muted);
+
+      font-size:
+        13px;
+
     }
 
+    .empty-icon {
+
+      font-size:
+        30px;
+
+      margin-bottom:
+        8px;
+
+    }
+
+
+    /* =========================================================
+       FOOTER
+       ========================================================= */
+
     footer {
-      background: #172033;
-      color: white;
-      padding: 40px 0;
+
+      position:
+        relative;
+
+      overflow:
+        hidden;
+
+      background:
+        linear-gradient(
+          135deg,
+          #092a27,
+          #0d3c37
+        );
+
+      color:
+        white;
+
+      padding:
+        55px 0 25px;
+
+    }
+
+    footer::before {
+
+      content:
+        "";
+
+      position:
+        absolute;
+
+      width:
+        280px;
+
+      height:
+        280px;
+
+      border-radius:
+        50%;
+
+      background:
+        rgba(20,184,166,.08);
+
+      right:
+        -100px;
+
+      top:
+        -150px;
+
     }
 
     .footer-grid {
-      display: grid;
-      grid-template-columns: 2fr 1fr 1fr;
-      gap: 30px;
+
+      position:
+        relative;
+
+      z-index:
+        1;
+
+      display:
+        grid;
+
+      grid-template-columns:
+        1.8fr 1fr 1fr;
+
+      gap:
+        40px;
+
+      padding-bottom:
+        35px;
+
+    }
+
+    .footer-brand {
+
+      max-width:
+        400px;
+
+    }
+
+    .footer-logo {
+
+      display:
+        flex;
+
+      align-items:
+        center;
+
+      gap:
+        10px;
+
+      margin-bottom:
+        13px;
+
+      font-size:
+        18px;
+
+      font-weight:
+        950;
+
+    }
+
+    .footer-logo-icon {
+
+      width:
+        40px;
+
+      height:
+        40px;
+
+      display:
+        grid;
+
+      place-items:
+        center;
+
+      border-radius:
+        12px;
+
+      background:
+        rgba(255,255,255,.12);
+
+      color:
+        #70e2d5;
+
+      font-weight:
+        950;
+
     }
 
     footer h3 {
-      margin-bottom: 12px;
+
+      color:
+        white;
+
+      margin-bottom:
+        13px;
+
+      font-size:
+        14px;
+
     }
 
     footer p,
     footer a {
-      color: #cbd5e1;
+
+      color:
+        #b6cfcb;
+
+      font-size:
+        12px;
+
     }
 
     footer a:hover {
-      color: white;
+      color:
+        white;
     }
 
-    @media (max-width: 900px) {
+    .footer-links {
+
+      display:
+        flex;
+
+      flex-direction:
+        column;
+
+      gap:
+        7px;
+
+    }
+
+    .footer-bottom {
+
+      position:
+        relative;
+
+      z-index:
+        1;
+
+      border-top:
+        1px solid rgba(255,255,255,.10);
+
+      padding-top:
+        20px;
+
+      display:
+        flex;
+
+      align-items:
+        center;
+
+      justify-content:
+        space-between;
+
+      gap:
+        15px;
+
+      flex-wrap:
+        wrap;
+
+      color:
+        #91b1ac;
+
+      font-size:
+        11px;
+
+    }
+
+
+    /* =========================================================
+       AUTH LOADING SCREEN
+       ========================================================= */
+
+    #authLoader {
+
+      position:
+        fixed;
+
+      inset:
+        0;
+
+      z-index:
+        9000;
+
+      display:
+        flex;
+
+      align-items:
+        center;
+
+      justify-content:
+        center;
+
+      background:
+        linear-gradient(
+          135deg,
+          #eefaf7,
+          #f8fcfb
+        );
+
+      transition:
+        opacity .3s ease,
+        visibility .3s ease;
+
+    }
+
+    #authLoader.hidden {
+
+      opacity:
+        0;
+
+      visibility:
+        hidden;
+
+      pointer-events:
+        none;
+
+    }
+
+    .auth-loader-box {
+
+      text-align:
+        center;
+
+      padding:
+        30px;
+
+    }
+
+    .auth-loader-logo {
+
+      width:
+        65px;
+
+      height:
+        65px;
+
+      margin:
+        0 auto 15px;
+
+      border-radius:
+        20px;
+
+      display:
+        grid;
+
+      place-items:
+        center;
+
+      background:
+        linear-gradient(
+          135deg,
+          var(--primary),
+          #14a898
+        );
+
+      color:
+        white;
+
+      font-size:
+        28px;
+
+      font-weight:
+        950;
+
+      box-shadow:
+        0 15px 35px rgba(8,127,115,.22);
+
+    }
+
+    .auth-loader-box strong {
+
+      display:
+        block;
+
+      color:
+        var(--dark);
+
+      font-size:
+        18px;
+
+    }
+
+    .auth-loader-box span {
+
+      color:
+        var(--muted);
+
+      font-size:
+        12px;
+
+    }
+
+
+    /* =========================================================
+       RESPONSIVE
+       ========================================================= */
+
+    @media (max-width: 1050px) {
+
+      .nav-links {
+        display:
+          none;
+      }
+
+      .mobile-menu-btn {
+        display:
+          block;
+      }
+
       .hero-grid {
-        grid-template-columns: 1fr;
+        gap:
+          40px;
       }
 
       .courses-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns:
+          repeat(2, minmax(0,1fr));
       }
 
-      .about-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .lesson-layout {
-        grid-template-columns: 1fr;
-      }
-
-      .footer-grid {
-        grid-template-columns: 1fr;
-      }
     }
 
-    @media (max-width: 650px) {
-      .nav {
-        min-height: 65px;
-      }
 
-      .nav-links {
-        display: none;
-      }
+    @media (max-width: 850px) {
 
-      .logo {
-        font-size: 16px;
-      }
-
-      .logo-icon {
-        width: 36px;
-        height: 36px;
-      }
-
-      .hero {
-        padding: 55px 0;
+      .hero-grid {
+        grid-template-columns:
+          1fr;
       }
 
       .hero-card {
-        padding: 25px;
+        max-width:
+          650px;
+      }
+
+      .about-grid {
+        grid-template-columns:
+          1fr;
+      }
+
+      .dashboard-stats {
+        grid-template-columns:
+          repeat(3, 1fr);
+      }
+
+      .lesson-layout {
+        grid-template-columns:
+          1fr;
+      }
+
+      .modules {
+        position:
+          static;
+
+        max-height:
+          390px;
+      }
+
+      .footer-grid {
+        grid-template-columns:
+          1fr 1fr;
+      }
+
+    }
+
+
+    @media (max-width: 650px) {
+
+      .container {
+        width:
+          min(
+            var(--max-width),
+            calc(100% - 28px)
+          );
+      }
+
+      .topbar-message {
+        display:
+          none;
+      }
+
+      .topbar-inner {
+        justify-content:
+          center;
+      }
+
+      .nav {
+        min-height:
+          67px;
+      }
+
+      .logo-text {
+        display:
+          none;
+      }
+
+      .logo-icon {
+        width:
+          42px;
+        height:
+          42px;
+      }
+
+      .nav-actions {
+        gap:
+          5px;
+      }
+
+      .nav-actions .btn {
+        min-height:
+          38px;
+        padding:
+          8px 10px;
+        font-size:
+          11px;
+      }
+
+      .mobile-menu-btn {
+        width:
+          40px;
+        height:
+          40px;
+      }
+
+      .hero {
+        padding:
+          60px 0 50px;
+      }
+
+      .hero h1 {
+        font-size:
+          clamp(39px, 12vw, 55px);
+
+        letter-spacing:
+          -2px;
+      }
+
+      .hero-description {
+        font-size:
+          15px;
+      }
+
+      .hero-actions {
+        display:
+          grid;
+
+        grid-template-columns:
+          1fr;
+
+      }
+
+      .hero-actions .btn {
+        width:
+          100%;
+      }
+
+      .hero-card {
+        padding:
+          23px;
+      }
+
+      .hero-stats {
+        grid-template-columns:
+          repeat(2, 1fr);
+
+        margin-top:
+          32px;
       }
 
       section {
-        padding: 50px 0;
+        padding:
+          62px 0;
+      }
+
+      .section-header {
+        margin-bottom:
+          28px;
+      }
+
+      .filters {
+        padding:
+          10px;
+      }
+
+      .filter-select {
+        width:
+          100%;
       }
 
       .courses-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns:
+          1fr;
       }
 
       .course-buttons {
-        grid-template-columns: 1fr;
+        grid-template-columns:
+          1fr 1fr;
+      }
+
+      .dashboard-stats {
+        grid-template-columns:
+          1fr;
+      }
+
+      .dashboard-card {
+        padding:
+          17px;
+      }
+
+      .dashboard-top h2 {
+        font-size:
+          25px;
+      }
+
+      .lesson-content {
+        padding:
+          23px;
+      }
+
+      .lesson-content h2 {
+        font-size:
+          23px;
+      }
+
+      .footer-grid {
+        grid-template-columns:
+          1fr;
+        gap:
+          27px;
+      }
+
+      .footer-bottom {
+        align-items:
+          flex-start;
+
+        flex-direction:
+          column;
       }
 
       .whatsapp {
-        right: 12px;
-        bottom: 12px;
-        padding: 11px 14px;
-        font-size: 14px;
+
+        right:
+          12px;
+
+        bottom:
+          12px;
+
+        padding:
+          12px 14px;
+
+        font-size:
+          12px;
+
       }
+
+      #toast {
+
+        right:
+          12px;
+
+        left:
+          12px;
+
+        bottom:
+          75px;
+
+        max-width:
+          none;
+
+        min-width:
+          0;
+
+      }
+
+      .modal-box {
+        padding:
+          25px 19px;
+      }
+
     }
+
+
+    @media (max-width: 390px) {
+
+      .nav-actions .btn-outline {
+        display:
+          none;
+      }
+
+      .hero-trust {
+        flex-direction:
+          column;
+        align-items:
+          flex-start;
+      }
+
+      .course-buttons {
+        grid-template-columns:
+          1fr;
+      }
+
+    }
+
   </style>
 </head>
 
+
 <body>
 
-<header>
-  <div class="container nav">
 
-    <a href="#inicio" class="logo">
-      <span class="logo-icon">F</span>
-      <span>Fely e Amigos Academy</span>
+<!-- =========================================================
+     AUTH LOADER
+     ========================================================= -->
+
+<div id="authLoader">
+
+  <div class="auth-loader-box">
+
+    <div class="auth-loader-logo">
+      F
+    </div>
+
+    <strong>
+      Fely e Amigos Academy
+    </strong>
+
+    <span>
+      A preparar a sua experiência...
+    </span>
+
+  </div>
+
+</div>
+
+
+<!-- =========================================================
+     TOP BAR
+     ========================================================= -->
+
+<div class="topbar">
+
+  <div class="container topbar-inner">
+
+    <span class="topbar-message">
+      🚀 Aprenda novas competências. Prepare o seu futuro.
+    </span>
+
+    <a
+      class="topbar-contact"
+      href="https://wa.me/244948138785"
+      target="_blank"
+      rel="noopener"
+    >
+      💬 948 138 785
     </a>
 
+  </div>
+
+</div>
+
+
+<!-- =========================================================
+     HEADER
+     ========================================================= -->
+
+<header>
+
+  <div class="container nav">
+
+    <a
+      href="#inicio"
+      class="logo"
+      onclick="closeMobileMenu()"
+    >
+
+      <span class="logo-icon">
+        F
+      </span>
+
+      <span class="logo-text">
+
+        <span class="logo-main">
+          Fely e Amigos
+        </span>
+
+        <span class="logo-sub">
+          Academy
+        </span>
+
+      </span>
+
+    </a>
+
+
     <nav class="nav-links">
-      <a href="#inicio">Início</a>
-      <a href="#cursos">Cursos</a>
-      <a href="#sobre">Sobre nós</a>
-      <a href="#contacto">Contacto</a>
+
+      <a href="#inicio">
+        Início
+      </a>
+
+      <a href="#cursos">
+        Cursos
+      </a>
+
+      <a href="#sobre">
+        Sobre nós
+      </a>
+
+      <a href="#contacto">
+        Contacto
+      </a>
+
     </nav>
 
-    <div class="nav-actions" id="navActions">
-      <button class="btn btn-outline" onclick="openModal('loginModal')">
+
+    <div
+      class="nav-actions"
+      id="navActions"
+    >
+
+      <button
+        class="btn btn-outline"
+        onclick="openModal('loginModal')"
+      >
         Entrar
       </button>
 
-      <button class="btn btn-primary" onclick="openModal('signupModal')">
+      <button
+        class="btn btn-primary"
+        onclick="openModal('signupModal')"
+      >
         Criar conta
       </button>
+
     </div>
 
+
+    <button
+      class="mobile-menu-btn"
+      id="mobileMenuBtn"
+      onclick="toggleMobileMenu()"
+      aria-label="Abrir menu"
+    >
+      ☰
+    </button>
+
   </div>
+
+
+  <div
+    class="mobile-menu"
+    id="mobileMenu"
+  >
+
+    <a
+      href="#inicio"
+      onclick="closeMobileMenu()"
+    >
+      🏠 Início
+    </a>
+
+    <a
+      href="#cursos"
+      onclick="closeMobileMenu()"
+    >
+      🎓 Cursos
+    </a>
+
+    <a
+      href="#sobre"
+      onclick="closeMobileMenu()"
+    >
+      ✨ Sobre nós
+    </a>
+
+    <a
+      href="#contacto"
+      onclick="closeMobileMenu()"
+    >
+      💬 Contacto
+    </a>
+
+  </div>
+
 </header>
 
 
+<!-- =========================================================
+     MAIN
+     ========================================================= -->
+
 <main>
 
-  <section class="hero" id="inicio">
-    <div class="container hero-grid">
 
-      <div>
-        <h1>
-          Aprenda hoje.
-          <span>Prepare o seu futuro.</span>
-        </h1>
+<!-- =========================================================
+     HERO
+     ========================================================= -->
 
-        <p>
-          Cursos online práticos, acessíveis e pensados para desenvolver
-          competências úteis para o mercado de trabalho e para o
-          crescimento profissional.
-        </p>
+<section
+  class="hero"
+  id="inicio"
+>
 
-        <div class="hero-actions">
-          <a href="#cursos" class="btn btn-primary">
-            Ver cursos
-          </a>
+  <div class="container hero-grid">
 
-          <button
-            class="btn btn-secondary"
-            onclick="openWhatsAppGeneral()"
-          >
-            Falar connosco
-          </button>
-        </div>
-      </div>
 
-      <div class="hero-card">
+    <div>
 
-        <h3>Porquê estudar connosco?</h3>
+      <div class="hero-badge">
 
-        <div class="hero-feature">
-          <div class="hero-feature-icon">✓</div>
-          <div>
-            <strong>Cursos práticos</strong>
-            <p>Conteúdo focado em competências úteis.</p>
-          </div>
-        </div>
+        <span class="hero-badge-dot"></span>
 
-        <div class="hero-feature">
-          <div class="hero-feature-icon">✓</div>
-          <div>
-            <strong>Preços acessíveis</strong>
-            <p>Formação com preços promocionais em Kz.</p>
-          </div>
-        </div>
-
-        <div class="hero-feature">
-          <div class="hero-feature-icon">✓</div>
-          <div>
-            <strong>Aprendizagem online</strong>
-            <p>Estude através do seu telemóvel ou computador.</p>
-          </div>
-        </div>
-
-        <div class="hero-feature">
-          <div class="hero-feature-icon">✓</div>
-          <div>
-            <strong>Conteúdo organizado</strong>
-            <p>Módulos e aulas estruturados por curso.</p>
-          </div>
-        </div>
+        Formação online para o seu crescimento
 
       </div>
 
-    </div>
-  </section>
+
+      <h1>
+
+        Aprenda hoje.
+
+        <span>
+          Prepare o seu futuro.
+        </span>
+
+      </h1>
 
 
-  <section id="cursos">
+      <p class="hero-description">
 
-    <div class="container">
+        Cursos online práticos, acessíveis e pensados para
+        desenvolver competências úteis para o mercado de trabalho,
+        empreendedorismo e crescimento profissional.
 
-      <div class="section-header">
-        <h2>Os nossos cursos</h2>
-        <p>
-          Escolha uma formação e comece a desenvolver novas competências.
-        </p>
-      </div>
+      </p>
 
-      <div class="filters">
 
-        <div class="search-box">
-          <input
-            id="searchInput"
-            class="input"
-            type="search"
-            placeholder="Pesquisar curso..."
-            oninput="filterCourses()"
-          >
-        </div>
+      <div class="hero-actions">
 
-        <select
-          id="categoryFilter"
-          class="input"
-          style="max-width:230px"
-          onchange="filterCourses()"
+        <a
+          href="#cursos"
+          class="btn btn-primary"
         >
-          <option value="">Todas as categorias</option>
-        </select>
+          🎓 Explorar cursos
+        </a>
+
+        <button
+          class="btn btn-secondary"
+          onclick="openWhatsAppGeneral()"
+        >
+          💬 Falar connosco
+        </button>
 
       </div>
 
-      <div id="coursesGrid" class="courses-grid">
-        <div class="loading">
-          A carregar cursos...
-        </div>
-      </div>
 
-    </div>
+      <div class="hero-trust">
 
-  </section>
-
-
-  <section id="sobre">
-
-    <div class="container">
-
-      <div class="section-header">
-        <h2>Sobre a Fely e Amigos Academy</h2>
-        <p>
-          Formação acessível para quem quer aprender e evoluir.
-        </p>
-      </div>
-
-      <div class="about-grid">
-
-        <div class="about-card">
-          <h3>🎓 Formação</h3>
-          <p>
-            Oferecemos cursos introdutórios e práticos em áreas de
-            informática, tecnologia, negócios, línguas e desenvolvimento
-            profissional.
-          </p>
+        <div class="trust-item">
+          <span class="trust-icon">✓</span>
+          Cursos práticos
         </div>
 
-        <div class="about-card">
-          <h3>💼 Mercado de trabalho</h3>
-          <p>
-            Os conteúdos são organizados para ajudar o aluno a desenvolver
-            conhecimentos aplicáveis em situações profissionais.
-          </p>
+        <div class="trust-item">
+          <span class="trust-icon">✓</span>
+          Preços em Kz
         </div>
 
-        <div class="about-card">
-          <h3>🌍 Acesso online</h3>
-          <p>
-            A plataforma foi pensada para funcionar de forma simples em
-            telemóveis, tablets e computadores.
-          </p>
+        <div class="trust-item">
+          <span class="trust-icon">✓</span>
+          Acesso online
         </div>
 
       </div>
 
     </div>
 
-  </section>
+
+    <div class="hero-card">
+
+      <div class="hero-card-heading">
+
+        <h3>
+          Porquê estudar connosco?
+        </h3>
+
+        <span class="hero-card-badge">
+          Academy
+        </span>
+
+      </div>
 
 
-  <section id="dashboard" class="dashboard">
+      <div class="hero-feature">
 
-    <div class="container">
-
-      <div class="dashboard-top">
+        <div class="hero-feature-icon">
+          ✓
+        </div>
 
         <div>
-          <h2>Área do aluno</h2>
-          <p id="studentWelcome"></p>
+
+          <strong>
+            Cursos práticos
+          </strong>
+
+          <p>
+            Conteúdo focado em competências realmente úteis.
+          </p>
+
         </div>
 
-        <button class="btn btn-danger" onclick="logout()">
+      </div>
+
+
+      <div class="hero-feature">
+
+        <div class="hero-feature-icon">
+          Kz
+        </div>
+
+        <div>
+
+          <strong>
+            Preços acessíveis
+          </strong>
+
+          <p>
+            Formação pensada para diferentes possibilidades.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <div class="hero-feature">
+
+        <div class="hero-feature-icon">
+          📱
+        </div>
+
+        <div>
+
+          <strong>
+            Aprendizagem online
+          </strong>
+
+          <p>
+            Estude pelo telemóvel, tablet ou computador.
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <div class="hero-feature">
+
+        <div class="hero-feature-icon">
+          📚
+        </div>
+
+        <div>
+
+          <strong>
+            Conteúdo organizado
+          </strong>
+
+          <p>
+            Módulos e aulas estruturados por curso.
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <div class="container hero-stats">
+
+    <div class="hero-stat">
+
+      <strong>
+        Online
+      </strong>
+
+      <span>
+        Estude onde estiver
+      </span>
+
+    </div>
+
+
+    <div class="hero-stat">
+
+      <strong>
+        Prático
+      </strong>
+
+      <span>
+        Aprendizagem aplicada
+      </span>
+
+    </div>
+
+
+    <div class="hero-stat">
+
+      <strong>
+        Flexível
+      </strong>
+
+      <span>
+        No seu ritmo
+      </span>
+
+    </div>
+
+
+    <div class="hero-stat">
+
+      <strong>
+        Kz
+      </strong>
+
+      <span>
+        Preços acessíveis
+      </span>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================================================
+     CURSOS
+     ========================================================= -->
+
+<section id="cursos">
+
+  <div class="container">
+
+    <div class="section-header">
+
+      <span class="section-kicker">
+        Aprenda mais
+      </span>
+
+      <h2>
+        Encontre o curso certo para si
+      </h2>
+
+      <p>
+        Escolha uma formação e comece a desenvolver
+        novas competências para o seu futuro.
+      </p>
+
+    </div>
+
+
+    <div class="filters">
+
+      <div class="search-box">
+
+        <input
+          id="searchInput"
+          class="input"
+          type="search"
+          placeholder="Pesquisar por curso, categoria..."
+          oninput="filterCourses()"
+        >
+
+      </div>
+
+
+      <select
+        id="categoryFilter"
+        class="input filter-select"
+        onchange="filterCourses()"
+      >
+
+        <option value="">
+          Todas as categorias
+        </option>
+
+      </select>
+
+    </div>
+
+
+    <div
+      id="coursesGrid"
+      class="courses-grid"
+    >
+
+      <div class="loading">
+        A carregar cursos...
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================================================
+     SOBRE
+     ========================================================= -->
+
+<section
+  id="sobre"
+  class="section-alt"
+>
+
+  <div class="container">
+
+    <div class="section-header">
+
+      <span class="section-kicker">
+        Sobre nós
+      </span>
+
+      <h2>
+        Formação criada para fazer diferença
+      </h2>
+
+      <p>
+        A Fely e Amigos Academy nasceu com uma missão simples:
+        tornar a aprendizagem mais acessível, prática e útil.
+      </p>
+
+    </div>
+
+
+    <div class="about-grid">
+
+
+      <div class="about-card">
+
+        <div class="about-icon">
+          🎓
+        </div>
+
+        <h3>
+          Formação prática
+        </h3>
+
+        <p>
+          Cursos introdutórios e práticos em informática,
+          tecnologia, negócios, línguas e desenvolvimento
+          profissional.
+        </p>
+
+      </div>
+
+
+      <div class="about-card">
+
+        <div class="about-icon">
+          💼
+        </div>
+
+        <h3>
+          Foco profissional
+        </h3>
+
+        <p>
+          Os conteúdos são organizados para ajudar o aluno
+          a desenvolver conhecimentos aplicáveis em situações
+          profissionais.
+        </p>
+
+      </div>
+
+
+      <div class="about-card">
+
+        <div class="about-icon">
+          🌍
+        </div>
+
+        <h3>
+          Acesso online
+        </h3>
+
+        <p>
+          Estude através do seu telemóvel, tablet ou computador,
+          com uma experiência simples e organizada.
+        </p>
+
+      </div>
+
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================================================
+     DASHBOARD ALUNO
+     ========================================================= -->
+
+<section
+  id="dashboard"
+  class="dashboard"
+>
+
+  <div class="container">
+
+
+    <div class="dashboard-top">
+
+      <div>
+
+        <span class="dashboard-kicker">
+          Área pessoal
+        </span>
+
+        <h2>
+          Área do aluno
+        </h2>
+
+        <p id="studentWelcome">
+          Bem-vindo à sua área de aprendizagem.
+        </p>
+
+      </div>
+
+
+      <div class="dashboard-actions">
+
+        <button
+          class="btn btn-outline"
+          onclick="scrollToSection('cursos')"
+        >
+          🎓 Ver cursos
+        </button>
+
+        <button
+          class="btn btn-danger"
+          onclick="logout()"
+        >
           Sair
         </button>
 
       </div>
 
-      <div class="dashboard-card">
+    </div>
 
-        <h3>Minhas inscrições</h3>
 
-        <div id="studentEnrollments">
-          <div class="loading">
-            A carregar...
-          </div>
+    <div class="dashboard-stats">
+
+      <div class="dashboard-stat">
+
+        <div class="dashboard-stat-label">
+          Inscrições
+        </div>
+
+        <div
+          class="dashboard-stat-value"
+          id="studentTotalEnrollments"
+        >
+          0
+        </div>
+
+      </div>
+
+
+      <div class="dashboard-stat">
+
+        <div class="dashboard-stat-label">
+          Aprovadas
+        </div>
+
+        <div
+          class="dashboard-stat-value"
+          id="studentApprovedEnrollments"
+        >
+          0
+        </div>
+
+      </div>
+
+
+      <div class="dashboard-stat">
+
+        <div class="dashboard-stat-label">
+          Em análise
+        </div>
+
+        <div
+          class="dashboard-stat-value"
+          id="studentPendingEnrollments"
+        >
+          0
         </div>
 
       </div>
 
     </div>
 
-  </section>
 
+    <div class="dashboard-card">
 
-  <section id="adminDashboard" class="dashboard">
-
-    <div class="container">
-
-      <div class="dashboard-top">
+      <div class="dashboard-card-header">
 
         <div>
-          <h2>Painel administrativo</h2>
-          <p>Gestão de pagamentos e inscrições.</p>
+
+          <h3>
+            Minhas inscrições
+          </h3>
+
+          <span class="dashboard-card-subtitle">
+            Acompanhe os seus cursos e aceda às formações aprovadas.
+          </span>
+
         </div>
 
       </div>
 
-      <div class="dashboard-card">
 
-        <h3>Pagamentos</h3>
+      <div id="studentEnrollments">
 
-        <div id="adminPayments">
-          <div class="loading">
-            A carregar pagamentos...
-          </div>
+        <div class="loading">
+          A carregar...
         </div>
 
       </div>
 
     </div>
 
-  </section>
+  </div>
+
+</section>
 
 
-  <section id="courseArea" style="display:none">
+<!-- =========================================================
+     ADMIN
+     ========================================================= -->
 
-    <div class="container">
+<section
+  id="adminDashboard"
+  class="dashboard"
+>
 
-      <div class="dashboard-top">
+  <div class="container">
+
+
+    <div class="dashboard-top">
+
+      <div>
+
+        <span class="dashboard-kicker">
+          Administração
+        </span>
+
+        <h2>
+          Painel administrativo
+        </h2>
+
+        <p>
+          Gestão de pagamentos e inscrições.
+        </p>
+
+      </div>
+
+    </div>
+
+
+    <div class="dashboard-card">
+
+      <div class="dashboard-card-header">
 
         <div>
-          <h2 id="courseAreaTitle">Curso</h2>
-          <p id="courseAreaDescription"></p>
+
+          <h3>
+            Pagamentos
+          </h3>
+
+          <span class="dashboard-card-subtitle">
+            Analise e aprove os pagamentos enviados pelos alunos.
+          </span>
+
         </div>
+
+      </div>
+
+
+      <div id="adminPayments">
+
+        <div class="loading">
+          A carregar pagamentos...
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =========================================================
+     CURSO / AULAS
+     ========================================================= -->
+
+<section
+  id="courseArea"
+  style="display:none"
+>
+
+  <div class="container">
+
+
+    <div class="dashboard-top">
+
+      <div>
+
+        <span class="dashboard-kicker">
+          Sala de aprendizagem
+        </span>
+
+        <h2 id="courseAreaTitle">
+          Curso
+        </h2>
+
+        <p id="courseAreaDescription">
+        </p>
+
+      </div>
+
+
+      <button
+        class="btn btn-outline"
+        onclick="closeCourseArea()"
+      >
+        ← Voltar
+      </button>
+
+    </div>
+
+
+    <div class="lesson-layout">
+
+
+      <aside
+        class="modules"
+        id="modulesList"
+      >
+
+        <div class="loading">
+          A carregar módulos...
+        </div>
+
+      </aside>
+
+
+      <article class="lesson-content">
+
+        <div class="lesson-label">
+          Aula atual
+        </div>
+
+        <h2 id="lessonTitle">
+          Selecione uma aula
+        </h2>
+
+
+        <div
+          id="lessonBody"
+          class="lesson-body"
+        >
+          Escolha uma aula no menu lateral para começar.
+        </div>
+
 
         <button
-          class="btn btn-outline"
-          onclick="closeCourseArea()"
+          id="completeLessonBtn"
+          class="btn btn-success"
+          style="display:none"
+          onclick="completeCurrentLesson()"
         >
-          Voltar
+          ✓ Marcar aula como concluída
         </button>
 
-      </div>
-
-      <div class="lesson-layout">
-
-        <aside class="modules" id="modulesList">
-          A carregar módulos...
-        </aside>
-
-        <article class="lesson-content">
-
-          <h2 id="lessonTitle">
-            Selecione uma aula
-          </h2>
-
-          <div id="lessonBody" class="lesson-body">
-            Escolha uma aula no menu.
-          </div>
-
-          <button
-            id="completeLessonBtn"
-            class="btn btn-success"
-            style="display:none"
-            onclick="completeCurrentLesson()"
-          >
-            ✓ Marcar aula como concluída
-          </button>
-
-        </article>
-
-      </div>
+      </article>
 
     </div>
 
-  </section>
+  </div>
+
+</section>
+
 
 </main>
 
 
+<!-- =========================================================
+     FOOTER
+     ========================================================= -->
+
 <footer id="contacto">
 
-  <div class="container footer-grid">
+  <div class="container">
 
-    <div>
-      <h3>Fely e Amigos Academy</h3>
-      <p>
-        Cursos online práticos e acessíveis para desenvolver novas
-        competências.
-      </p>
+
+    <div class="footer-grid">
+
+
+      <div class="footer-brand">
+
+        <div class="footer-logo">
+
+          <span class="footer-logo-icon">
+            F
+          </span>
+
+          <span>
+            Fely e Amigos Academy
+          </span>
+
+        </div>
+
+        <p>
+          Cursos online práticos e acessíveis para
+          desenvolver novas competências, aprender
+          e preparar o futuro.
+        </p>
+
+      </div>
+
+
+      <div>
+
+        <h3>
+          Navegação
+        </h3>
+
+        <div class="footer-links">
+
+          <a href="#inicio">
+            Início
+          </a>
+
+          <a href="#cursos">
+            Cursos
+          </a>
+
+          <a href="#sobre">
+            Sobre nós
+          </a>
+
+          <a href="#contacto">
+            Contacto
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <div>
+
+        <h3>
+          Contacto
+        </h3>
+
+        <div class="footer-links">
+
+          <a
+            href="https://wa.me/244948138785"
+            target="_blank"
+            rel="noopener"
+          >
+            💬 WhatsApp
+          </a>
+
+          <a
+            href="https://wa.me/244948138785"
+            target="_blank"
+            rel="noopener"
+          >
+            948 138 785
+          </a>
+
+        </div>
+
+      </div>
+
+
     </div>
 
-    <div>
-      <h3>Links</h3>
-      <p><a href="#inicio">Início</a></p>
-      <p><a href="#cursos">Cursos</a></p>
-      <p><a href="#sobre">Sobre nós</a></p>
-    </div>
 
-    <div>
-      <h3>Contacto</h3>
-      <p>WhatsApp: 948 138 785</p>
-      <p>
-        <a
-          href="https://wa.me/244948138785"
-          target="_blank"
-          rel="noopener"
-        >
-          Fale connosco
-        </a>
-      </p>
+    <div class="footer-bottom">
+
+      <span>
+        © <span id="currentYear"></span>
+        Fely e Amigos Academy. Todos os direitos reservados.
+      </span>
+
+      <span>
+        Aprender hoje. Evoluir amanhã.
+      </span>
+
     </div>
 
   </div>
@@ -1093,58 +4650,104 @@
 </footer>
 
 
-<div id="loginModal" class="modal">
+<!-- =========================================================
+     LOGIN MODAL
+     ========================================================= -->
+
+<div
+  id="loginModal"
+  class="modal"
+>
 
   <div class="modal-box">
 
     <button
       class="modal-close"
       onclick="closeModal('loginModal')"
+      aria-label="Fechar"
     >
       ×
     </button>
 
-    <h2>Entrar na conta</h2>
+
+    <h2>
+      Bem-vindo de volta 👋
+    </h2>
+
+    <p class="modal-intro">
+      Entre na sua conta para continuar a aprender.
+    </p>
+
 
     <form onsubmit="login(event)">
 
+
       <div class="form-group">
-        <label>Email</label>
+
+        <label>
+          Email
+        </label>
+
         <input
           id="loginEmail"
           class="input"
           type="email"
           required
+          autocomplete="email"
           placeholder="seuemail@exemplo.com"
         >
+
       </div>
 
+
       <div class="form-group">
-        <label>Palavra-passe</label>
+
+        <label>
+          Palavra-passe
+        </label>
+
         <input
           id="loginPassword"
           class="input"
           type="password"
           required
-          placeholder="********"
+          autocomplete="current-password"
+          placeholder="A sua palavra-passe"
         >
+
       </div>
 
-      <button class="btn btn-primary btn-full">
-        Entrar
+
+      <button
+        class="btn btn-primary btn-full"
+        type="submit"
+      >
+        🔐 Entrar na minha conta
       </button>
+
 
     </form>
 
+
     <p class="form-note">
+
       Ainda não possui conta?
+
       <a
         href="#"
-        onclick="closeModal('loginModal'); openModal('signupModal'); return false;"
-        style="color:var(--primary);font-weight:bold"
+        onclick="
+          closeModal('loginModal');
+          openModal('signupModal');
+          return false;
+        "
+        style="
+          color:var(--primary);
+          font-weight:900;
+        "
       >
         Criar conta
       </a>
+
     </p>
 
   </div>
@@ -1152,127 +4755,124 @@
 </div>
 
 
-<div id="signupModal" class="modal">
+<!-- =========================================================
+     SIGNUP MODAL
+     ========================================================= -->
+
+<div
+  id="signupModal"
+  class="modal"
+>
 
   <div class="modal-box">
 
     <button
       class="modal-close"
       onclick="closeModal('signupModal')"
+      aria-label="Fechar"
     >
       ×
     </button>
 
-    <h2>Criar conta</h2>
+
+    <h2>
+      Criar a sua conta 🚀
+    </h2>
+
+    <p class="modal-intro">
+      Registe-se para poder inscrever-se nos cursos.
+    </p>
+
 
     <form onsubmit="signup(event)">
 
+
       <div class="form-group">
-        <label>Nome completo</label>
+
+        <label>
+          Nome completo
+        </label>
+
         <input
           id="signupName"
           class="input"
           type="text"
           required
+          autocomplete="name"
           placeholder="Seu nome completo"
         >
+
       </div>
 
+
       <div class="form-group">
-        <label>Contacto</label>
+
+        <label>
+          Contacto
+        </label>
+
         <input
           id="signupPhone"
           class="input"
           type="tel"
+          autocomplete="tel"
           placeholder="948 138 785"
         >
+
       </div>
 
+
       <div class="form-group">
-        <label>Email</label>
+
+        <label>
+          Email
+        </label>
+
         <input
           id="signupEmail"
           class="input"
           type="email"
           required
+          autocomplete="email"
           placeholder="seuemail@exemplo.com"
         >
+
       </div>
 
+
       <div class="form-group">
-        <label>Palavra-passe</label>
+
+        <label>
+          Palavra-passe
+        </label>
+
         <input
           id="signupPassword"
           class="input"
           type="password"
           minlength="6"
           required
+          autocomplete="new-password"
           placeholder="Mínimo 6 caracteres"
         >
+
       </div>
 
-      <button class="btn btn-primary btn-full">
-        Criar conta
-      </button>
 
-    </form>
-
-  </div>
-
-</div>
-
-
-<div id="paymentModal" class="modal">
-
-  <div class="modal-box">
-
-    <button
-      class="modal-close"
-      onclick="closeModal('paymentModal')"
-    >
-      ×
-    </button>
-
-    <h2>Inscrição no curso</h2>
-
-    <div id="paymentCourseInfo"></div>
-
-    <form onsubmit="submitPayment(event)">
-
-      <input
-        type="hidden"
-        id="paymentEnrollmentId"
+      <button
+        class="btn btn-primary btn-full"
+        type="submit"
       >
-
-      <div class="form-group">
-        <label>Referência do pagamento</label>
-        <input
-          id="paymentReference"
-          class="input"
-          type="text"
-          required
-          placeholder="Digite a referência da transferência/pagamento"
-        >
-      </div>
-
-      <div class="form-group">
-        <label>Observação / comprovativo</label>
-        <textarea
-          id="paymentNote"
-          rows="4"
-          placeholder="Se necessário, escreva aqui alguma informação sobre o pagamento."
-        ></textarea>
-      </div>
-
-      <button class="btn btn-primary btn-full">
-        Enviar pagamento para análise
+        ✨ Criar a minha conta
       </button>
 
+
     </form>
+
 
     <p class="form-note">
-      Depois do envio, a equipa da Fely e Amigos Academy irá verificar
-      o pagamento e aprovar a inscrição.
+      Depois do registo, poderá ser necessário confirmar
+      o seu email antes de entrar.
     </p>
 
   </div>
@@ -1280,8 +4880,110 @@
 </div>
 
 
+<!-- =========================================================
+     PAYMENT MODAL
+     ========================================================= -->
+
+<div
+  id="paymentModal"
+  class="modal"
+>
+
+  <div class="modal-box">
+
+    <button
+      class="modal-close"
+      onclick="closeModal('paymentModal')"
+      aria-label="Fechar"
+    >
+      ×
+    </button>
+
+
+    <h2>
+      Finalizar inscrição 💳
+    </h2>
+
+    <p class="modal-intro">
+      Envie a referência do seu pagamento para análise.
+    </p>
+
+
+    <div id="paymentCourseInfo"></div>
+
+
+    <form onsubmit="submitPayment(event)">
+
+
+      <input
+        type="hidden"
+        id="paymentEnrollmentId"
+      >
+
+
+      <div class="form-group">
+
+        <label>
+          Referência do pagamento
+        </label>
+
+        <input
+          id="paymentReference"
+          class="input"
+          type="text"
+          required
+          placeholder="Referência da transferência/pagamento"
+        >
+
+      </div>
+
+
+      <div class="form-group">
+
+        <label>
+          Observação / comprovativo
+        </label>
+
+        <textarea
+          id="paymentNote"
+          rows="4"
+          placeholder="Se necessário, escreva aqui alguma informação sobre o pagamento."
+        ></textarea>
+
+      </div>
+
+
+      <button
+        class="btn btn-primary btn-full"
+        type="submit"
+      >
+        📤 Enviar pagamento para análise
+      </button>
+
+
+    </form>
+
+
+    <p class="form-note">
+      A equipa da Fely e Amigos Academy irá verificar
+      o pagamento e atualizar o estado da sua inscrição.
+    </p>
+
+  </div>
+
+</div>
+
+
+<!-- =========================================================
+     TOAST
+     ========================================================= -->
+
 <div id="toast"></div>
 
+
+<!-- =========================================================
+     WHATSAPP FLOAT
+     ========================================================= -->
 
 <a
   class="whatsapp"
@@ -1295,257 +4997,513 @@
 
 <script>
 
-  /* =========================================================
-     CONFIGURAÇÃO SUPABASE
-     ========================================================= */
 
-  const SUPABASE_URL =
-    "https://rzranbusquzrzrqcixcw.supabase.co";
+/* =========================================================
+   CONFIGURAÇÃO SUPABASE
+   ========================================================= */
 
-  const SUPABASE_ANON_KEY =
-    "sb_publishable_L-ImBM6Y2iREXCE2NLvmng_05YhqL9Q";
+const SUPABASE_URL =
+  "https://rzranbusquzrzrqcixcw.supabase.co";
 
-  const { createClient } = supabase;
+const SUPABASE_ANON_KEY =
+  "sb_publishable_L-ImBM6Y2iREXCE2NLvmng_05YhqL9Q";
+
+const { createClient } = supabase;
 
 
-  /*
-   * IMPORTANTE:
-   * Estas opções permitem que o Supabase mantenha a sessão
-   * e reconheça automaticamente a sessão após a confirmação
-   * do email.
-   */
-
-  const db = createClient(
-    SUPABASE_URL,
-    SUPABASE_ANON_KEY,
-    {
-      auth: {
-        persistSession: true,
-        autoRefreshToken: true,
-        detectSessionInUrl: true
-      }
+const db = createClient(
+  SUPABASE_URL,
+  SUPABASE_ANON_KEY,
+  {
+    auth: {
+      persistSession: true,
+      autoRefreshToken: true,
+      detectSessionInUrl: true
     }
+  }
+);
+
+
+/* =========================================================
+   CONFIGURAÇÕES
+   ========================================================= */
+
+const WHATSAPP_NUMBER =
+  "244948138785";
+
+
+let currentUser = null;
+let currentProfile = null;
+
+let allCourses = [];
+
+let currentCourse = null;
+let currentLesson = null;
+
+
+/* =========================================================
+   UTILITÁRIOS
+   ========================================================= */
+
+function formatPrice(value) {
+
+  const number =
+    Number(value || 0);
+
+  return new Intl.NumberFormat(
+    "pt-AO",
+    {
+      maximumFractionDigits: 0
+    }
+  ).format(number) + " Kz";
+
+}
+
+
+function escapeHTML(value) {
+
+  if (
+    value === null ||
+    value === undefined
+  ) {
+    return "";
+  }
+
+  return String(value)
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#039;");
+
+}
+
+
+function escapeJS(value) {
+
+  return String(value || "")
+    .replaceAll("\\", "\\\\")
+    .replaceAll("'", "\\'")
+    .replaceAll("\n", " ")
+    .replaceAll("\r", " ");
+
+}
+
+
+let toastTimer = null;
+
+
+function showToast(
+  message,
+  type = "normal"
+) {
+
+  const toast =
+    document.getElementById("toast");
+
+  if (!toast) {
+    return;
+  }
+
+  clearTimeout(toastTimer);
+
+  toast.textContent =
+    message;
+
+  toast.style.background =
+    type === "error"
+      ? "linear-gradient(135deg,#dc2626,#b91c1c)"
+      : type === "success"
+        ? "linear-gradient(135deg,#15803d,#166534)"
+        : "linear-gradient(135deg,#122522,#183a35)";
+
+  toast.classList.add("show");
+
+  toastTimer =
+    setTimeout(() => {
+
+      toast.classList.remove("show");
+
+    }, 4000);
+
+}
+
+
+function openModal(id) {
+
+  const modal =
+    document.getElementById(id);
+
+  if (!modal) {
+    return;
+  }
+
+  modal.classList.add("show");
+
+  document.body.classList.add(
+    "modal-open"
   );
 
-
-  /* =========================================================
-     CONFIGURAÇÕES
-     ========================================================= */
-
-  const WHATSAPP_NUMBER = "244948138785";
-
-  let currentUser = null;
-  let currentProfile = null;
-  let allCourses = [];
-  let currentCourse = null;
-  let currentLesson = null;
+}
 
 
-  /* =========================================================
-     UTILITÁRIOS
-     ========================================================= */
+function closeModal(id) {
 
-  function formatPrice(value) {
+  const modal =
+    document.getElementById(id);
 
-    return new Intl.NumberFormat("pt-AO", {
-      maximumFractionDigits: 0
-    }).format(Number(value)) + " Kz";
+  if (!modal) {
+    return;
+  }
+
+  modal.classList.remove("show");
+
+  if (
+    !document.querySelector(
+      ".modal.show"
+    )
+  ) {
+
+    document.body.classList.remove(
+      "modal-open"
+    );
 
   }
 
+}
 
-  function escapeHTML(value) {
 
-    if (value === null || value === undefined) {
-      return "";
-    }
+function scrollToSection(id) {
 
-    return String(value)
-      .replaceAll("&", "&amp;")
-      .replaceAll("<", "&lt;")
-      .replaceAll(">", "&gt;")
-      .replaceAll('"', "&quot;")
-      .replaceAll("'", "&#039;");
+  const element =
+    document.getElementById(id);
+
+  if (!element) {
+    return;
   }
 
+  element.scrollIntoView({
+    behavior: "smooth"
+  });
 
-  function showToast(message, type = "normal") {
+  closeMobileMenu();
 
-    const toast = document.getElementById("toast");
-
-    toast.textContent = message;
-
-    toast.style.background =
-      type === "error"
-        ? "#dc2626"
-        : type === "success"
-          ? "#15803d"
-          : "#172033";
-
-    toast.classList.add("show");
-
-    setTimeout(() => {
-      toast.classList.remove("show");
-    }, 4000);
-  }
+}
 
 
-  function openModal(id) {
+function closeAllModals() {
 
-    document.getElementById(id).classList.add("show");
+  document
+    .querySelectorAll(".modal.show")
+    .forEach(modal => {
 
-  }
-
-
-  function closeModal(id) {
-
-    document.getElementById(id).classList.remove("show");
-
-  }
-
-
-  function scrollToSection(id) {
-
-    document
-      .getElementById(id)
-      ?.scrollIntoView({
-        behavior: "smooth"
-      });
-
-  }
-
-
-  /* =========================================================
-     WHATSAPP
-     ========================================================= */
-
-  function openWhatsApp(courseTitle, price) {
-
-    const formattedPrice = formatPrice(price);
-
-    const message =
-      `Olá! Tenho interesse no curso "${courseTitle}" da Fely e Amigos Academy. ` +
-      `O preço promocional é ${formattedPrice}. ` +
-      `Gostaria de saber como fazer a inscrição.`;
-
-    const url =
-      `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
-
-    window.open(url, "_blank");
-
-  }
-
-
-  function openWhatsAppGeneral() {
-
-    const message =
-      "Olá! Gostaria de saber mais sobre os cursos da Fely e Amigos Academy.";
-
-    const url =
-      `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
-
-    window.open(url, "_blank");
-
-  }
-
-
-  /* =========================================================
-     CURSOS
-     ========================================================= */
-
-  async function loadCourses() {
-
-    const grid =
-      document.getElementById("coursesGrid");
-
-    grid.innerHTML =
-      `<div class="loading">A carregar cursos...</div>`;
-
-    const {
-      data,
-      error
-    } = await db
-      .from("courses")
-      .select("*")
-      .eq("active", true)
-      .order("created_at", {
-        ascending: true
-      });
-
-    if (error) {
-
-      console.error(error);
-
-      grid.innerHTML =
-        `<div class="empty">
-          Não foi possível carregar os cursos.
-        </div>`;
-
-      return;
-    }
-
-    allCourses = data || [];
-
-    loadCategories();
-
-    renderCourses(allCourses);
-
-  }
-
-
-  function loadCategories() {
-
-    const select =
-      document.getElementById("categoryFilter");
-
-    const categories =
-      [...new Set(
-        allCourses
-          .map(course => course.category)
-          .filter(Boolean)
-      )].sort();
-
-    select.innerHTML =
-      `<option value="">Todas as categorias</option>`;
-
-    categories.forEach(category => {
-
-      const option =
-        document.createElement("option");
-
-      option.value = category;
-      option.textContent = category;
-
-      select.appendChild(option);
+      modal.classList.remove("show");
 
     });
 
+  document.body.classList.remove(
+    "modal-open"
+  );
+
+}
+
+
+/* =========================================================
+   MOBILE MENU
+   ========================================================= */
+
+function toggleMobileMenu() {
+
+  const menu =
+    document.getElementById(
+      "mobileMenu"
+    );
+
+  if (!menu) {
+    return;
+  }
+
+  menu.classList.toggle(
+    "open"
+  );
+
+}
+
+
+function closeMobileMenu() {
+
+  const menu =
+    document.getElementById(
+      "mobileMenu"
+    );
+
+  if (!menu) {
+    return;
+  }
+
+  menu.classList.remove(
+    "open"
+  );
+
+}
+
+
+/* =========================================================
+   WHATSAPP
+   ========================================================= */
+
+function openWhatsApp(
+  courseTitle,
+  price
+) {
+
+  const formattedPrice =
+    formatPrice(price);
+
+  const message =
+    `Olá! Tenho interesse no curso "${courseTitle}" da Fely e Amigos Academy. ` +
+    `O preço promocional é ${formattedPrice}. ` +
+    `Gostaria de saber como fazer a inscrição.`;
+
+  const url =
+    `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+
+  window.open(
+    url,
+    "_blank",
+    "noopener"
+  );
+
+}
+
+
+function openWhatsAppGeneral() {
+
+  const message =
+    "Olá! Gostaria de saber mais sobre os cursos da Fely e Amigos Academy.";
+
+  const url =
+    `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+
+  window.open(
+    url,
+    "_blank",
+    "noopener"
+  );
+
+}
+
+
+/* =========================================================
+   CURSOS
+   ========================================================= */
+
+async function loadCourses() {
+
+  const grid =
+    document.getElementById(
+      "coursesGrid"
+    );
+
+  grid.innerHTML =
+    `<div class="loading">
+      A carregar cursos...
+    </div>`;
+
+
+  const {
+    data,
+    error
+  } = await db
+    .from("courses")
+    .select("*")
+    .eq("active", true)
+    .order("created_at", {
+      ascending: true
+    });
+
+
+  if (error) {
+
+    console.error(
+      "Erro ao carregar cursos:",
+      error
+    );
+
+    grid.innerHTML =
+      `<div class="empty">
+        <div class="empty-icon">⚠️</div>
+        Não foi possível carregar os cursos.
+      </div>`;
+
+    return;
+
   }
 
 
-  function renderCourses(courses) {
+  allCourses =
+    data || [];
 
-    const grid =
-      document.getElementById("coursesGrid");
 
-    if (!courses.length) {
+  loadCategories();
 
-      grid.innerHTML =
-        `<div class="empty">
-          Nenhum curso encontrado.
-        </div>`;
+  renderCourses(
+    allCourses
+  );
 
-      return;
+}
+
+
+function loadCategories() {
+
+  const select =
+    document.getElementById(
+      "categoryFilter"
+    );
+
+  if (!select) {
+    return;
+  }
+
+
+  const categories =
+    [
+      ...new Set(
+        allCourses
+          .map(
+            course =>
+              course.category
+          )
+          .filter(Boolean)
+      )
+    ].sort();
+
+
+  select.innerHTML =
+    `<option value="">
+      Todas as categorias
+    </option>`;
+
+
+  categories.forEach(
+    category => {
+
+      const option =
+        document.createElement(
+          "option"
+        );
+
+      option.value =
+        category;
+
+      option.textContent =
+        category;
+
+      select.appendChild(
+        option
+      );
+
     }
+  );
+
+}
+
+
+function getCourseSymbol(
+  category
+) {
+
+  const value =
+    String(
+      category || ""
+    ).toLowerCase();
+
+
+  if (
+    value.includes("inform")
+  ) {
+    return "💻";
+  }
+
+  if (
+    value.includes("tecnolog")
+  ) {
+    return "⚙️";
+  }
+
+  if (
+    value.includes("negócio") ||
+    value.includes("negocio") ||
+    value.includes("gest")
+  ) {
+    return "💼";
+  }
+
+  if (
+    value.includes("língua") ||
+    value.includes("lingua") ||
+    value.includes("ingl")
+  ) {
+    return "🌍";
+  }
+
+  if (
+    value.includes("marketing")
+  ) {
+    return "📣";
+  }
+
+  return "🎓";
+
+}
+
+
+function renderCourses(
+  courses
+) {
+
+  const grid =
+    document.getElementById(
+      "coursesGrid"
+    );
+
+
+  if (!courses.length) {
 
     grid.innerHTML =
-      courses.map(course => {
+      `<div class="empty">
+
+        <div class="empty-icon">
+          🔎
+        </div>
+
+        Nenhum curso encontrado.
+
+        <br>
+
+        Tente outra pesquisa ou categoria.
+
+      </div>`;
+
+    return;
+
+  }
+
+
+  grid.innerHTML =
+    courses.map(
+      course => {
 
         const title =
-          escapeHTML(course.title);
+          escapeHTML(
+            course.title
+          );
 
         const category =
-          escapeHTML(course.category || "Formação");
+          escapeHTML(
+            course.category ||
+            "Formação"
+          );
 
         const description =
           escapeHTML(
@@ -1554,27 +5512,60 @@
           );
 
         const duration =
-          escapeHTML(course.duration || "2–4 semanas");
+          escapeHTML(
+            course.duration ||
+            "2–4 semanas"
+          );
 
         const level =
-          escapeHTML(course.level || "Base");
+          escapeHTML(
+            course.level ||
+            "Base"
+          );
 
         const price =
-          formatPrice(course.price);
+          formatPrice(
+            course.price
+          );
+
+        const symbol =
+          getCourseSymbol(
+            course.category
+          );
 
         const safeTitle =
-          String(course.title || "")
-            .replaceAll("\\", "\\\\")
-            .replaceAll("'", "\\'")
-            .replaceAll("\n", " ")
-            .replaceAll("\r", " ");
+          escapeJS(
+            course.title
+          );
+
 
         return `
-          <article class="course-card">
+
+          <article
+            class="course-card"
+          >
 
             <div class="course-image">
-              ${title}
+
+              <div class="course-topline">
+
+                <span class="course-category-badge">
+                  ${category}
+                </span>
+
+                <span class="course-symbol">
+                  ${symbol}
+                </span>
+
+              </div>
+
+
+              <div class="course-image-title">
+                ${title}
+              </div>
+
             </div>
+
 
             <div class="course-body">
 
@@ -1582,22 +5573,46 @@
                 ${category}
               </div>
 
+
               <h3 class="course-title">
                 ${title}
               </h3>
+
 
               <p class="course-description">
                 ${description}
               </p>
 
+
               <div class="course-meta">
-                <span>📚 ${level}</span>
-                <span>⏱ ${duration}</span>
+
+                <span>
+                  📚 ${level}
+                </span>
+
+                <span>
+                  ⏱ ${duration}
+                </span>
+
               </div>
 
-              <div class="price">
-                ${price}
+
+              <div class="price-row">
+
+                <div>
+
+                  <span class="price-label">
+                    Investimento
+                  </span>
+
+                  <div class="price">
+                    ${price}
+                  </div>
+
+                </div>
+
               </div>
+
 
               <div class="course-buttons">
 
@@ -1608,9 +5623,10 @@
                   Inscrever
                 </button>
 
+
                 <button
                   class="btn btn-outline"
-                  onclick="openWhatsApp('${safeTitle}', ${Number(course.price)})"
+                  onclick="openWhatsApp('${safeTitle}', ${Number(course.price || 0)})"
                 >
                   WhatsApp
                 </button>
@@ -1620,86 +5636,145 @@
             </div>
 
           </article>
+
         `;
 
-      }).join("");
+      }
+    ).join("");
 
-  }
+}
 
 
-  function filterCourses() {
+function filterCourses() {
 
-    const search =
-      document
-        .getElementById("searchInput")
-        .value
-        .toLowerCase()
-        .trim();
+  const search =
+    document
+      .getElementById(
+        "searchInput"
+      )
+      .value
+      .toLowerCase()
+      .trim();
 
-    const category =
-      document
-        .getElementById("categoryFilter")
-        .value;
 
-    const filtered =
-      allCourses.filter(course => {
+  const category =
+    document
+      .getElementById(
+        "categoryFilter"
+      )
+      .value;
+
+
+  const filtered =
+    allCourses.filter(
+      course => {
+
+        const title =
+          String(
+            course.title || ""
+          ).toLowerCase();
+
+        const description =
+          String(
+            course.description || ""
+          ).toLowerCase();
+
+        const courseCategory =
+          String(
+            course.category || ""
+          ).toLowerCase();
+
 
         const matchesSearch =
           !search ||
-          course.title?.toLowerCase().includes(search) ||
-          course.description?.toLowerCase().includes(search) ||
-          course.category?.toLowerCase().includes(search);
+          title.includes(search) ||
+          description.includes(search) ||
+          courseCategory.includes(search);
+
 
         const matchesCategory =
           !category ||
           course.category === category;
 
-        return matchesSearch && matchesCategory;
 
-      });
+        return (
+          matchesSearch &&
+          matchesCategory
+        );
 
-    renderCourses(filtered);
-
-  }
-
-
-  /* =========================================================
-     AUTENTICAÇÃO
-     ========================================================= */
-
-  async function signup(event) {
-
-    event.preventDefault();
-
-    const name =
-      document.getElementById("signupName").value.trim();
-
-    const phone =
-      document.getElementById("signupPhone").value.trim();
-
-    const email =
-      document.getElementById("signupEmail").value.trim();
-
-    const password =
-      document.getElementById("signupPassword").value;
-
-    const button =
-      event.submitter;
-
-    button.disabled = true;
-    button.textContent = "A criar conta...";
+      }
+    );
 
 
-    /*
-     * URL PARA ONDE O UTILIZADOR VOLTA DEPOIS
-     * DE CONFIRMAR O EMAIL.
-     *
-     * new URL("./", window.location.href)
-     * funciona tanto em localhost como no GitHub Pages.
-     */
+  renderCourses(
+    filtered
+  );
+
+}
+
+
+/* =========================================================
+   AUTENTICAÇÃO
+   ========================================================= */
+
+async function signup(event) {
+
+  event.preventDefault();
+
+
+  const name =
+    document
+      .getElementById(
+        "signupName"
+      )
+      .value
+      .trim();
+
+
+  const phone =
+    document
+      .getElementById(
+        "signupPhone"
+      )
+      .value
+      .trim();
+
+
+  const email =
+    document
+      .getElementById(
+        "signupEmail"
+      )
+      .value
+      .trim();
+
+
+  const password =
+    document
+      .getElementById(
+        "signupPassword"
+      )
+      .value;
+
+
+  const button =
+    event.submitter;
+
+
+  button.disabled =
+    true;
+
+  button.textContent =
+    "A criar conta...";
+
+
+  try {
 
     const emailRedirectTo =
-      new URL("./", window.location.href).href;
+      new URL(
+        "./",
+        window.location.href
+      ).href;
 
 
     const {
@@ -1709,95 +5784,152 @@
       await db.auth.signUp({
 
         email,
+
         password,
 
         options: {
+
           emailRedirectTo,
 
           data: {
-            full_name: name,
-            phone: phone
+
+            full_name:
+              name,
+
+            phone:
+              phone
+
           }
+
         }
 
       });
 
 
-    button.disabled = false;
-    button.textContent = "Criar conta";
-
-
     if (error) {
 
-      console.error(error);
+      console.error(
+        "Erro no registo:",
+        error
+      );
 
       showToast(
-        error.message,
+        error.message ||
+        "Não foi possível criar a conta.",
         "error"
       );
 
       return;
+
     }
 
 
-    closeModal("signupModal");
+    closeModal(
+      "signupModal"
+    );
 
 
-    if (data.session) {
+    event.target.reset();
+
+
+    if (data?.session) {
 
       showToast(
         "Conta criada com sucesso!",
         "success"
       );
 
-      await refreshUser();
+      setTimeout(
+        () => refreshUser(),
+        300
+      );
 
     } else {
 
       showToast(
-        "Conta criada. Verifique o seu email para confirmar a conta.",
+        "Conta criada! Verifique o seu email para confirmar a conta.",
         "success"
       );
 
     }
 
+  } catch (error) {
 
-    event.target.reset();
+    console.error(
+      error
+    );
+
+    showToast(
+      "Ocorreu um erro ao criar a conta.",
+      "error"
+    );
+
+  } finally {
+
+    button.disabled =
+      false;
+
+    button.textContent =
+      "✨ Criar a minha conta";
 
   }
 
+}
 
-  async function login(event) {
 
-    event.preventDefault();
+async function login(event) {
 
-    const email =
-      document.getElementById("loginEmail").value.trim();
+  event.preventDefault();
 
-    const password =
-      document.getElementById("loginPassword").value;
 
-    const button =
-      event.submitter;
+  const email =
+    document
+      .getElementById(
+        "loginEmail"
+      )
+      .value
+      .trim();
 
-    button.disabled = true;
-    button.textContent = "A entrar...";
 
+  const password =
+    document
+      .getElementById(
+        "loginPassword"
+      )
+      .value;
+
+
+  const button =
+    event.submitter;
+
+
+  button.disabled =
+    true;
+
+  button.textContent =
+    "A entrar...";
+
+
+  try {
 
     const {
       error
     } =
       await db.auth.signInWithPassword({
+
         email,
+
         password
+
       });
 
 
-    button.disabled = false;
-    button.textContent = "Entrar";
-
-
     if (error) {
+
+      console.error(
+        "Erro no login:",
+        error
+      );
 
       showToast(
         "Email ou palavra-passe incorretos.",
@@ -1805,32 +5937,68 @@
       );
 
       return;
+
     }
 
 
-    closeModal("loginModal");
+    closeModal(
+      "loginModal"
+    );
+
+
+    event.target.reset();
+
 
     showToast(
       "Login efetuado com sucesso!",
       "success"
     );
 
-    event.target.reset();
 
-    await refreshUser();
+    setTimeout(
+      () => refreshUser(),
+      300
+    );
+
+  } catch (error) {
+
+    console.error(
+      error
+    );
+
+    showToast(
+      "Não foi possível iniciar a sessão.",
+      "error"
+    );
+
+  } finally {
+
+    button.disabled =
+      false;
+
+    button.textContent =
+      "🔐 Entrar na minha conta";
 
   }
 
+}
 
-  async function logout() {
+
+async function logout() {
+
+  try {
 
     const {
       error
-    } = await db.auth.signOut();
+    } =
+      await db.auth.signOut();
+
 
     if (error) {
 
-      console.error(error);
+      console.error(
+        error
+      );
 
       showToast(
         error.message ||
@@ -1839,75 +6007,216 @@
       );
 
       return;
+
     }
 
 
-    currentUser = null;
-    currentProfile = null;
+    currentUser =
+      null;
+
+    currentProfile =
+      null;
+
 
     hideDashboards();
 
     updateNavigation();
+
+    closeMobileMenu();
+
 
     showToast(
       "Sessão terminada.",
       "success"
     );
 
+
     window.scrollTo({
       top: 0,
       behavior: "smooth"
     });
 
+  } catch (error) {
+
+    console.error(
+      error
+    );
+
+    showToast(
+      "Ocorreu um erro ao terminar a sessão.",
+      "error"
+    );
+
+  }
+
+}
+
+
+/* =========================================================
+   URL / SESSÃO
+   ========================================================= */
+
+function cleanAuthUrl() {
+
+  const hash =
+    window.location.hash;
+
+
+  if (
+    hash.includes("access_token") ||
+    hash.includes("refresh_token") ||
+    hash.includes("type=signup") ||
+    hash.includes("type=recovery")
+  ) {
+
+    window.history.replaceState(
+      {},
+      document.title,
+      window.location.pathname +
+      window.location.search
+    );
+
+  }
+
+}
+
+
+async function handleAuthSession(
+  session,
+  eventName = ""
+) {
+
+  if (!session?.user) {
+
+    currentUser =
+      null;
+
+    currentProfile =
+      null;
+
+    hideDashboards();
+
+    updateNavigation();
+
+    return;
+
   }
 
 
-  /* =========================================================
-     UTILIZADOR / PERFIL
-     ========================================================= */
+  currentUser =
+    session.user;
 
-  async function refreshUser() {
+
+  /*
+   * O Supabase pode ainda estar a processar
+   * o estado interno da sessão.
+   *
+   * Um pequeno atraso evita chamadas concorrentes
+   * durante INITIAL_SESSION / SIGNED_IN.
+   */
+
+  setTimeout(
+    async () => {
+
+      await refreshUser();
+
+      cleanAuthUrl();
+
+      if (
+        eventName === "SIGNED_IN"
+      ) {
+
+        showToast(
+          "Sessão iniciada com sucesso!",
+          "success"
+        );
+
+      }
+
+    },
+    250
+  );
+
+}
+
+
+/* =========================================================
+   UTILIZADOR / PERFIL
+   ========================================================= */
+
+async function refreshUser() {
+
+  try {
 
     const {
-      data: {
-        user
-      }
-    } = await db.auth.getUser();
+      data,
+      error
+    } =
+      await db.auth.getSession();
 
 
-    currentUser = user;
+    if (error) {
+
+      console.error(
+        "Erro ao obter sessão:",
+        error
+      );
+
+      return;
+
+    }
 
 
-    if (!user) {
+    const session =
+      data?.session;
 
-      currentProfile = null;
+
+    currentUser =
+      session?.user || null;
+
+
+    if (!currentUser) {
+
+      currentProfile =
+        null;
 
       hideDashboards();
+
       updateNavigation();
 
       return;
+
     }
 
 
     const {
       data: profile,
-      error
-    } = await db
-      .from("profiles")
-      .select("*")
-      .eq("id", user.id)
-      .single();
+      error: profileError
+    } =
+      await db
+        .from("profiles")
+        .select("*")
+        .eq(
+          "id",
+          currentUser.id
+        )
+        .maybeSingle();
 
 
-    if (error) {
+    if (profileError) {
 
-      console.error(error);
+      console.error(
+        "Erro ao carregar perfil:",
+        profileError
+      );
 
-      currentProfile = null;
+      currentProfile =
+        null;
 
     } else {
 
-      currentProfile = profile;
+      currentProfile =
+        profile;
 
     }
 
@@ -1917,278 +6226,390 @@
     await loadStudentDashboard();
 
 
+    const adminDashboard =
+      document.getElementById(
+        "adminDashboard"
+      );
+
+
     if (
-      currentProfile &&
-      currentProfile.role === "admin"
+      currentProfile?.role === "admin"
     ) {
 
       await loadAdminDashboard();
 
+    } else {
+
+      adminDashboard
+        .classList
+        .remove("visible");
+
     }
+
+  } catch (error) {
+
+    console.error(
+      "Erro em refreshUser:",
+      error
+    );
 
   }
 
-
-  function updateNavigation() {
-
-    const nav =
-      document.getElementById("navActions");
+}
 
 
-    if (!currentUser) {
+function updateNavigation() {
 
-      nav.innerHTML = `
-        <button
-          class="btn btn-outline"
-          onclick="openModal('loginModal')"
-        >
-          Entrar
-        </button>
-
-        <button
-          class="btn btn-primary"
-          onclick="openModal('signupModal')"
-        >
-          Criar conta
-        </button>
-      `;
-
-      return;
-    }
+  const nav =
+    document.getElementById(
+      "navActions"
+    );
 
 
-    const name =
-      escapeHTML(
-        currentProfile?.full_name ||
-        currentUser.email
-      );
+  if (!nav) {
+    return;
+  }
 
+
+  if (!currentUser) {
 
     nav.innerHTML = `
+
+      <button
+        class="btn btn-outline"
+        onclick="openModal('loginModal')"
+      >
+        Entrar
+      </button>
+
+
       <button
         class="btn btn-primary"
-        onclick="scrollToSection('dashboard')"
+        onclick="openModal('signupModal')"
       >
-        Olá, ${name.split(" ")[0]}
+        Criar conta
       </button>
 
-      <button
-        class="btn btn-danger"
-        onclick="logout()"
-      >
-        Sair
-      </button>
     `;
 
-  }
-
-
-  function hideDashboards() {
-
-    document
-      .getElementById("dashboard")
-      .classList.remove("visible");
-
-    document
-      .getElementById("adminDashboard")
-      .classList.remove("visible");
-
-    document
-      .getElementById("courseArea")
-      .style.display = "none";
+    return;
 
   }
 
 
-  /* =========================================================
-     INSCRIÇÃO
-     ========================================================= */
-
-  async function startEnrollment(courseId) {
-
-    if (!currentUser) {
-
-      showToast(
-        "Crie uma conta ou entre para fazer a inscrição."
-      );
-
-      openModal("loginModal");
-
-      return;
-    }
+  const fullName =
+    currentProfile?.full_name ||
+    currentUser.email ||
+    "Aluno";
 
 
-    const course =
-      allCourses.find(
-        item => item.id === courseId
-      );
+  const firstName =
+    escapeHTML(
+      fullName
+        .trim()
+        .split(/\s+/)[0]
+    );
 
 
-    if (!course) {
+  nav.innerHTML = `
 
-      showToast(
-        "Curso não encontrado.",
-        "error"
-      );
-
-      return;
-    }
-
-
-    currentCourse = course;
+    <button
+      class="btn btn-primary"
+      onclick="scrollToSection('dashboard')"
+    >
+      👋 Olá, ${firstName}
+    </button>
 
 
-    const {
-      data: enrollmentId,
-      error
-    } = await db.rpc(
+    <button
+      class="btn btn-danger"
+      onclick="logout()"
+    >
+      Sair
+    </button>
+
+  `;
+
+}
+
+
+function hideDashboards() {
+
+  const dashboard =
+    document.getElementById(
+      "dashboard"
+    );
+
+  const adminDashboard =
+    document.getElementById(
+      "adminDashboard"
+    );
+
+  const courseArea =
+    document.getElementById(
+      "courseArea"
+    );
+
+
+  if (dashboard) {
+
+    dashboard.classList.remove(
+      "visible"
+    );
+
+  }
+
+
+  if (adminDashboard) {
+
+    adminDashboard.classList.remove(
+      "visible"
+    );
+
+  }
+
+
+  if (courseArea) {
+
+    courseArea.style.display =
+      "none";
+
+  }
+
+}
+
+
+/* =========================================================
+   INSCRIÇÃO
+   ========================================================= */
+
+async function startEnrollment(
+  courseId
+) {
+
+  if (!currentUser) {
+
+    showToast(
+      "Entre na sua conta para fazer a inscrição."
+    );
+
+    openModal(
+      "loginModal"
+    );
+
+    return;
+
+  }
+
+
+  const course =
+    allCourses.find(
+      item =>
+        String(item.id) ===
+        String(courseId)
+    );
+
+
+  if (!course) {
+
+    showToast(
+      "Curso não encontrado.",
+      "error"
+    );
+
+    return;
+
+  }
+
+
+  currentCourse =
+    course;
+
+
+  const {
+    data: enrollmentId,
+    error
+  } =
+    await db.rpc(
       "create_enrollment",
       {
-        p_course_id: courseId
+        p_course_id:
+          courseId
       }
     );
 
 
-    if (error) {
+  if (error) {
 
-      console.error(error);
+    console.error(
+      "Erro ao criar inscrição:",
+      error
+    );
 
 
-      if (
-        error.message &&
-        error.message
-          .toLowerCase()
-          .includes("already")
-      ) {
+    const message =
+      String(
+        error.message || ""
+      ).toLowerCase();
 
-        showToast(
-          "Já existe uma inscrição para este curso.",
-          "error"
-        );
 
-      } else {
+    if (
+      message.includes("already") ||
+      message.includes("duplicate") ||
+      message.includes("já existe")
+    ) {
 
-        showToast(
-          error.message ||
-          "Não foi possível criar a inscrição.",
-          "error"
-        );
+      showToast(
+        "Já existe uma inscrição para este curso.",
+        "error"
+      );
 
-      }
+    } else {
 
-      return;
+      showToast(
+        error.message ||
+        "Não foi possível criar a inscrição.",
+        "error"
+      );
+
     }
 
-
-    document.getElementById(
-      "paymentEnrollmentId"
-    ).value = enrollmentId;
-
-
-    document.getElementById(
-      "paymentCourseInfo"
-    ).innerHTML = `
-      <div
-        style="
-          background:#f1f5f9;
-          padding:15px;
-          border-radius:12px;
-          margin-bottom:20px;
-        "
-      >
-        <strong>${escapeHTML(course.title)}</strong>
-
-        <br>
-
-        <span style="color:var(--primary);font-weight:800">
-          ${formatPrice(course.price)}
-        </span>
-      </div>
-
-      <p style="margin-bottom:20px">
-        Efetue o pagamento através do método indicado pela
-        Fely e Amigos Academy e depois coloque abaixo a
-        referência do pagamento.
-      </p>
-    `;
-
-
-    document.getElementById(
-      "paymentReference"
-    ).value = "";
-
-
-    document.getElementById(
-      "paymentNote"
-    ).value = "";
-
-
-    openModal("paymentModal");
+    return;
 
   }
 
 
-  async function submitPayment(event) {
-
-    event.preventDefault();
-
-
-    const enrollmentId =
-      document.getElementById(
-        "paymentEnrollmentId"
-      ).value;
+  document.getElementById(
+    "paymentEnrollmentId"
+  ).value =
+    enrollmentId;
 
 
-    const reference =
-      document.getElementById(
-        "paymentReference"
-      ).value.trim();
+  document.getElementById(
+    "paymentCourseInfo"
+  ).innerHTML = `
+
+    <div class="payment-course-card">
+
+      <span class="payment-course-title">
+        ${escapeHTML(course.title)}
+      </span>
+
+      <span class="payment-course-price">
+        ${formatPrice(course.price)}
+      </span>
+
+    </div>
 
 
-    const note =
-      document.getElementById(
-        "paymentNote"
-      ).value.trim();
+    <p
+      style="
+        color:var(--muted);
+        font-size:13px;
+        margin-bottom:18px;
+      "
+    >
+      Efetue o pagamento através do método indicado
+      pela Fely e Amigos Academy e coloque abaixo
+      a referência do pagamento.
+    </p>
+
+  `;
 
 
-    if (!reference) {
-
-      showToast(
-        "Digite a referência do pagamento.",
-        "error"
-      );
-
-      return;
-    }
+  document.getElementById(
+    "paymentReference"
+  ).value = "";
 
 
-    const button =
-      event.submitter;
+  document.getElementById(
+    "paymentNote"
+  ).value = "";
 
-    button.disabled = true;
-    button.textContent = "A enviar...";
 
+  openModal(
+    "paymentModal"
+  );
+
+}
+
+
+async function submitPayment(
+  event
+) {
+
+  event.preventDefault();
+
+
+  const enrollmentId =
+    document.getElementById(
+      "paymentEnrollmentId"
+    ).value;
+
+
+  const reference =
+    document.getElementById(
+      "paymentReference"
+    ).value
+    .trim();
+
+
+  const note =
+    document.getElementById(
+      "paymentNote"
+    ).value
+    .trim();
+
+
+  if (!reference) {
+
+    showToast(
+      "Digite a referência do pagamento.",
+      "error"
+    );
+
+    return;
+
+  }
+
+
+  const button =
+    event.submitter;
+
+
+  button.disabled =
+    true;
+
+  button.textContent =
+    "📤 A enviar...";
+
+
+  try {
 
     const {
       error
-    } = await db.rpc(
-      "submit_payment",
-      {
-        p_enrollment_id: enrollmentId,
-        p_reference: reference,
-        p_proof_note: note || null
-      }
-    );
+    } =
+      await db.rpc(
+        "submit_payment",
+        {
+          p_enrollment_id:
+            enrollmentId,
 
+          p_reference:
+            reference,
 
-    button.disabled = false;
-    button.textContent =
-      "Enviar pagamento para análise";
+          p_proof_note:
+            note || null
+
+        }
+      );
 
 
     if (error) {
 
-      console.error(error);
+      console.error(
+        error
+      );
 
       showToast(
         error.message ||
@@ -2197,10 +6618,13 @@
       );
 
       return;
+
     }
 
 
-    closeModal("paymentModal");
+    closeModal(
+      "paymentModal"
+    );
 
 
     showToast(
@@ -2211,1064 +6635,1576 @@
 
     await loadStudentDashboard();
 
+  } catch (error) {
+
+    console.error(
+      error
+    );
+
+    showToast(
+      "Ocorreu um erro ao enviar o pagamento.",
+      "error"
+    );
+
+  } finally {
+
+    button.disabled =
+      false;
+
+    button.textContent =
+      "📤 Enviar pagamento para análise";
+
+  }
+
+}
+
+
+/* =========================================================
+   DASHBOARD DO ALUNO
+   ========================================================= */
+
+async function loadStudentDashboard() {
+
+  if (!currentUser) {
+    return;
   }
 
 
-  /* =========================================================
-     DASHBOARD DO ALUNO
-     ========================================================= */
-
-  async function loadStudentDashboard() {
-
-    if (!currentUser) {
-      return;
-    }
-
-
-    const dashboard =
-      document.getElementById("dashboard");
-
-    dashboard.classList.add("visible");
-
-
-    const name =
-      currentProfile?.full_name ||
-      currentUser.email;
-
-
+  const dashboard =
     document.getElementById(
-      "studentWelcome"
-    ).textContent =
-      `Bem-vindo, ${name}!`;
+      "dashboard"
+    );
 
 
-    const {
-      data,
-      error
-    } = await db
+  dashboard.classList.add(
+    "visible"
+  );
+
+
+  const name =
+    currentProfile?.full_name ||
+    currentUser.email ||
+    "Aluno";
+
+
+  document.getElementById(
+    "studentWelcome"
+  ).textContent =
+    `Bem-vindo, ${name}! Continue a aprender e evoluir.`;
+
+
+  const {
+    data,
+    error
+  } =
+    await db
       .from("enrollments")
       .select("*")
-      .eq("user_id", currentUser.id)
-      .order("created_at", {
-        ascending: false
-      });
-
-
-    if (error) {
-
-      console.error(error);
-
-      document.getElementById(
-        "studentEnrollments"
-      ).innerHTML =
-        `<div class="empty">
-          Não foi possível carregar as inscrições.
-        </div>`;
-
-      return;
-    }
-
-
-    const container =
-      document.getElementById(
-        "studentEnrollments"
+      .eq(
+        "user_id",
+        currentUser.id
+      )
+      .order(
+        "created_at",
+        {
+          ascending:
+            false
+        }
       );
 
 
-    if (!data || !data.length) {
+  if (error) {
 
-      container.innerHTML =
-        `<div class="empty">
-          Ainda não possui inscrições.
-          <br><br>
-          <a
-            href="#cursos"
-            class="btn btn-primary"
-          >
-            Ver cursos
-          </a>
-        </div>`;
-
-      return;
-    }
+    console.error(
+      "Erro nas inscrições:",
+      error
+    );
 
 
-    container.innerHTML =
-      data.map(enrollment => {
+    document.getElementById(
+      "studentEnrollments"
+    ).innerHTML = `
 
-        let statusClass =
-          "status-pending";
+      <div class="empty">
 
-        let statusText =
-          "Pendente";
+        <div class="empty-icon">
+          ⚠️
+        </div>
 
+        Não foi possível carregar as inscrições.
 
-        if (
-          enrollment.status === "approved"
-        ) {
+      </div>
 
-          statusClass =
-            "status-approved";
+    `;
 
-          statusText =
-            "Aprovado";
+    updateStudentStats(
+      []
+    );
 
-        } else if (
-          enrollment.status === "rejected"
-        ) {
+    return;
 
-          statusClass =
-            "status-rejected";
-
-          statusText =
-            "Rejeitado";
-
-        }
+  }
 
 
-        const title =
-          escapeHTML(
-            enrollment.course_title ||
-            "Curso"
-          );
+  const enrollments =
+    data || [];
 
 
-        return `
-          <div class="enrollment-row">
+  updateStudentStats(
+    enrollments
+  );
 
-            <div>
-              <strong>${title}</strong>
 
-              <br>
+  const container =
+    document.getElementById(
+      "studentEnrollments"
+    );
 
-              <small>
-                ${formatPrice(enrollment.amount)}
-              </small>
 
-              <br>
+  if (!enrollments.length) {
 
-              <span class="status ${statusClass}">
-                ${statusText}
-              </span>
+    container.innerHTML = `
+
+      <div class="empty">
+
+        <div class="empty-icon">
+          🎓
+        </div>
+
+        Ainda não possui inscrições.
+
+        <br><br>
+
+        <a
+          href="#cursos"
+          class="btn btn-primary"
+        >
+          Explorar cursos
+        </a>
+
+      </div>
+
+    `;
+
+    return;
+
+  }
+
+
+  container.innerHTML =
+    enrollments
+      .map(
+        enrollment => {
+
+          let statusClass =
+            "status-pending";
+
+          let statusText =
+            "Pendente";
+
+
+          if (
+            enrollment.status ===
+            "approved"
+          ) {
+
+            statusClass =
+              "status-approved";
+
+            statusText =
+              "Aprovado";
+
+          } else if (
+            enrollment.status ===
+            "rejected"
+          ) {
+
+            statusClass =
+              "status-rejected";
+
+            statusText =
+              "Rejeitado";
+
+          }
+
+
+          const title =
+            escapeHTML(
+              enrollment.course_title ||
+              "Curso"
+            );
+
+
+          return `
+
+            <div class="enrollment-row">
+
+              <div class="row-main">
+
+                <strong>
+                  ${title}
+                </strong>
+
+                <br>
+
+                <small>
+                  Investimento:
+                  ${formatPrice(enrollment.amount)}
+                </small>
+
+                <br>
+
+                <span class="status ${statusClass}">
+                  ${statusText}
+                </span>
+
+              </div>
+
+
+              <div>
+
+                ${
+                  enrollment.status ===
+                  "approved"
+
+                    ? `
+
+                      <button
+                        class="btn btn-success"
+                        onclick="openApprovedCourse('${enrollment.course_id}')"
+                      >
+                        📚 Acessar curso
+                      </button>
+
+                    `
+
+                    : enrollment.status ===
+                      "pending"
+
+                      ? `
+
+                        <button
+                          class="btn btn-secondary"
+                          onclick="showToast('A inscrição está pendente de confirmação.')"
+                        >
+                          ⏳ Em análise
+                        </button>
+
+                      `
+
+                      : `
+
+                        <button
+                          class="btn btn-outline"
+                          onclick="openWhatsAppGeneral()"
+                        >
+                          💬 Contactar
+                        </button>
+
+                      `
+                }
+
+              </div>
+
             </div>
 
-            <div>
+          `;
+
+        }
+      )
+      .join("");
+
+}
+
+
+function updateStudentStats(
+  enrollments
+) {
+
+  const total =
+    enrollments.length;
+
+
+  const approved =
+    enrollments.filter(
+      item =>
+        item.status ===
+        "approved"
+    ).length;
+
+
+  const pending =
+    enrollments.filter(
+      item =>
+        item.status ===
+        "pending" ||
+        item.status ===
+        "submitted"
+    ).length;
+
+
+  const totalElement =
+    document.getElementById(
+      "studentTotalEnrollments"
+    );
+
+  const approvedElement =
+    document.getElementById(
+      "studentApprovedEnrollments"
+    );
+
+  const pendingElement =
+    document.getElementById(
+      "studentPendingEnrollments"
+    );
+
+
+  if (totalElement) {
+    totalElement.textContent =
+      total;
+  }
+
+  if (approvedElement) {
+    approvedElement.textContent =
+      approved;
+  }
+
+  if (pendingElement) {
+    pendingElement.textContent =
+      pending;
+  }
+
+}
+
+
+/* =========================================================
+   CURSO / MÓDULOS
+   ========================================================= */
+
+async function openApprovedCourse(
+  courseId
+) {
+
+  if (!currentUser) {
+
+    showToast(
+      "Precisa estar autenticado.",
+      "error"
+    );
+
+    return;
+
+  }
+
+
+  const enrollmentResult =
+    await db
+      .from("enrollments")
+      .select("*")
+      .eq(
+        "user_id",
+        currentUser.id
+      )
+      .eq(
+        "course_id",
+        courseId
+      )
+      .eq(
+        "status",
+        "approved"
+      )
+      .limit(1)
+      .maybeSingle();
+
+
+  if (
+    enrollmentResult.error
+  ) {
+
+    console.error(
+      enrollmentResult.error
+    );
+
+    showToast(
+      "Não foi possível verificar a inscrição.",
+      "error"
+    );
+
+    return;
+
+  }
+
+
+  if (
+    !enrollmentResult.data
+  ) {
+
+    showToast(
+      "Ainda não possui acesso a este curso.",
+      "error"
+    );
+
+    return;
+
+  }
+
+
+  const course =
+    allCourses.find(
+      item =>
+        String(item.id) ===
+        String(courseId)
+    );
+
+
+  if (!course) {
+
+    showToast(
+      "Curso não encontrado.",
+      "error"
+    );
+
+    return;
+
+  }
+
+
+  currentCourse =
+    course;
+
+
+  document.getElementById(
+    "courseArea"
+  ).style.display =
+    "block";
+
+
+  document.getElementById(
+    "courseAreaTitle"
+  ).textContent =
+    course.title;
+
+
+  document.getElementById(
+    "courseAreaDescription"
+  ).textContent =
+    course.description ||
+    "";
+
+
+  document.getElementById(
+    "modulesList"
+  ).innerHTML = `
+
+    <div class="loading">
+      A carregar módulos...
+    </div>
+
+  `;
+
+
+  document.getElementById(
+    "lessonTitle"
+  ).textContent =
+    "Selecione uma aula";
+
+
+  document.getElementById(
+    "lessonBody"
+  ).textContent =
+    "Escolha uma aula no menu lateral para começar.";
+
+
+  document.getElementById(
+    "completeLessonBtn"
+  ).style.display =
+    "none";
+
+
+  await loadModules(
+    courseId
+  );
+
+
+  document
+    .getElementById(
+      "courseArea"
+    )
+    .scrollIntoView({
+      behavior:
+        "smooth"
+    });
+
+}
+
+
+async function loadModules(
+  courseId
+) {
+
+  const {
+    data: modules,
+    error
+  } =
+    await db
+      .from("modules")
+      .select("*")
+      .eq(
+        "course_id",
+        courseId
+      )
+      .order(
+        "position",
+        {
+          ascending:
+            true
+        }
+      );
+
+
+  if (error) {
+
+    console.error(
+      error
+    );
+
+    document.getElementById(
+      "modulesList"
+    ).innerHTML = `
+
+      <div class="empty">
+        Não foi possível carregar os módulos.
+      </div>
+
+    `;
+
+    return;
+
+  }
+
+
+  if (!modules?.length) {
+
+    document.getElementById(
+      "modulesList"
+    ).innerHTML = `
+
+      <div class="empty">
+        Ainda não existem módulos neste curso.
+      </div>
+
+    `;
+
+    return;
+
+  }
+
+
+  const moduleIds =
+    modules.map(
+      module =>
+        module.id
+    );
+
+
+  const {
+    data: lessons,
+    error: lessonsError
+  } =
+    await db
+      .from("lessons")
+      .select("*")
+      .in(
+        "module_id",
+        moduleIds
+      )
+      .order(
+        "position",
+        {
+          ascending:
+            true
+        }
+      );
+
+
+  if (lessonsError) {
+
+    console.error(
+      lessonsError
+    );
+
+    return;
+
+  }
+
+
+  const container =
+    document.getElementById(
+      "modulesList"
+    );
+
+
+  container.innerHTML = `
+
+    <div class="modules-title">
+      📚 Conteúdo do curso
+    </div>
+
+  `;
+
+
+  container.innerHTML +=
+    modules
+      .map(
+        module => {
+
+          const moduleLessons =
+            lessons.filter(
+              lesson =>
+                lesson.module_id ===
+                module.id
+            );
+
+
+          return `
+
+            <div class="module-item">
+
+              <div class="module-title">
+                ${escapeHTML(module.title)}
+              </div>
+
 
               ${
-                enrollment.status === "approved"
+                moduleLessons.length
 
-                ? `
-                  <button
-                    class="btn btn-success"
-                    onclick="openApprovedCourse('${enrollment.course_id}')"
-                  >
-                    Acessar curso
-                  </button>
-                `
+                  ? moduleLessons
+                      .map(
+                        lesson => `
 
-                : enrollment.status === "pending"
+                          <div
+                            class="lesson-link"
+                            id="lesson-link-${lesson.id}"
+                            onclick="openLesson('${lesson.id}')"
+                          >
+                            ${escapeHTML(lesson.title)}
+                          </div>
 
-                ? `
-                  <button
-                    class="btn btn-secondary"
-                    onclick="showToast('A inscrição está pendente de confirmação.')"
-                  >
-                    Aguardando confirmação
-                  </button>
-                `
+                        `
+                      )
+                      .join("")
 
-                : `
-                  <button
-                    class="btn btn-outline"
-                    onclick="showToast('Esta inscrição foi rejeitada. Contacte-nos pelo WhatsApp.')"
-                  >
-                    Contactar
-                  </button>
-                `
+                  : `
+
+                    <small
+                      style="
+                        color:var(--muted);
+                        font-size:11px;
+                      "
+                    >
+                      Sem aulas disponíveis.
+                    </small>
+
+                  `
               }
 
             </div>
 
-          </div>
-        `;
+          `;
 
-      }).join("");
+        }
+      )
+      .join("");
 
-  }
-
-
-  /* =========================================================
-     CURSO / MÓDULOS / AULAS
-     ========================================================= */
-
-  async function openApprovedCourse(courseId) {
-
-    if (!currentUser) {
-
-      showToast(
-        "Precisa estar autenticado.",
-        "error"
-      );
-
-      return;
-    }
+}
 
 
-    const enrollmentResult =
-      await db
-        .from("enrollments")
-        .select("*")
-        .eq("user_id", currentUser.id)
-        .eq("course_id", courseId)
-        .eq("status", "approved")
-        .limit(1)
-        .maybeSingle();
+async function openLesson(
+  lessonId
+) {
 
-
-    if (enrollmentResult.error) {
-
-      console.error(
-        enrollmentResult.error
-      );
-
-      showToast(
-        "Não foi possível verificar a inscrição.",
-        "error"
-      );
-
-      return;
-    }
-
-
-    if (!enrollmentResult.data) {
-
-      showToast(
-        "Ainda não possui acesso a este curso.",
-        "error"
-      );
-
-      return;
-    }
-
-
-    const course =
-      allCourses.find(
-        item => item.id === courseId
-      );
-
-
-    if (!course) {
-
-      showToast(
-        "Curso não encontrado.",
-        "error"
-      );
-
-      return;
-    }
-
-
-    currentCourse = course;
-
-
-    document.getElementById(
-      "courseArea"
-    ).style.display = "block";
-
-
-    document.getElementById(
-      "courseAreaTitle"
-    ).textContent =
-      course.title;
-
-
-    document.getElementById(
-      "courseAreaDescription"
-    ).textContent =
-      course.description || "";
-
-
-    document.getElementById(
-      "modulesList"
-    ).innerHTML =
-      `<div class="loading">
-        A carregar módulos...
-      </div>`;
-
-
-    document.getElementById(
-      "lessonTitle"
-    ).textContent =
-      "Selecione uma aula";
-
-
-    document.getElementById(
-      "lessonBody"
-    ).textContent =
-      "Escolha uma aula no menu";
-
-
-    document.getElementById(
-      "completeLessonBtn"
-    ).style.display = "none";
-
-
-    await loadModules(courseId);
-
-
-    document
-      .getElementById("courseArea")
-      .scrollIntoView({
-        behavior: "smooth"
-      });
-
-  }
-
-
-  async function loadModules(courseId) {
-
-    const {
-      data: modules,
-      error
-    } = await db
-      .from("modules")
-      .select("*")
-      .eq("course_id", courseId)
-      .order("position", {
-        ascending: true
-      });
-
-
-    if (error) {
-
-      console.error(error);
-
-      document.getElementById(
-        "modulesList"
-      ).innerHTML =
-        `<div class="empty">
-          Não foi possível carregar os módulos.
-        </div>`;
-
-      return;
-    }
-
-
-    if (!modules.length) {
-
-      document.getElementById(
-        "modulesList"
-      ).innerHTML =
-        `<div class="empty">
-          Ainda não existem módulos neste curso.
-        </div>`;
-
-      return;
-    }
-
-
-    const moduleIds =
-      modules.map(
-        module => module.id
-      );
-
-
-    const {
-      data: lessons,
-      error: lessonsError
-    } = await db
+  const {
+    data: lesson,
+    error
+  } =
+    await db
       .from("lessons")
       .select("*")
-      .in("module_id", moduleIds)
-      .order("position", {
-        ascending: true
-      });
-
-
-    if (lessonsError) {
-
-      console.error(lessonsError);
-
-      return;
-    }
-
-
-    const container =
-      document.getElementById(
-        "modulesList"
-      );
-
-
-    container.innerHTML =
-      modules.map(module => {
-
-        const moduleLessons =
-          lessons.filter(
-            lesson =>
-              lesson.module_id === module.id
-          );
-
-
-        return `
-          <div class="module-item">
-
-            <div class="module-title">
-              ${escapeHTML(module.title)}
-            </div>
-
-            ${
-              moduleLessons.length
-
-              ? moduleLessons.map(lesson => `
-                  <div
-                    class="lesson-link"
-                    id="lesson-link-${lesson.id}"
-                    onclick="openLesson('${lesson.id}')"
-                  >
-                    ${escapeHTML(lesson.title)}
-                  </div>
-                `).join("")
-
-              : `
-                <small>
-                  Sem aulas disponíveis.
-                </small>
-              `
-            }
-
-          </div>
-        `;
-
-      }).join("");
-
-  }
-
-
-  async function openLesson(lessonId) {
-
-    const {
-      data: lesson,
-      error
-    } = await db
-      .from("lessons")
-      .select("*")
-      .eq("id", lessonId)
+      .eq(
+        "id",
+        lessonId
+      )
       .single();
 
 
-    if (error) {
+  if (error) {
 
-      console.error(error);
+    console.error(
+      error
+    );
 
-      showToast(
-        "Não foi possível carregar a aula.",
-        "error"
-      );
+    showToast(
+      "Não foi possível carregar a aula.",
+      "error"
+    );
 
-      return;
-    }
-
-
-    currentLesson = lesson;
-
-
-    document.querySelectorAll(
-      ".lesson-link"
-    ).forEach(item => {
-
-      item.classList.remove("active");
-
-    });
-
-
-    const selected =
-      document.getElementById(
-        `lesson-link-${lessonId}`
-      );
-
-
-    if (selected) {
-      selected.classList.add("active");
-    }
-
-
-    document.getElementById(
-      "lessonTitle"
-    ).textContent =
-      lesson.title;
-
-
-    document.getElementById(
-      "lessonBody"
-    ).textContent =
-      lesson.body || "";
-
-
-    document.getElementById(
-      "completeLessonBtn"
-    ).style.display =
-      "inline-flex";
-
-
-    const {
-      data: progress
-    } = await db
-      .from("lesson_progress")
-      .select("id")
-      .eq("user_id", currentUser.id)
-      .eq("lesson_id", lessonId)
-      .maybeSingle();
-
-
-    const button =
-      document.getElementById(
-        "completeLessonBtn"
-      );
-
-
-    if (progress) {
-
-      button.textContent =
-        "✓ Aula concluída";
-
-      button.disabled = true;
-
-    } else {
-
-      button.textContent =
-        "✓ Marcar aula como concluída";
-
-      button.disabled = false;
-
-    }
+    return;
 
   }
 
 
-  async function completeCurrentLesson() {
-
-    if (!currentLesson || !currentUser) {
-      return;
-    }
+  currentLesson =
+    lesson;
 
 
-    const {
-      error
-    } = await db
+  document
+    .querySelectorAll(
+      ".lesson-link"
+    )
+    .forEach(
+      item =>
+        item.classList.remove(
+          "active"
+        )
+    );
+
+
+  const selected =
+    document.getElementById(
+      `lesson-link-${lessonId}`
+    );
+
+
+  if (selected) {
+
+    selected.classList.add(
+      "active"
+    );
+
+  }
+
+
+  document.getElementById(
+    "lessonTitle"
+  ).textContent =
+    lesson.title;
+
+
+  document.getElementById(
+    "lessonBody"
+  ).textContent =
+    lesson.body ||
+    "Esta aula ainda não possui conteúdo.";
+
+
+  document.getElementById(
+    "completeLessonBtn"
+  ).style.display =
+    "inline-flex";
+
+
+  const {
+    data: progress
+  } =
+    await db
       .from("lesson_progress")
-      .insert({
-
-        user_id: currentUser.id,
-        lesson_id: currentLesson.id
-
-      });
-
-
-    if (error) {
-
-      if (
-        error.code === "23505"
-      ) {
-
-        showToast(
-          "Esta aula já foi concluída."
-        );
-
-      } else {
-
-        console.error(error);
-
-        showToast(
-          error.message ||
-          "Não foi possível guardar o progresso.",
-          "error"
-        );
-
-      }
-
-      return;
-    }
+      .select("id")
+      .eq(
+        "user_id",
+        currentUser.id
+      )
+      .eq(
+        "lesson_id",
+        lessonId
+      )
+      .maybeSingle();
 
 
-    const button =
-      document.getElementById(
-        "completeLessonBtn"
-      );
+  const button =
+    document.getElementById(
+      "completeLessonBtn"
+    );
 
+
+  if (progress) {
 
     button.textContent =
       "✓ Aula concluída";
 
-    button.disabled = true;
+    button.disabled =
+      true;
+
+  } else {
+
+    button.textContent =
+      "✓ Marcar aula como concluída";
+
+    button.disabled =
+      false;
+
+  }
+
+}
 
 
-    showToast(
-      "Aula marcada como concluída!",
-      "success"
+async function completeCurrentLesson() {
+
+  if (
+    !currentLesson ||
+    !currentUser
+  ) {
+    return;
+  }
+
+
+  const button =
+    document.getElementById(
+      "completeLessonBtn"
     );
 
-  }
+
+  button.disabled =
+    true;
+
+  button.textContent =
+    "A guardar...";
 
 
-  function closeCourseArea() {
+  const {
+    error
+  } =
+    await db
+      .from("lesson_progress")
+      .insert({
 
-    document.getElementById(
-      "courseArea"
-    ).style.display = "none";
+        user_id:
+          currentUser.id,
 
+        lesson_id:
+          currentLesson.id
 
-    document
-      .getElementById("dashboard")
-      .scrollIntoView({
-        behavior: "smooth"
       });
 
-  }
 
-
-  /* =========================================================
-     ADMIN
-     ========================================================= */
-
-  async function loadAdminDashboard() {
+  if (error) {
 
     if (
-      !currentProfile ||
-      currentProfile.role !== "admin"
+      error.code ===
+      "23505"
     ) {
 
-      return;
-    }
+      button.textContent =
+        "✓ Aula concluída";
 
-
-    const dashboard =
-      document.getElementById(
-        "adminDashboard"
+      showToast(
+        "Esta aula já foi concluída."
       );
 
+    } else {
 
-    dashboard.classList.add("visible");
+      console.error(
+        error
+      );
+
+      button.disabled =
+        false;
+
+      button.textContent =
+        "✓ Marcar aula como concluída";
+
+      showToast(
+        error.message ||
+        "Não foi possível guardar o progresso.",
+        "error"
+      );
+
+    }
+
+    return;
+
+  }
 
 
-    const {
-      data: payments,
-      error
-    } = await db
+  button.textContent =
+    "✓ Aula concluída";
+
+  button.disabled =
+    true;
+
+
+  showToast(
+    "Aula marcada como concluída!",
+    "success"
+  );
+
+}
+
+
+function closeCourseArea() {
+
+  document.getElementById(
+    "courseArea"
+  ).style.display =
+    "none";
+
+
+  document
+    .getElementById(
+      "dashboard"
+    )
+    .scrollIntoView({
+      behavior:
+        "smooth"
+    });
+
+}
+
+
+/* =========================================================
+   ADMIN
+   ========================================================= */
+
+async function loadAdminDashboard() {
+
+  if (
+    !currentProfile ||
+    currentProfile.role !==
+      "admin"
+  ) {
+
+    document
+      .getElementById(
+        "adminDashboard"
+      )
+      .classList.remove(
+        "visible"
+      );
+
+    return;
+
+  }
+
+
+  const dashboard =
+    document.getElementById(
+      "adminDashboard"
+    );
+
+
+  dashboard.classList.add(
+    "visible"
+  );
+
+
+  const {
+    data: payments,
+    error
+  } =
+    await db
       .from("payments")
       .select("*")
-      .order("created_at", {
-        ascending: false
-      });
-
-
-    if (error) {
-
-      console.error(error);
-
-      document.getElementById(
-        "adminPayments"
-      ).innerHTML =
-        `<div class="empty">
-          Não foi possível carregar os pagamentos.
-        </div>`;
-
-      return;
-    }
-
-
-    const container =
-      document.getElementById(
-        "adminPayments"
+      .order(
+        "created_at",
+        {
+          ascending:
+            false
+        }
       );
 
 
-    if (!payments.length) {
+  if (error) {
 
-      container.innerHTML =
-        `<div class="empty">
-          Não existem pagamentos registados.
-        </div>`;
+    console.error(
+      error
+    );
 
-      return;
-    }
+    document.getElementById(
+      "adminPayments"
+    ).innerHTML = `
 
+      <div class="empty">
 
-    const userIds =
-      [...new Set(
-        payments.map(
-          payment => payment.user_id
-        )
-      )];
+        <div class="empty-icon">
+          ⚠️
+        </div>
 
+        Não foi possível carregar os pagamentos.
 
-    const courseIds =
-      [...new Set(
-        payments.map(
-          payment => payment.course_id
-        )
-      )];
+      </div>
 
+    `;
 
-    let profiles = [];
-    let courses = [];
+    return;
+
+  }
 
 
-    if (userIds.length) {
+  const container =
+    document.getElementById(
+      "adminPayments"
+    );
 
-      const result =
-        await db
-          .from("profiles")
-          .select(
-            "id,full_name,phone"
+
+  if (!payments?.length) {
+
+    container.innerHTML = `
+
+      <div class="empty">
+
+        <div class="empty-icon">
+          💳
+        </div>
+
+        Não existem pagamentos registados.
+
+      </div>
+
+    `;
+
+    return;
+
+  }
+
+
+  const userIds =
+    [
+      ...new Set(
+        payments
+          .map(
+            payment =>
+              payment.user_id
           )
-          .in("id", userIds);
-
-      profiles =
-        result.data || [];
-
-    }
+          .filter(Boolean)
+      )
+    ];
 
 
-    if (courseIds.length) {
-
-      const result =
-        await db
-          .from("courses")
-          .select(
-            "id,title"
+  const courseIds =
+    [
+      ...new Set(
+        payments
+          .map(
+            payment =>
+              payment.course_id
           )
-          .in("id", courseIds);
-
-      courses =
-        result.data || [];
-
-    }
+          .filter(Boolean)
+      )
+    ];
 
 
-    container.innerHTML =
-      payments.map(payment => {
-
-        const profile =
-          profiles.find(
-            item =>
-              item.id === payment.user_id
-          );
+  let profiles = [];
+  let courses = [];
 
 
-        const course =
-          courses.find(
-            item =>
-              item.id === payment.course_id
-          );
+  if (userIds.length) {
+
+    const result =
+      await db
+        .from("profiles")
+        .select(
+          "id,full_name,phone"
+        )
+        .in(
+          "id",
+          userIds
+        );
+
+    profiles =
+      result.data ||
+      [];
+
+  }
 
 
-        const student =
-          escapeHTML(
-            profile?.full_name ||
-            "Aluno"
-          );
+  if (courseIds.length) {
+
+    const result =
+      await db
+        .from("courses")
+        .select(
+          "id,title"
+        )
+        .in(
+          "id",
+          courseIds
+        );
+
+    courses =
+      result.data ||
+      [];
+
+  }
 
 
-        const phone =
-          escapeHTML(
-            profile?.phone || ""
-          );
+  container.innerHTML =
+    payments
+      .map(
+        payment => {
+
+          const profile =
+            profiles.find(
+              item =>
+                item.id ===
+                payment.user_id
+            );
 
 
-        const courseTitle =
-          escapeHTML(
-            course?.title ||
-            "Curso"
-          );
+          const course =
+            courses.find(
+              item =>
+                item.id ===
+                payment.course_id
+            );
 
 
-        const reference =
-          escapeHTML(
-            payment.reference ||
-            "Sem referência"
-          );
+          const student =
+            escapeHTML(
+              profile?.full_name ||
+              "Aluno"
+            );
 
 
-        const note =
-          escapeHTML(
-            payment.proof_note ||
-            ""
-          );
+          const phone =
+            escapeHTML(
+              profile?.phone ||
+              ""
+            );
 
 
-        let statusClass =
-          "status-pending";
+          const courseTitle =
+            escapeHTML(
+              course?.title ||
+              payment.course_title ||
+              "Curso"
+            );
 
-        let statusText =
-          "Pendente";
+
+          const reference =
+            escapeHTML(
+              payment.reference ||
+              "Sem referência"
+            );
 
 
-        if (
-          payment.status === "submitted"
-        ) {
+          const note =
+            escapeHTML(
+              payment.proof_note ||
+              ""
+            );
 
-          statusClass =
+
+          let statusClass =
             "status-pending";
 
-          statusText =
-            "Enviado";
-
-        } else if (
-          payment.status === "approved"
-        ) {
-
-          statusClass =
-            "status-approved";
-
-          statusText =
-            "Aprovado";
-
-        } else if (
-          payment.status === "rejected"
-        ) {
-
-          statusClass =
-            "status-rejected";
-
-          statusText =
-            "Rejeitado";
-
-        }
+          let statusText =
+            "Pendente";
 
 
-        const canDecide =
-          payment.status === "submitted" ||
-          payment.status === "pending";
+          if (
+            payment.status ===
+            "submitted"
+          ) {
+
+            statusClass =
+              "status-pending";
+
+            statusText =
+              "Enviado";
+
+          } else if (
+            payment.status ===
+            "approved"
+          ) {
+
+            statusClass =
+              "status-approved";
+
+            statusText =
+              "Aprovado";
+
+          } else if (
+            payment.status ===
+            "rejected"
+          ) {
+
+            statusClass =
+              "status-rejected";
+
+            statusText =
+              "Rejeitado";
+
+          }
 
 
-        return `
-          <div class="payment-row">
+          const canDecide =
+            payment.status ===
+              "submitted" ||
+            payment.status ===
+              "pending";
 
-            <div style="flex:1">
 
-              <strong>
-                ${student}
-              </strong>
+          return `
+
+            <div class="payment-row">
+
+              <div
+                class="row-main"
+                style="flex:1"
+              >
+
+                <strong>
+                  ${student}
+                </strong>
+
+                ${
+                  phone
+                    ? `
+                      <br>
+                      <small>
+                        📱 ${phone}
+                      </small>
+                    `
+                    : ""
+                }
+
+                <br>
+
+                <strong>
+                  ${courseTitle}
+                </strong>
+
+                <br>
+
+                <small>
+                  Valor:
+                  ${formatPrice(payment.amount)}
+                </small>
+
+                <br>
+
+                <small>
+                  Referência:
+                  ${reference}
+                </small>
+
+                ${
+                  note
+                    ? `
+                      <br>
+                      <small>
+                        Nota:
+                        ${note}
+                      </small>
+                    `
+                    : ""
+                }
+
+                <br>
+
+                <span
+                  class="status ${statusClass}"
+                >
+                  ${statusText}
+                </span>
+
+              </div>
+
 
               ${
-                phone
-                  ? `<br><small>📱 ${phone}</small>`
-                  : ""
-              }
+                canDecide
 
-              <br>
-
-              <strong>
-                ${courseTitle}
-              </strong>
-
-              <br>
-
-              <small>
-                Valor:
-                ${formatPrice(payment.amount)}
-              </small>
-
-              <br>
-
-              <small>
-                Referência:
-                ${reference}
-              </small>
-
-              ${
-                note
                   ? `
-                    <br>
-                    <small>
-                      Nota:
-                      ${note}
-                    </small>
+
+                    <div
+                      style="
+                        display:flex;
+                        gap:8px;
+                        flex-wrap:wrap;
+                      "
+                    >
+
+                      <button
+                        class="btn btn-success"
+                        onclick="decidePayment('${payment.id}', true)"
+                      >
+                        ✓ Aprovar
+                      </button>
+
+                      <button
+                        class="btn btn-danger"
+                        onclick="decidePayment('${payment.id}', false)"
+                      >
+                        × Rejeitar
+                      </button>
+
+                    </div>
+
                   `
+
                   : ""
               }
-
-              <br>
-
-              <span class="status ${statusClass}">
-                ${statusText}
-              </span>
 
             </div>
 
-            ${
-              canDecide
+          `;
 
-              ? `
-                <div style="display:flex;gap:8px;flex-wrap:wrap">
+        }
+      )
+      .join("");
 
-                  <button
-                    class="btn btn-success"
-                    onclick="decidePayment('${payment.id}', true)"
-                  >
-                    Aprovar
-                  </button>
+}
 
-                  <button
-                    class="btn btn-danger"
-                    onclick="decidePayment('${payment.id}', false)"
-                  >
-                    Rejeitar
-                  </button>
 
-                </div>
-              `
+async function decidePayment(
+  paymentId,
+  approve
+) {
 
-              : ""
-            }
+  const action =
+    approve
+      ? "aprovar"
+      : "rejeitar";
 
-          </div>
-        `;
 
-      }).join("");
+  const confirmed =
+    confirm(
+      `Tem certeza que deseja ${action} este pagamento?`
+    );
 
+
+  if (!confirmed) {
+    return;
   }
 
 
-  async function decidePayment(
-    paymentId,
-    approve
-  ) {
-
-    const action =
-      approve
-        ? "aprovar"
-        : "rejeitar";
-
-
-    const confirmed =
-      confirm(
-        `Tem certeza que deseja ${action} este pagamento?`
-      );
-
-
-    if (!confirmed) {
-      return;
-    }
-
-
-    const {
-      error
-    } = await db.rpc(
+  const {
+    error
+  } =
+    await db.rpc(
       "approve_payment",
       {
-        p_payment_id: paymentId,
-        p_approve: approve
+        p_payment_id:
+          paymentId,
+
+        p_approve:
+          approve
       }
     );
 
 
-    if (error) {
+  if (error) {
 
-      console.error(error);
-
-      showToast(
-        error.message ||
-        "Não foi possível atualizar o pagamento.",
-        "error"
-      );
-
-      return;
-    }
-
-
-    showToast(
-      approve
-        ? "Pagamento aprovado com sucesso!"
-        : "Pagamento rejeitado.",
-      "success"
+    console.error(
+      error
     );
 
+    showToast(
+      error.message ||
+      "Não foi possível atualizar o pagamento.",
+      "error"
+    );
 
-    await loadAdminDashboard();
-
-
-    if (currentUser) {
-      await loadStudentDashboard();
-    }
+    return;
 
   }
 
 
-  /* =========================================================
-     INICIALIZAÇÃO
-     ========================================================= */
+  showToast(
+    approve
+      ? "Pagamento aprovado com sucesso!"
+      : "Pagamento rejeitado.",
+    "success"
+  );
 
-  async function init() {
+
+  await loadAdminDashboard();
+
+
+  if (currentUser) {
+
+    await loadStudentDashboard();
+
+  }
+
+}
+
+
+/* =========================================================
+   INICIALIZAÇÃO
+   ========================================================= */
+
+async function init() {
+
+  try {
 
     await loadCourses();
 
-    await refreshUser();
+    /*
+     * Recupera a sessão existente.
+     * Isto também permite que o site reconheça
+     * corretamente a sessão após confirmação do email.
+     */
+
+    const {
+      data,
+      error
+    } =
+      await db.auth.getSession();
+
+
+    if (error) {
+
+      console.error(
+        "Erro ao recuperar sessão:",
+        error
+      );
+
+    }
+
+
+    if (data?.session) {
+
+      currentUser =
+        data.session.user;
+
+      await refreshUser();
+
+    } else {
+
+      currentUser =
+        null;
+
+      currentProfile =
+        null;
+
+      updateNavigation();
+
+    }
+
+
+    cleanAuthUrl();
+
+
+  } catch (error) {
+
+    console.error(
+      "Erro durante inicialização:",
+      error
+    );
+
+  } finally {
+
+    const loader =
+      document.getElementById(
+        "authLoader"
+      );
+
+    if (loader) {
+
+      setTimeout(
+        () => {
+
+          loader.classList.add(
+            "hidden"
+          );
+
+        },
+        250
+      );
+
+    }
 
   }
 
+}
 
-  /*
-   * IMPORTANTE:
-   *
-   * Não fazemos "await refreshUser()" diretamente dentro
-   * do onAuthStateChange.
-   *
-   * O Supabase pode estar a processar a sessão nesse momento.
-   * O setTimeout deixa o processamento da autenticação terminar
-   * antes de carregarmos o perfil.
-   */
+
+/* =========================================================
+   SUPABASE AUTH STATE
+   ========================================================= */
 
 db.auth.onAuthStateChange(
-  (event, session) => {
+  (
+    event,
+    session
+  ) => {
 
     console.log(
       "Evento de autenticação:",
       event
     );
 
-    if (event === "SIGNED_IN") {
 
-      currentUser =
-        session?.user || null;
+    if (
+      event ===
+        "INITIAL_SESSION"
+    ) {
 
-      setTimeout(async () => {
+      /*
+       * init() já recupera a sessão.
+       * Aqui apenas sincronizamos o estado local.
+       */
 
-        await refreshUser();
+      if (session?.user) {
 
-        /*
-         * Depois de o Supabase processar o link
-         * de confirmação, removemos o token
-         * da barra de endereço.
-         */
-        if (
-          window.location.hash.includes(
-            "access_token"
-          )
-        ) {
+        currentUser =
+          session.user;
 
-          window.history.replaceState(
-            {},
-            document.title,
-            window.location.pathname +
-            window.location.search
-          );
+      }
 
-        }
+      return;
 
-      }, 500);
     }
 
 
-    if (event === "SIGNED_OUT") {
+    if (
+      event ===
+        "SIGNED_IN"
+    ) {
 
-      currentUser = null;
+      currentUser =
+        session?.user ||
+        null;
 
-      currentProfile = null;
+
+      /*
+       * Não fazemos await diretamente
+       * dentro deste callback.
+       */
+
+      setTimeout(
+        async () => {
+
+          await refreshUser();
+
+          cleanAuthUrl();
+
+        },
+        300
+      );
+
+      return;
+
+    }
+
+
+    if (
+      event ===
+        "SIGNED_OUT"
+    ) {
+
+      currentUser =
+        null;
+
+      currentProfile =
+        null;
+
 
       hideDashboards();
 
       updateNavigation();
+
+      closeAllModals();
 
     }
 
@@ -3276,23 +8212,26 @@ db.auth.onAuthStateChange(
 );
 
 
-  /* =========================================================
-     FECHAR MODAL AO CLICAR FORA
-     ========================================================= */
+/* =========================================================
+   FECHAR MODAIS
+   ========================================================= */
 
-  document.querySelectorAll(".modal")
-    .forEach(modal => {
+document
+  .querySelectorAll(".modal")
+  .forEach(
+    modal => {
 
       modal.addEventListener(
         "click",
         event => {
 
           if (
-            event.target === modal
+            event.target ===
+            modal
           ) {
 
-            modal.classList.remove(
-              "show"
+            closeModal(
+              modal.id
             );
 
           }
@@ -3300,7 +8239,48 @@ db.auth.onAuthStateChange(
         }
       );
 
-    });
+    }
+  );
+
+
+/* =========================================================
+   ESC FECHA MODAIS
+   ========================================================= */
+
+document.addEventListener(
+  "keydown",
+  event => {
+
+    if (
+      event.key ===
+      "Escape"
+    ) {
+
+      closeAllModals();
+
+      closeMobileMenu();
+
+    }
+
+  }
+);
+
+
+/* =========================================================
+   ANO DO FOOTER
+   ========================================================= */
+
+document.getElementById(
+  "currentYear"
+).textContent =
+  new Date().getFullYear();
+
+
+/* =========================================================
+   START
+   ========================================================= */
+
+init();
 
 </script>
 
