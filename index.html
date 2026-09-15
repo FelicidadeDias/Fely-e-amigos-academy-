@@ -67,8 +67,6 @@
       margin: auto;
     }
 
-    /* HEADER */
-
     header {
       position: sticky;
       top: 0;
@@ -126,8 +124,6 @@
       gap: 8px;
     }
 
-    /* BUTTONS */
-
     .btn {
       border: none;
       border-radius: 10px;
@@ -182,8 +178,6 @@
     .btn-full {
       width: 100%;
     }
-
-    /* HERO */
 
     .hero {
       padding: 80px 0;
@@ -259,8 +253,6 @@
       flex-shrink: 0;
     }
 
-    /* SECTIONS */
-
     section {
       padding: 70px 0;
     }
@@ -279,8 +271,6 @@
     .section-header p {
       color: var(--muted);
     }
-
-    /* COURSES */
 
     .filters {
       display: flex;
@@ -397,8 +387,6 @@
       gap: 8px;
     }
 
-    /* ABOUT */
-
     .about-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -421,8 +409,6 @@
     .about-card p {
       color: var(--muted);
     }
-
-    /* DASHBOARD */
 
     .dashboard {
       display: none;
@@ -495,8 +481,6 @@
       color: #991b1b;
     }
 
-    /* LESSONS */
-
     .lesson-layout {
       display: grid;
       grid-template-columns: 280px 1fr;
@@ -560,8 +544,6 @@
       margin-bottom: 25px;
     }
 
-    /* MODALS */
-
     .modal {
       position: fixed;
       inset: 0;
@@ -621,8 +603,6 @@
       margin-top: 8px;
     }
 
-    /* TOAST */
-
     #toast {
       position: fixed;
       right: 20px;
@@ -641,8 +621,6 @@
       display: block;
     }
 
-    /* WHATSAPP */
-
     .whatsapp {
       position: fixed;
       right: 18px;
@@ -656,8 +634,6 @@
       box-shadow: 0 8px 25px rgba(37, 211, 102, 0.3);
     }
 
-    /* LOADING */
-
     .loading {
       text-align: center;
       padding: 40px;
@@ -669,8 +645,6 @@
       padding: 35px;
       color: var(--muted);
     }
-
-    /* FOOTER */
 
     footer {
       background: #172033;
@@ -696,8 +670,6 @@
     footer a:hover {
       color: white;
     }
-
-    /* MOBILE */
 
     @media (max-width: 900px) {
       .hero-grid {
@@ -771,2352 +743,2550 @@
 
 <body>
 
-  <!-- HEADER -->
-  <header>
-    <div class="container nav">
+<header>
+  <div class="container nav">
 
-      <a href="#inicio" class="logo">
-        <span class="logo-icon">F</span>
-        <span>Fely e Amigos Academy</span>
-      </a>
+    <a href="#inicio" class="logo">
+      <span class="logo-icon">F</span>
+      <span>Fely e Amigos Academy</span>
+    </a>
 
-      <nav class="nav-links">
-        <a href="#inicio">Início</a>
-        <a href="#cursos">Cursos</a>
-        <a href="#sobre">Sobre nós</a>
-        <a href="#contacto">Contacto</a>
-      </nav>
+    <nav class="nav-links">
+      <a href="#inicio">Início</a>
+      <a href="#cursos">Cursos</a>
+      <a href="#sobre">Sobre nós</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
 
-      <div class="nav-actions" id="navActions">
-        <button class="btn btn-outline" onclick="openModal('loginModal')">
-          Entrar
-        </button>
+    <div class="nav-actions" id="navActions">
+      <button class="btn btn-outline" onclick="openModal('loginModal')">
+        Entrar
+      </button>
 
-        <button class="btn btn-primary" onclick="openModal('signupModal')">
-          Criar conta
-        </button>
+      <button class="btn btn-primary" onclick="openModal('signupModal')">
+        Criar conta
+      </button>
+    </div>
+
+  </div>
+</header>
+
+
+<main>
+
+  <section class="hero" id="inicio">
+    <div class="container hero-grid">
+
+      <div>
+        <h1>
+          Aprenda hoje.
+          <span>Prepare o seu futuro.</span>
+        </h1>
+
+        <p>
+          Cursos online práticos, acessíveis e pensados para desenvolver
+          competências úteis para o mercado de trabalho e para o
+          crescimento profissional.
+        </p>
+
+        <div class="hero-actions">
+          <a href="#cursos" class="btn btn-primary">
+            Ver cursos
+          </a>
+
+          <button
+            class="btn btn-secondary"
+            onclick="openWhatsAppGeneral()"
+          >
+            Falar connosco
+          </button>
+        </div>
+      </div>
+
+      <div class="hero-card">
+
+        <h3>Porquê estudar connosco?</h3>
+
+        <div class="hero-feature">
+          <div class="hero-feature-icon">✓</div>
+          <div>
+            <strong>Cursos práticos</strong>
+            <p>Conteúdo focado em competências úteis.</p>
+          </div>
+        </div>
+
+        <div class="hero-feature">
+          <div class="hero-feature-icon">✓</div>
+          <div>
+            <strong>Preços acessíveis</strong>
+            <p>Formação com preços promocionais em Kz.</p>
+          </div>
+        </div>
+
+        <div class="hero-feature">
+          <div class="hero-feature-icon">✓</div>
+          <div>
+            <strong>Aprendizagem online</strong>
+            <p>Estude através do seu telemóvel ou computador.</p>
+          </div>
+        </div>
+
+        <div class="hero-feature">
+          <div class="hero-feature-icon">✓</div>
+          <div>
+            <strong>Conteúdo organizado</strong>
+            <p>Módulos e aulas estruturados por curso.</p>
+          </div>
+        </div>
+
       </div>
 
     </div>
-  </header>
+  </section>
 
 
-  <!-- HERO -->
-  <main>
+  <section id="cursos">
 
-    <section class="hero" id="inicio">
-      <div class="container hero-grid">
+    <div class="container">
+
+      <div class="section-header">
+        <h2>Os nossos cursos</h2>
+        <p>
+          Escolha uma formação e comece a desenvolver novas competências.
+        </p>
+      </div>
+
+      <div class="filters">
+
+        <div class="search-box">
+          <input
+            id="searchInput"
+            class="input"
+            type="search"
+            placeholder="Pesquisar curso..."
+            oninput="filterCourses()"
+          >
+        </div>
+
+        <select
+          id="categoryFilter"
+          class="input"
+          style="max-width:230px"
+          onchange="filterCourses()"
+        >
+          <option value="">Todas as categorias</option>
+        </select>
+
+      </div>
+
+      <div id="coursesGrid" class="courses-grid">
+        <div class="loading">
+          A carregar cursos...
+        </div>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section id="sobre">
+
+    <div class="container">
+
+      <div class="section-header">
+        <h2>Sobre a Fely e Amigos Academy</h2>
+        <p>
+          Formação acessível para quem quer aprender e evoluir.
+        </p>
+      </div>
+
+      <div class="about-grid">
+
+        <div class="about-card">
+          <h3>🎓 Formação</h3>
+          <p>
+            Oferecemos cursos introdutórios e práticos em áreas de
+            informática, tecnologia, negócios, línguas e desenvolvimento
+            profissional.
+          </p>
+        </div>
+
+        <div class="about-card">
+          <h3>💼 Mercado de trabalho</h3>
+          <p>
+            Os conteúdos são organizados para ajudar o aluno a desenvolver
+            conhecimentos aplicáveis em situações profissionais.
+          </p>
+        </div>
+
+        <div class="about-card">
+          <h3>🌍 Acesso online</h3>
+          <p>
+            A plataforma foi pensada para funcionar de forma simples em
+            telemóveis, tablets e computadores.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <section id="dashboard" class="dashboard">
+
+    <div class="container">
+
+      <div class="dashboard-top">
 
         <div>
-          <h1>
-            Aprenda hoje.
-            <span>Prepare o seu futuro.</span>
-          </h1>
-
-          <p>
-            Cursos online práticos, acessíveis e pensados para desenvolver
-            competências úteis para o mercado de trabalho e para o
-            crescimento profissional.
-          </p>
-
-          <div class="hero-actions">
-            <a href="#cursos" class="btn btn-primary">
-              Ver cursos
-            </a>
-
-            <button
-              class="btn btn-secondary"
-              onclick="openWhatsAppGeneral()"
-            >
-              Falar connosco
-            </button>
-          </div>
+          <h2>Área do aluno</h2>
+          <p id="studentWelcome"></p>
         </div>
 
-        <div class="hero-card">
-
-          <h3>Porquê estudar connosco?</h3>
-
-          <div class="hero-feature">
-            <div class="hero-feature-icon">✓</div>
-            <div>
-              <strong>Cursos práticos</strong>
-              <p>Conteúdo focado em competências úteis.</p>
-            </div>
-          </div>
-
-          <div class="hero-feature">
-            <div class="hero-feature-icon">✓</div>
-            <div>
-              <strong>Preços acessíveis</strong>
-              <p>Formação com preços promocionais em Kz.</p>
-            </div>
-          </div>
-
-          <div class="hero-feature">
-            <div class="hero-feature-icon">✓</div>
-            <div>
-              <strong>Aprendizagem online</strong>
-              <p>Estude através do seu telemóvel ou computador.</p>
-            </div>
-          </div>
-
-          <div class="hero-feature">
-            <div class="hero-feature-icon">✓</div>
-            <div>
-              <strong>Conteúdo organizado</strong>
-              <p>Módulos e aulas estruturados por curso.</p>
-            </div>
-          </div>
-
-        </div>
+        <button class="btn btn-danger" onclick="logout()">
+          Sair
+        </button>
 
       </div>
-    </section>
 
+      <div class="dashboard-card">
 
-    <!-- CURSOS -->
-    <section id="cursos">
+        <h3>Minhas inscrições</h3>
 
-      <div class="container">
-
-        <div class="section-header">
-          <h2>Os nossos cursos</h2>
-          <p>
-            Escolha uma formação e comece a desenvolver novas competências.
-          </p>
-        </div>
-
-        <div class="filters">
-
-          <div class="search-box">
-            <input
-              id="searchInput"
-              class="input"
-              type="search"
-              placeholder="Pesquisar curso..."
-              oninput="filterCourses()"
-            >
-          </div>
-
-          <select
-            id="categoryFilter"
-            class="input"
-            style="max-width:230px"
-            onchange="filterCourses()"
-          >
-            <option value="">Todas as categorias</option>
-          </select>
-
-        </div>
-
-        <div id="coursesGrid" class="courses-grid">
+        <div id="studentEnrollments">
           <div class="loading">
-            A carregar cursos...
+            A carregar...
           </div>
         </div>
 
       </div>
 
-    </section>
+    </div>
+
+  </section>
 
 
-    <!-- SOBRE -->
-    <section id="sobre">
+  <section id="adminDashboard" class="dashboard">
 
-      <div class="container">
+    <div class="container">
 
-        <div class="section-header">
-          <h2>Sobre a Fely e Amigos Academy</h2>
-          <p>
-            Formação acessível para quem quer aprender e evoluir.
-          </p>
-        </div>
+      <div class="dashboard-top">
 
-        <div class="about-grid">
-
-          <div class="about-card">
-            <h3>🎓 Formação</h3>
-            <p>
-              Oferecemos cursos introdutórios e práticos em áreas de
-              informática, tecnologia, negócios, línguas e desenvolvimento
-              profissional.
-            </p>
-          </div>
-
-          <div class="about-card">
-            <h3>💼 Mercado de trabalho</h3>
-            <p>
-              Os conteúdos são organizados para ajudar o aluno a desenvolver
-              conhecimentos aplicáveis em situações profissionais.
-            </p>
-          </div>
-
-          <div class="about-card">
-            <h3>🌍 Acesso online</h3>
-            <p>
-              A plataforma foi pensada para funcionar de forma simples em
-              telemóveis, tablets e computadores.
-            </p>
-          </div>
-
+        <div>
+          <h2>Painel administrativo</h2>
+          <p>Gestão de pagamentos e inscrições.</p>
         </div>
 
       </div>
 
-    </section>
+      <div class="dashboard-card">
 
+        <h3>Pagamentos</h3>
 
-    <!-- DASHBOARD DO ALUNO -->
-    <section id="dashboard" class="dashboard">
-
-      <div class="container">
-
-        <div class="dashboard-top">
-
-          <div>
-            <h2>Área do aluno</h2>
-            <p id="studentWelcome"></p>
+        <div id="adminPayments">
+          <div class="loading">
+            A carregar pagamentos...
           </div>
-
-          <button class="btn btn-danger" onclick="logout()">
-            Sair
-          </button>
-
-        </div>
-
-        <div class="dashboard-card">
-
-          <h3>Minhas inscrições</h3>
-
-          <div id="studentEnrollments">
-            <div class="loading">
-              A carregar...
-            </div>
-          </div>
-
         </div>
 
       </div>
 
-    </section>
+    </div>
+
+  </section>
 
 
-    <!-- ÁREA ADMIN -->
-    <section id="adminDashboard" class="dashboard">
+  <section id="courseArea" style="display:none">
 
-      <div class="container">
+    <div class="container">
 
-        <div class="dashboard-top">
+      <div class="dashboard-top">
 
-          <div>
-            <h2>Painel administrativo</h2>
-            <p>Gestão de pagamentos e inscrições.</p>
-          </div>
-
+        <div>
+          <h2 id="courseAreaTitle">Curso</h2>
+          <p id="courseAreaDescription"></p>
         </div>
 
-        <div class="dashboard-card">
-
-          <h3>Pagamentos</h3>
-
-          <div id="adminPayments">
-            <div class="loading">
-              A carregar pagamentos...
-            </div>
-          </div>
-
-        </div>
+        <button
+          class="btn btn-outline"
+          onclick="closeCourseArea()"
+        >
+          Voltar
+        </button>
 
       </div>
 
-    </section>
+      <div class="lesson-layout">
 
+        <aside class="modules" id="modulesList">
+          A carregar módulos...
+        </aside>
 
-    <!-- ÁREA DO CURSO -->
-    <section id="courseArea" style="display:none">
+        <article class="lesson-content">
 
-      <div class="container">
+          <h2 id="lessonTitle">
+            Selecione uma aula
+          </h2>
 
-        <div class="dashboard-top">
-
-          <div>
-            <h2 id="courseAreaTitle">Curso</h2>
-            <p id="courseAreaDescription"></p>
+          <div id="lessonBody" class="lesson-body">
+            Escolha uma aula no menu.
           </div>
 
           <button
-            class="btn btn-outline"
-            onclick="closeCourseArea()"
+            id="completeLessonBtn"
+            class="btn btn-success"
+            style="display:none"
+            onclick="completeCurrentLesson()"
           >
-            Voltar
+            ✓ Marcar aula como concluída
           </button>
 
-        </div>
+        </article>
 
-        <div class="lesson-layout">
-
-          <aside class="modules" id="modulesList">
-            A carregar módulos...
-          </aside>
-
-          <article class="lesson-content">
-
-            <h2 id="lessonTitle">
-              Selecione uma aula
-            </h2>
-
-            <div id="lessonBody" class="lesson-body">
-              Escolha uma aula no menu.
-            </div>
-
-            <button
-              id="completeLessonBtn"
-              class="btn btn-success"
-              style="display:none"
-              onclick="completeCurrentLesson()"
-            >
-              ✓ Marcar aula como concluída
-            </button>
-
-          </article>
-
-        </div>
-
-      </div>
-
-    </section>
-
-  </main>
-
-
-  <!-- FOOTER -->
-  <footer id="contacto">
-
-    <div class="container footer-grid">
-
-      <div>
-        <h3>Fely e Amigos Academy</h3>
-        <p>
-          Cursos online práticos e acessíveis para desenvolver novas
-          competências.
-        </p>
-      </div>
-
-      <div>
-        <h3>Links</h3>
-        <p><a href="#inicio">Início</a></p>
-        <p><a href="#cursos">Cursos</a></p>
-        <p><a href="#sobre">Sobre nós</a></p>
-      </div>
-
-      <div>
-        <h3>Contacto</h3>
-        <p>WhatsApp: 948 138 785</p>
-        <p>
-          <a
-            href="https://wa.me/244948138785"
-            target="_blank"
-            rel="noopener"
-          >
-            Fale connosco
-          </a>
-        </p>
       </div>
 
     </div>
 
-  </footer>
+  </section>
+
+</main>
 
 
-  <!-- LOGIN MODAL -->
-  <div id="loginModal" class="modal">
+<footer id="contacto">
 
-    <div class="modal-box">
+  <div class="container footer-grid">
 
-      <button
-        class="modal-close"
-        onclick="closeModal('loginModal')"
-      >
-        ×
-      </button>
+    <div>
+      <h3>Fely e Amigos Academy</h3>
+      <p>
+        Cursos online práticos e acessíveis para desenvolver novas
+        competências.
+      </p>
+    </div>
 
-      <h2>Entrar na conta</h2>
+    <div>
+      <h3>Links</h3>
+      <p><a href="#inicio">Início</a></p>
+      <p><a href="#cursos">Cursos</a></p>
+      <p><a href="#sobre">Sobre nós</a></p>
+    </div>
 
-      <form onsubmit="login(event)">
-
-        <div class="form-group">
-          <label>Email</label>
-          <input
-            id="loginEmail"
-            class="input"
-            type="email"
-            required
-            placeholder="seuemail@exemplo.com"
-          >
-        </div>
-
-        <div class="form-group">
-          <label>Palavra-passe</label>
-          <input
-            id="loginPassword"
-            class="input"
-            type="password"
-            required
-            placeholder="********"
-          >
-        </div>
-
-        <button class="btn btn-primary btn-full">
-          Entrar
-        </button>
-
-      </form>
-
-      <p class="form-note">
-        Ainda não possui conta?
+    <div>
+      <h3>Contacto</h3>
+      <p>WhatsApp: 948 138 785</p>
+      <p>
         <a
-          href="#"
-          onclick="closeModal('loginModal'); openModal('signupModal'); return false;"
-          style="color:var(--primary);font-weight:bold"
+          href="https://wa.me/244948138785"
+          target="_blank"
+          rel="noopener"
         >
-          Criar conta
+          Fale connosco
         </a>
       </p>
-
     </div>
 
   </div>
 
-
-  <!-- SIGNUP MODAL -->
-  <div id="signupModal" class="modal">
-
-    <div class="modal-box">
-
-      <button
-        class="modal-close"
-        onclick="closeModal('signupModal')"
-      >
-        ×
-      </button>
-
-      <h2>Criar conta</h2>
-
-      <form onsubmit="signup(event)">
-
-        <div class="form-group">
-          <label>Nome completo</label>
-          <input
-            id="signupName"
-            class="input"
-            type="text"
-            required
-            placeholder="Seu nome completo"
-          >
-        </div>
-
-        <div class="form-group">
-          <label>Contacto</label>
-          <input
-            id="signupPhone"
-            class="input"
-            type="tel"
-            placeholder="948 138 785"
-          >
-        </div>
-
-        <div class="form-group">
-          <label>Email</label>
-          <input
-            id="signupEmail"
-            class="input"
-            type="email"
-            required
-            placeholder="seuemail@exemplo.com"
-          >
-        </div>
-
-        <div class="form-group">
-          <label>Palavra-passe</label>
-          <input
-            id="signupPassword"
-            class="input"
-            type="password"
-            minlength="6"
-            required
-            placeholder="Mínimo 6 caracteres"
-          >
-        </div>
-
-        <button class="btn btn-primary btn-full">
-          Criar conta
-        </button>
-
-      </form>
-
-    </div>
-
-  </div>
+</footer>
 
 
-  <!-- INSCRIÇÃO / PAGAMENTO -->
-  <div id="paymentModal" class="modal">
+<div id="loginModal" class="modal">
 
-    <div class="modal-box">
+  <div class="modal-box">
 
-      <button
-        class="modal-close"
-        onclick="closeModal('paymentModal')"
-      >
-        ×
-      </button>
+    <button
+      class="modal-close"
+      onclick="closeModal('loginModal')"
+    >
+      ×
+    </button>
 
-      <h2>Inscrição no curso</h2>
+    <h2>Entrar na conta</h2>
 
-      <div id="paymentCourseInfo"></div>
+    <form onsubmit="login(event)">
 
-      <form onsubmit="submitPayment(event)">
-
+      <div class="form-group">
+        <label>Email</label>
         <input
-          type="hidden"
-          id="paymentEnrollmentId"
+          id="loginEmail"
+          class="input"
+          type="email"
+          required
+          placeholder="seuemail@exemplo.com"
         >
+      </div>
 
-        <div class="form-group">
-          <label>Referência do pagamento</label>
-          <input
-            id="paymentReference"
-            class="input"
-            type="text"
-            required
-            placeholder="Digite a referência da transferência/pagamento"
-          >
-        </div>
+      <div class="form-group">
+        <label>Palavra-passe</label>
+        <input
+          id="loginPassword"
+          class="input"
+          type="password"
+          required
+          placeholder="********"
+        >
+      </div>
 
-        <div class="form-group">
-          <label>Observação / comprovativo</label>
-          <textarea
-            id="paymentNote"
-            rows="4"
-            placeholder="Se necessário, escreva aqui alguma informação sobre o pagamento."
-          ></textarea>
-        </div>
+      <button class="btn btn-primary btn-full">
+        Entrar
+      </button>
 
-        <button class="btn btn-primary btn-full">
-          Enviar pagamento para análise
-        </button>
+    </form>
 
-      </form>
-
-      <p class="form-note">
-        Depois do envio, a equipa da Fely e Amigos Academy irá verificar
-        o pagamento e aprovar a inscrição.
-      </p>
-
-    </div>
+    <p class="form-note">
+      Ainda não possui conta?
+      <a
+        href="#"
+        onclick="closeModal('loginModal'); openModal('signupModal'); return false;"
+        style="color:var(--primary);font-weight:bold"
+      >
+        Criar conta
+      </a>
+    </p>
 
   </div>
 
-
-  <!-- TOAST -->
-  <div id="toast"></div>
+</div>
 
 
-  <!-- WHATSAPP -->
-  <a
-    class="whatsapp"
-    href="https://wa.me/244948138785?text=Ol%C3%A1!%20Gostaria%20de%20saber%20mais%20sobre%20os%20cursos%20da%20Fely%20e%20Amigos%20Academy."
-    target="_blank"
-    rel="noopener"
-  >
-    💬 Fale connosco
-  </a>
+<div id="signupModal" class="modal">
+
+  <div class="modal-box">
+
+    <button
+      class="modal-close"
+      onclick="closeModal('signupModal')"
+    >
+      ×
+    </button>
+
+    <h2>Criar conta</h2>
+
+    <form onsubmit="signup(event)">
+
+      <div class="form-group">
+        <label>Nome completo</label>
+        <input
+          id="signupName"
+          class="input"
+          type="text"
+          required
+          placeholder="Seu nome completo"
+        >
+      </div>
+
+      <div class="form-group">
+        <label>Contacto</label>
+        <input
+          id="signupPhone"
+          class="input"
+          type="tel"
+          placeholder="948 138 785"
+        >
+      </div>
+
+      <div class="form-group">
+        <label>Email</label>
+        <input
+          id="signupEmail"
+          class="input"
+          type="email"
+          required
+          placeholder="seuemail@exemplo.com"
+        >
+      </div>
+
+      <div class="form-group">
+        <label>Palavra-passe</label>
+        <input
+          id="signupPassword"
+          class="input"
+          type="password"
+          minlength="6"
+          required
+          placeholder="Mínimo 6 caracteres"
+        >
+      </div>
+
+      <button class="btn btn-primary btn-full">
+        Criar conta
+      </button>
+
+    </form>
+
+  </div>
+
+</div>
 
 
-  <script>
+<div id="paymentModal" class="modal">
 
-    /* =========================================================
-       CONFIGURAÇÃO SUPABASE
-       ========================================================= */
+  <div class="modal-box">
 
-    const SUPABASE_URL =
-      "https://rzranbusquzrzrqcixcw.supabase.co";
+    <button
+      class="modal-close"
+      onclick="closeModal('paymentModal')"
+    >
+      ×
+    </button>
 
-    const SUPABASE_ANON_KEY =
-      "sb_publishable_L-ImBM6Y2iREXCE2NLvmng_05YhqL9Q";
+    <h2>Inscrição no curso</h2>
 
-    const { createClient } = supabase;
+    <div id="paymentCourseInfo"></div>
 
-    const db = createClient(
-      SUPABASE_URL,
-      SUPABASE_ANON_KEY
-    );
+    <form onsubmit="submitPayment(event)">
+
+      <input
+        type="hidden"
+        id="paymentEnrollmentId"
+      >
+
+      <div class="form-group">
+        <label>Referência do pagamento</label>
+        <input
+          id="paymentReference"
+          class="input"
+          type="text"
+          required
+          placeholder="Digite a referência da transferência/pagamento"
+        >
+      </div>
+
+      <div class="form-group">
+        <label>Observação / comprovativo</label>
+        <textarea
+          id="paymentNote"
+          rows="4"
+          placeholder="Se necessário, escreva aqui alguma informação sobre o pagamento."
+        ></textarea>
+      </div>
+
+      <button class="btn btn-primary btn-full">
+        Enviar pagamento para análise
+      </button>
+
+    </form>
+
+    <p class="form-note">
+      Depois do envio, a equipa da Fely e Amigos Academy irá verificar
+      o pagamento e aprovar a inscrição.
+    </p>
+
+  </div>
+
+</div>
 
 
-    /* =========================================================
-       CONFIGURAÇÕES
-       ========================================================= */
-
-    const WHATSAPP_NUMBER = "244948138785";
-
-    let currentUser = null;
-    let currentProfile = null;
-    let allCourses = [];
-    let currentCourse = null;
-    let currentLesson = null;
+<div id="toast"></div>
 
 
-    /* =========================================================
-       UTILITÁRIOS
-       ========================================================= */
-
-    function formatPrice(value) {
-
-      return new Intl.NumberFormat("pt-AO", {
-        maximumFractionDigits: 0
-      }).format(Number(value)) + " Kz";
-
-    }
+<a
+  class="whatsapp"
+  href="https://wa.me/244948138785?text=Ol%C3%A1!%20Gostaria%20de%20saber%20mais%20sobre%20os%20cursos%20da%20Fely%20e%20Amigos%20Academy."
+  target="_blank"
+  rel="noopener"
+>
+  💬 Fale connosco
+</a>
 
 
-    function escapeHTML(value) {
+<script>
 
-      if (value === null || value === undefined) {
-        return "";
+  /* =========================================================
+     CONFIGURAÇÃO SUPABASE
+     ========================================================= */
+
+  const SUPABASE_URL =
+    "https://rzranbusquzrzrqcixcw.supabase.co";
+
+  const SUPABASE_ANON_KEY =
+    "sb_publishable_L-ImBM6Y2iREXCE2NLvmng_05YhqL9Q";
+
+  const { createClient } = supabase;
+
+
+  /*
+   * IMPORTANTE:
+   * Estas opções permitem que o Supabase mantenha a sessão
+   * e reconheça automaticamente a sessão após a confirmação
+   * do email.
+   */
+
+  const db = createClient(
+    SUPABASE_URL,
+    SUPABASE_ANON_KEY,
+    {
+      auth: {
+        persistSession: true,
+        autoRefreshToken: true,
+        detectSessionInUrl: true
       }
+    }
+  );
 
-      return String(value)
-        .replaceAll("&", "&amp;")
-        .replaceAll("<", "&lt;")
-        .replaceAll(">", "&gt;")
-        .replaceAll('"', "&quot;")
-        .replaceAll("'", "&#039;");
+
+  /* =========================================================
+     CONFIGURAÇÕES
+     ========================================================= */
+
+  const WHATSAPP_NUMBER = "244948138785";
+
+  let currentUser = null;
+  let currentProfile = null;
+  let allCourses = [];
+  let currentCourse = null;
+  let currentLesson = null;
+
+
+  /* =========================================================
+     UTILITÁRIOS
+     ========================================================= */
+
+  function formatPrice(value) {
+
+    return new Intl.NumberFormat("pt-AO", {
+      maximumFractionDigits: 0
+    }).format(Number(value)) + " Kz";
+
+  }
+
+
+  function escapeHTML(value) {
+
+    if (value === null || value === undefined) {
+      return "";
     }
 
+    return String(value)
+      .replaceAll("&", "&amp;")
+      .replaceAll("<", "&lt;")
+      .replaceAll(">", "&gt;")
+      .replaceAll('"', "&quot;")
+      .replaceAll("'", "&#039;");
+  }
 
-    function showToast(message, type = "normal") {
 
-      const toast = document.getElementById("toast");
+  function showToast(message, type = "normal") {
 
-      toast.textContent = message;
-      toast.style.background =
-        type === "error"
-          ? "#dc2626"
-          : type === "success"
-            ? "#15803d"
-            : "#172033";
+    const toast = document.getElementById("toast");
 
-      toast.classList.add("show");
+    toast.textContent = message;
 
-      setTimeout(() => {
-        toast.classList.remove("show");
-      }, 4000);
-    }
+    toast.style.background =
+      type === "error"
+        ? "#dc2626"
+        : type === "success"
+          ? "#15803d"
+          : "#172033";
 
+    toast.classList.add("show");
 
-    function openModal(id) {
+    setTimeout(() => {
+      toast.classList.remove("show");
+    }, 4000);
+  }
 
-      document.getElementById(id).classList.add("show");
 
-    }
+  function openModal(id) {
 
+    document.getElementById(id).classList.add("show");
 
-    function closeModal(id) {
+  }
 
-      document.getElementById(id).classList.remove("show");
 
-    }
+  function closeModal(id) {
 
+    document.getElementById(id).classList.remove("show");
 
-    function scrollToSection(id) {
+  }
 
-      document
-        .getElementById(id)
-        ?.scrollIntoView({ behavior: "smooth" });
 
-    }
+  function scrollToSection(id) {
 
-
-    /* =========================================================
-       WHATSAPP
-       ========================================================= */
-
-    function openWhatsApp(courseTitle, price) {
-
-      const formattedPrice = formatPrice(price);
-
-      const message =
-        `Olá! Tenho interesse no curso "${courseTitle}" da Fely e Amigos Academy. ` +
-        `O preço promocional é ${formattedPrice}. ` +
-        `Gostaria de saber como fazer a inscrição.`;
-
-      const url =
-        `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
-
-      window.open(url, "_blank");
-
-    }
-
-
-    function openWhatsAppGeneral() {
-
-      const message =
-        "Olá! Gostaria de saber mais sobre os cursos da Fely e Amigos Academy.";
-
-      const url =
-        `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
-
-      window.open(url, "_blank");
-
-    }
-
-
-    /* =========================================================
-       CURSOS
-       ========================================================= */
-
-    async function loadCourses() {
-
-      const grid = document.getElementById("coursesGrid");
-
-      grid.innerHTML =
-        `<div class="loading">A carregar cursos...</div>`;
-
-      const { data, error } = await db
-        .from("courses")
-        .select("*")
-        .eq("active", true)
-        .order("created_at", { ascending: true });
-
-      if (error) {
-
-        console.error(error);
-
-        grid.innerHTML =
-          `<div class="empty">
-            Não foi possível carregar os cursos.
-          </div>`;
-
-        return;
-      }
-
-      allCourses = data || [];
-
-      loadCategories();
-
-      renderCourses(allCourses);
-
-    }
-
-
-    function loadCategories() {
-
-      const select =
-        document.getElementById("categoryFilter");
-
-      const categories =
-        [...new Set(
-          allCourses
-            .map(course => course.category)
-            .filter(Boolean)
-        )].sort();
-
-      select.innerHTML =
-        `<option value="">Todas as categorias</option>`;
-
-      categories.forEach(category => {
-
-        const option =
-          document.createElement("option");
-
-        option.value = category;
-        option.textContent = category;
-
-        select.appendChild(option);
-
-      });
-
-    }
-
-
-    function renderCourses(courses) {
-
-      const grid =
-        document.getElementById("coursesGrid");
-
-      if (!courses.length) {
-
-        grid.innerHTML =
-          `<div class="empty">
-            Nenhum curso encontrado.
-          </div>`;
-
-        return;
-      }
-
-      grid.innerHTML =
-        courses.map(course => {
-
-          const title =
-            escapeHTML(course.title);
-
-          const category =
-            escapeHTML(course.category || "Formação");
-
-          const description =
-            escapeHTML(
-              course.description ||
-              "Curso prático para desenvolver novas competências."
-            );
-
-          const duration =
-            escapeHTML(course.duration || "2–4 semanas");
-
-          const level =
-            escapeHTML(course.level || "Base");
-
-          const price =
-            formatPrice(course.price);
-
-          return `
-            <article class="course-card">
-
-              <div class="course-image">
-                ${title}
-              </div>
-
-              <div class="course-body">
-
-                <div class="course-category">
-                  ${category}
-                </div>
-
-                <h3 class="course-title">
-                  ${title}
-                </h3>
-
-                <p class="course-description">
-                  ${description}
-                </p>
-
-                <div class="course-meta">
-                  <span>📚 ${level}</span>
-                  <span>⏱ ${duration}</span>
-                </div>
-
-                <div class="price">
-                  ${price}
-                </div>
-
-                <div class="course-buttons">
-
-                  <button
-                    class="btn btn-primary"
-                    onclick="startEnrollment('${course.id}')"
-                  >
-                    Inscrever
-                  </button>
-
-                  <button
-                    class="btn btn-outline"
-                    onclick="openWhatsApp('${escapeHTML(course.title).replaceAll("'", "\\'")}', ${Number(course.price)})"
-                  >
-                    WhatsApp
-                  </button>
-
-                </div>
-
-              </div>
-
-            </article>
-          `;
-
-        }).join("");
-
-    }
-
-
-    function filterCourses() {
-
-      const search =
-        document
-          .getElementById("searchInput")
-          .value
-          .toLowerCase()
-          .trim();
-
-      const category =
-        document
-          .getElementById("categoryFilter")
-          .value;
-
-      const filtered =
-        allCourses.filter(course => {
-
-          const matchesSearch =
-            !search ||
-            course.title?.toLowerCase().includes(search) ||
-            course.description?.toLowerCase().includes(search) ||
-            course.category?.toLowerCase().includes(search);
-
-          const matchesCategory =
-            !category ||
-            course.category === category;
-
-          return matchesSearch && matchesCategory;
-
-        });
-
-      renderCourses(filtered);
-
-    }
-
-
-    /* =========================================================
-       AUTENTICAÇÃO
-       ========================================================= */
-
-    async function signup(event) {
-
-      event.preventDefault();
-
-      const name =
-        document.getElementById("signupName").value.trim();
-
-      const phone =
-        document.getElementById("signupPhone").value.trim();
-
-      const email =
-        document.getElementById("signupEmail").value.trim();
-
-      const password =
-        document.getElementById("signupPassword").value;
-
-      const button =
-        event.submitter;
-
-      button.disabled = true;
-      button.textContent = "A criar conta...";
-
-      const { data, error } =
-        await db.auth.signUp({
-
-          email,
-          password,
-
-          options: {
-            data: {
-              full_name: name,
-              phone: phone
-            }
-          }
-
-        });
-
-      button.disabled = false;
-      button.textContent = "Criar conta";
-
-      if (error) {
-
-        console.error(error);
-
-        showToast(
-          error.message,
-          "error"
-        );
-
-        return;
-      }
-
-      closeModal("signupModal");
-
-      if (data.session) {
-
-        showToast(
-          "Conta criada com sucesso!",
-          "success"
-        );
-
-      } else {
-
-        showToast(
-          "Conta criada. Verifique o seu email para confirmar a conta.",
-          "success"
-        );
-
-      }
-
-      event.target.reset();
-
-    }
-
-
-    async function login(event) {
-
-      event.preventDefault();
-
-      const email =
-        document.getElementById("loginEmail").value.trim();
-
-      const password =
-        document.getElementById("loginPassword").value;
-
-      const button =
-        event.submitter;
-
-      button.disabled = true;
-      button.textContent = "A entrar...";
-
-      const { error } =
-        await db.auth.signInWithPassword({
-          email,
-          password
-        });
-
-      button.disabled = false;
-      button.textContent = "Entrar";
-
-      if (error) {
-
-        showToast(
-          "Email ou palavra-passe incorretos.",
-          "error"
-        );
-
-        return;
-      }
-
-      closeModal("loginModal");
-
-      showToast(
-        "Login efetuado com sucesso!",
-        "success"
-      );
-
-      event.target.reset();
-
-      await refreshUser();
-
-    }
-
-
-    async function logout() {
-
-      await db.auth.signOut();
-
-      currentUser = null;
-      currentProfile = null;
-
-      hideDashboards();
-
-      updateNavigation();
-
-      showToast(
-        "Sessão terminada.",
-        "success"
-      );
-
-      window.scrollTo({
-        top: 0,
+    document
+      .getElementById(id)
+      ?.scrollIntoView({
         behavior: "smooth"
       });
 
+  }
+
+
+  /* =========================================================
+     WHATSAPP
+     ========================================================= */
+
+  function openWhatsApp(courseTitle, price) {
+
+    const formattedPrice = formatPrice(price);
+
+    const message =
+      `Olá! Tenho interesse no curso "${courseTitle}" da Fely e Amigos Academy. ` +
+      `O preço promocional é ${formattedPrice}. ` +
+      `Gostaria de saber como fazer a inscrição.`;
+
+    const url =
+      `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+
+    window.open(url, "_blank");
+
+  }
+
+
+  function openWhatsAppGeneral() {
+
+    const message =
+      "Olá! Gostaria de saber mais sobre os cursos da Fely e Amigos Academy.";
+
+    const url =
+      `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+
+    window.open(url, "_blank");
+
+  }
+
+
+  /* =========================================================
+     CURSOS
+     ========================================================= */
+
+  async function loadCourses() {
+
+    const grid =
+      document.getElementById("coursesGrid");
+
+    grid.innerHTML =
+      `<div class="loading">A carregar cursos...</div>`;
+
+    const {
+      data,
+      error
+    } = await db
+      .from("courses")
+      .select("*")
+      .eq("active", true)
+      .order("created_at", {
+        ascending: true
+      });
+
+    if (error) {
+
+      console.error(error);
+
+      grid.innerHTML =
+        `<div class="empty">
+          Não foi possível carregar os cursos.
+        </div>`;
+
+      return;
     }
 
+    allCourses = data || [];
 
-    /* =========================================================
-       UTILIZADOR / PERFIL
-       ========================================================= */
+    loadCategories();
 
-    async function refreshUser() {
+    renderCourses(allCourses);
 
-      const {
-        data: {
-          user
-        }
-      } = await db.auth.getUser();
+  }
 
-      currentUser = user;
 
-      if (!user) {
+  function loadCategories() {
 
-        currentProfile = null;
+    const select =
+      document.getElementById("categoryFilter");
 
-        hideDashboards();
-        updateNavigation();
+    const categories =
+      [...new Set(
+        allCourses
+          .map(course => course.category)
+          .filter(Boolean)
+      )].sort();
 
-        return;
-      }
+    select.innerHTML =
+      `<option value="">Todas as categorias</option>`;
 
-      const {
-        data: profile,
-        error
-      } = await db
-        .from("profiles")
-        .select("*")
-        .eq("id", user.id)
-        .single();
+    categories.forEach(category => {
 
-      if (error) {
+      const option =
+        document.createElement("option");
 
-        console.error(error);
+      option.value = category;
+      option.textContent = category;
 
-        currentProfile = null;
+      select.appendChild(option);
 
-      } else {
+    });
 
-        currentProfile = profile;
+  }
 
-      }
 
-      updateNavigation();
+  function renderCourses(courses) {
 
-      await loadStudentDashboard();
+    const grid =
+      document.getElementById("coursesGrid");
 
-      if (
-        currentProfile &&
-        currentProfile.role === "admin"
-      ) {
+    if (!courses.length) {
 
-        await loadAdminDashboard();
+      grid.innerHTML =
+        `<div class="empty">
+          Nenhum curso encontrado.
+        </div>`;
 
-      }
-
+      return;
     }
 
+    grid.innerHTML =
+      courses.map(course => {
 
-    function updateNavigation() {
+        const title =
+          escapeHTML(course.title);
 
-      const nav =
-        document.getElementById("navActions");
+        const category =
+          escapeHTML(course.category || "Formação");
 
-      if (!currentUser) {
-
-        nav.innerHTML = `
-          <button
-            class="btn btn-outline"
-            onclick="openModal('loginModal')"
-          >
-            Entrar
-          </button>
-
-          <button
-            class="btn btn-primary"
-            onclick="openModal('signupModal')"
-          >
-            Criar conta
-          </button>
-        `;
-
-        return;
-      }
-
-      const name =
-        escapeHTML(
-          currentProfile?.full_name ||
-          currentUser.email
-        );
-
-      nav.innerHTML = `
-        <button
-          class="btn btn-primary"
-          onclick="scrollToSection('dashboard')"
-        >
-          Olá, ${name.split(" ")[0]}
-        </button>
-
-        <button
-          class="btn btn-danger"
-          onclick="logout()"
-        >
-          Sair
-        </button>
-      `;
-
-    }
-
-
-    function hideDashboards() {
-
-      document
-        .getElementById("dashboard")
-        .classList.remove("visible");
-
-      document
-        .getElementById("adminDashboard")
-        .classList.remove("visible");
-
-      document
-        .getElementById("courseArea")
-        .style.display = "none";
-
-    }
-
-
-    /* =========================================================
-       INSCRIÇÃO
-       ========================================================= */
-
-    async function startEnrollment(courseId) {
-
-      if (!currentUser) {
-
-        showToast(
-          "Crie uma conta ou entre para fazer a inscrição."
-        );
-
-        openModal("loginModal");
-
-        return;
-      }
-
-      const course =
-        allCourses.find(
-          item => item.id === courseId
-        );
-
-      if (!course) {
-
-        showToast(
-          "Curso não encontrado.",
-          "error"
-        );
-
-        return;
-      }
-
-      currentCourse = course;
-
-      const {
-        data: enrollmentId,
-        error
-      } = await db.rpc(
-        "create_enrollment",
-        {
-          p_course_id: courseId
-        }
-      );
-
-      if (error) {
-
-        console.error(error);
-
-        if (
-          error.message &&
-          error.message.toLowerCase().includes("already")
-        ) {
-
-          showToast(
-            "Já existe uma inscrição para este curso.",
-            "error"
+        const description =
+          escapeHTML(
+            course.description ||
+            "Curso prático para desenvolver novas competências."
           );
 
-        } else {
+        const duration =
+          escapeHTML(course.duration || "2–4 semanas");
 
-          showToast(
-            error.message ||
-            "Não foi possível criar a inscrição.",
-            "error"
-          );
+        const level =
+          escapeHTML(course.level || "Base");
 
-        }
+        const price =
+          formatPrice(course.price);
 
-        return;
-      }
+        const safeTitle =
+          String(course.title || "")
+            .replaceAll("\\", "\\\\")
+            .replaceAll("'", "\\'")
+            .replaceAll("\n", " ")
+            .replaceAll("\r", " ");
 
-      document.getElementById(
-        "paymentEnrollmentId"
-      ).value = enrollmentId;
+        return `
+          <article class="course-card">
 
-      document.getElementById(
-        "paymentCourseInfo"
-      ).innerHTML = `
-        <div
-          style="
-            background:#f1f5f9;
-            padding:15px;
-            border-radius:12px;
-            margin-bottom:20px;
-          "
-        >
-          <strong>${escapeHTML(course.title)}</strong>
+            <div class="course-image">
+              ${title}
+            </div>
 
-          <br>
+            <div class="course-body">
 
-          <span style="color:var(--primary);font-weight:800">
-            ${formatPrice(course.price)}
-          </span>
-        </div>
-
-        <p style="margin-bottom:20px">
-          Efetue o pagamento através do método indicado pela
-          Fely e Amigos Academy e depois coloque abaixo a
-          referência do pagamento.
-        </p>
-      `;
-
-      document.getElementById(
-        "paymentReference"
-      ).value = "";
-
-      document.getElementById(
-        "paymentNote"
-      ).value = "";
-
-      openModal("paymentModal");
-
-    }
-
-
-    async function submitPayment(event) {
-
-      event.preventDefault();
-
-      const enrollmentId =
-        document.getElementById(
-          "paymentEnrollmentId"
-        ).value;
-
-      const reference =
-        document.getElementById(
-          "paymentReference"
-        ).value.trim();
-
-      const note =
-        document.getElementById(
-          "paymentNote"
-        ).value.trim();
-
-      if (!reference) {
-
-        showToast(
-          "Digite a referência do pagamento.",
-          "error"
-        );
-
-        return;
-      }
-
-      const button =
-        event.submitter;
-
-      button.disabled = true;
-      button.textContent = "A enviar...";
-
-      const {
-        error
-      } = await db.rpc(
-        "submit_payment",
-        {
-          p_enrollment_id: enrollmentId,
-          p_reference: reference,
-          p_proof_note: note || null
-        }
-      );
-
-      button.disabled = false;
-      button.textContent =
-        "Enviar pagamento para análise";
-
-      if (error) {
-
-        console.error(error);
-
-        showToast(
-          error.message ||
-          "Não foi possível enviar o pagamento.",
-          "error"
-        );
-
-        return;
-      }
-
-      closeModal("paymentModal");
-
-      showToast(
-        "Pagamento enviado para análise!",
-        "success"
-      );
-
-      await loadStudentDashboard();
-
-    }
-
-
-    /* =========================================================
-       DASHBOARD DO ALUNO
-       ========================================================= */
-
-    async function loadStudentDashboard() {
-
-      if (!currentUser) {
-        return;
-      }
-
-      const dashboard =
-        document.getElementById("dashboard");
-
-      dashboard.classList.add("visible");
-
-      const name =
-        currentProfile?.full_name ||
-        currentUser.email;
-
-      document.getElementById(
-        "studentWelcome"
-      ).textContent =
-        `Bem-vindo, ${name}!`;
-
-      const {
-        data,
-        error
-      } = await db
-        .from("enrollments")
-        .select("*")
-        .eq("user_id", currentUser.id)
-        .order("created_at", {
-          ascending: false
-        });
-
-      if (error) {
-
-        console.error(error);
-
-        document.getElementById(
-          "studentEnrollments"
-        ).innerHTML =
-          `<div class="empty">
-            Não foi possível carregar as inscrições.
-          </div>`;
-
-        return;
-      }
-
-      const container =
-        document.getElementById(
-          "studentEnrollments"
-        );
-
-      if (!data || !data.length) {
-
-        container.innerHTML =
-          `<div class="empty">
-            Ainda não possui inscrições.
-            <br><br>
-            <a
-              href="#cursos"
-              class="btn btn-primary"
-            >
-              Ver cursos
-            </a>
-          </div>`;
-
-        return;
-      }
-
-      container.innerHTML =
-        data.map(enrollment => {
-
-          let statusClass =
-            "status-pending";
-
-          let statusText =
-            "Pendente";
-
-          if (
-            enrollment.status === "approved"
-          ) {
-
-            statusClass =
-              "status-approved";
-
-            statusText =
-              "Aprovado";
-
-          } else if (
-            enrollment.status === "rejected"
-          ) {
-
-            statusClass =
-              "status-rejected";
-
-            statusText =
-              "Rejeitado";
-
-          }
-
-          const title =
-            escapeHTML(
-              enrollment.course_title ||
-              "Curso"
-            );
-
-          return `
-            <div class="enrollment-row">
-
-              <div>
-                <strong>${title}</strong>
-
-                <br>
-
-                <small>
-                  ${formatPrice(enrollment.amount)}
-                </small>
-
-                <br>
-
-                <span class="status ${statusClass}">
-                  ${statusText}
-                </span>
+              <div class="course-category">
+                ${category}
               </div>
 
-              <div>
+              <h3 class="course-title">
+                ${title}
+              </h3>
 
-                ${
-                  enrollment.status === "approved"
+              <p class="course-description">
+                ${description}
+              </p>
 
-                  ? `
-                    <button
-                      class="btn btn-success"
-                      onclick="openApprovedCourse('${enrollment.course_id}')"
-                    >
-                      Acessar curso
-                    </button>
-                  `
+              <div class="course-meta">
+                <span>📚 ${level}</span>
+                <span>⏱ ${duration}</span>
+              </div>
 
-                  : enrollment.status === "pending"
+              <div class="price">
+                ${price}
+              </div>
 
-                  ? `
-                    <button
-                      class="btn btn-secondary"
-                      onclick="showToast('A inscrição está pendente de confirmação.')"
-                    >
-                      Aguardando confirmação
-                    </button>
-                  `
+              <div class="course-buttons">
 
-                  : `
-                    <button
-                      class="btn btn-outline"
-                      onclick="showToast('Esta inscrição foi rejeitada. Contacte-nos pelo WhatsApp.')"
-                    >
-                      Contactar
-                    </button>
-                  `
-                }
+                <button
+                  class="btn btn-primary"
+                  onclick="startEnrollment('${course.id}')"
+                >
+                  Inscrever
+                </button>
+
+                <button
+                  class="btn btn-outline"
+                  onclick="openWhatsApp('${safeTitle}', ${Number(course.price)})"
+                >
+                  WhatsApp
+                </button>
 
               </div>
 
             </div>
-          `;
 
-        }).join("");
+          </article>
+        `;
+
+      }).join("");
+
+  }
+
+
+  function filterCourses() {
+
+    const search =
+      document
+        .getElementById("searchInput")
+        .value
+        .toLowerCase()
+        .trim();
+
+    const category =
+      document
+        .getElementById("categoryFilter")
+        .value;
+
+    const filtered =
+      allCourses.filter(course => {
+
+        const matchesSearch =
+          !search ||
+          course.title?.toLowerCase().includes(search) ||
+          course.description?.toLowerCase().includes(search) ||
+          course.category?.toLowerCase().includes(search);
+
+        const matchesCategory =
+          !category ||
+          course.category === category;
+
+        return matchesSearch && matchesCategory;
+
+      });
+
+    renderCourses(filtered);
+
+  }
+
+
+  /* =========================================================
+     AUTENTICAÇÃO
+     ========================================================= */
+
+  async function signup(event) {
+
+    event.preventDefault();
+
+    const name =
+      document.getElementById("signupName").value.trim();
+
+    const phone =
+      document.getElementById("signupPhone").value.trim();
+
+    const email =
+      document.getElementById("signupEmail").value.trim();
+
+    const password =
+      document.getElementById("signupPassword").value;
+
+    const button =
+      event.submitter;
+
+    button.disabled = true;
+    button.textContent = "A criar conta...";
+
+
+    /*
+     * URL PARA ONDE O UTILIZADOR VOLTA DEPOIS
+     * DE CONFIRMAR O EMAIL.
+     *
+     * new URL("./", window.location.href)
+     * funciona tanto em localhost como no GitHub Pages.
+     */
+
+    const emailRedirectTo =
+      new URL("./", window.location.href).href;
+
+
+    const {
+      data,
+      error
+    } =
+      await db.auth.signUp({
+
+        email,
+        password,
+
+        options: {
+          emailRedirectTo,
+
+          data: {
+            full_name: name,
+            phone: phone
+          }
+        }
+
+      });
+
+
+    button.disabled = false;
+    button.textContent = "Criar conta";
+
+
+    if (error) {
+
+      console.error(error);
+
+      showToast(
+        error.message,
+        "error"
+      );
+
+      return;
+    }
+
+
+    closeModal("signupModal");
+
+
+    if (data.session) {
+
+      showToast(
+        "Conta criada com sucesso!",
+        "success"
+      );
+
+      await refreshUser();
+
+    } else {
+
+      showToast(
+        "Conta criada. Verifique o seu email para confirmar a conta.",
+        "success"
+      );
 
     }
 
 
-    /* =========================================================
-       CURSO / MÓDULOS / AULAS
-       ========================================================= */
+    event.target.reset();
 
-    async function openApprovedCourse(courseId) {
+  }
 
-      if (!currentUser) {
+
+  async function login(event) {
+
+    event.preventDefault();
+
+    const email =
+      document.getElementById("loginEmail").value.trim();
+
+    const password =
+      document.getElementById("loginPassword").value;
+
+    const button =
+      event.submitter;
+
+    button.disabled = true;
+    button.textContent = "A entrar...";
+
+
+    const {
+      error
+    } =
+      await db.auth.signInWithPassword({
+        email,
+        password
+      });
+
+
+    button.disabled = false;
+    button.textContent = "Entrar";
+
+
+    if (error) {
+
+      showToast(
+        "Email ou palavra-passe incorretos.",
+        "error"
+      );
+
+      return;
+    }
+
+
+    closeModal("loginModal");
+
+    showToast(
+      "Login efetuado com sucesso!",
+      "success"
+    );
+
+    event.target.reset();
+
+    await refreshUser();
+
+  }
+
+
+  async function logout() {
+
+    const {
+      error
+    } = await db.auth.signOut();
+
+    if (error) {
+
+      console.error(error);
+
+      showToast(
+        error.message ||
+        "Não foi possível terminar a sessão.",
+        "error"
+      );
+
+      return;
+    }
+
+
+    currentUser = null;
+    currentProfile = null;
+
+    hideDashboards();
+
+    updateNavigation();
+
+    showToast(
+      "Sessão terminada.",
+      "success"
+    );
+
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+
+  }
+
+
+  /* =========================================================
+     UTILIZADOR / PERFIL
+     ========================================================= */
+
+  async function refreshUser() {
+
+    const {
+      data: {
+        user
+      }
+    } = await db.auth.getUser();
+
+
+    currentUser = user;
+
+
+    if (!user) {
+
+      currentProfile = null;
+
+      hideDashboards();
+      updateNavigation();
+
+      return;
+    }
+
+
+    const {
+      data: profile,
+      error
+    } = await db
+      .from("profiles")
+      .select("*")
+      .eq("id", user.id)
+      .single();
+
+
+    if (error) {
+
+      console.error(error);
+
+      currentProfile = null;
+
+    } else {
+
+      currentProfile = profile;
+
+    }
+
+
+    updateNavigation();
+
+    await loadStudentDashboard();
+
+
+    if (
+      currentProfile &&
+      currentProfile.role === "admin"
+    ) {
+
+      await loadAdminDashboard();
+
+    }
+
+  }
+
+
+  function updateNavigation() {
+
+    const nav =
+      document.getElementById("navActions");
+
+
+    if (!currentUser) {
+
+      nav.innerHTML = `
+        <button
+          class="btn btn-outline"
+          onclick="openModal('loginModal')"
+        >
+          Entrar
+        </button>
+
+        <button
+          class="btn btn-primary"
+          onclick="openModal('signupModal')"
+        >
+          Criar conta
+        </button>
+      `;
+
+      return;
+    }
+
+
+    const name =
+      escapeHTML(
+        currentProfile?.full_name ||
+        currentUser.email
+      );
+
+
+    nav.innerHTML = `
+      <button
+        class="btn btn-primary"
+        onclick="scrollToSection('dashboard')"
+      >
+        Olá, ${name.split(" ")[0]}
+      </button>
+
+      <button
+        class="btn btn-danger"
+        onclick="logout()"
+      >
+        Sair
+      </button>
+    `;
+
+  }
+
+
+  function hideDashboards() {
+
+    document
+      .getElementById("dashboard")
+      .classList.remove("visible");
+
+    document
+      .getElementById("adminDashboard")
+      .classList.remove("visible");
+
+    document
+      .getElementById("courseArea")
+      .style.display = "none";
+
+  }
+
+
+  /* =========================================================
+     INSCRIÇÃO
+     ========================================================= */
+
+  async function startEnrollment(courseId) {
+
+    if (!currentUser) {
+
+      showToast(
+        "Crie uma conta ou entre para fazer a inscrição."
+      );
+
+      openModal("loginModal");
+
+      return;
+    }
+
+
+    const course =
+      allCourses.find(
+        item => item.id === courseId
+      );
+
+
+    if (!course) {
+
+      showToast(
+        "Curso não encontrado.",
+        "error"
+      );
+
+      return;
+    }
+
+
+    currentCourse = course;
+
+
+    const {
+      data: enrollmentId,
+      error
+    } = await db.rpc(
+      "create_enrollment",
+      {
+        p_course_id: courseId
+      }
+    );
+
+
+    if (error) {
+
+      console.error(error);
+
+
+      if (
+        error.message &&
+        error.message
+          .toLowerCase()
+          .includes("already")
+      ) {
 
         showToast(
-          "Precisa estar autenticado.",
+          "Já existe uma inscrição para este curso.",
           "error"
         );
 
-        return;
-      }
-
-      const enrollmentResult =
-        await db
-          .from("enrollments")
-          .select("*")
-          .eq("user_id", currentUser.id)
-          .eq("course_id", courseId)
-          .eq("status", "approved")
-          .limit(1)
-          .maybeSingle();
-
-      if (enrollmentResult.error) {
-
-        console.error(
-          enrollmentResult.error
-        );
+      } else {
 
         showToast(
-          "Não foi possível verificar a inscrição.",
+          error.message ||
+          "Não foi possível criar a inscrição.",
           "error"
         );
 
-        return;
       }
 
-      if (!enrollmentResult.data) {
+      return;
+    }
 
-        showToast(
-          "Ainda não possui acesso a este curso.",
-          "error"
-        );
 
-        return;
+    document.getElementById(
+      "paymentEnrollmentId"
+    ).value = enrollmentId;
+
+
+    document.getElementById(
+      "paymentCourseInfo"
+    ).innerHTML = `
+      <div
+        style="
+          background:#f1f5f9;
+          padding:15px;
+          border-radius:12px;
+          margin-bottom:20px;
+        "
+      >
+        <strong>${escapeHTML(course.title)}</strong>
+
+        <br>
+
+        <span style="color:var(--primary);font-weight:800">
+          ${formatPrice(course.price)}
+        </span>
+      </div>
+
+      <p style="margin-bottom:20px">
+        Efetue o pagamento através do método indicado pela
+        Fely e Amigos Academy e depois coloque abaixo a
+        referência do pagamento.
+      </p>
+    `;
+
+
+    document.getElementById(
+      "paymentReference"
+    ).value = "";
+
+
+    document.getElementById(
+      "paymentNote"
+    ).value = "";
+
+
+    openModal("paymentModal");
+
+  }
+
+
+  async function submitPayment(event) {
+
+    event.preventDefault();
+
+
+    const enrollmentId =
+      document.getElementById(
+        "paymentEnrollmentId"
+      ).value;
+
+
+    const reference =
+      document.getElementById(
+        "paymentReference"
+      ).value.trim();
+
+
+    const note =
+      document.getElementById(
+        "paymentNote"
+      ).value.trim();
+
+
+    if (!reference) {
+
+      showToast(
+        "Digite a referência do pagamento.",
+        "error"
+      );
+
+      return;
+    }
+
+
+    const button =
+      event.submitter;
+
+    button.disabled = true;
+    button.textContent = "A enviar...";
+
+
+    const {
+      error
+    } = await db.rpc(
+      "submit_payment",
+      {
+        p_enrollment_id: enrollmentId,
+        p_reference: reference,
+        p_proof_note: note || null
       }
+    );
 
-      const course =
-        allCourses.find(
-          item => item.id === courseId
-        );
 
-      if (!course) {
+    button.disabled = false;
+    button.textContent =
+      "Enviar pagamento para análise";
 
-        showToast(
-          "Curso não encontrado.",
-          "error"
-        );
 
-        return;
-      }
+    if (error) {
 
-      currentCourse = course;
+      console.error(error);
+
+      showToast(
+        error.message ||
+        "Não foi possível enviar o pagamento.",
+        "error"
+      );
+
+      return;
+    }
+
+
+    closeModal("paymentModal");
+
+
+    showToast(
+      "Pagamento enviado para análise!",
+      "success"
+    );
+
+
+    await loadStudentDashboard();
+
+  }
+
+
+  /* =========================================================
+     DASHBOARD DO ALUNO
+     ========================================================= */
+
+  async function loadStudentDashboard() {
+
+    if (!currentUser) {
+      return;
+    }
+
+
+    const dashboard =
+      document.getElementById("dashboard");
+
+    dashboard.classList.add("visible");
+
+
+    const name =
+      currentProfile?.full_name ||
+      currentUser.email;
+
+
+    document.getElementById(
+      "studentWelcome"
+    ).textContent =
+      `Bem-vindo, ${name}!`;
+
+
+    const {
+      data,
+      error
+    } = await db
+      .from("enrollments")
+      .select("*")
+      .eq("user_id", currentUser.id)
+      .order("created_at", {
+        ascending: false
+      });
+
+
+    if (error) {
+
+      console.error(error);
 
       document.getElementById(
-        "courseArea"
-      ).style.display = "block";
-
-      document.getElementById(
-        "courseAreaTitle"
-      ).textContent =
-        course.title;
-
-      document.getElementById(
-        "courseAreaDescription"
-      ).textContent =
-        course.description || "";
-
-      document.getElementById(
-        "modulesList"
+        "studentEnrollments"
       ).innerHTML =
-        `<div class="loading">
-          A carregar módulos...
+        `<div class="empty">
+          Não foi possível carregar as inscrições.
         </div>`;
 
-      document.getElementById(
-        "lessonTitle"
-      ).textContent =
-        "Selecione uma aula";
-
-      document.getElementById(
-        "lessonBody"
-      ).textContent =
-        "Escolha uma aula no menu.";
-
-      document.getElementById(
-        "completeLessonBtn"
-      ).style.display = "none";
-
-      await loadModules(courseId);
-
-      document
-        .getElementById("courseArea")
-        .scrollIntoView({
-          behavior: "smooth"
-        });
-
+      return;
     }
 
 
-    async function loadModules(courseId) {
+    const container =
+      document.getElementById(
+        "studentEnrollments"
+      );
 
-      const {
-        data: modules,
-        error
-      } = await db
-        .from("modules")
-        .select("*")
-        .eq("course_id", courseId)
-        .order("position", {
-          ascending: true
-        });
 
-      if (error) {
-
-        console.error(error);
-
-        document.getElementById(
-          "modulesList"
-        ).innerHTML =
-          `<div class="empty">
-            Não foi possível carregar os módulos.
-          </div>`;
-
-        return;
-      }
-
-      if (!modules.length) {
-
-        document.getElementById(
-          "modulesList"
-        ).innerHTML =
-          `<div class="empty">
-            Ainda não existem módulos neste curso.
-          </div>`;
-
-        return;
-      }
-
-      const moduleIds =
-        modules.map(
-          module => module.id
-        );
-
-      const {
-        data: lessons,
-        error: lessonsError
-      } = await db
-        .from("lessons")
-        .select("*")
-        .in("module_id", moduleIds)
-        .order("position", {
-          ascending: true
-        });
-
-      if (lessonsError) {
-
-        console.error(lessonsError);
-
-        return;
-      }
-
-      const container =
-        document.getElementById(
-          "modulesList"
-        );
+    if (!data || !data.length) {
 
       container.innerHTML =
-        modules.map(module => {
+        `<div class="empty">
+          Ainda não possui inscrições.
+          <br><br>
+          <a
+            href="#cursos"
+            class="btn btn-primary"
+          >
+            Ver cursos
+          </a>
+        </div>`;
 
-          const moduleLessons =
-            lessons.filter(
-              lesson =>
-                lesson.module_id === module.id
-            );
+      return;
+    }
 
-          return `
-            <div class="module-item">
 
-              <div class="module-title">
-                ${escapeHTML(module.title)}
-              </div>
+    container.innerHTML =
+      data.map(enrollment => {
+
+        let statusClass =
+          "status-pending";
+
+        let statusText =
+          "Pendente";
+
+
+        if (
+          enrollment.status === "approved"
+        ) {
+
+          statusClass =
+            "status-approved";
+
+          statusText =
+            "Aprovado";
+
+        } else if (
+          enrollment.status === "rejected"
+        ) {
+
+          statusClass =
+            "status-rejected";
+
+          statusText =
+            "Rejeitado";
+
+        }
+
+
+        const title =
+          escapeHTML(
+            enrollment.course_title ||
+            "Curso"
+          );
+
+
+        return `
+          <div class="enrollment-row">
+
+            <div>
+              <strong>${title}</strong>
+
+              <br>
+
+              <small>
+                ${formatPrice(enrollment.amount)}
+              </small>
+
+              <br>
+
+              <span class="status ${statusClass}">
+                ${statusText}
+              </span>
+            </div>
+
+            <div>
 
               ${
-                moduleLessons.length
+                enrollment.status === "approved"
 
-                ? moduleLessons.map(lesson => `
-                    <div
-                      class="lesson-link"
-                      id="lesson-link-${lesson.id}"
-                      onclick="openLesson('${lesson.id}')"
-                    >
-                      ${escapeHTML(lesson.title)}
-                    </div>
-                  `).join("")
+                ? `
+                  <button
+                    class="btn btn-success"
+                    onclick="openApprovedCourse('${enrollment.course_id}')"
+                  >
+                    Acessar curso
+                  </button>
+                `
+
+                : enrollment.status === "pending"
+
+                ? `
+                  <button
+                    class="btn btn-secondary"
+                    onclick="showToast('A inscrição está pendente de confirmação.')"
+                  >
+                    Aguardando confirmação
+                  </button>
+                `
 
                 : `
-                  <small>
-                    Sem aulas disponíveis.
-                  </small>
+                  <button
+                    class="btn btn-outline"
+                    onclick="showToast('Esta inscrição foi rejeitada. Contacte-nos pelo WhatsApp.')"
+                  >
+                    Contactar
+                  </button>
                 `
               }
 
             </div>
-          `;
 
-        }).join("");
+          </div>
+        `;
 
+      }).join("");
+
+  }
+
+
+  /* =========================================================
+     CURSO / MÓDULOS / AULAS
+     ========================================================= */
+
+  async function openApprovedCourse(courseId) {
+
+    if (!currentUser) {
+
+      showToast(
+        "Precisa estar autenticado.",
+        "error"
+      );
+
+      return;
     }
 
 
-    async function openLesson(lessonId) {
-
-      const {
-        data: lesson,
-        error
-      } = await db
-        .from("lessons")
+    const enrollmentResult =
+      await db
+        .from("enrollments")
         .select("*")
-        .eq("id", lessonId)
-        .single();
-
-      if (error) {
-
-        console.error(error);
-
-        showToast(
-          "Não foi possível carregar a aula.",
-          "error"
-        );
-
-        return;
-      }
-
-      currentLesson = lesson;
-
-      document.querySelectorAll(
-        ".lesson-link"
-      ).forEach(item => {
-
-        item.classList.remove("active");
-
-      });
-
-      const selected =
-        document.getElementById(
-          `lesson-link-${lessonId}`
-        );
-
-      if (selected) {
-        selected.classList.add("active");
-      }
-
-      document.getElementById(
-        "lessonTitle"
-      ).textContent =
-        lesson.title;
-
-      document.getElementById(
-        "lessonBody"
-      ).textContent =
-        lesson.body || "";
-
-      document.getElementById(
-        "completeLessonBtn"
-      ).style.display =
-        "inline-flex";
-
-      const {
-        data: progress
-      } = await db
-        .from("lesson_progress")
-        .select("id")
         .eq("user_id", currentUser.id)
-        .eq("lesson_id", lessonId)
+        .eq("course_id", courseId)
+        .eq("status", "approved")
+        .limit(1)
         .maybeSingle();
 
-      const button =
-        document.getElementById(
-          "completeLessonBtn"
-        );
 
-      if (progress) {
+    if (enrollmentResult.error) {
 
-        button.textContent =
-          "✓ Aula concluída";
+      console.error(
+        enrollmentResult.error
+      );
 
-        button.disabled = true;
+      showToast(
+        "Não foi possível verificar a inscrição.",
+        "error"
+      );
 
-      } else {
-
-        button.textContent =
-          "✓ Marcar aula como concluída";
-
-        button.disabled = false;
-
-      }
-
+      return;
     }
 
 
-    async function completeCurrentLesson() {
+    if (!enrollmentResult.data) {
 
-      if (!currentLesson || !currentUser) {
-        return;
-      }
+      showToast(
+        "Ainda não possui acesso a este curso.",
+        "error"
+      );
 
-      const {
-        error
-      } = await db
-        .from("lesson_progress")
-        .insert({
+      return;
+    }
 
-          user_id: currentUser.id,
-          lesson_id: currentLesson.id
 
-        });
+    const course =
+      allCourses.find(
+        item => item.id === courseId
+      );
 
-      if (error) {
 
-        if (
-          error.code === "23505"
-        ) {
+    if (!course) {
 
-          showToast(
-            "Esta aula já foi concluída."
+      showToast(
+        "Curso não encontrado.",
+        "error"
+      );
+
+      return;
+    }
+
+
+    currentCourse = course;
+
+
+    document.getElementById(
+      "courseArea"
+    ).style.display = "block";
+
+
+    document.getElementById(
+      "courseAreaTitle"
+    ).textContent =
+      course.title;
+
+
+    document.getElementById(
+      "courseAreaDescription"
+    ).textContent =
+      course.description || "";
+
+
+    document.getElementById(
+      "modulesList"
+    ).innerHTML =
+      `<div class="loading">
+        A carregar módulos...
+      </div>`;
+
+
+    document.getElementById(
+      "lessonTitle"
+    ).textContent =
+      "Selecione uma aula";
+
+
+    document.getElementById(
+      "lessonBody"
+    ).textContent =
+      "Escolha uma aula no menu";
+
+
+    document.getElementById(
+      "completeLessonBtn"
+    ).style.display = "none";
+
+
+    await loadModules(courseId);
+
+
+    document
+      .getElementById("courseArea")
+      .scrollIntoView({
+        behavior: "smooth"
+      });
+
+  }
+
+
+  async function loadModules(courseId) {
+
+    const {
+      data: modules,
+      error
+    } = await db
+      .from("modules")
+      .select("*")
+      .eq("course_id", courseId)
+      .order("position", {
+        ascending: true
+      });
+
+
+    if (error) {
+
+      console.error(error);
+
+      document.getElementById(
+        "modulesList"
+      ).innerHTML =
+        `<div class="empty">
+          Não foi possível carregar os módulos.
+        </div>`;
+
+      return;
+    }
+
+
+    if (!modules.length) {
+
+      document.getElementById(
+        "modulesList"
+      ).innerHTML =
+        `<div class="empty">
+          Ainda não existem módulos neste curso.
+        </div>`;
+
+      return;
+    }
+
+
+    const moduleIds =
+      modules.map(
+        module => module.id
+      );
+
+
+    const {
+      data: lessons,
+      error: lessonsError
+    } = await db
+      .from("lessons")
+      .select("*")
+      .in("module_id", moduleIds)
+      .order("position", {
+        ascending: true
+      });
+
+
+    if (lessonsError) {
+
+      console.error(lessonsError);
+
+      return;
+    }
+
+
+    const container =
+      document.getElementById(
+        "modulesList"
+      );
+
+
+    container.innerHTML =
+      modules.map(module => {
+
+        const moduleLessons =
+          lessons.filter(
+            lesson =>
+              lesson.module_id === module.id
           );
 
-        } else {
 
-          console.error(error);
+        return `
+          <div class="module-item">
 
-          showToast(
-            error.message ||
-            "Não foi possível guardar o progresso.",
-            "error"
-          );
+            <div class="module-title">
+              ${escapeHTML(module.title)}
+            </div>
 
-        }
+            ${
+              moduleLessons.length
 
-        return;
-      }
+              ? moduleLessons.map(lesson => `
+                  <div
+                    class="lesson-link"
+                    id="lesson-link-${lesson.id}"
+                    onclick="openLesson('${lesson.id}')"
+                  >
+                    ${escapeHTML(lesson.title)}
+                  </div>
+                `).join("")
 
-      const button =
-        document.getElementById(
-          "completeLessonBtn"
-        );
+              : `
+                <small>
+                  Sem aulas disponíveis.
+                </small>
+              `
+            }
+
+          </div>
+        `;
+
+      }).join("");
+
+  }
+
+
+  async function openLesson(lessonId) {
+
+    const {
+      data: lesson,
+      error
+    } = await db
+      .from("lessons")
+      .select("*")
+      .eq("id", lessonId)
+      .single();
+
+
+    if (error) {
+
+      console.error(error);
+
+      showToast(
+        "Não foi possível carregar a aula.",
+        "error"
+      );
+
+      return;
+    }
+
+
+    currentLesson = lesson;
+
+
+    document.querySelectorAll(
+      ".lesson-link"
+    ).forEach(item => {
+
+      item.classList.remove("active");
+
+    });
+
+
+    const selected =
+      document.getElementById(
+        `lesson-link-${lessonId}`
+      );
+
+
+    if (selected) {
+      selected.classList.add("active");
+    }
+
+
+    document.getElementById(
+      "lessonTitle"
+    ).textContent =
+      lesson.title;
+
+
+    document.getElementById(
+      "lessonBody"
+    ).textContent =
+      lesson.body || "";
+
+
+    document.getElementById(
+      "completeLessonBtn"
+    ).style.display =
+      "inline-flex";
+
+
+    const {
+      data: progress
+    } = await db
+      .from("lesson_progress")
+      .select("id")
+      .eq("user_id", currentUser.id)
+      .eq("lesson_id", lessonId)
+      .maybeSingle();
+
+
+    const button =
+      document.getElementById(
+        "completeLessonBtn"
+      );
+
+
+    if (progress) {
 
       button.textContent =
         "✓ Aula concluída";
 
       button.disabled = true;
 
-      showToast(
-        "Aula marcada como concluída!",
-        "success"
-      );
+    } else {
+
+      button.textContent =
+        "✓ Marcar aula como concluída";
+
+      button.disabled = false;
 
     }
 
+  }
 
-    function closeCourseArea() {
 
-      document.getElementById(
-        "courseArea"
-      ).style.display = "none";
+  async function completeCurrentLesson() {
 
-      document
-        .getElementById("dashboard")
-        .scrollIntoView({
-          behavior: "smooth"
-        });
-
+    if (!currentLesson || !currentUser) {
+      return;
     }
 
 
-    /* =========================================================
-       ADMIN
-       ========================================================= */
+    const {
+      error
+    } = await db
+      .from("lesson_progress")
+      .insert({
 
-    async function loadAdminDashboard() {
+        user_id: currentUser.id,
+        lesson_id: currentLesson.id
+
+      });
+
+
+    if (error) {
 
       if (
-        !currentProfile ||
-        currentProfile.role !== "admin"
+        error.code === "23505"
       ) {
 
-        return;
-      }
-
-      const dashboard =
-        document.getElementById(
-          "adminDashboard"
+        showToast(
+          "Esta aula já foi concluída."
         );
 
-      dashboard.classList.add("visible");
-
-      const {
-        data: payments,
-        error
-      } = await db
-        .from("payments")
-        .select("*")
-        .order("created_at", {
-          ascending: false
-        });
-
-      if (error) {
-
-        console.error(error);
-
-        document.getElementById(
-          "adminPayments"
-        ).innerHTML =
-          `<div class="empty">
-            Não foi possível carregar os pagamentos.
-          </div>`;
-
-        return;
-      }
-
-      const container =
-        document.getElementById(
-          "adminPayments"
-        );
-
-      if (!payments.length) {
-
-        container.innerHTML =
-          `<div class="empty">
-            Não existem pagamentos registados.
-          </div>`;
-
-        return;
-      }
-
-      const userIds =
-        [...new Set(
-          payments.map(
-            payment => payment.user_id
-          )
-        )];
-
-      const courseIds =
-        [...new Set(
-          payments.map(
-            payment => payment.course_id
-          )
-        )];
-
-      let profiles = [];
-      let courses = [];
-
-      if (userIds.length) {
-
-        const result =
-          await db
-            .from("profiles")
-            .select(
-              "id,full_name,phone"
-            )
-            .in("id", userIds);
-
-        profiles =
-          result.data || [];
-
-      }
-
-      if (courseIds.length) {
-
-        const result =
-          await db
-            .from("courses")
-            .select(
-              "id,title"
-            )
-            .in("id", courseIds);
-
-        courses =
-          result.data || [];
-
-      }
-
-      container.innerHTML =
-        payments.map(payment => {
-
-          const profile =
-            profiles.find(
-              item =>
-                item.id === payment.user_id
-            );
-
-          const course =
-            courses.find(
-              item =>
-                item.id === payment.course_id
-            );
-
-          const student =
-            escapeHTML(
-              profile?.full_name ||
-              "Aluno"
-            );
-
-          const phone =
-            escapeHTML(
-              profile?.phone || ""
-            );
-
-          const courseTitle =
-            escapeHTML(
-              course?.title ||
-              "Curso"
-            );
-
-          const reference =
-            escapeHTML(
-              payment.reference ||
-              "Sem referência"
-            );
-
-          const note =
-            escapeHTML(
-              payment.proof_note ||
-              ""
-            );
-
-          let statusClass =
-            "status-pending";
-
-          let statusText =
-            "Pendente";
-
-          if (
-            payment.status === "submitted"
-          ) {
-
-            statusClass =
-              "status-pending";
-
-            statusText =
-              "Enviado";
-
-          } else if (
-            payment.status === "approved"
-          ) {
-
-            statusClass =
-              "status-approved";
-
-            statusText =
-              "Aprovado";
-
-          } else if (
-            payment.status === "rejected"
-          ) {
-
-            statusClass =
-              "status-rejected";
-
-            statusText =
-              "Rejeitado";
-
-          }
-
-          const canDecide =
-            payment.status === "submitted" ||
-            payment.status === "pending";
-
-          return `
-            <div class="payment-row">
-
-              <div style="flex:1">
-
-                <strong>
-                  ${student}
-                </strong>
-
-                ${
-                  phone
-                    ? `<br><small>📱 ${phone}</small>`
-                    : ""
-                }
-
-                <br>
-
-                <strong>
-                  ${courseTitle}
-                </strong>
-
-                <br>
-
-                <small>
-                  Valor:
-                  ${formatPrice(payment.amount)}
-                </small>
-
-                <br>
-
-                <small>
-                  Referência:
-                  ${reference}
-                </small>
-
-                ${
-                  note
-                    ? `
-                      <br>
-                      <small>
-                        Nota:
-                        ${note}
-                      </small>
-                    `
-                    : ""
-                }
-
-                <br>
-
-                <span class="status ${statusClass}">
-                  ${statusText}
-                </span>
-
-              </div>
-
-              ${
-                canDecide
-
-                ? `
-                  <div style="display:flex;gap:8px;flex-wrap:wrap">
-
-                    <button
-                      class="btn btn-success"
-                      onclick="decidePayment('${payment.id}', true)"
-                    >
-                      Aprovar
-                    </button>
-
-                    <button
-                      class="btn btn-danger"
-                      onclick="decidePayment('${payment.id}', false)"
-                    >
-                      Rejeitar
-                    </button>
-
-                  </div>
-                `
-
-                : ""
-              }
-
-            </div>
-          `;
-
-        }).join("");
-
-    }
-
-
-    async function decidePayment(
-      paymentId,
-      approve
-    ) {
-
-      const action =
-        approve
-          ? "aprovar"
-          : "rejeitar";
-
-      const confirmed =
-        confirm(
-          `Tem certeza que deseja ${action} este pagamento?`
-        );
-
-      if (!confirmed) {
-        return;
-      }
-
-      const {
-        error
-      } = await db.rpc(
-        "approve_payment",
-        {
-          p_payment_id: paymentId,
-          p_approve: approve
-        }
-      );
-
-      if (error) {
+      } else {
 
         console.error(error);
 
         showToast(
           error.message ||
-          "Não foi possível atualizar o pagamento.",
+          "Não foi possível guardar o progresso.",
           "error"
         );
 
-        return;
       }
 
-      showToast(
-        approve
-          ? "Pagamento aprovado com sucesso!"
-          : "Pagamento rejeitado.",
-        "success"
+      return;
+    }
+
+
+    const button =
+      document.getElementById(
+        "completeLessonBtn"
       );
 
-      await loadAdminDashboard();
 
-      if (currentUser) {
-        await loadStudentDashboard();
-      }
+    button.textContent =
+      "✓ Aula concluída";
 
-    }
+    button.disabled = true;
 
 
-    /* =========================================================
-       INICIALIZAÇÃO
-       ========================================================= */
-
-    async function init() {
-
-      await loadCourses();
-
-      await refreshUser();
-
-    }
-
-
-    db.auth.onAuthStateChange(
-      async (event, session) => {
-
-        if (event === "SIGNED_IN") {
-
-          currentUser =
-            session?.user || null;
-
-          await refreshUser();
-
-        }
-
-        if (event === "SIGNED_OUT") {
-
-          currentUser = null;
-          currentProfile = null;
-
-          hideDashboards();
-          updateNavigation();
-
-        }
-
-      }
+    showToast(
+      "Aula marcada como concluída!",
+      "success"
     );
 
-
-    document.addEventListener(
-      "DOMContentLoaded",
-      init
-    );
+  }
 
 
-    /* =========================================================
-       FECHAR MODAL AO CLICAR FORA
-       ========================================================= */
+  function closeCourseArea() {
 
-    document.querySelectorAll(".modal")
-      .forEach(modal => {
+    document.getElementById(
+      "courseArea"
+    ).style.display = "none";
 
-        modal.addEventListener(
-          "click",
-          event => {
 
-            if (
-              event.target === modal
-            ) {
-
-              modal.classList.remove(
-                "show"
-              );
-
-            }
-
-          }
-        );
-
+    document
+      .getElementById("dashboard")
+      .scrollIntoView({
+        behavior: "smooth"
       });
 
-  </script>
+  }
+
+
+  /* =========================================================
+     ADMIN
+     ========================================================= */
+
+  async function loadAdminDashboard() {
+
+    if (
+      !currentProfile ||
+      currentProfile.role !== "admin"
+    ) {
+
+      return;
+    }
+
+
+    const dashboard =
+      document.getElementById(
+        "adminDashboard"
+      );
+
+
+    dashboard.classList.add("visible");
+
+
+    const {
+      data: payments,
+      error
+    } = await db
+      .from("payments")
+      .select("*")
+      .order("created_at", {
+        ascending: false
+      });
+
+
+    if (error) {
+
+      console.error(error);
+
+      document.getElementById(
+        "adminPayments"
+      ).innerHTML =
+        `<div class="empty">
+          Não foi possível carregar os pagamentos.
+        </div>`;
+
+      return;
+    }
+
+
+    const container =
+      document.getElementById(
+        "adminPayments"
+      );
+
+
+    if (!payments.length) {
+
+      container.innerHTML =
+        `<div class="empty">
+          Não existem pagamentos registados.
+        </div>`;
+
+      return;
+    }
+
+
+    const userIds =
+      [...new Set(
+        payments.map(
+          payment => payment.user_id
+        )
+      )];
+
+
+    const courseIds =
+      [...new Set(
+        payments.map(
+          payment => payment.course_id
+        )
+      )];
+
+
+    let profiles = [];
+    let courses = [];
+
+
+    if (userIds.length) {
+
+      const result =
+        await db
+          .from("profiles")
+          .select(
+            "id,full_name,phone"
+          )
+          .in("id", userIds);
+
+      profiles =
+        result.data || [];
+
+    }
+
+
+    if (courseIds.length) {
+
+      const result =
+        await db
+          .from("courses")
+          .select(
+            "id,title"
+          )
+          .in("id", courseIds);
+
+      courses =
+        result.data || [];
+
+    }
+
+
+    container.innerHTML =
+      payments.map(payment => {
+
+        const profile =
+          profiles.find(
+            item =>
+              item.id === payment.user_id
+          );
+
+
+        const course =
+          courses.find(
+            item =>
+              item.id === payment.course_id
+          );
+
+
+        const student =
+          escapeHTML(
+            profile?.full_name ||
+            "Aluno"
+          );
+
+
+        const phone =
+          escapeHTML(
+            profile?.phone || ""
+          );
+
+
+        const courseTitle =
+          escapeHTML(
+            course?.title ||
+            "Curso"
+          );
+
+
+        const reference =
+          escapeHTML(
+            payment.reference ||
+            "Sem referência"
+          );
+
+
+        const note =
+          escapeHTML(
+            payment.proof_note ||
+            ""
+          );
+
+
+        let statusClass =
+          "status-pending";
+
+        let statusText =
+          "Pendente";
+
+
+        if (
+          payment.status === "submitted"
+        ) {
+
+          statusClass =
+            "status-pending";
+
+          statusText =
+            "Enviado";
+
+        } else if (
+          payment.status === "approved"
+        ) {
+
+          statusClass =
+            "status-approved";
+
+          statusText =
+            "Aprovado";
+
+        } else if (
+          payment.status === "rejected"
+        ) {
+
+          statusClass =
+            "status-rejected";
+
+          statusText =
+            "Rejeitado";
+
+        }
+
+
+        const canDecide =
+          payment.status === "submitted" ||
+          payment.status === "pending";
+
+
+        return `
+          <div class="payment-row">
+
+            <div style="flex:1">
+
+              <strong>
+                ${student}
+              </strong>
+
+              ${
+                phone
+                  ? `<br><small>📱 ${phone}</small>`
+                  : ""
+              }
+
+              <br>
+
+              <strong>
+                ${courseTitle}
+              </strong>
+
+              <br>
+
+              <small>
+                Valor:
+                ${formatPrice(payment.amount)}
+              </small>
+
+              <br>
+
+              <small>
+                Referência:
+                ${reference}
+              </small>
+
+              ${
+                note
+                  ? `
+                    <br>
+                    <small>
+                      Nota:
+                      ${note}
+                    </small>
+                  `
+                  : ""
+              }
+
+              <br>
+
+              <span class="status ${statusClass}">
+                ${statusText}
+              </span>
+
+            </div>
+
+            ${
+              canDecide
+
+              ? `
+                <div style="display:flex;gap:8px;flex-wrap:wrap">
+
+                  <button
+                    class="btn btn-success"
+                    onclick="decidePayment('${payment.id}', true)"
+                  >
+                    Aprovar
+                  </button>
+
+                  <button
+                    class="btn btn-danger"
+                    onclick="decidePayment('${payment.id}', false)"
+                  >
+                    Rejeitar
+                  </button>
+
+                </div>
+              `
+
+              : ""
+            }
+
+          </div>
+        `;
+
+      }).join("");
+
+  }
+
+
+  async function decidePayment(
+    paymentId,
+    approve
+  ) {
+
+    const action =
+      approve
+        ? "aprovar"
+        : "rejeitar";
+
+
+    const confirmed =
+      confirm(
+        `Tem certeza que deseja ${action} este pagamento?`
+      );
+
+
+    if (!confirmed) {
+      return;
+    }
+
+
+    const {
+      error
+    } = await db.rpc(
+      "approve_payment",
+      {
+        p_payment_id: paymentId,
+        p_approve: approve
+      }
+    );
+
+
+    if (error) {
+
+      console.error(error);
+
+      showToast(
+        error.message ||
+        "Não foi possível atualizar o pagamento.",
+        "error"
+      );
+
+      return;
+    }
+
+
+    showToast(
+      approve
+        ? "Pagamento aprovado com sucesso!"
+        : "Pagamento rejeitado.",
+      "success"
+    );
+
+
+    await loadAdminDashboard();
+
+
+    if (currentUser) {
+      await loadStudentDashboard();
+    }
+
+  }
+
+
+  /* =========================================================
+     INICIALIZAÇÃO
+     ========================================================= */
+
+  async function init() {
+
+    await loadCourses();
+
+    await refreshUser();
+
+  }
+
+
+  /*
+   * IMPORTANTE:
+   *
+   * Não fazemos "await refreshUser()" diretamente dentro
+   * do onAuthStateChange.
+   *
+   * O Supabase pode estar a processar a sessão nesse momento.
+   * O setTimeout deixa o processamento da autenticação terminar
+   * antes de carregarmos o perfil.
+   */
+
+  db.auth.onAuthStateChange(
+    (event, session) => {
+
+      if (
+        event === "SIGNED_IN" ||
+        event === "INITIAL_SESSION"
+      ) {
+
+        currentUser =
+          session?.user || null;
+
+
+        setTimeout(() => {
+
+          refreshUser();
+
+        }, 0);
+
+      }
+
+
+      if (event === "SIGNED_OUT") {
+
+        currentUser = null;
+        currentProfile = null;
+
+        hideDashboards();
+        updateNavigation();
+
+      }
+
+    }
+  );
+
+
+  document.addEventListener(
+    "DOMContentLoaded",
+    init
+  );
+
+
+  /* =========================================================
+     FECHAR MODAL AO CLICAR FORA
+     ========================================================= */
+
+  document.querySelectorAll(".modal")
+    .forEach(modal => {
+
+      modal.addEventListener(
+        "click",
+        event => {
+
+          if (
+            event.target === modal
+          ) {
+
+            modal.classList.remove(
+              "show"
+            );
+
+          }
+
+        }
+      );
+
+    });
+
+</script>
 
 </body>
 </html>
