@@ -4,66 +4,62 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Fely e Amigos Academy | Formação Profissional</title>
-
+  <title>Fely e Amigos Academy</title>
   <meta
     name="description"
-    content="Fely e Amigos Academy — cursos profissionais, tecnológicos e de desenvolvimento pessoal com preços promocionais."
+    content="Fely e Amigos Academy - Cursos online práticos, acessíveis e preparados para o mercado de trabalho."
   >
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@500;600;700;800&display=swap"
-    rel="stylesheet"
-  >
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
   <style>
-    :root {
-      --primary: #2563eb;
-      --primary-dark: #1d4ed8;
-      --secondary: #0f172a;
-      --accent: #f59e0b;
-      --success: #16a34a;
-      --danger: #dc2626;
-      --light: #f8fafc;
-      --white: #ffffff;
-      --text: #1e293b;
-      --muted: #64748b;
-      --border: #e2e8f0;
-      --shadow: 0 15px 45px rgba(15, 23, 42, 0.10);
-      --radius: 22px;
-    }
-
     * {
+      box-sizing: border-box;
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
+    }
+
+    :root {
+      --primary: #0f766e;
+      --primary-dark: #115e59;
+      --secondary: #f59e0b;
+      --dark: #172033;
+      --text: #334155;
+      --muted: #64748b;
+      --light: #f8fafc;
+      --white: #ffffff;
+      --border: #e2e8f0;
+      --success: #15803d;
+      --danger: #dc2626;
+      --shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+      --radius: 16px;
+    }
+
+    html {
       scroll-behavior: smooth;
     }
 
     body {
-      font-family: "Inter", sans-serif;
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--light);
       color: var(--text);
-      background: #f8fafc;
       line-height: 1.6;
     }
 
     button,
     input,
+    textarea,
     select {
-      font-family: inherit;
+      font: inherit;
+    }
+
+    button {
+      cursor: pointer;
     }
 
     a {
-      text-decoration: none;
       color: inherit;
-    }
-
-    img {
-      max-width: 100%;
-      display: block;
+      text-decoration: none;
     }
 
     .container {
@@ -71,1121 +67,703 @@
       margin: auto;
     }
 
-    /* =========================
-       HEADER
-    ========================= */
+    /* HEADER */
 
     header {
-      position: fixed;
+      position: sticky;
       top: 0;
-      left: 0;
-      width: 100%;
       z-index: 1000;
-      background: rgba(255, 255, 255, 0.95);
-      backdrop-filter: blur(15px);
-      border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+      background: rgba(255, 255, 255, 0.96);
+      border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(10px);
     }
 
-    .navbar {
-      height: 76px;
+    .nav {
+      min-height: 72px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 30px;
+      gap: 20px;
     }
 
     .logo {
       display: flex;
       align-items: center;
-      gap: 11px;
-      font-family: "Poppins", sans-serif;
+      gap: 10px;
       font-size: 20px;
       font-weight: 800;
-      color: var(--secondary);
+      color: var(--primary);
     }
 
     .logo-icon {
-      width: 43px;
-      height: 43px;
-      border-radius: 13px;
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
       display: grid;
       place-items: center;
+      background: var(--primary);
       color: white;
-      font-weight: 800;
-      background: linear-gradient(135deg, #2563eb, #7c3aed);
-      box-shadow: 0 8px 20px rgba(37, 99, 235, 0.25);
+      font-weight: 900;
     }
 
     .nav-links {
       display: flex;
       align-items: center;
-      gap: 28px;
+      gap: 20px;
     }
 
     .nav-links a {
-      font-size: 14px;
+      color: var(--text);
       font-weight: 600;
-      color: #475569;
-      transition: 0.25s;
     }
 
     .nav-links a:hover {
       color: var(--primary);
     }
 
-    .nav-cta {
-      background: var(--primary);
-      color: white !important;
-      padding: 11px 18px;
-      border-radius: 12px;
-    }
-
-    .menu-btn {
-      display: none;
-      border: none;
-      background: none;
-      font-size: 28px;
-      cursor: pointer;
-    }
-
-    /* =========================
-       HERO
-    ========================= */
-
-    .hero {
-      min-height: 720px;
-      padding-top: 76px;
-      position: relative;
+    .nav-actions {
       display: flex;
-      align-items: center;
-      overflow: hidden;
-      color: white;
-
-      background:
-        linear-gradient(
-          90deg,
-          rgba(2, 6, 23, 0.94),
-          rgba(15, 23, 42, 0.78),
-          rgba(15, 23, 42, 0.35)
-        ),
-        url("https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1800&q=85")
-        center/cover;
-    }
-
-    .hero-content {
-      width: 700px;
-      padding: 80px 0;
-    }
-
-    .hero-badge {
-      display: inline-flex;
-      align-items: center;
       gap: 8px;
-      background: rgba(255,255,255,0.12);
-      border: 1px solid rgba(255,255,255,0.2);
-      backdrop-filter: blur(10px);
-      padding: 9px 15px;
-      border-radius: 999px;
-      font-size: 13px;
-      font-weight: 700;
-      margin-bottom: 22px;
     }
 
-    .hero h1 {
-      font-family: "Poppins", sans-serif;
-      font-size: clamp(40px, 6vw, 68px);
-      line-height: 1.08;
-      margin-bottom: 22px;
-      letter-spacing: -2px;
-    }
-
-    .hero h1 span {
-      color: #60a5fa;
-    }
-
-    .hero p {
-      font-size: 18px;
-      max-width: 650px;
-      color: #dbeafe;
-      margin-bottom: 34px;
-    }
-
-    .hero-buttons {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
-    }
+    /* BUTTONS */
 
     .btn {
       border: none;
-      cursor: pointer;
-      padding: 14px 21px;
-      border-radius: 13px;
+      border-radius: 10px;
+      padding: 11px 17px;
       font-weight: 700;
-      transition: 0.25s;
+      transition: 0.2s;
       display: inline-flex;
-      justify-content: center;
       align-items: center;
-      gap: 9px;
+      justify-content: center;
+      gap: 7px;
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
     }
 
     .btn-primary {
-      color: white;
       background: var(--primary);
+      color: white;
     }
 
     .btn-primary:hover {
       background: var(--primary-dark);
-      transform: translateY(-2px);
     }
 
-    .btn-light {
-      color: var(--secondary);
+    .btn-secondary {
+      background: var(--secondary);
+      color: #111827;
+    }
+
+    .btn-outline {
       background: white;
+      color: var(--primary);
+      border: 1px solid var(--primary);
     }
 
-    .btn-light:hover {
-      transform: translateY(-2px);
+    .btn-danger {
+      background: var(--danger);
+      color: white;
     }
 
-    .hero-stats {
+    .btn-success {
+      background: var(--success);
+      color: white;
+    }
+
+    .btn-muted {
+      background: #e2e8f0;
+      color: #334155;
+    }
+
+    .btn-full {
+      width: 100%;
+    }
+
+    /* HERO */
+
+    .hero {
+      padding: 80px 0;
+      background:
+        linear-gradient(
+          135deg,
+          #ecfdf5 0%,
+          #f8fafc 50%,
+          #fff7ed 100%
+        );
+    }
+
+    .hero-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 15px;
+      grid-template-columns: 1.2fr 0.8fr;
+      align-items: center;
+      gap: 50px;
+    }
+
+    .hero h1 {
+      font-size: clamp(38px, 5vw, 64px);
+      line-height: 1.05;
+      color: var(--dark);
+      margin-bottom: 20px;
+    }
+
+    .hero h1 span {
+      color: var(--primary);
+    }
+
+    .hero p {
+      font-size: 19px;
+      color: var(--muted);
       max-width: 650px;
-      margin-top: 45px;
+      margin-bottom: 28px;
     }
 
-    .hero-stat {
-      padding: 16px;
-      border-radius: 15px;
-      background: rgba(255,255,255,0.10);
-      border: 1px solid rgba(255,255,255,0.14);
-      backdrop-filter: blur(10px);
+    .hero-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
     }
 
-    .hero-stat strong {
-      display: block;
+    .hero-card {
+      background: white;
+      border-radius: 24px;
+      padding: 35px;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+    }
+
+    .hero-card h3 {
+      color: var(--dark);
+      margin-bottom: 18px;
       font-size: 24px;
     }
 
-    .hero-stat span {
-      font-size: 12px;
-      color: #cbd5e1;
+    .hero-feature {
+      display: flex;
+      gap: 12px;
+      margin: 15px 0;
+      align-items: flex-start;
     }
 
-    /* =========================
-       SECTION
-    ========================= */
-
-    section {
-      padding: 90px 0;
-    }
-
-    .section-heading {
-      text-align: center;
-      max-width: 720px;
-      margin: 0 auto 45px;
-    }
-
-    .section-heading small {
+    .hero-feature-icon {
+      width: 35px;
+      height: 35px;
+      border-radius: 9px;
+      background: #ccfbf1;
       color: var(--primary);
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 1.5px;
-    }
-
-    .section-heading h2 {
-      font-family: "Poppins", sans-serif;
-      font-size: 38px;
-      line-height: 1.2;
-      margin: 9px 0 15px;
-      color: var(--secondary);
-    }
-
-    .section-heading p {
-      color: var(--muted);
-    }
-
-    /* =========================
-       BENEFITS
-    ========================= */
-
-    .benefits {
-      background: white;
-    }
-
-    .benefit-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 20px;
-    }
-
-    .benefit {
-      padding: 27px;
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      background: white;
-      box-shadow: 0 8px 25px rgba(15,23,42,0.04);
-      transition: 0.25s;
-    }
-
-    .benefit:hover {
-      transform: translateY(-5px);
-      box-shadow: var(--shadow);
-    }
-
-    .benefit-icon {
-      width: 52px;
-      height: 52px;
-      border-radius: 15px;
       display: grid;
       place-items: center;
-      background: #eff6ff;
-      font-size: 24px;
-      margin-bottom: 17px;
+      flex-shrink: 0;
     }
 
-    .benefit h3 {
-      font-size: 17px;
+    /* SECTIONS */
+
+    section {
+      padding: 70px 0;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 35px;
+    }
+
+    .section-header h2 {
+      font-size: 34px;
+      color: var(--dark);
       margin-bottom: 8px;
     }
 
-    .benefit p {
-      font-size: 14px;
+    .section-header p {
       color: var(--muted);
     }
 
-    /* =========================
-       COURSES
-    ========================= */
+    /* COURSES */
 
-    .courses-section {
-      background: #f8fafc;
-    }
-
-    .catalog-top {
+    .filters {
       display: flex;
-      gap: 15px;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 28px;
+      gap: 12px;
       flex-wrap: wrap;
+      margin-bottom: 28px;
     }
 
     .search-box {
       flex: 1;
-      min-width: 250px;
-      position: relative;
+      min-width: 230px;
     }
 
-    .search-box input {
+    .input,
+    textarea,
+    select {
       width: 100%;
       border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 14px 18px 14px 45px;
+      border-radius: 10px;
+      padding: 12px 14px;
+      background: white;
       outline: none;
-      background: white;
     }
 
-    .search-icon {
-      position: absolute;
-      left: 16px;
-      top: 12px;
-      font-size: 18px;
-    }
-
-    .filters {
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
-    }
-
-    .filter-btn {
-      border: 1px solid var(--border);
-      background: white;
-      padding: 11px 14px;
-      border-radius: 11px;
-      cursor: pointer;
-      font-size: 13px;
-      font-weight: 700;
-      color: #475569;
-    }
-
-    .filter-btn.active,
-    .filter-btn:hover {
-      color: white;
-      background: var(--primary);
+    .input:focus,
+    textarea:focus,
+    select:focus {
       border-color: var(--primary);
-    }
-
-    .base-notice {
-      background: linear-gradient(135deg, #eff6ff, #eef2ff);
-      border: 1px solid #dbeafe;
-      padding: 20px;
-      border-radius: 17px;
-      margin-bottom: 30px;
-      display: flex;
-      gap: 14px;
-      align-items: center;
-    }
-
-    .base-notice-icon {
-      font-size: 30px;
-    }
-
-    .base-notice strong {
-      display: block;
-      color: #1e3a8a;
-    }
-
-    .base-notice span {
-      font-size: 13px;
-      color: #475569;
     }
 
     .courses-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
+      gap: 22px;
     }
 
     .course-card {
-      min-height: 430px;
-      border-radius: 22px;
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
       overflow: hidden;
-      position: relative;
-      color: white;
+      box-shadow: 0 5px 20px rgba(15, 23, 42, 0.05);
+      transition: 0.2s;
       display: flex;
-      align-items: flex-end;
-      box-shadow: 0 15px 35px rgba(15,23,42,0.13);
-      background-size: cover;
-      background-position: center;
-      transition: 0.3s;
-    }
-
-    .course-card::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background:
-        linear-gradient(
-          180deg,
-          rgba(15,23,42,0.08) 10%,
-          rgba(15,23,42,0.38) 42%,
-          rgba(15,23,42,0.96) 100%
-        );
+      flex-direction: column;
     }
 
     .course-card:hover {
-      transform: translateY(-7px);
-      box-shadow: 0 25px 50px rgba(15,23,42,0.2);
+      transform: translateY(-4px);
+      box-shadow: var(--shadow);
     }
 
-    .course-content {
-      position: relative;
-      z-index: 2;
-      width: 100%;
-      padding: 25px;
-    }
-
-    .course-top {
+    .course-image {
+      height: 150px;
+      background:
+        linear-gradient(135deg, var(--primary), #14b8a6);
+      color: white;
       display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      margin-bottom: 15px;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      text-align: center;
+      font-size: 26px;
+      font-weight: 800;
+    }
+
+    .course-body {
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
     }
 
     .course-category {
-      background: rgba(255,255,255,0.15);
-      backdrop-filter: blur(8px);
-      padding: 7px 11px;
-      border-radius: 999px;
-      font-size: 11px;
+      font-size: 12px;
+      color: var(--primary);
       font-weight: 800;
       text-transform: uppercase;
+      margin-bottom: 6px;
     }
 
-    .course-level {
-      background: #dcfce7;
-      color: #166534;
-      padding: 7px 11px;
-      border-radius: 999px;
-      font-size: 11px;
-      font-weight: 800;
-    }
-
-    .course-card h3 {
-      font-family: "Poppins", sans-serif;
-      font-size: 22px;
-      line-height: 1.2;
-      margin-bottom: 10px;
+    .course-title {
+      font-size: 21px;
+      color: var(--dark);
+      margin-bottom: 8px;
     }
 
     .course-description {
-      color: #e2e8f0;
-      font-size: 13px;
-      min-height: 43px;
-      margin-bottom: 15px;
+      color: var(--muted);
+      font-size: 14px;
+      margin-bottom: 16px;
+      flex: 1;
     }
 
     .course-meta {
       display: flex;
-      gap: 15px;
-      font-size: 12px;
-      color: #dbeafe;
-      margin-bottom: 17px;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 16px;
+      font-size: 13px;
+      color: var(--muted);
     }
 
-    .course-price {
-      display: flex;
-      align-items: baseline;
-      gap: 8px;
-      margin-bottom: 17px;
+    .price {
+      font-size: 22px;
+      color: var(--primary);
+      font-weight: 900;
+      margin-bottom: 15px;
     }
 
-    .course-price strong {
-      font-size: 25px;
-      color: white;
-    }
-
-    .course-price small {
-      color: #cbd5e1;
-    }
-
-    .course-actions {
+    .course-buttons {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 8px;
     }
 
-    .course-actions button {
-      padding: 11px 8px;
-      border-radius: 11px;
-      border: none;
-      cursor: pointer;
-      font-size: 12px;
-      font-weight: 800;
-    }
-
-    .details-btn {
-      background: white;
-      color: var(--secondary);
-    }
-
-    .whatsapp-btn {
-      background: #25d366;
-      color: white;
-    }
-
-    .whatsapp-btn:hover {
-      background: #16b957;
-    }
-
-    /* =========================
-       HOW IT WORKS
-    ========================= */
-
-    .how {
-      background: white;
-    }
-
-    .steps {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 20px;
-    }
-
-    .step {
-      position: relative;
-      padding: 30px 25px;
-      border: 1px solid var(--border);
-      border-radius: 20px;
-      background: white;
-    }
-
-    .step-number {
-      width: 42px;
-      height: 42px;
-      display: grid;
-      place-items: center;
-      border-radius: 12px;
-      color: white;
-      background: var(--primary);
-      font-weight: 800;
-      margin-bottom: 18px;
-    }
-
-    .step h3 {
-      font-size: 17px;
-      margin-bottom: 8px;
-    }
-
-    .step p {
-      color: var(--muted);
-      font-size: 13px;
-    }
-
-    /* =========================
-       ABOUT
-    ========================= */
-
-    .about {
-      background:
-        linear-gradient(
-          90deg,
-          rgba(15,23,42,0.95),
-          rgba(15,23,42,0.80)
-        ),
-        url("https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1800&q=85")
-        center/cover;
-      color: white;
-    }
+    /* ABOUT */
 
     .about-grid {
       display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 60px;
-      align-items: center;
-    }
-
-    .about h2 {
-      font-family: "Poppins", sans-serif;
-      font-size: 40px;
-      line-height: 1.2;
-      margin: 10px 0 20px;
-    }
-
-    .about p {
-      color: #cbd5e1;
-      margin-bottom: 18px;
-    }
-
-    .about-list {
-      display: grid;
-      gap: 12px;
-      margin-top: 25px;
-    }
-
-    .about-list div {
-      display: flex;
-      gap: 12px;
-      align-items: flex-start;
-    }
-
-    .check {
-      width: 25px;
-      height: 25px;
-      min-width: 25px;
-      display: grid;
-      place-items: center;
-      border-radius: 50%;
-      background: #22c55e;
-      color: white;
-      font-size: 12px;
-      font-weight: 800;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
     }
 
     .about-card {
-      border-radius: 25px;
-      padding: 30px;
-      background: rgba(255,255,255,0.10);
-      border: 1px solid rgba(255,255,255,0.15);
-      backdrop-filter: blur(12px);
-    }
-
-    .about-card h3 {
-      margin-bottom: 20px;
-      font-size: 21px;
-    }
-
-    .about-card-item {
-      padding: 15px 0;
-      border-bottom: 1px solid rgba(255,255,255,0.1);
-    }
-
-    .about-card-item:last-child {
-      border-bottom: none;
-    }
-
-    .about-card-item strong {
-      display: block;
-      font-size: 20px;
-    }
-
-    .about-card-item span {
-      font-size: 12px;
-      color: #cbd5e1;
-    }
-
-    /* =========================
-       PAYMENT
-    ========================= */
-
-    .payment {
-      background: #f8fafc;
-    }
-
-    .payment-box {
-      max-width: 900px;
-      margin: auto;
-      padding: 35px;
       background: white;
-      border-radius: 25px;
+      padding: 28px;
       border: 1px solid var(--border);
+      border-radius: var(--radius);
       box-shadow: var(--shadow);
     }
 
-    .payment-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 25px;
+    .about-card h3 {
+      color: var(--dark);
+      margin-bottom: 8px;
     }
 
-    .payment-method {
-      padding: 25px;
-      border-radius: 18px;
-      background: #f8fafc;
-      border: 1px solid var(--border);
-    }
-
-    .payment-method h3 {
-      margin-bottom: 10px;
-    }
-
-    .payment-number {
-      font-size: 25px;
-      font-weight: 800;
-      color: var(--primary);
-      margin: 10px 0;
-    }
-
-    .payment-note {
+    .about-card p {
       color: var(--muted);
-      font-size: 13px;
     }
 
-    .warning {
-      margin-top: 20px;
-      padding: 16px;
-      border-radius: 13px;
-      background: #fff7ed;
-      color: #9a3412;
-      font-size: 13px;
+    /* DASHBOARD */
+
+    .dashboard {
+      display: none;
+      background: #f1f5f9;
     }
 
-    /* =========================
-       CTA
-    ========================= */
-
-    .cta {
-      padding: 75px 0;
-      background: linear-gradient(135deg, #1d4ed8, #4f46e5);
-      color: white;
-      text-align: center;
+    .dashboard.visible {
+      display: block;
     }
 
-    .cta h2 {
-      font-family: "Poppins", sans-serif;
-      font-size: 40px;
+    .dashboard-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      margin-bottom: 25px;
+      flex-wrap: wrap;
+    }
+
+    .dashboard-top h2 {
+      color: var(--dark);
+    }
+
+    .dashboard-card {
+      background: white;
+      padding: 22px;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      margin-bottom: 20px;
+    }
+
+    .dashboard-card h3 {
+      color: var(--dark);
+      margin-bottom: 15px;
+    }
+
+    .enrollment-row,
+    .payment-row {
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 15px;
       margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 15px;
+      flex-wrap: wrap;
     }
 
-    .cta p {
-      color: #dbeafe;
-      max-width: 600px;
-      margin: auto auto 25px;
+    .status {
+      display: inline-block;
+      padding: 5px 9px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 800;
     }
 
-    /* =========================
-       FOOTER
-    ========================= */
+    .status-pending {
+      background: #fef3c7;
+      color: #92400e;
+    }
+
+    .status-approved {
+      background: #dcfce7;
+      color: #166534;
+    }
+
+    .status-rejected {
+      background: #fee2e2;
+      color: #991b1b;
+    }
+
+    /* LESSONS */
+
+    .lesson-layout {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 20px;
+    }
+
+    .modules {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 15px;
+      height: fit-content;
+    }
+
+    .module-item {
+      padding: 12px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .module-item:last-child {
+      border-bottom: none;
+    }
+
+    .module-title {
+      font-weight: 800;
+      color: var(--dark);
+      margin-bottom: 8px;
+    }
+
+    .lesson-link {
+      display: block;
+      padding: 8px;
+      border-radius: 8px;
+      color: var(--muted);
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    .lesson-link:hover,
+    .lesson-link.active {
+      background: #ccfbf1;
+      color: var(--primary);
+    }
+
+    .lesson-content {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 30px;
+      min-height: 400px;
+    }
+
+    .lesson-content h2 {
+      color: var(--dark);
+      margin-bottom: 15px;
+    }
+
+    .lesson-body {
+      white-space: pre-line;
+      color: var(--text);
+      margin-bottom: 25px;
+    }
+
+    /* MODALS */
+
+    .modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.7);
+      z-index: 3000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .modal.show {
+      display: flex;
+    }
+
+    .modal-box {
+      background: white;
+      width: min(520px, 100%);
+      max-height: 90vh;
+      overflow-y: auto;
+      border-radius: 20px;
+      padding: 28px;
+      position: relative;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      width: 35px;
+      height: 35px;
+      border: none;
+      border-radius: 50%;
+      background: #f1f5f9;
+      font-size: 20px;
+    }
+
+    .modal-box h2 {
+      color: var(--dark);
+      margin-bottom: 20px;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    .form-group label {
+      display: block;
+      font-weight: 700;
+      margin-bottom: 6px;
+      color: var(--dark);
+    }
+
+    .form-note {
+      font-size: 13px;
+      color: var(--muted);
+      margin-top: 8px;
+    }
+
+    /* TOAST */
+
+    #toast {
+      position: fixed;
+      right: 20px;
+      bottom: 90px;
+      z-index: 5000;
+      display: none;
+      max-width: 350px;
+      background: #172033;
+      color: white;
+      padding: 14px 18px;
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+    }
+
+    #toast.show {
+      display: block;
+    }
+
+    /* WHATSAPP */
+
+    .whatsapp {
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      z-index: 2000;
+      background: #25d366;
+      color: white;
+      border-radius: 999px;
+      padding: 13px 18px;
+      font-weight: 800;
+      box-shadow: 0 8px 25px rgba(37, 211, 102, 0.3);
+    }
+
+    /* LOADING */
+
+    .loading {
+      text-align: center;
+      padding: 40px;
+      color: var(--muted);
+    }
+
+    .empty {
+      text-align: center;
+      padding: 35px;
+      color: var(--muted);
+    }
+
+    /* FOOTER */
 
     footer {
-      background: #020617;
+      background: #172033;
       color: white;
-      padding: 50px 0 25px;
+      padding: 40px 0;
     }
 
     .footer-grid {
       display: grid;
-      grid-template-columns: 1.5fr 1fr 1fr;
-      gap: 40px;
-      padding-bottom: 35px;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 30px;
     }
 
-    .footer-brand p {
-      color: #94a3b8;
-      font-size: 13px;
-      max-width: 400px;
-      margin-top: 15px;
+    footer h3 {
+      margin-bottom: 12px;
     }
 
-    footer h4 {
-      margin-bottom: 15px;
-    }
-
-    footer ul {
-      list-style: none;
-      display: grid;
-      gap: 9px;
-    }
-
-    footer li,
+    footer p,
     footer a {
-      color: #94a3b8;
-      font-size: 13px;
+      color: #cbd5e1;
     }
 
     footer a:hover {
       color: white;
     }
 
-    .copyright {
-      border-top: 1px solid #1e293b;
-      padding-top: 20px;
-      text-align: center;
-      color: #64748b;
-      font-size: 12px;
-    }
+    /* MOBILE */
 
-    /* =========================
-       WHATSAPP FLOATING
-    ========================= */
-
-    .whatsapp-floating {
-      position: fixed;
-      right: 22px;
-      bottom: 22px;
-      z-index: 1100;
-      display: flex;
-      align-items: center;
-      gap: 9px;
-      background: #25d366;
-      color: white;
-      padding: 13px 17px;
-      border-radius: 999px;
-      box-shadow: 0 10px 30px rgba(37,211,102,0.35);
-      font-weight: 800;
-      font-size: 13px;
-      animation: pulse 2.2s infinite;
-    }
-
-    .whatsapp-floating span:first-child {
-      font-size: 21px;
-    }
-
-    @keyframes pulse {
-      0%,100% {
-        transform: scale(1);
+    @media (max-width: 900px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
       }
-
-      50% {
-        transform: scale(1.04);
-      }
-    }
-
-    /* =========================
-       MODAL
-    ========================= */
-
-    .modal {
-      position: fixed;
-      inset: 0;
-      background: rgba(2,6,23,0.72);
-      backdrop-filter: blur(5px);
-      z-index: 2000;
-      display: none;
-      align-items: center;
-      justify-content: center;
-      padding: 20px;
-    }
-
-    .modal.active {
-      display: flex;
-    }
-
-    .modal-box {
-      width: min(850px, 100%);
-      max-height: 90vh;
-      overflow-y: auto;
-      background: white;
-      border-radius: 25px;
-      position: relative;
-      box-shadow: 0 30px 90px rgba(0,0,0,0.3);
-    }
-
-    .modal-image {
-      height: 260px;
-      background-size: cover;
-      background-position: center;
-      position: relative;
-      color: white;
-      display: flex;
-      align-items: flex-end;
-      padding: 30px;
-    }
-
-    .modal-image::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(transparent, rgba(2,6,23,0.85));
-    }
-
-    .modal-image-content {
-      position: relative;
-      z-index: 2;
-    }
-
-    .modal-image h2 {
-      font-family: "Poppins", sans-serif;
-      font-size: 32px;
-    }
-
-    .close-modal {
-      position: absolute;
-      right: 18px;
-      top: 18px;
-      width: 40px;
-      height: 40px;
-      border: none;
-      border-radius: 50%;
-      background: rgba(0,0,0,0.45);
-      color: white;
-      cursor: pointer;
-      font-size: 21px;
-      z-index: 10;
-    }
-
-    .modal-body {
-      padding: 30px;
-    }
-
-    .modal-meta {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-      margin-bottom: 25px;
-    }
-
-    .modal-tag {
-      background: #eff6ff;
-      color: #1d4ed8;
-      border-radius: 999px;
-      padding: 8px 13px;
-      font-size: 12px;
-      font-weight: 800;
-    }
-
-    .modal-description {
-      color: var(--muted);
-      margin-bottom: 25px;
-    }
-
-    .modules {
-      display: grid;
-      gap: 12px;
-    }
-
-    .module {
-      border: 1px solid var(--border);
-      border-radius: 15px;
-      overflow: hidden;
-    }
-
-    .module-header {
-      padding: 17px;
-      background: #f8fafc;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      cursor: pointer;
-      font-weight: 800;
-    }
-
-    .module-lessons {
-      display: none;
-      padding: 0 17px 17px;
-    }
-
-    .module.open .module-lessons {
-      display: block;
-    }
-
-    .lesson {
-      padding: 13px 0;
-      border-top: 1px solid var(--border);
-      color: #475569;
-      font-size: 14px;
-    }
-
-    .lesson strong {
-      display: block;
-      color: var(--secondary);
-      margin-bottom: 4px;
-    }
-
-    .lesson small {
-      color: var(--muted);
-    }
-
-    .modal-footer {
-      margin-top: 25px;
-      padding-top: 25px;
-      border-top: 1px solid var(--border);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 15px;
-      flex-wrap: wrap;
-    }
-
-    .modal-price strong {
-      display: block;
-      color: var(--primary);
-      font-size: 28px;
-    }
-
-    .modal-price small {
-      color: var(--muted);
-    }
-
-    /* =========================
-       EMPTY
-    ========================= */
-
-    .empty {
-      grid-column: 1 / -1;
-      text-align: center;
-      padding: 60px 20px;
-      color: var(--muted);
-    }
-
-    /* =========================
-       RESPONSIVE
-    ========================= */
-
-    @media (max-width: 1000px) {
 
       .courses-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .benefit-grid,
-      .steps {
         grid-template-columns: repeat(2, 1fr);
       }
 
       .about-grid {
         grid-template-columns: 1fr;
       }
-    }
 
-    @media (max-width: 720px) {
-
-      .navbar {
-        height: 68px;
-      }
-
-      .nav-links {
-        position: absolute;
-        top: 68px;
-        left: 0;
-        right: 0;
-        background: white;
-        padding: 20px;
-        display: none;
-        flex-direction: column;
-        align-items: stretch;
-        box-shadow: 0 15px 30px rgba(0,0,0,0.08);
-      }
-
-      .nav-links.active {
-        display: flex;
-      }
-
-      .menu-btn {
-        display: block;
-      }
-
-      .hero {
-        min-height: 680px;
-      }
-
-      .hero-content {
-        padding: 55px 0;
-      }
-
-      .hero h1 {
-        font-size: 42px;
-      }
-
-      .hero p {
-        font-size: 15px;
-      }
-
-      .hero-stats {
+      .lesson-layout {
         grid-template-columns: 1fr;
       }
 
-      section {
-        padding: 65px 0;
-      }
-
-      .section-heading h2 {
-        font-size: 30px;
-      }
-
-      .courses-grid,
-      .benefit-grid,
-      .steps,
-      .payment-grid,
       .footer-grid {
         grid-template-columns: 1fr;
       }
+    }
 
-      .course-card {
-        min-height: 450px;
+    @media (max-width: 650px) {
+      .nav {
+        min-height: 65px;
       }
 
-      .catalog-top {
-        align-items: stretch;
-      }
-
-      .filters {
-        width: 100%;
-      }
-
-      .filter-btn {
-        flex: 1;
-      }
-
-      .about h2,
-      .cta h2 {
-        font-size: 31px;
-      }
-
-      .payment-box {
-        padding: 22px;
-      }
-
-      .whatsapp-floating {
-        right: 15px;
-        bottom: 15px;
-        padding: 13px;
-      }
-
-      .whatsapp-floating .wa-label {
+      .nav-links {
         display: none;
       }
 
-      .modal-image {
-        height: 220px;
+      .logo {
+        font-size: 16px;
       }
 
-      .modal-body {
-        padding: 22px;
+      .logo-icon {
+        width: 36px;
+        height: 36px;
+      }
+
+      .hero {
+        padding: 55px 0;
+      }
+
+      .hero-card {
+        padding: 25px;
+      }
+
+      section {
+        padding: 50px 0;
+      }
+
+      .courses-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .course-buttons {
+        grid-template-columns: 1fr;
+      }
+
+      .whatsapp {
+        right: 12px;
+        bottom: 12px;
+        padding: 11px 14px;
+        font-size: 14px;
       }
     }
   </style>
@@ -1193,349 +771,259 @@
 
 <body>
 
-  <!-- =========================
-       HEADER
-  ========================== -->
-
+  <!-- HEADER -->
   <header>
-    <div class="container navbar">
+    <div class="container nav">
 
       <a href="#inicio" class="logo">
-        <div class="logo-icon">F</div>
+        <span class="logo-icon">F</span>
         <span>Fely e Amigos Academy</span>
       </a>
 
-      <button class="menu-btn" onclick="toggleMenu()">☰</button>
-
-      <nav class="nav-links" id="navLinks">
-        <a href="#inicio" onclick="closeMenu()">Início</a>
-        <a href="#cursos" onclick="closeMenu()">Cursos</a>
-        <a href="#como-funciona" onclick="closeMenu()">Como funciona</a>
-        <a href="#sobre" onclick="closeMenu()">Sobre</a>
-        <a href="#pagamento" onclick="closeMenu()">Pagamento</a>
-        <a href="#cursos" class="nav-cta" onclick="closeMenu()">Ver cursos</a>
+      <nav class="nav-links">
+        <a href="#inicio">Início</a>
+        <a href="#cursos">Cursos</a>
+        <a href="#sobre">Sobre nós</a>
+        <a href="#contacto">Contacto</a>
       </nav>
+
+      <div class="nav-actions" id="navActions">
+        <button class="btn btn-outline" onclick="openModal('loginModal')">
+          Entrar
+        </button>
+
+        <button class="btn btn-primary" onclick="openModal('signupModal')">
+          Criar conta
+        </button>
+      </div>
 
     </div>
   </header>
 
 
-  <!-- =========================
-       HERO
-  ========================== -->
-
+  <!-- HERO -->
   <main>
 
     <section class="hero" id="inicio">
+      <div class="container hero-grid">
 
-      <div class="container">
-
-        <div class="hero-content">
-
-          <div class="hero-badge">
-            🎓 Formação prática para o futuro
-          </div>
-
+        <div>
           <h1>
-            Aprenda hoje.<br>
+            Aprenda hoje.
             <span>Prepare o seu futuro.</span>
           </h1>
 
           <p>
-            Cursos profissionais, tecnológicos e de desenvolvimento pessoal
-            preparados para quem quer adquirir conhecimentos úteis,
-            práticos e aplicáveis no dia a dia.
+            Cursos online práticos, acessíveis e pensados para desenvolver
+            competências úteis para o mercado de trabalho e para o
+            crescimento profissional.
           </p>
 
-          <div class="hero-buttons">
+          <div class="hero-actions">
             <a href="#cursos" class="btn btn-primary">
-              🎓 Explorar cursos
+              Ver cursos
             </a>
 
             <button
-              class="btn btn-light"
-              onclick="openGeneralWhatsApp()"
+              class="btn btn-secondary"
+              onclick="openWhatsAppGeneral()"
             >
-              💬 Falar connosco
+              Falar connosco
             </button>
           </div>
+        </div>
 
-          <div class="hero-stats">
+        <div class="hero-card">
 
-            <div class="hero-stat">
-              <strong>20+</strong>
-              <span>Cursos disponíveis</span>
+          <h3>Porquê estudar connosco?</h3>
+
+          <div class="hero-feature">
+            <div class="hero-feature-icon">✓</div>
+            <div>
+              <strong>Cursos práticos</strong>
+              <p>Conteúdo focado em competências úteis.</p>
             </div>
+          </div>
 
-            <div class="hero-stat">
-              <strong>Base</strong>
-              <span>Nível de aprendizagem</span>
+          <div class="hero-feature">
+            <div class="hero-feature-icon">✓</div>
+            <div>
+              <strong>Preços acessíveis</strong>
+              <p>Formação com preços promocionais em Kz.</p>
             </div>
+          </div>
 
-            <div class="hero-stat">
-              <strong>5.000–10.000 Kz</strong>
-              <span>Preços promocionais</span>
+          <div class="hero-feature">
+            <div class="hero-feature-icon">✓</div>
+            <div>
+              <strong>Aprendizagem online</strong>
+              <p>Estude através do seu telemóvel ou computador.</p>
             </div>
+          </div>
 
+          <div class="hero-feature">
+            <div class="hero-feature-icon">✓</div>
+            <div>
+              <strong>Conteúdo organizado</strong>
+              <p>Módulos e aulas estruturados por curso.</p>
+            </div>
           </div>
 
         </div>
 
       </div>
-
     </section>
 
 
-    <!-- =========================
-         BENEFÍCIOS
-    ========================== -->
-
-    <section class="benefits">
+    <!-- CURSOS -->
+    <section id="cursos">
 
       <div class="container">
 
-        <div class="section-heading">
-          <small>Porquê a Fely Academy?</small>
-
-          <h2>
-            Formação pensada para resultados
-          </h2>
-
+        <div class="section-header">
+          <h2>Os nossos cursos</h2>
           <p>
-            Começamos pelo essencial e construímos conhecimentos de forma
-            simples, organizada e prática.
+            Escolha uma formação e comece a desenvolver novas competências.
           </p>
         </div>
 
-        <div class="benefit-grid">
-
-          <div class="benefit">
-            <div class="benefit-icon">📚</div>
-            <h3>Conteúdo estruturado</h3>
-            <p>
-              Aulas organizadas por módulos para facilitar a aprendizagem.
-            </p>
-          </div>
-
-          <div class="benefit">
-            <div class="benefit-icon">💻</div>
-            <h3>Conhecimento prático</h3>
-            <p>
-              Conceitos acompanhados por exemplos e actividades práticas.
-            </p>
-          </div>
-
-          <div class="benefit">
-            <div class="benefit-icon">🎯</div>
-            <h3>Nível Base</h3>
-            <p>
-              Nesta primeira versão, todos os cursos começam pelos fundamentos.
-            </p>
-          </div>
-
-          <div class="benefit">
-            <div class="benefit-icon">💰</div>
-            <h3>Preço acessível</h3>
-            <p>
-              Preços promocionais pensados para tornar a formação mais acessível.
-            </p>
-          </div>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- =========================
-         CURSOS
-    ========================== -->
-
-    <section class="courses-section" id="cursos">
-
-      <div class="container">
-
-        <div class="section-heading">
-
-          <small>Catálogo</small>
-
-          <h2>
-            Escolha o seu próximo curso
-          </h2>
-
-          <p>
-            Encontre uma formação, consulte o conteúdo e fale connosco
-            directamente pelo WhatsApp.
-          </p>
-
-        </div>
-
-
-        <div class="catalog-top">
+        <div class="filters">
 
           <div class="search-box">
-
-            <span class="search-icon">🔎</span>
-
             <input
-              type="text"
               id="searchInput"
+              class="input"
+              type="search"
               placeholder="Pesquisar curso..."
-              oninput="renderCourses()"
+              oninput="filterCourses()"
             >
-
           </div>
 
-          <div class="filters">
+          <select
+            id="categoryFilter"
+            class="input"
+            style="max-width:230px"
+            onchange="filterCourses()"
+          >
+            <option value="">Todas as categorias</option>
+          </select>
 
-            <button
-              class="filter-btn active"
-              data-filter="Todos"
-              onclick="setFilter('Todos', this)"
-            >
-              Todos
-            </button>
+        </div>
 
-            <button
-              class="filter-btn"
-              data-filter="Informática"
-              onclick="setFilter('Informática', this)"
-            >
-              Informática
-            </button>
+        <div id="coursesGrid" class="courses-grid">
+          <div class="loading">
+            A carregar cursos...
+          </div>
+        </div>
 
-            <button
-              class="filter-btn"
-              data-filter="Tecnologia"
-              onclick="setFilter('Tecnologia', this)"
-            >
-              Tecnologia
-            </button>
+      </div>
 
-            <button
-              class="filter-btn"
-              data-filter="Línguas"
-              onclick="setFilter('Línguas', this)"
-            >
-              Línguas
-            </button>
+    </section>
 
-            <button
-              class="filter-btn"
-              data-filter="Negócios"
-              onclick="setFilter('Negócios', this)"
-            >
-              Negócios
-            </button>
 
-            <button
-              class="filter-btn"
-              data-filter="Profissional"
-              onclick="setFilter('Profissional', this)"
-            >
-              Profissional
-            </button>
+    <!-- SOBRE -->
+    <section id="sobre">
 
+      <div class="container">
+
+        <div class="section-header">
+          <h2>Sobre a Fely e Amigos Academy</h2>
+          <p>
+            Formação acessível para quem quer aprender e evoluir.
+          </p>
+        </div>
+
+        <div class="about-grid">
+
+          <div class="about-card">
+            <h3>🎓 Formação</h3>
+            <p>
+              Oferecemos cursos introdutórios e práticos em áreas de
+              informática, tecnologia, negócios, línguas e desenvolvimento
+              profissional.
+            </p>
+          </div>
+
+          <div class="about-card">
+            <h3>💼 Mercado de trabalho</h3>
+            <p>
+              Os conteúdos são organizados para ajudar o aluno a desenvolver
+              conhecimentos aplicáveis em situações profissionais.
+            </p>
+          </div>
+
+          <div class="about-card">
+            <h3>🌍 Acesso online</h3>
+            <p>
+              A plataforma foi pensada para funcionar de forma simples em
+              telemóveis, tablets e computadores.
+            </p>
           </div>
 
         </div>
 
+      </div>
 
-        <div class="base-notice">
+    </section>
 
-          <div class="base-notice-icon">🌱</div>
+
+    <!-- DASHBOARD DO ALUNO -->
+    <section id="dashboard" class="dashboard">
+
+      <div class="container">
+
+        <div class="dashboard-top">
 
           <div>
-            <strong>
-              Todos os cursos estão no Nível Base
-            </strong>
-
-            <span>
-              A primeira versão da Fely Academy foi concebida para começar
-              pelos fundamentos e criar uma base sólida antes de avançar
-              para conteúdos mais especializados.
-            </span>
+            <h2>Área do aluno</h2>
+            <p id="studentWelcome"></p>
           </div>
+
+          <button class="btn btn-danger" onclick="logout()">
+            Sair
+          </button>
 
         </div>
 
+        <div class="dashboard-card">
 
-        <div class="courses-grid" id="coursesGrid"></div>
+          <h3>Minhas inscrições</h3>
+
+          <div id="studentEnrollments">
+            <div class="loading">
+              A carregar...
+            </div>
+          </div>
+
+        </div>
 
       </div>
 
     </section>
 
 
-    <!-- =========================
-         COMO FUNCIONA
-    ========================== -->
-
-    <section class="how" id="como-funciona">
+    <!-- ÁREA ADMIN -->
+    <section id="adminDashboard" class="dashboard">
 
       <div class="container">
 
-        <div class="section-heading">
+        <div class="dashboard-top">
 
-          <small>Processo simples</small>
-
-          <h2>
-            Como funciona?
-          </h2>
-
-          <p>
-            O processo de inscrição foi pensado para ser simples,
-            principalmente através do WhatsApp.
-          </p>
+          <div>
+            <h2>Painel administrativo</h2>
+            <p>Gestão de pagamentos e inscrições.</p>
+          </div>
 
         </div>
 
+        <div class="dashboard-card">
 
-        <div class="steps">
+          <h3>Pagamentos</h3>
 
-          <div class="step">
-            <div class="step-number">1</div>
-
-            <h3>Escolha o curso</h3>
-
-            <p>
-              Consulte os cursos disponíveis e veja o conteúdo de cada formação.
-            </p>
-          </div>
-
-
-          <div class="step">
-            <div class="step-number">2</div>
-
-            <h3>Fale connosco</h3>
-
-            <p>
-              Clique no botão WhatsApp. O nome do curso e o preço serão
-              enviados automaticamente na mensagem.
-            </p>
-          </div>
-
-
-          <div class="step">
-            <div class="step-number">3</div>
-
-            <h3>Faça a inscrição</h3>
-
-            <p>
-              Receba as orientações para pagamento e conclusão da inscrição.
-            </p>
-          </div>
-
-
-          <div class="step">
-            <div class="step-number">4</div>
-
-            <h3>Comece a aprender</h3>
-
-            <p>
-              Após a confirmação, receberá as orientações para começar a formação.
-            </p>
+          <div id="adminPayments">
+            <div class="loading">
+              A carregar pagamentos...
+            </div>
           </div>
 
         </div>
@@ -1545,208 +1033,55 @@
     </section>
 
 
-    <!-- =========================
-         SOBRE
-    ========================== -->
-
-    <section class="about" id="sobre">
-
-      <div class="container about-grid">
-
-        <div>
-
-          <small style="color:#60a5fa;font-weight:800;">
-            FELy E AMIGOS ACADEMY
-          </small>
-
-          <h2>
-            Conhecimento que pode transformar oportunidades.
-          </h2>
-
-          <p>
-            A Fely e Amigos Academy nasce com uma proposta simples:
-            tornar a aprendizagem profissional mais acessível, organizada
-            e próxima da realidade dos estudantes.
-          </p>
-
-          <p>
-            Nesta primeira versão, concentramos os cursos nos conhecimentos
-            fundamentais que podem servir como ponto de partida para novas
-            competências profissionais.
-          </p>
-
-          <div class="about-list">
-
-            <div>
-              <span class="check">✓</span>
-              <span>Conteúdos organizados por módulos.</span>
-            </div>
-
-            <div>
-              <span class="check">✓</span>
-              <span>Exemplos práticos e actividades.</span>
-            </div>
-
-            <div>
-              <span class="check">✓</span>
-              <span>Formações de 2 a 4 semanas.</span>
-            </div>
-
-            <div>
-              <span class="check">✓</span>
-              <span>Preços promocionais de 5.000 Kz a 10.000 Kz.</span>
-            </div>
-
-          </div>
-
-        </div>
-
-
-        <div class="about-card">
-
-          <h3>
-            A nossa primeira versão
-          </h3>
-
-          <div class="about-card-item">
-            <strong>20</strong>
-            <span>Cursos disponíveis</span>
-          </div>
-
-          <div class="about-card-item">
-            <strong>Base</strong>
-            <span>Nível dos cursos</span>
-          </div>
-
-          <div class="about-card-item">
-            <strong>2–4 semanas</strong>
-            <span>Duração das formações</span>
-          </div>
-
-          <div class="about-card-item">
-            <strong>5.000–10.000 Kz</strong>
-            <span>Faixa promocional</span>
-          </div>
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- =========================
-         PAGAMENTO
-    ========================== -->
-
-    <section class="payment" id="pagamento">
+    <!-- ÁREA DO CURSO -->
+    <section id="courseArea" style="display:none">
 
       <div class="container">
 
-        <div class="section-heading">
+        <div class="dashboard-top">
 
-          <small>Inscrição</small>
+          <div>
+            <h2 id="courseAreaTitle">Curso</h2>
+            <p id="courseAreaDescription"></p>
+          </div>
 
-          <h2>
-            Pagamento e confirmação
-          </h2>
-
-          <p>
-            Nesta primeira versão, a confirmação do pagamento é feita
-            manualmente através do nosso contacto.
-          </p>
+          <button
+            class="btn btn-outline"
+            onclick="closeCourseArea()"
+          >
+            Voltar
+          </button>
 
         </div>
 
+        <div class="lesson-layout">
 
-        <div class="payment-box">
+          <aside class="modules" id="modulesList">
+            A carregar módulos...
+          </aside>
 
-          <div class="payment-grid">
+          <article class="lesson-content">
 
-            <div class="payment-method">
+            <h2 id="lessonTitle">
+              Selecione uma aula
+            </h2>
 
-              <h3>💳 Pagamento</h3>
-
-              <p>
-                Para receber as instruções de pagamento, fale connosco
-                pelo WhatsApp.
-              </p>
-
-              <div class="payment-number">
-                948 138 785
-              </div>
-
-              <p class="payment-note">
-                Contacto WhatsApp da Fely e Amigos Academy.
-              </p>
-
-              <br>
-
-              <button
-                class="btn btn-primary"
-                onclick="openGeneralWhatsApp()"
-              >
-                💬 Falar no WhatsApp
-              </button>
-
+            <div id="lessonBody" class="lesson-body">
+              Escolha uma aula no menu.
             </div>
 
+            <button
+              id="completeLessonBtn"
+              class="btn btn-success"
+              style="display:none"
+              onclick="completeCurrentLesson()"
+            >
+              ✓ Marcar aula como concluída
+            </button>
 
-            <div class="payment-method">
-
-              <h3>📋 Após o pagamento</h3>
-
-              <p class="payment-note">
-                Envie a referência ou comprovativo conforme as orientações
-                recebidas pelo WhatsApp.
-              </p>
-
-              <br>
-
-              <p class="payment-note">
-                A equipa poderá confirmar manualmente a inscrição e orientar
-                o estudante sobre os próximos passos.
-              </p>
-
-            </div>
-
-          </div>
-
-
-          <div class="warning">
-            <strong>Importante:</strong>
-            nesta primeira versão do website não estamos a afirmar que existe
-            uma integração automática com o banco. A confirmação do pagamento
-            é feita de forma manual até existir uma integração oficial e segura.
-          </div>
+          </article>
 
         </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- =========================
-         CTA
-    ========================== -->
-
-    <section class="cta">
-
-      <div class="container">
-
-        <h2>
-          Pronto para começar?
-        </h2>
-
-        <p>
-          Escolha uma formação e fale connosco directamente pelo WhatsApp
-          para receber as orientações de inscrição.
-        </p>
-
-        <a href="#cursos" class="btn btn-light">
-          🎓 Ver todos os cursos
-        </a>
 
       </div>
 
@@ -1755,62 +1090,38 @@
   </main>
 
 
-  <!-- =========================
-       FOOTER
-  ========================== -->
+  <!-- FOOTER -->
+  <footer id="contacto">
 
-  <footer>
+    <div class="container footer-grid">
 
-    <div class="container">
-
-      <div class="footer-grid">
-
-        <div class="footer-brand">
-
-          <div class="logo" style="color:white;">
-            <div class="logo-icon">F</div>
-            <span>Fely e Amigos Academy</span>
-          </div>
-
-          <p>
-            Formação profissional acessível, prática e organizada
-            para ajudar estudantes a desenvolver novas competências.
-          </p>
-
-        </div>
-
-
-        <div>
-
-          <h4>Navegação</h4>
-
-          <ul>
-            <li><a href="#inicio">Início</a></li>
-            <li><a href="#cursos">Cursos</a></li>
-            <li><a href="#como-funciona">Como funciona</a></li>
-            <li><a href="#sobre">Sobre</a></li>
-          </ul>
-
-        </div>
-
-
-        <div>
-
-          <h4>Contacto</h4>
-
-          <ul>
-            <li>WhatsApp</li>
-            <li>948 138 785</li>
-            <li>Angola 🇦🇴</li>
-          </ul>
-
-        </div>
-
+      <div>
+        <h3>Fely e Amigos Academy</h3>
+        <p>
+          Cursos online práticos e acessíveis para desenvolver novas
+          competências.
+        </p>
       </div>
 
+      <div>
+        <h3>Links</h3>
+        <p><a href="#inicio">Início</a></p>
+        <p><a href="#cursos">Cursos</a></p>
+        <p><a href="#sobre">Sobre nós</a></p>
+      </div>
 
-      <div class="copyright">
-        © <span id="year"></span> Fely e Amigos Academy. Todos os direitos reservados.
+      <div>
+        <h3>Contacto</h3>
+        <p>WhatsApp: 948 138 785</p>
+        <p>
+          <a
+            href="https://wa.me/244948138785"
+            target="_blank"
+            rel="noopener"
+          >
+            Fale connosco
+          </a>
+        </p>
       </div>
 
     </div>
@@ -1818,825 +1129,318 @@
   </footer>
 
 
-  <!-- =========================
-       WHATSAPP FLUTUANTE
-  ========================== -->
-
-  <a
-    href="#"
-    class="whatsapp-floating"
-    onclick="openGeneralWhatsApp(); return false;"
-  >
-    <span>💬</span>
-    <span class="wa-label">Fale connosco</span>
-  </a>
-
-
-  <!-- =========================
-       MODAL DE CURSO
-  ========================== -->
-
-  <div class="modal" id="courseModal">
+  <!-- LOGIN MODAL -->
+  <div id="loginModal" class="modal">
 
     <div class="modal-box">
 
       <button
-        class="close-modal"
-        onclick="closeModal()"
+        class="modal-close"
+        onclick="closeModal('loginModal')"
       >
         ×
       </button>
 
-      <div
-        class="modal-image"
-        id="modalImage"
-      >
+      <h2>Entrar na conta</h2>
 
-        <div class="modal-image-content">
+      <form onsubmit="login(event)">
 
-          <h2 id="modalTitle"></h2>
-
-        </div>
-
-      </div>
-
-
-      <div class="modal-body">
-
-        <div class="modal-meta">
-
-          <span class="modal-tag" id="modalCategory"></span>
-
-          <span class="modal-tag">
-            🌱 Nível Base
-          </span>
-
-          <span class="modal-tag" id="modalDuration"></span>
-
-        </div>
-
-
-        <p
-          class="modal-description"
-          id="modalDescription"
-        ></p>
-
-
-        <h3 style="margin-bottom:15px;">
-          Conteúdo programático
-        </h3>
-
-
-        <div
-          class="modules"
-          id="modalModules"
-        ></div>
-
-
-        <div class="modal-footer">
-
-          <div class="modal-price">
-
-            <small>Preço promocional</small>
-
-            <strong id="modalPrice"></strong>
-
-          </div>
-
-
-          <button
-            class="btn whatsapp-btn"
-            id="modalWhatsApp"
+        <div class="form-group">
+          <label>Email</label>
+          <input
+            id="loginEmail"
+            class="input"
+            type="email"
+            required
+            placeholder="seuemail@exemplo.com"
           >
-            💬 Quero este curso
-          </button>
-
         </div>
 
-      </div>
+        <div class="form-group">
+          <label>Palavra-passe</label>
+          <input
+            id="loginPassword"
+            class="input"
+            type="password"
+            required
+            placeholder="********"
+          >
+        </div>
+
+        <button class="btn btn-primary btn-full">
+          Entrar
+        </button>
+
+      </form>
+
+      <p class="form-note">
+        Ainda não possui conta?
+        <a
+          href="#"
+          onclick="closeModal('loginModal'); openModal('signupModal'); return false;"
+          style="color:var(--primary);font-weight:bold"
+        >
+          Criar conta
+        </a>
+      </p>
 
     </div>
 
   </div>
 
 
-  <!-- =========================
-       JAVASCRIPT
-  ========================== -->
+  <!-- SIGNUP MODAL -->
+  <div id="signupModal" class="modal">
+
+    <div class="modal-box">
+
+      <button
+        class="modal-close"
+        onclick="closeModal('signupModal')"
+      >
+        ×
+      </button>
+
+      <h2>Criar conta</h2>
+
+      <form onsubmit="signup(event)">
+
+        <div class="form-group">
+          <label>Nome completo</label>
+          <input
+            id="signupName"
+            class="input"
+            type="text"
+            required
+            placeholder="Seu nome completo"
+          >
+        </div>
+
+        <div class="form-group">
+          <label>Contacto</label>
+          <input
+            id="signupPhone"
+            class="input"
+            type="tel"
+            placeholder="948 138 785"
+          >
+        </div>
+
+        <div class="form-group">
+          <label>Email</label>
+          <input
+            id="signupEmail"
+            class="input"
+            type="email"
+            required
+            placeholder="seuemail@exemplo.com"
+          >
+        </div>
+
+        <div class="form-group">
+          <label>Palavra-passe</label>
+          <input
+            id="signupPassword"
+            class="input"
+            type="password"
+            minlength="6"
+            required
+            placeholder="Mínimo 6 caracteres"
+          >
+        </div>
+
+        <button class="btn btn-primary btn-full">
+          Criar conta
+        </button>
+
+      </form>
+
+    </div>
+
+  </div>
+
+
+  <!-- INSCRIÇÃO / PAGAMENTO -->
+  <div id="paymentModal" class="modal">
+
+    <div class="modal-box">
+
+      <button
+        class="modal-close"
+        onclick="closeModal('paymentModal')"
+      >
+        ×
+      </button>
+
+      <h2>Inscrição no curso</h2>
+
+      <div id="paymentCourseInfo"></div>
+
+      <form onsubmit="submitPayment(event)">
+
+        <input
+          type="hidden"
+          id="paymentEnrollmentId"
+        >
+
+        <div class="form-group">
+          <label>Referência do pagamento</label>
+          <input
+            id="paymentReference"
+            class="input"
+            type="text"
+            required
+            placeholder="Digite a referência da transferência/pagamento"
+          >
+        </div>
+
+        <div class="form-group">
+          <label>Observação / comprovativo</label>
+          <textarea
+            id="paymentNote"
+            rows="4"
+            placeholder="Se necessário, escreva aqui alguma informação sobre o pagamento."
+          ></textarea>
+        </div>
+
+        <button class="btn btn-primary btn-full">
+          Enviar pagamento para análise
+        </button>
+
+      </form>
+
+      <p class="form-note">
+        Depois do envio, a equipa da Fely e Amigos Academy irá verificar
+        o pagamento e aprovar a inscrição.
+      </p>
+
+    </div>
+
+  </div>
+
+
+  <!-- TOAST -->
+  <div id="toast"></div>
+
+
+  <!-- WHATSAPP -->
+  <a
+    class="whatsapp"
+    href="https://wa.me/244948138785?text=Ol%C3%A1!%20Gostaria%20de%20saber%20mais%20sobre%20os%20cursos%20da%20Fely%20e%20Amigos%20Academy."
+    target="_blank"
+    rel="noopener"
+  >
+    💬 Fale connosco
+  </a>
+
 
   <script>
 
-    /* =========================================
-       CONFIGURAÇÃO
-    ========================================= */
+    /* =========================================================
+       CONFIGURAÇÃO SUPABASE
+       ========================================================= */
+
+    const SUPABASE_URL =
+      "https://rzranbusquzrzrqcixcw.supabase.co";
+
+    const SUPABASE_ANON_KEY =
+      "sb_publishable_L-ImBM6Y2iREXCE2NLvmng_05YhqL9Q";
+
+    const { createClient } = supabase;
+
+    const db = createClient(
+      SUPABASE_URL,
+      SUPABASE_ANON_KEY
+    );
+
+
+    /* =========================================================
+       CONFIGURAÇÕES
+       ========================================================= */
 
     const WHATSAPP_NUMBER = "244948138785";
 
-    let currentFilter = "Todos";
+    let currentUser = null;
+    let currentProfile = null;
+    let allCourses = [];
+    let currentCourse = null;
+    let currentLesson = null;
 
 
-    /* =========================================
-       CATÁLOGO DOS CURSOS
-    ========================================= */
+    /* =========================================================
+       UTILITÁRIOS
+       ========================================================= */
 
-    const courses = [
+    function formatPrice(value) {
 
-      {
-        id: 1,
-        title: "Informática Essencial",
-        category: "Informática",
-        price: 5000,
-        duration: "2 semanas",
-        image: "https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1000&q=85",
-        description: "Fundamentos de informática para quem deseja utilizar o computador com mais segurança e autonomia.",
-        modules: [
-          {
-            title: "Módulo 1 — Computador e sistema",
-            lessons: [
-              ["Conhecendo o computador", "Hardware, software, dispositivos de entrada e saída."],
-              ["Ficheiros e pastas", "Criar, organizar, copiar, mover e localizar ficheiros."]
-            ]
-          },
-          {
-            title: "Módulo 2 — Internet e produtividade",
-            lessons: [
-              ["Internet e pesquisa", "Navegação, pesquisa e avaliação básica de informação."],
-              ["Email e comunicação", "Criar, enviar, responder e organizar mensagens."]
-            ]
-          },
-          {
-            title: "Módulo 3 — Office básico",
-            lessons: [
-              ["Word básico", "Texto, formatação, listas e documentos simples."],
-              ["Excel e PowerPoint", "Introdução a folhas de cálculo e apresentações."]
-            ]
-          }
-        ]
-      },
-
-
-      {
-        id: 2,
-        title: "Programação Web",
-        category: "Tecnologia",
-        price: 10000,
-        duration: "4 semanas",
-        image: "https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=1000&q=85",
-        description: "Introdução à criação de páginas web usando HTML, CSS e JavaScript.",
-        modules: [
-          {
-            title: "Módulo 1 — HTML",
-            lessons: [
-              ["Estrutura de uma página", "HTML, elementos, títulos, parágrafos e organização do conteúdo."],
-              ["Links, imagens e formulários", "Criar páginas com links, imagens e campos de formulário."]
-            ]
-          },
-          {
-            title: "Módulo 2 — CSS",
-            lessons: [
-              ["Estilos e seletores", "Cores, fontes, espaçamento, classes e seletores."],
-              ["Layout responsivo", "Flexbox, organização de blocos e adaptação ao telemóvel."]
-            ]
-          },
-          {
-            title: "Módulo 3 — JavaScript",
-            lessons: [
-              ["Lógica e variáveis", "Variáveis, operadores, condições e funções."],
-              ["Interactividade", "Eventos e criação de pequenas funcionalidades para uma página."]
-            ]
-          }
-        ]
-      },
-
-
-      {
-        id: 3,
-        title: "Inglês do Zero",
-        category: "Línguas",
-        price: 7500,
-        duration: "4 semanas",
-        image: "https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1000&q=85",
-        description: "Primeiros passos em inglês para situações simples do quotidiano.",
-        modules: [
-          {
-            title: "Módulo 1 — Primeiras palavras",
-            lessons: [
-              ["Saudações", "Hello, good morning, good afternoon e expressões básicas."],
-              ["Apresentação pessoal", "Nome, idade, profissão e informações pessoais simples."]
-            ]
-          },
-          {
-            title: "Módulo 2 — Vocabulário essencial",
-            lessons: [
-              ["Números, dias e horas", "Números, datas, dias da semana e horários."],
-              ["Rotina diária", "Vocabulário para falar sobre actividades do dia a dia."]
-            ]
-          },
-          {
-            title: "Módulo 3 — Conversação básica",
-            lessons: [
-              ["Perguntas simples", "What, where, who, when e how em situações básicas."],
-              ["Diálogos do quotidiano", "Prática de pequenas conversas em inglês."]
-            ]
-          }
-        ]
-      },
-
-
-      {
-        id: 4,
-        title: "Espanhol Básico",
-        category: "Línguas",
-        price: 7000,
-        duration: "3 semanas",
-        image: "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?auto=format&fit=crop&w=1000&q=85",
-        description: "Aprenda as bases do espanhol e desenvolva vocabulário para situações comuns.",
-        modules: [
-          {
-            title: "Módulo 1 — Fundamentos",
-            lessons: [
-              ["Saudações", "Saludos, apresentações e expressões básicas."],
-              ["Pronúncia", "Alfabeto, sons e leitura de palavras simples."]
-            ]
-          },
-          {
-            title: "Módulo 2 — Vocabulário",
-            lessons: [
-              ["Números e tempo", "Números, dias, meses e horas."],
-              ["Verbos básicos", "Ser, estar, tener e outros verbos frequentes."]
-            ]
-          },
-          {
-            title: "Módulo 3 — Comunicação",
-            lessons: [
-              ["Perguntas simples", "Como perguntar e responder em situações comuns."],
-              ["Diálogos", "Prática de conversas curtas."]
-            ]
-          }
-        ]
-      },
-
-
-      {
-        id: 5,
-        title: "Empreendedorismo",
-        category: "Negócios",
-        price: 8000,
-        duration: "3 semanas",
-        image: "https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1000&q=85",
-        description: "Conhecimentos fundamentais para transformar uma ideia numa actividade empresarial organizada.",
-        modules: [
-          {
-            title: "Módulo 1 — Ideia e oportunidade",
-            lessons: [
-              ["Identificar necessidades", "Problemas, clientes e oportunidades de negócio."],
-              ["Proposta de valor", "Como explicar o benefício que o negócio oferece."]
-            ]
-          },
-          {
-            title: "Módulo 2 — Custos e preços",
-            lessons: [
-              ["Custos do negócio", "Custos fixos, variáveis e controlo básico."],
-              ["Formação de preços", "Relação entre custos, preço e margem."]
-            ]
-          },
-          {
-            title: "Módulo 3 — Organização",
-            lessons: [
-              ["Registos financeiros", "Registar vendas, despesas e movimentos de caixa."],
-              ["Plano simples", "Construir um pequeno plano de negócio."]
-            ]
-          }
-        ]
-      },
-
-
-      {
-        id: 6,
-        title: "Marketing Digital",
-        category: "Negócios",
-        price: 10000,
-        duration: "4 semanas",
-        image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1000&q=85",
-        description: "Fundamentos do marketing digital, presença online, conteúdo e análise básica.",
-        modules: [
-          {
-            title: "Módulo 1 — Estratégia",
-            lessons: [
-              ["Público-alvo", "Identificar quem são os potenciais clientes."],
-              ["Proposta de valor", "Definir a mensagem principal de uma marca."]
-            ]
-          },
-          {
-            title: "Módulo 2 — Conteúdo",
-            lessons: [
-              ["Conteúdo digital", "Tipos de conteúdo e objectivos."],
-              ["Redes sociais", "Organização de presença e comunicação."]
-            ]
-          },
-          {
-            title: "Módulo 3 — Resultados",
-            lessons: [
-              ["Métricas básicas", "Alcance, interacção, cliques e conversões."],
-              ["Plano de campanha", "Estruturar uma campanha digital simples."]
-            ]
-          }
-        ]
-      },
-
-
-      {
-        id: 7,
-        title: "Desenvolvimento Pessoal",
-        category: "Profissional",
-        price: 5000,
-        duration: "2 semanas",
-        image: "https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&w=1000&q=85",
-        description: "Ferramentas práticas para organização pessoal, comunicação, objectivos e produtividade.",
-        modules: [
-          {
-            title: "Módulo 1 — Autoconhecimento",
-            lessons: [
-              ["Objectivos pessoais", "Definir metas claras e realistas."],
-              ["Pontos fortes", "Identificar competências e áreas de melhoria."]
-            ]
-          },
-          {
-            title: "Módulo 2 — Produtividade",
-            lessons: [
-              ["Gestão do tempo", "Prioridades, tarefas e planeamento."],
-              ["Hábitos", "Criar rotinas que apoiem os objectivos."]
-            ]
-          },
-          {
-            title: "Módulo 3 — Comunicação",
-            lessons: [
-              ["Comunicação eficaz", "Escuta, clareza e respeito."],
-              ["Plano pessoal", "Construir um plano de desenvolvimento."]
-            ]
-          }
-        ]
-      },
-
-
-      {
-        id: 8,
-        title: "Excel Profissional",
-        category: "Informática",
-        price: 8000,
-        duration: "3 semanas",
-        image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1000&q=85",
-        description: "Aprenda a organizar dados, utilizar fórmulas, tabelas, filtros e gráficos no Excel.",
-        modules: [
-          {
-            title: "Módulo 1 — Fundamentos",
-            lessons: [
-              ["Células e folhas", "Linhas, colunas, células, folhas e livros."],
-              ["Fórmulas básicas", "Operações, SUM, AVERAGE, MIN e MAX."]
-            ]
-          },
-          {
-            title: "Módulo 2 — Organização",
-            lessons: [
-              ["Ordenar e filtrar", "Organizar e encontrar informações."],
-              ["Tabelas", "Criar tabelas para organizar conjuntos de dados."]
-            ]
-          },
-          {
-            title: "Módulo 3 — Visualização",
-            lessons: [
-              ["Gráficos", "Transformar dados em gráficos simples."],
-              ["Mini projecto", "Criar uma pequena folha de controlo."]
-            ]
-          }
-        ]
-      },
-
-
-      {
-        id: 9,
-        title: "Programação Prática",
-        category: "Tecnologia",
-        price: 10000,
-        duration: "4 semanas",
-        image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1000&q=85",
-        description: "Fundamentos de lógica de programação para quem quer começar a pensar como programador.",
-        modules: [
-          {
-            title: "Módulo 1 — Lógica",
-            lessons: [
-              ["Algoritmos", "Sequências, problemas e passos para resolver tarefas."],
-              ["Variáveis", "Guardar e trabalhar com dados."]
-            ]
-          },
-          {
-            title: "Módulo 2 — Estruturas",
-            lessons: [
-              ["Condições", "Tomada de decisões através de if/else."],
-              ["Repetições e funções", "Loops e organização do código."]
-            ]
-          },
-          {
-            title: "Módulo 3 — Projecto",
-            lessons: [
-              ["Construir uma solução", "Aplicar os conceitos num pequeno projecto."],
-              ["Git e GitHub", "Introdução ao controlo de versões e repositórios."]
-            ]
-          }
-        ]
-      },
-
-
-      {
-        id: 10,
-        title: "Operador de Caixa",
-        category: "Profissional",
-        price: 7000,
-        duration: "3 semanas",
-        image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=1000&q=85",
-        description: "Fundamentos para trabalhar com atendimento, caixa, pagamentos e controlo de operações.",
-        modules: [
-          {
-            title: "Módulo 1 — Função do operador",
-            lessons: [
-              ["Responsabilidades", "Atendimento, organização e responsabilidade sobre o caixa."],
-              ["Abertura do caixa", "Conferência e preparação para iniciar operações."]
-            ]
-          },
-          {
-            title: "Módulo 2 — Operações",
-            lessons: [
-              ["Recebimentos", "Dinheiro, cartões e outros meios de pagamento."],
-              ["Registos", "Emissão e organização dos registos das operações."]
-            ]
-          },
-          {
-            title: "Módulo 3 — Fecho",
-            lessons: [
-              ["Fecho do caixa", "Conferência de valores e identificação de diferenças."],
-              ["Prevenção de erros", "Boas práticas para reduzir falhas e perdas."]
-            ]
-          }
-        ]
-      },
-
-
-      {
-        id: 11,
-        title: "Atendimento ao Cliente",
-        category: "Profissional",
-        price: 6000,
-        duration: "2 semanas",
-        image: "https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=1000&q=85",
-        description: "Desenvolva competências para atender clientes com profissionalismo e resolver situações difíceis.",
-        modules: [
-          {
-            title: "Módulo 1 — Fundamentos",
-            lessons: [
-              ["Conhecer o cliente", "Necessidades, expectativas e experiência."],
-              ["Primeiro contacto", "Saudação, apresentação e disponibilidade."]
-            ]
-          },
-          {
-            title: "Módulo 2 — Comunicação",
-            lessons: [
-              ["Escuta activa", "Ouvir e compreender antes de responder."],
-              ["Comunicação profissional", "Clareza, respeito e linguagem adequada."]
-            ]
-          },
-          {
-            title: "Módulo 3 — Reclamações",
-            lessons: [
-              ["Lidar com reclamações", "Manter a calma e procurar soluções."],
-              ["Qualidade no serviço", "Criar padrões básicos de atendimento."]
-            ]
-          }
-        ]
-      },
-
-
-      {
-        id: 12,
-        title: "Técnicas de Vendas",
-        category: "Negócios",
-        price: 7000,
-        duration: "3 semanas",
-        image: "https://images.unsplash.com/photo-1556761175-4b46a572b786?auto=format&fit=crop&w=1000&q=85",
-        description: "Aprenda fundamentos de prospecção, apresentação, negociação e acompanhamento de clientes.",
-        modules: [
-          {
-            title: "Módulo 1 — Cliente",
-            lessons: [
-              ["Prospecção", "Identificar potenciais clientes."],
-              ["Necessidades", "Perguntas e descoberta das necessidades."]
-            ]
-          },
-          {
-            title: "Módulo 2 — Apresentação",
-            lessons: [
-              ["Apresentar soluções", "Benefícios, características e valor."],
-              ["Objeções", "Responder a dúvidas e preocupações."]
-            ]
-          },
-          {
-            title: "Módulo 3 — Fecho",
-            lessons: [
-              ["Fechar uma venda", "Reconhecer sinais e encaminhar a decisão."],
-              ["Pós-venda", "Acompanhamento e relacionamento."]
-            ]
-          }
-        ]
-      },
-
-
-      {
-        id: 13,
-        title: "Secretariado Executivo",
-        category: "Profissional",
-        price: 8000,
-        duration: "3 semanas",
-        image: "https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=1000&q=85",
-        description: "Organização administrativa, documentos, agenda, comunicação e rotina de escritório.",
-        modules: [
-          {
-            title: "Módulo 1 — Organização",
-            lessons: [
-              ["Função do secretariado", "Responsabilidades e organização do trabalho."],
-              ["Documentos", "Organização e preparação de documentos."]
-            ]
-          },
-          {
-            title: "Módulo 2 — Comunicação",
-            lessons: [
-              ["Agenda e reuniões", "Marcação, preparação e acompanhamento."],
-              ["Telefone e email", "Comunicação profissional."]
-            ]
-          },
-          {
-            title: "Módulo 3 — Rotina",
-            lessons: [
-              ["Arquivo", "Organização e localização de documentos."],
-              ["Confidencialidade", "Protecção de informação e postura profissional."]
-            ]
-          }
-        ]
-      },
-
-
-      {
-        id: 14,
-        title: "Contabilidade Básica",
-        category: "Negócios",
-        price: 9000,
-        duration: "4 semanas",
-        image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=1000&q=85",
-        description: "Introdução aos conceitos contabilísticos e registo básico das operações de uma organização.",
-        modules: [
-          {
-            title: "Módulo 1 — Conceitos",
-            lessons: [
-              ["Património", "Activo, passivo e capital próprio."],
-              ["Documentos", "Facturas, recibos e documentos de suporte."]
-            ]
-          },
-          {
-            title: "Módulo 2 — Registos",
-            lessons: [
-              ["Débito e crédito", "Introdução à lógica dos lançamentos."],
-              ["Operações", "Registo de transacções simples."]
-            ]
-          },
-          {
-            title: "Módulo 3 — Controlo",
-            lessons: [
-              ["Caixa e banco", "Registo e controlo dos movimentos."],
-              ["Resultado simples", "Compreender receitas, custos e resultado."]
-            ]
-          }
-        ]
-      },
-
-
-      {
-        id: 15,
-        title: "Gestão de Recursos Humanos",
-        category: "Profissional",
-        price: 9000,
-        duration: "4 semanas",
-        image: "https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=1000&q=85",
-        description: "Fundamentos da gestão de pessoas, recrutamento, integração e acompanhamento.",
-        modules: [
-          {
-            title: "Módulo 1 — Recursos Humanos",
-            lessons: [
-              ["Função dos RH", "Papel dos recursos humanos numa organização."],
-              ["Perfis profissionais", "Competências, funções e requisitos."]
-            ]
-          },
-          {
-            title: "Módulo 2 — Recrutamento",
-            lessons: [
-              ["Recrutamento", "Identificação e atracção de candidatos."],
-              ["Selecção", "Critérios e etapas básicas de selecção."]
-            ]
-          },
-          {
-            title: "Módulo 3 — Pessoas",
-            lessons: [
-              ["Integração", "Acolhimento e adaptação de novos colaboradores."],
-              ["Desempenho", "Acompanhamento e comunicação profissional."]
-            ]
-          }
-        ]
-      },
-
-
-      {
-        id: 16,
-        title: "Gestão de Stocks e Armazém",
-        category: "Profissional",
-        price: 8000,
-        duration: "3 semanas",
-        image: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1000&q=85",
-        description: "Organização de armazém, entradas, saídas, inventário e controlo de stocks.",
-        modules: [
-          {
-            title: "Módulo 1 — Stocks",
-            lessons: [
-              ["Conceitos de stock", "Tipos de stock e importância do controlo."],
-              ["Organização", "Localização e identificação de produtos."]
-            ]
-          },
-          {
-            title: "Módulo 2 — Movimentos",
-            lessons: [
-              ["Recepção", "Conferência de mercadorias recebidas."],
-              ["Saída de produtos", "Registo e controlo das saídas."]
-            ]
-          },
-          {
-            title: "Módulo 3 — Inventário",
-            lessons: [
-              ["Contagem", "Inventário físico e conferência."],
-              ["Reposição", "Noções de níveis e reposição de stock."]
-            ]
-          }
-        ]
-      },
-
-
-      {
-        id: 17,
-        title: "Recepcionista Profissional",
-        category: "Profissional",
-        price: 7000,
-        duration: "3 semanas",
-        image: "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1000&q=85",
-        description: "Preparação para funções de recepção, atendimento, chamadas e organização.",
-        modules: [
-          {
-            title: "Módulo 1 — Recepção",
-            lessons: [
-              ["Papel do recepcionista", "Responsabilidades e postura profissional."],
-              ["Receber visitantes", "Saudação, identificação e encaminhamento."]
-            ]
-          },
-          {
-            title: "Módulo 2 — Comunicação",
-            lessons: [
-              ["Atendimento telefónico", "Atender, transferir e registar chamadas."],
-              ["Mensagens", "Receber e transmitir informações correctamente."]
-            ]
-          },
-          {
-            title: "Módulo 3 — Organização",
-            lessons: [
-              ["Agenda", "Marcação e organização de compromissos."],
-              ["Confidencialidade", "Protecção de informações e documentos."]
-            ]
-          }
-        ]
-      },
-
-
-      {
-        id: 18,
-        title: "Segurança, Higiene e Saúde no Trabalho",
-        category: "Profissional",
-        price: 7500,
-        duration: "3 semanas",
-        image: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1000&q=85",
-        description: "Fundamentos de prevenção de riscos e promoção de ambientes de trabalho seguros.",
-        modules: [
-          {
-            title: "Módulo 1 — Riscos",
-            lessons: [
-              ["Perigo e risco", "Diferença entre perigo, risco e prevenção."],
-              ["Identificação", "Reconhecer riscos comuns no ambiente de trabalho."]
-            ]
-          },
-          {
-            title: "Módulo 2 — Prevenção",
-            lessons: [
-              ["Equipamentos de protecção", "Importância e utilização adequada de EPI."],
-              ["Ergonomia", "Postura, organização e condições de trabalho."]
-            ]
-          },
-          {
-            title: "Módulo 3 — Emergências",
-            lessons: [
-              ["Resposta a emergências", "Procedimentos básicos e comunicação."],
-              ["Prevenção", "Cultura de segurança e reporte de incidentes."]
-            ]
-          }
-        ]
-      },
-
-
-      {
-        id: 19,
-        title: "PowerPoint Profissional",
-        category: "Informática",
-        price: 6000,
-        duration: "2 semanas",
-        image: "https://images.unsplash.com/photo-1551818255-e6e10975bc17?auto=format&fit=crop&w=1000&q=85",
-        description: "Crie apresentações organizadas, profissionais e visualmente claras.",
-        modules: [
-          {
-            title: "Módulo 1 — Fundamentos",
-            lessons: [
-              ["Slides e layouts", "Criar apresentações e escolher estruturas adequadas."],
-              ["Texto", "Hierarquia, tamanho e organização da informação."]
-            ]
-          },
-          {
-            title: "Módulo 2 — Elementos visuais",
-            lessons: [
-              ["Imagens e formas", "Utilização de elementos gráficos."],
-              ["Gráficos", "Apresentar dados visualmente."]
-            ]
-          },
-          {
-            title: "Módulo 3 — Apresentação",
-            lessons: [
-              ["Animações", "Utilização moderada de transições e animações."],
-              ["Projecto final", "Criar uma apresentação completa."]
-            ]
-          }
-        ]
-      },
-
-
-      {
-        id: 20,
-        title: "Gestão e Administração de Empresas",
-        category: "Negócios",
-        price: 10000,
-        duration: "4 semanas",
-        image: "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1000&q=85",
-        description: "Fundamentos de gestão, planeamento, organização e acompanhamento de actividades.",
-        modules: [
-          {
-            title: "Módulo 1 — Gestão",
-            lessons: [
-              ["Conceitos de gestão", "Objectivos, recursos e tomada de decisão."],
-              ["Planeamento", "Definir prioridades, metas e actividades."]
-            ]
-          },
-          {
-            title: "Módulo 2 — Organização",
-            lessons: [
-              ["Estrutura organizacional", "Funções, responsabilidades e coordenação."],
-              ["Operações", "Organização das actividades do negócio."]
-            ]
-          },
-          {
-            title: "Módulo 3 — Controlo",
-            lessons: [
-              ["Indicadores", "Acompanhar resultados através de indicadores simples."],
-              ["Plano de acção", "Transformar objectivos em actividades concretas."]
-            ]
-          }
-        ]
-      }
-
-    ];
-
-
-    /* =========================================
-       FORMATAÇÃO DO PREÇO
-    ========================================= */
-
-    function formatPrice(price) {
-
-      return new Intl.NumberFormat("pt-AO").format(price) + " Kz";
+      return new Intl.NumberFormat("pt-AO", {
+        maximumFractionDigits: 0
+      }).format(Number(value)) + " Kz";
 
     }
 
 
-    /* =========================================
+    function escapeHTML(value) {
+
+      if (value === null || value === undefined) {
+        return "";
+      }
+
+      return String(value)
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#039;");
+    }
+
+
+    function showToast(message, type = "normal") {
+
+      const toast = document.getElementById("toast");
+
+      toast.textContent = message;
+      toast.style.background =
+        type === "error"
+          ? "#dc2626"
+          : type === "success"
+            ? "#15803d"
+            : "#172033";
+
+      toast.classList.add("show");
+
+      setTimeout(() => {
+        toast.classList.remove("show");
+      }, 4000);
+    }
+
+
+    function openModal(id) {
+
+      document.getElementById(id).classList.add("show");
+
+    }
+
+
+    function closeModal(id) {
+
+      document.getElementById(id).classList.remove("show");
+
+    }
+
+
+    function scrollToSection(id) {
+
+      document
+        .getElementById(id)
+        ?.scrollIntoView({ behavior: "smooth" });
+
+    }
+
+
+    /* =========================================================
        WHATSAPP
-    ========================================= */
+       ========================================================= */
 
     function openWhatsApp(courseTitle, price) {
 
@@ -2655,10 +1459,10 @@
     }
 
 
-    function openGeneralWhatsApp() {
+    function openWhatsAppGeneral() {
 
       const message =
-        "Olá! Gostaria de obter informações sobre os cursos da Fely e Amigos Academy.";
+        "Olá! Gostaria de saber mais sobre os cursos da Fely e Amigos Academy.";
 
       const url =
         `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
@@ -2668,13 +1472,172 @@
     }
 
 
-    /* =========================================
-       RENDERIZAR CURSOS
-    ========================================= */
+    /* =========================================================
+       CURSOS
+       ========================================================= */
 
-    function renderCourses() {
+    async function loadCourses() {
 
       const grid = document.getElementById("coursesGrid");
+
+      grid.innerHTML =
+        `<div class="loading">A carregar cursos...</div>`;
+
+      const { data, error } = await db
+        .from("courses")
+        .select("*")
+        .eq("active", true)
+        .order("created_at", { ascending: true });
+
+      if (error) {
+
+        console.error(error);
+
+        grid.innerHTML =
+          `<div class="empty">
+            Não foi possível carregar os cursos.
+          </div>`;
+
+        return;
+      }
+
+      allCourses = data || [];
+
+      loadCategories();
+
+      renderCourses(allCourses);
+
+    }
+
+
+    function loadCategories() {
+
+      const select =
+        document.getElementById("categoryFilter");
+
+      const categories =
+        [...new Set(
+          allCourses
+            .map(course => course.category)
+            .filter(Boolean)
+        )].sort();
+
+      select.innerHTML =
+        `<option value="">Todas as categorias</option>`;
+
+      categories.forEach(category => {
+
+        const option =
+          document.createElement("option");
+
+        option.value = category;
+        option.textContent = category;
+
+        select.appendChild(option);
+
+      });
+
+    }
+
+
+    function renderCourses(courses) {
+
+      const grid =
+        document.getElementById("coursesGrid");
+
+      if (!courses.length) {
+
+        grid.innerHTML =
+          `<div class="empty">
+            Nenhum curso encontrado.
+          </div>`;
+
+        return;
+      }
+
+      grid.innerHTML =
+        courses.map(course => {
+
+          const title =
+            escapeHTML(course.title);
+
+          const category =
+            escapeHTML(course.category || "Formação");
+
+          const description =
+            escapeHTML(
+              course.description ||
+              "Curso prático para desenvolver novas competências."
+            );
+
+          const duration =
+            escapeHTML(course.duration || "2–4 semanas");
+
+          const level =
+            escapeHTML(course.level || "Base");
+
+          const price =
+            formatPrice(course.price);
+
+          return `
+            <article class="course-card">
+
+              <div class="course-image">
+                ${title}
+              </div>
+
+              <div class="course-body">
+
+                <div class="course-category">
+                  ${category}
+                </div>
+
+                <h3 class="course-title">
+                  ${title}
+                </h3>
+
+                <p class="course-description">
+                  ${description}
+                </p>
+
+                <div class="course-meta">
+                  <span>📚 ${level}</span>
+                  <span>⏱ ${duration}</span>
+                </div>
+
+                <div class="price">
+                  ${price}
+                </div>
+
+                <div class="course-buttons">
+
+                  <button
+                    class="btn btn-primary"
+                    onclick="startEnrollment('${course.id}')"
+                  >
+                    Inscrever
+                  </button>
+
+                  <button
+                    class="btn btn-outline"
+                    onclick="openWhatsApp('${escapeHTML(course.title).replaceAll("'", "\\'")}', ${Number(course.price)})"
+                  >
+                    WhatsApp
+                  </button>
+
+                </div>
+
+              </div>
+
+            </article>
+          `;
+
+        }).join("");
+
+    }
+
+
+    function filterCourses() {
 
       const search =
         document
@@ -2683,348 +1646,1475 @@
           .toLowerCase()
           .trim();
 
-      const filtered = courses.filter(course => {
+      const category =
+        document
+          .getElementById("categoryFilter")
+          .value;
 
-        const matchesFilter =
-          currentFilter === "Todos" ||
-          course.category === currentFilter;
+      const filtered =
+        allCourses.filter(course => {
 
-        const matchesSearch =
-          course.title.toLowerCase().includes(search) ||
-          course.category.toLowerCase().includes(search) ||
-          course.description.toLowerCase().includes(search);
+          const matchesSearch =
+            !search ||
+            course.title?.toLowerCase().includes(search) ||
+            course.description?.toLowerCase().includes(search) ||
+            course.category?.toLowerCase().includes(search);
 
-        return matchesFilter && matchesSearch;
+          const matchesCategory =
+            !category ||
+            course.category === category;
 
-      });
+          return matchesSearch && matchesCategory;
+
+        });
+
+      renderCourses(filtered);
+
+    }
 
 
-      if (filtered.length === 0) {
+    /* =========================================================
+       AUTENTICAÇÃO
+       ========================================================= */
 
-        grid.innerHTML = `
-          <div class="empty">
-            <div style="font-size:40px;margin-bottom:10px;">🔎</div>
-            <h3>Nenhum curso encontrado</h3>
-            <p>Tente pesquisar por outro nome ou categoria.</p>
-          </div>
-        `;
+    async function signup(event) {
+
+      event.preventDefault();
+
+      const name =
+        document.getElementById("signupName").value.trim();
+
+      const phone =
+        document.getElementById("signupPhone").value.trim();
+
+      const email =
+        document.getElementById("signupEmail").value.trim();
+
+      const password =
+        document.getElementById("signupPassword").value;
+
+      const button =
+        event.submitter;
+
+      button.disabled = true;
+      button.textContent = "A criar conta...";
+
+      const { data, error } =
+        await db.auth.signUp({
+
+          email,
+          password,
+
+          options: {
+            data: {
+              full_name: name,
+              phone: phone
+            }
+          }
+
+        });
+
+      button.disabled = false;
+      button.textContent = "Criar conta";
+
+      if (error) {
+
+        console.error(error);
+
+        showToast(
+          error.message,
+          "error"
+        );
 
         return;
+      }
+
+      closeModal("signupModal");
+
+      if (data.session) {
+
+        showToast(
+          "Conta criada com sucesso!",
+          "success"
+        );
+
+      } else {
+
+        showToast(
+          "Conta criada. Verifique o seu email para confirmar a conta.",
+          "success"
+        );
 
       }
 
+      event.target.reset();
 
-      grid.innerHTML = filtered.map(course => {
+    }
 
-        return `
 
-          <article
-            class="course-card"
-            style="background-image:url('${course.image}')"
+    async function login(event) {
+
+      event.preventDefault();
+
+      const email =
+        document.getElementById("loginEmail").value.trim();
+
+      const password =
+        document.getElementById("loginPassword").value;
+
+      const button =
+        event.submitter;
+
+      button.disabled = true;
+      button.textContent = "A entrar...";
+
+      const { error } =
+        await db.auth.signInWithPassword({
+          email,
+          password
+        });
+
+      button.disabled = false;
+      button.textContent = "Entrar";
+
+      if (error) {
+
+        showToast(
+          "Email ou palavra-passe incorretos.",
+          "error"
+        );
+
+        return;
+      }
+
+      closeModal("loginModal");
+
+      showToast(
+        "Login efetuado com sucesso!",
+        "success"
+      );
+
+      event.target.reset();
+
+      await refreshUser();
+
+    }
+
+
+    async function logout() {
+
+      await db.auth.signOut();
+
+      currentUser = null;
+      currentProfile = null;
+
+      hideDashboards();
+
+      updateNavigation();
+
+      showToast(
+        "Sessão terminada.",
+        "success"
+      );
+
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+
+    }
+
+
+    /* =========================================================
+       UTILIZADOR / PERFIL
+       ========================================================= */
+
+    async function refreshUser() {
+
+      const {
+        data: {
+          user
+        }
+      } = await db.auth.getUser();
+
+      currentUser = user;
+
+      if (!user) {
+
+        currentProfile = null;
+
+        hideDashboards();
+        updateNavigation();
+
+        return;
+      }
+
+      const {
+        data: profile,
+        error
+      } = await db
+        .from("profiles")
+        .select("*")
+        .eq("id", user.id)
+        .single();
+
+      if (error) {
+
+        console.error(error);
+
+        currentProfile = null;
+
+      } else {
+
+        currentProfile = profile;
+
+      }
+
+      updateNavigation();
+
+      await loadStudentDashboard();
+
+      if (
+        currentProfile &&
+        currentProfile.role === "admin"
+      ) {
+
+        await loadAdminDashboard();
+
+      }
+
+    }
+
+
+    function updateNavigation() {
+
+      const nav =
+        document.getElementById("navActions");
+
+      if (!currentUser) {
+
+        nav.innerHTML = `
+          <button
+            class="btn btn-outline"
+            onclick="openModal('loginModal')"
           >
+            Entrar
+          </button>
 
-            <div class="course-content">
-
-              <div class="course-top">
-
-                <span class="course-category">
-                  ${course.category}
-                </span>
-
-                <span class="course-level">
-                  Base
-                </span>
-
-              </div>
-
-
-              <h3>
-                ${course.title}
-              </h3>
-
-
-              <p class="course-description">
-                ${course.description}
-              </p>
-
-
-              <div class="course-meta">
-
-                <span>⏱ ${course.duration}</span>
-
-                <span>📚 3 módulos</span>
-
-              </div>
-
-
-              <div class="course-price">
-
-                <strong>
-                  ${formatPrice(course.price)}
-                </strong>
-
-                <small>
-                  preço promocional
-                </small>
-
-              </div>
-
-
-              <div class="course-actions">
-
-                <button
-                  class="details-btn"
-                  onclick="openCourse(${course.id})"
-                >
-                  Ver conteúdo
-                </button>
-
-                <button
-                  class="whatsapp-btn"
-                  onclick="openWhatsApp('${escapeForJs(course.title)}', ${course.price})"
-                >
-                  💬 WhatsApp
-                </button>
-
-              </div>
-
-            </div>
-
-          </article>
-
+          <button
+            class="btn btn-primary"
+            onclick="openModal('signupModal')"
+          >
+            Criar conta
+          </button>
         `;
 
-      }).join("");
+        return;
+      }
+
+      const name =
+        escapeHTML(
+          currentProfile?.full_name ||
+          currentUser.email
+        );
+
+      nav.innerHTML = `
+        <button
+          class="btn btn-primary"
+          onclick="scrollToSection('dashboard')"
+        >
+          Olá, ${name.split(" ")[0]}
+        </button>
+
+        <button
+          class="btn btn-danger"
+          onclick="logout()"
+        >
+          Sair
+        </button>
+      `;
 
     }
 
 
-    /* =========================================
-       ESCAPAR TEXTO PARA JAVASCRIPT
-    ========================================= */
-
-    function escapeForJs(text) {
-
-      return text
-        .replace(/\\/g, "\\\\")
-        .replace(/'/g, "\\'");
-
-    }
-
-
-    /* =========================================
-       FILTRO
-    ========================================= */
-
-    function setFilter(filter, button) {
-
-      currentFilter = filter;
+    function hideDashboards() {
 
       document
-        .querySelectorAll(".filter-btn")
-        .forEach(btn => btn.classList.remove("active"));
+        .getElementById("dashboard")
+        .classList.remove("visible");
 
-      button.classList.add("active");
+      document
+        .getElementById("adminDashboard")
+        .classList.remove("visible");
 
-      renderCourses();
+      document
+        .getElementById("courseArea")
+        .style.display = "none";
 
     }
 
 
-    /* =========================================
-       ABRIR CURSO
-    ========================================= */
+    /* =========================================================
+       INSCRIÇÃO
+       ========================================================= */
 
-    function openCourse(id) {
+    async function startEnrollment(courseId) {
+
+      if (!currentUser) {
+
+        showToast(
+          "Crie uma conta ou entre para fazer a inscrição."
+        );
+
+        openModal("loginModal");
+
+        return;
+      }
 
       const course =
-        courses.find(item => item.id === id);
+        allCourses.find(
+          item => item.id === courseId
+        );
 
-      if (!course) return;
+      if (!course) {
+
+        showToast(
+          "Curso não encontrado.",
+          "error"
+        );
+
+        return;
+      }
+
+      currentCourse = course;
+
+      const {
+        data: enrollmentId,
+        error
+      } = await db.rpc(
+        "create_enrollment",
+        {
+          p_course_id: courseId
+        }
+      );
+
+      if (error) {
+
+        console.error(error);
+
+        if (
+          error.message &&
+          error.message.toLowerCase().includes("already")
+        ) {
+
+          showToast(
+            "Já existe uma inscrição para este curso.",
+            "error"
+          );
+
+        } else {
+
+          showToast(
+            error.message ||
+            "Não foi possível criar a inscrição.",
+            "error"
+          );
+
+        }
+
+        return;
+      }
+
+      document.getElementById(
+        "paymentEnrollmentId"
+      ).value = enrollmentId;
+
+      document.getElementById(
+        "paymentCourseInfo"
+      ).innerHTML = `
+        <div
+          style="
+            background:#f1f5f9;
+            padding:15px;
+            border-radius:12px;
+            margin-bottom:20px;
+          "
+        >
+          <strong>${escapeHTML(course.title)}</strong>
+
+          <br>
+
+          <span style="color:var(--primary);font-weight:800">
+            ${formatPrice(course.price)}
+          </span>
+        </div>
+
+        <p style="margin-bottom:20px">
+          Efetue o pagamento através do método indicado pela
+          Fely e Amigos Academy e depois coloque abaixo a
+          referência do pagamento.
+        </p>
+      `;
+
+      document.getElementById(
+        "paymentReference"
+      ).value = "";
+
+      document.getElementById(
+        "paymentNote"
+      ).value = "";
+
+      openModal("paymentModal");
+
+    }
 
 
-      document.getElementById("modalTitle").textContent =
-        course.title;
+    async function submitPayment(event) {
 
-      document.getElementById("modalCategory").textContent =
-        course.category;
+      event.preventDefault();
 
-      document.getElementById("modalDuration").textContent =
-        "⏱ " + course.duration;
+      const enrollmentId =
+        document.getElementById(
+          "paymentEnrollmentId"
+        ).value;
 
-      document.getElementById("modalDescription").textContent =
-        course.description;
+      const reference =
+        document.getElementById(
+          "paymentReference"
+        ).value.trim();
 
-      document.getElementById("modalPrice").textContent =
-        formatPrice(course.price);
+      const note =
+        document.getElementById(
+          "paymentNote"
+        ).value.trim();
 
-      document.getElementById("modalImage").style.backgroundImage =
-        `url("${course.image}")`;
+      if (!reference) {
+
+        showToast(
+          "Digite a referência do pagamento.",
+          "error"
+        );
+
+        return;
+      }
+
+      const button =
+        event.submitter;
+
+      button.disabled = true;
+      button.textContent = "A enviar...";
+
+      const {
+        error
+      } = await db.rpc(
+        "submit_payment",
+        {
+          p_enrollment_id: enrollmentId,
+          p_reference: reference,
+          p_proof_note: note || null
+        }
+      );
+
+      button.disabled = false;
+      button.textContent =
+        "Enviar pagamento para análise";
+
+      if (error) {
+
+        console.error(error);
+
+        showToast(
+          error.message ||
+          "Não foi possível enviar o pagamento.",
+          "error"
+        );
+
+        return;
+      }
+
+      closeModal("paymentModal");
+
+      showToast(
+        "Pagamento enviado para análise!",
+        "success"
+      );
+
+      await loadStudentDashboard();
+
+    }
 
 
-      const modulesContainer =
-        document.getElementById("modalModules");
+    /* =========================================================
+       DASHBOARD DO ALUNO
+       ========================================================= */
 
+    async function loadStudentDashboard() {
 
-      modulesContainer.innerHTML =
-        course.modules.map((module, index) => {
+      if (!currentUser) {
+        return;
+      }
+
+      const dashboard =
+        document.getElementById("dashboard");
+
+      dashboard.classList.add("visible");
+
+      const name =
+        currentProfile?.full_name ||
+        currentUser.email;
+
+      document.getElementById(
+        "studentWelcome"
+      ).textContent =
+        `Bem-vindo, ${name}!`;
+
+      const {
+        data,
+        error
+      } = await db
+        .from("enrollments")
+        .select("*")
+        .eq("user_id", currentUser.id)
+        .order("created_at", {
+          ascending: false
+        });
+
+      if (error) {
+
+        console.error(error);
+
+        document.getElementById(
+          "studentEnrollments"
+        ).innerHTML =
+          `<div class="empty">
+            Não foi possível carregar as inscrições.
+          </div>`;
+
+        return;
+      }
+
+      const container =
+        document.getElementById(
+          "studentEnrollments"
+        );
+
+      if (!data || !data.length) {
+
+        container.innerHTML =
+          `<div class="empty">
+            Ainda não possui inscrições.
+            <br><br>
+            <a
+              href="#cursos"
+              class="btn btn-primary"
+            >
+              Ver cursos
+            </a>
+          </div>`;
+
+        return;
+      }
+
+      container.innerHTML =
+        data.map(enrollment => {
+
+          let statusClass =
+            "status-pending";
+
+          let statusText =
+            "Pendente";
+
+          if (
+            enrollment.status === "approved"
+          ) {
+
+            statusClass =
+              "status-approved";
+
+            statusText =
+              "Aprovado";
+
+          } else if (
+            enrollment.status === "rejected"
+          ) {
+
+            statusClass =
+              "status-rejected";
+
+            statusText =
+              "Rejeitado";
+
+          }
+
+          const title =
+            escapeHTML(
+              enrollment.course_title ||
+              "Curso"
+            );
 
           return `
+            <div class="enrollment-row">
 
-            <div class="module ${index === 0 ? "open" : ""}">
+              <div>
+                <strong>${title}</strong>
 
-              <div
-                class="module-header"
-                onclick="toggleModule(this)"
-              >
+                <br>
 
-                <span>
-                  ${module.title}
+                <small>
+                  ${formatPrice(enrollment.amount)}
+                </small>
+
+                <br>
+
+                <span class="status ${statusClass}">
+                  ${statusText}
                 </span>
-
-                <span>
-                  ${index === 0 ? "−" : "+"}
-                </span>
-
               </div>
 
+              <div>
 
-              <div class="module-lessons">
+                ${
+                  enrollment.status === "approved"
 
-                ${module.lessons.map((lesson, lessonIndex) => {
+                  ? `
+                    <button
+                      class="btn btn-success"
+                      onclick="openApprovedCourse('${enrollment.course_id}')"
+                    >
+                      Acessar curso
+                    </button>
+                  `
 
-                  return `
+                  : enrollment.status === "pending"
 
-                    <div class="lesson">
+                  ? `
+                    <button
+                      class="btn btn-secondary"
+                      onclick="showToast('A inscrição está pendente de confirmação.')"
+                    >
+                      Aguardando confirmação
+                    </button>
+                  `
 
-                      <strong>
-                        Aula ${lessonIndex + 1} — ${lesson[0]}
-                      </strong>
-
-                      <small>
-                        ${lesson[1]}
-                      </small>
-
-                    </div>
-
-                  `;
-
-                }).join("")}
+                  : `
+                    <button
+                      class="btn btn-outline"
+                      onclick="showToast('Esta inscrição foi rejeitada. Contacte-nos pelo WhatsApp.')"
+                    >
+                      Contactar
+                    </button>
+                  `
+                }
 
               </div>
 
             </div>
-
           `;
 
         }).join("");
 
+    }
 
-      document.getElementById("modalWhatsApp").onclick =
-        () => openWhatsApp(course.title, course.price);
 
+    /* =========================================================
+       CURSO / MÓDULOS / AULAS
+       ========================================================= */
+
+    async function openApprovedCourse(courseId) {
+
+      if (!currentUser) {
+
+        showToast(
+          "Precisa estar autenticado.",
+          "error"
+        );
+
+        return;
+      }
+
+      const enrollmentResult =
+        await db
+          .from("enrollments")
+          .select("*")
+          .eq("user_id", currentUser.id)
+          .eq("course_id", courseId)
+          .eq("status", "approved")
+          .limit(1)
+          .maybeSingle();
+
+      if (enrollmentResult.error) {
+
+        console.error(
+          enrollmentResult.error
+        );
+
+        showToast(
+          "Não foi possível verificar a inscrição.",
+          "error"
+        );
+
+        return;
+      }
+
+      if (!enrollmentResult.data) {
+
+        showToast(
+          "Ainda não possui acesso a este curso.",
+          "error"
+        );
+
+        return;
+      }
+
+      const course =
+        allCourses.find(
+          item => item.id === courseId
+        );
+
+      if (!course) {
+
+        showToast(
+          "Curso não encontrado.",
+          "error"
+        );
+
+        return;
+      }
+
+      currentCourse = course;
+
+      document.getElementById(
+        "courseArea"
+      ).style.display = "block";
+
+      document.getElementById(
+        "courseAreaTitle"
+      ).textContent =
+        course.title;
+
+      document.getElementById(
+        "courseAreaDescription"
+      ).textContent =
+        course.description || "";
+
+      document.getElementById(
+        "modulesList"
+      ).innerHTML =
+        `<div class="loading">
+          A carregar módulos...
+        </div>`;
+
+      document.getElementById(
+        "lessonTitle"
+      ).textContent =
+        "Selecione uma aula";
+
+      document.getElementById(
+        "lessonBody"
+      ).textContent =
+        "Escolha uma aula no menu.";
+
+      document.getElementById(
+        "completeLessonBtn"
+      ).style.display = "none";
+
+      await loadModules(courseId);
 
       document
-        .getElementById("courseModal")
-        .classList.add("active");
-
-      document.body.style.overflow = "hidden";
-
-    }
-
-
-    /* =========================================
-       MÓDULOS
-    ========================================= */
-
-    function toggleModule(header) {
-
-      const module =
-        header.parentElement;
-
-      module.classList.toggle("open");
-
-      const icon =
-        header.querySelector("span:last-child");
-
-      icon.textContent =
-        module.classList.contains("open")
-          ? "−"
-          : "+";
+        .getElementById("courseArea")
+        .scrollIntoView({
+          behavior: "smooth"
+        });
 
     }
 
 
-    /* =========================================
-       FECHAR MODAL
-    ========================================= */
+    async function loadModules(courseId) {
 
-    function closeModal() {
+      const {
+        data: modules,
+        error
+      } = await db
+        .from("modules")
+        .select("*")
+        .eq("course_id", courseId)
+        .order("position", {
+          ascending: true
+        });
 
-      document
-        .getElementById("courseModal")
-        .classList.remove("active");
+      if (error) {
 
-      document.body.style.overflow = "";
+        console.error(error);
+
+        document.getElementById(
+          "modulesList"
+        ).innerHTML =
+          `<div class="empty">
+            Não foi possível carregar os módulos.
+          </div>`;
+
+        return;
+      }
+
+      if (!modules.length) {
+
+        document.getElementById(
+          "modulesList"
+        ).innerHTML =
+          `<div class="empty">
+            Ainda não existem módulos neste curso.
+          </div>`;
+
+        return;
+      }
+
+      const moduleIds =
+        modules.map(
+          module => module.id
+        );
+
+      const {
+        data: lessons,
+        error: lessonsError
+      } = await db
+        .from("lessons")
+        .select("*")
+        .in("module_id", moduleIds)
+        .order("position", {
+          ascending: true
+        });
+
+      if (lessonsError) {
+
+        console.error(lessonsError);
+
+        return;
+      }
+
+      const container =
+        document.getElementById(
+          "modulesList"
+        );
+
+      container.innerHTML =
+        modules.map(module => {
+
+          const moduleLessons =
+            lessons.filter(
+              lesson =>
+                lesson.module_id === module.id
+            );
+
+          return `
+            <div class="module-item">
+
+              <div class="module-title">
+                ${escapeHTML(module.title)}
+              </div>
+
+              ${
+                moduleLessons.length
+
+                ? moduleLessons.map(lesson => `
+                    <div
+                      class="lesson-link"
+                      id="lesson-link-${lesson.id}"
+                      onclick="openLesson('${lesson.id}')"
+                    >
+                      ${escapeHTML(lesson.title)}
+                    </div>
+                  `).join("")
+
+                : `
+                  <small>
+                    Sem aulas disponíveis.
+                  </small>
+                `
+              }
+
+            </div>
+          `;
+
+        }).join("");
 
     }
 
 
-    document
-      .getElementById("courseModal")
-      .addEventListener("click", function(event) {
+    async function openLesson(lessonId) {
 
-        if (event.target === this) {
-          closeModal();
-        }
+      const {
+        data: lesson,
+        error
+      } = await db
+        .from("lessons")
+        .select("*")
+        .eq("id", lessonId)
+        .single();
+
+      if (error) {
+
+        console.error(error);
+
+        showToast(
+          "Não foi possível carregar a aula.",
+          "error"
+        );
+
+        return;
+      }
+
+      currentLesson = lesson;
+
+      document.querySelectorAll(
+        ".lesson-link"
+      ).forEach(item => {
+
+        item.classList.remove("active");
 
       });
 
+      const selected =
+        document.getElementById(
+          `lesson-link-${lessonId}`
+        );
 
-    document.addEventListener("keydown", function(event) {
-
-      if (event.key === "Escape") {
-        closeModal();
+      if (selected) {
+        selected.classList.add("active");
       }
 
-    });
+      document.getElementById(
+        "lessonTitle"
+      ).textContent =
+        lesson.title;
 
+      document.getElementById(
+        "lessonBody"
+      ).textContent =
+        lesson.body || "";
 
-    /* =========================================
-       MENU MOBILE
-    ========================================= */
+      document.getElementById(
+        "completeLessonBtn"
+      ).style.display =
+        "inline-flex";
 
-    function toggleMenu() {
+      const {
+        data: progress
+      } = await db
+        .from("lesson_progress")
+        .select("id")
+        .eq("user_id", currentUser.id)
+        .eq("lesson_id", lessonId)
+        .maybeSingle();
 
-      document
-        .getElementById("navLinks")
-        .classList.toggle("active");
+      const button =
+        document.getElementById(
+          "completeLessonBtn"
+        );
+
+      if (progress) {
+
+        button.textContent =
+          "✓ Aula concluída";
+
+        button.disabled = true;
+
+      } else {
+
+        button.textContent =
+          "✓ Marcar aula como concluída";
+
+        button.disabled = false;
+
+      }
 
     }
 
 
-    function closeMenu() {
+    async function completeCurrentLesson() {
 
-      document
-        .getElementById("navLinks")
-        .classList.remove("active");
+      if (!currentLesson || !currentUser) {
+        return;
+      }
+
+      const {
+        error
+      } = await db
+        .from("lesson_progress")
+        .insert({
+
+          user_id: currentUser.id,
+          lesson_id: currentLesson.id
+
+        });
+
+      if (error) {
+
+        if (
+          error.code === "23505"
+        ) {
+
+          showToast(
+            "Esta aula já foi concluída."
+          );
+
+        } else {
+
+          console.error(error);
+
+          showToast(
+            error.message ||
+            "Não foi possível guardar o progresso.",
+            "error"
+          );
+
+        }
+
+        return;
+      }
+
+      const button =
+        document.getElementById(
+          "completeLessonBtn"
+        );
+
+      button.textContent =
+        "✓ Aula concluída";
+
+      button.disabled = true;
+
+      showToast(
+        "Aula marcada como concluída!",
+        "success"
+      );
 
     }
 
 
-    /* =========================================
-       ANO
-    ========================================= */
+    function closeCourseArea() {
 
-    document.getElementById("year").textContent =
-      new Date().getFullYear();
+      document.getElementById(
+        "courseArea"
+      ).style.display = "none";
+
+      document
+        .getElementById("dashboard")
+        .scrollIntoView({
+          behavior: "smooth"
+        });
+
+    }
 
 
-    /* =========================================
-       INICIALIZAR
-    ========================================= */
+    /* =========================================================
+       ADMIN
+       ========================================================= */
 
-    renderCourses();
+    async function loadAdminDashboard() {
+
+      if (
+        !currentProfile ||
+        currentProfile.role !== "admin"
+      ) {
+
+        return;
+      }
+
+      const dashboard =
+        document.getElementById(
+          "adminDashboard"
+        );
+
+      dashboard.classList.add("visible");
+
+      const {
+        data: payments,
+        error
+      } = await db
+        .from("payments")
+        .select("*")
+        .order("created_at", {
+          ascending: false
+        });
+
+      if (error) {
+
+        console.error(error);
+
+        document.getElementById(
+          "adminPayments"
+        ).innerHTML =
+          `<div class="empty">
+            Não foi possível carregar os pagamentos.
+          </div>`;
+
+        return;
+      }
+
+      const container =
+        document.getElementById(
+          "adminPayments"
+        );
+
+      if (!payments.length) {
+
+        container.innerHTML =
+          `<div class="empty">
+            Não existem pagamentos registados.
+          </div>`;
+
+        return;
+      }
+
+      const userIds =
+        [...new Set(
+          payments.map(
+            payment => payment.user_id
+          )
+        )];
+
+      const courseIds =
+        [...new Set(
+          payments.map(
+            payment => payment.course_id
+          )
+        )];
+
+      let profiles = [];
+      let courses = [];
+
+      if (userIds.length) {
+
+        const result =
+          await db
+            .from("profiles")
+            .select(
+              "id,full_name,phone"
+            )
+            .in("id", userIds);
+
+        profiles =
+          result.data || [];
+
+      }
+
+      if (courseIds.length) {
+
+        const result =
+          await db
+            .from("courses")
+            .select(
+              "id,title"
+            )
+            .in("id", courseIds);
+
+        courses =
+          result.data || [];
+
+      }
+
+      container.innerHTML =
+        payments.map(payment => {
+
+          const profile =
+            profiles.find(
+              item =>
+                item.id === payment.user_id
+            );
+
+          const course =
+            courses.find(
+              item =>
+                item.id === payment.course_id
+            );
+
+          const student =
+            escapeHTML(
+              profile?.full_name ||
+              "Aluno"
+            );
+
+          const phone =
+            escapeHTML(
+              profile?.phone || ""
+            );
+
+          const courseTitle =
+            escapeHTML(
+              course?.title ||
+              "Curso"
+            );
+
+          const reference =
+            escapeHTML(
+              payment.reference ||
+              "Sem referência"
+            );
+
+          const note =
+            escapeHTML(
+              payment.proof_note ||
+              ""
+            );
+
+          let statusClass =
+            "status-pending";
+
+          let statusText =
+            "Pendente";
+
+          if (
+            payment.status === "submitted"
+          ) {
+
+            statusClass =
+              "status-pending";
+
+            statusText =
+              "Enviado";
+
+          } else if (
+            payment.status === "approved"
+          ) {
+
+            statusClass =
+              "status-approved";
+
+            statusText =
+              "Aprovado";
+
+          } else if (
+            payment.status === "rejected"
+          ) {
+
+            statusClass =
+              "status-rejected";
+
+            statusText =
+              "Rejeitado";
+
+          }
+
+          const canDecide =
+            payment.status === "submitted" ||
+            payment.status === "pending";
+
+          return `
+            <div class="payment-row">
+
+              <div style="flex:1">
+
+                <strong>
+                  ${student}
+                </strong>
+
+                ${
+                  phone
+                    ? `<br><small>📱 ${phone}</small>`
+                    : ""
+                }
+
+                <br>
+
+                <strong>
+                  ${courseTitle}
+                </strong>
+
+                <br>
+
+                <small>
+                  Valor:
+                  ${formatPrice(payment.amount)}
+                </small>
+
+                <br>
+
+                <small>
+                  Referência:
+                  ${reference}
+                </small>
+
+                ${
+                  note
+                    ? `
+                      <br>
+                      <small>
+                        Nota:
+                        ${note}
+                      </small>
+                    `
+                    : ""
+                }
+
+                <br>
+
+                <span class="status ${statusClass}">
+                  ${statusText}
+                </span>
+
+              </div>
+
+              ${
+                canDecide
+
+                ? `
+                  <div style="display:flex;gap:8px;flex-wrap:wrap">
+
+                    <button
+                      class="btn btn-success"
+                      onclick="decidePayment('${payment.id}', true)"
+                    >
+                      Aprovar
+                    </button>
+
+                    <button
+                      class="btn btn-danger"
+                      onclick="decidePayment('${payment.id}', false)"
+                    >
+                      Rejeitar
+                    </button>
+
+                  </div>
+                `
+
+                : ""
+              }
+
+            </div>
+          `;
+
+        }).join("");
+
+    }
+
+
+    async function decidePayment(
+      paymentId,
+      approve
+    ) {
+
+      const action =
+        approve
+          ? "aprovar"
+          : "rejeitar";
+
+      const confirmed =
+        confirm(
+          `Tem certeza que deseja ${action} este pagamento?`
+        );
+
+      if (!confirmed) {
+        return;
+      }
+
+      const {
+        error
+      } = await db.rpc(
+        "approve_payment",
+        {
+          p_payment_id: paymentId,
+          p_approve: approve
+        }
+      );
+
+      if (error) {
+
+        console.error(error);
+
+        showToast(
+          error.message ||
+          "Não foi possível atualizar o pagamento.",
+          "error"
+        );
+
+        return;
+      }
+
+      showToast(
+        approve
+          ? "Pagamento aprovado com sucesso!"
+          : "Pagamento rejeitado.",
+        "success"
+      );
+
+      await loadAdminDashboard();
+
+      if (currentUser) {
+        await loadStudentDashboard();
+      }
+
+    }
+
+
+    /* =========================================================
+       INICIALIZAÇÃO
+       ========================================================= */
+
+    async function init() {
+
+      await loadCourses();
+
+      await refreshUser();
+
+    }
+
+
+    db.auth.onAuthStateChange(
+      async (event, session) => {
+
+        if (event === "SIGNED_IN") {
+
+          currentUser =
+            session?.user || null;
+
+          await refreshUser();
+
+        }
+
+        if (event === "SIGNED_OUT") {
+
+          currentUser = null;
+          currentProfile = null;
+
+          hideDashboards();
+          updateNavigation();
+
+        }
+
+      }
+    );
+
+
+    document.addEventListener(
+      "DOMContentLoaded",
+      init
+    );
+
+
+    /* =========================================================
+       FECHAR MODAL AO CLICAR FORA
+       ========================================================= */
+
+    document.querySelectorAll(".modal")
+      .forEach(modal => {
+
+        modal.addEventListener(
+          "click",
+          event => {
+
+            if (
+              event.target === modal
+            ) {
+
+              modal.classList.remove(
+                "show"
+              );
+
+            }
+
+          }
+        );
+
+      });
 
   </script>
 
